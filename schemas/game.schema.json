@@ -1,0 +1,105 @@
+{
+  "$defs": {
+    "Platform": {
+      "enum": [
+        "game-boy",
+        "game-boy-color",
+        "game-boy-advance",
+        "nintendo-ds",
+        "nintendo-3ds",
+        "wii",
+        "wii-u",
+        "nintendo-switch",
+        "nintendo-switch-2",
+        "mobile",
+        "service"
+      ],
+      "title": "Platform",
+      "type": "string"
+    },
+    "TransferRoute": {
+      "description": "How a game's Pok\u00e9mon reach Pok\u00e9mon HOME.",
+      "enum": [
+        "direct",
+        "via-bank",
+        "via-transporter",
+        "via-go-link",
+        "none"
+      ],
+      "title": "TransferRoute",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "generation": {
+      "anyOf": [
+        {
+          "maximum": 9,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Generation"
+    },
+    "home_compatible": {
+      "title": "Home Compatible",
+      "type": "boolean"
+    },
+    "id": {
+      "maxLength": 40,
+      "minLength": 2,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "is_service": {
+      "default": false,
+      "title": "Is Service",
+      "type": "boolean"
+    },
+    "name": {
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    },
+    "platform": {
+      "$ref": "#/$defs/Platform"
+    },
+    "release_year": {
+      "maximum": 2100,
+      "minimum": 1996,
+      "title": "Release Year",
+      "type": "integer"
+    },
+    "transfer_route": {
+      "$ref": "#/$defs/TransferRoute"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "platform",
+    "release_year",
+    "home_compatible",
+    "transfer_route"
+  ],
+  "title": "Game",
+  "type": "object"
+}

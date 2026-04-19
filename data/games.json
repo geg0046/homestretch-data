@@ -1,0 +1,284 @@
+[
+  {
+    "id": "pokemon-red",
+    "name": "Pokémon Red",
+    "generation": 1,
+    "platform": "game-boy",
+    "release_year": 1996,
+    "home_compatible": true,
+    "transfer_route": "via-transporter",
+    "is_service": false,
+    "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
+  },
+  {
+    "id": "pokemon-blue",
+    "name": "Pokémon Blue",
+    "generation": 1,
+    "platform": "game-boy",
+    "release_year": 1996,
+    "home_compatible": true,
+    "transfer_route": "via-transporter",
+    "is_service": false,
+    "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
+  },
+  {
+    "id": "pokemon-yellow",
+    "name": "Pokémon Yellow",
+    "generation": 1,
+    "platform": "game-boy",
+    "release_year": 1998,
+    "home_compatible": true,
+    "transfer_route": "via-transporter",
+    "is_service": false,
+    "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
+  },
+  {
+    "id": "pokemon-gold",
+    "name": "Pokémon Gold",
+    "generation": 2,
+    "platform": "game-boy-color",
+    "release_year": 1999,
+    "home_compatible": true,
+    "transfer_route": "via-transporter",
+    "is_service": false,
+    "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
+  },
+  {
+    "id": "pokemon-silver",
+    "name": "Pokémon Silver",
+    "generation": 2,
+    "platform": "game-boy-color",
+    "release_year": 1999,
+    "home_compatible": true,
+    "transfer_route": "via-transporter",
+    "is_service": false,
+    "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
+  },
+  {
+    "id": "pokemon-crystal",
+    "name": "Pokémon Crystal",
+    "generation": 2,
+    "platform": "game-boy-color",
+    "release_year": 2000,
+    "home_compatible": true,
+    "transfer_route": "via-transporter",
+    "is_service": false,
+    "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
+  },
+  {
+    "id": "pokemon-x",
+    "name": "Pokémon X",
+    "generation": 6,
+    "platform": "nintendo-3ds",
+    "release_year": 2013,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-y",
+    "name": "Pokémon Y",
+    "generation": 6,
+    "platform": "nintendo-3ds",
+    "release_year": 2013,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-omega-ruby",
+    "name": "Pokémon Omega Ruby",
+    "generation": 6,
+    "platform": "nintendo-3ds",
+    "release_year": 2014,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-alpha-sapphire",
+    "name": "Pokémon Alpha Sapphire",
+    "generation": 6,
+    "platform": "nintendo-3ds",
+    "release_year": 2014,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-sun",
+    "name": "Pokémon Sun",
+    "generation": 7,
+    "platform": "nintendo-3ds",
+    "release_year": 2016,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-moon",
+    "name": "Pokémon Moon",
+    "generation": 7,
+    "platform": "nintendo-3ds",
+    "release_year": 2016,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-ultra-sun",
+    "name": "Pokémon Ultra Sun",
+    "generation": 7,
+    "platform": "nintendo-3ds",
+    "release_year": 2017,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-ultra-moon",
+    "name": "Pokémon Ultra Moon",
+    "generation": 7,
+    "platform": "nintendo-3ds",
+    "release_year": 2017,
+    "home_compatible": true,
+    "transfer_route": "via-bank",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-lets-go-pikachu",
+    "name": "Pokémon: Let's Go, Pikachu!",
+    "generation": 7,
+    "platform": "nintendo-switch",
+    "release_year": 2018,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false,
+    "notes": "Transfers into HOME are one-way except for Pokémon originally sent from GO/HOME."
+  },
+  {
+    "id": "pokemon-lets-go-eevee",
+    "name": "Pokémon: Let's Go, Eevee!",
+    "generation": 7,
+    "platform": "nintendo-switch",
+    "release_year": 2018,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false,
+    "notes": "Transfers into HOME are one-way except for Pokémon originally sent from GO/HOME."
+  },
+  {
+    "id": "pokemon-sword",
+    "name": "Pokémon Sword",
+    "generation": 8,
+    "platform": "nintendo-switch",
+    "release_year": 2019,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-shield",
+    "name": "Pokémon Shield",
+    "generation": 8,
+    "platform": "nintendo-switch",
+    "release_year": 2019,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-brilliant-diamond",
+    "name": "Pokémon Brilliant Diamond",
+    "generation": 8,
+    "platform": "nintendo-switch",
+    "release_year": 2021,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-shining-pearl",
+    "name": "Pokémon Shining Pearl",
+    "generation": 8,
+    "platform": "nintendo-switch",
+    "release_year": 2021,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-legends-arceus",
+    "name": "Pokémon Legends: Arceus",
+    "generation": 8,
+    "platform": "nintendo-switch",
+    "release_year": 2022,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-scarlet",
+    "name": "Pokémon Scarlet",
+    "generation": 9,
+    "platform": "nintendo-switch",
+    "release_year": 2022,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-violet",
+    "name": "Pokémon Violet",
+    "generation": 9,
+    "platform": "nintendo-switch",
+    "release_year": 2022,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
+    "id": "pokemon-go",
+    "name": "Pokémon GO",
+    "generation": null,
+    "platform": "mobile",
+    "release_year": 2016,
+    "home_compatible": true,
+    "transfer_route": "via-go-link",
+    "is_service": false,
+    "notes": "Mobile app; Pokémon transfer to HOME via GO Link (one-way)."
+  },
+  {
+    "id": "pokemon-home",
+    "name": "Pokémon HOME",
+    "generation": null,
+    "platform": "service",
+    "release_year": 2020,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": true,
+    "notes": "The destination service itself. Available on Switch and mobile."
+  },
+  {
+    "id": "pokemon-bank",
+    "name": "Pokémon Bank",
+    "generation": null,
+    "platform": "service",
+    "release_year": 2013,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": true,
+    "notes": "3DS cloud service; one-way export of Gen 1/2 VC and Gen 6/7 mons into HOME."
+  },
+  {
+    "id": "poke-transporter",
+    "name": "Poké Transporter",
+    "generation": null,
+    "platform": "service",
+    "release_year": 2013,
+    "home_compatible": false,
+    "transfer_route": "via-bank",
+    "is_service": true,
+    "notes": "3DS utility that ferries Gen 1/2 VC and Gen 5 mons into Pokémon Bank."
+  }
+]

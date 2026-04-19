@@ -1,0 +1,99 @@
+{
+  "$defs": {
+    "Form": {
+      "additionalProperties": false,
+      "properties": {
+        "categories": {
+          "items": {
+            "$ref": "#/$defs/FormCategory"
+          },
+          "title": "Categories",
+          "type": "array"
+        },
+        "form_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Form Name"
+        },
+        "generation_introduced": {
+          "maximum": 9,
+          "minimum": 1,
+          "title": "Generation Introduced",
+          "type": "integer"
+        },
+        "id": {
+          "maxLength": 80,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "is_default": {
+          "default": false,
+          "title": "Is Default",
+          "type": "boolean"
+        },
+        "national_dex": {
+          "maximum": 2000,
+          "minimum": 1,
+          "title": "National Dex",
+          "type": "integer"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "species_id": {
+          "maxLength": 40,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "Species Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "species_id",
+        "national_dex",
+        "generation_introduced"
+      ],
+      "title": "Form",
+      "type": "object"
+    },
+    "FormCategory": {
+      "enum": [
+        "regional-variant",
+        "mega",
+        "primal",
+        "gigantamax",
+        "gender-difference",
+        "event-only",
+        "cosmetic",
+        "functional",
+        "totem"
+      ],
+      "title": "FormCategory",
+      "type": "string"
+    }
+  },
+  "items": {
+    "$ref": "#/$defs/Form"
+  },
+  "title": "FormList",
+  "type": "array"
+}

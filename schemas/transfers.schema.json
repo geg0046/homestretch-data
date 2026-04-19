@@ -1,0 +1,68 @@
+{
+  "$defs": {
+    "Transfer": {
+      "additionalProperties": false,
+      "description": "Directed edge between games/services describing how mons can move.",
+      "properties": {
+        "bidirectional": {
+          "default": false,
+          "title": "Bidirectional",
+          "type": "boolean"
+        },
+        "from_id": {
+          "maxLength": 40,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "From Id",
+          "type": "string"
+        },
+        "mechanism": {
+          "$ref": "#/$defs/TransferMechanism"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "to_id": {
+          "maxLength": 40,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "To Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from_id",
+        "to_id",
+        "mechanism"
+      ],
+      "title": "Transfer",
+      "type": "object"
+    },
+    "TransferMechanism": {
+      "enum": [
+        "pokemon-home",
+        "pokemon-bank",
+        "poke-transporter",
+        "go-link",
+        "lets-go-link",
+        "direct-trade"
+      ],
+      "title": "TransferMechanism",
+      "type": "string"
+    }
+  },
+  "items": {
+    "$ref": "#/$defs/Transfer"
+  },
+  "title": "TransferList",
+  "type": "array"
+}

@@ -1,0 +1,45 @@
+[project]
+name = "homestretch-data"
+version = "0.1.0"
+description = "Data for HomeStretch: a form-aware, Home-transfer-aware Pokémon living dex planner."
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4==4.14.3",
+    "httpx==0.28.1",
+    "lxml==6.0.4",
+    "pokebase==1.4.1",
+    "pydantic==2.13.2",
+]
+
+[dependency-groups]
+dev = [
+    "pip-audit==2.10.0",
+    "pre-commit==4.5.1",
+    "pytest==9.0.3",
+    "ruff==0.15.11",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/homestretch_data"]
+
+[tool.uv]
+# Transitive constraints to avoid releases <48h old at project init time.
+# Revisit periodically; remove stale pins once fresh upstream releases age out.
+constraint-dependencies = [
+    "filelock==3.28.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

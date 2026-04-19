@@ -1,0 +1,99 @@
+{
+  "$defs": {
+    "Method": {
+      "description": "Broad acquisition method. Specifics go in `method_details`.",
+      "enum": [
+        "wild-encounter",
+        "static-encounter",
+        "gift",
+        "evolution",
+        "breeding",
+        "trade",
+        "fossil-revive",
+        "purchase",
+        "fishing",
+        "raid",
+        "event",
+        "transfer"
+      ],
+      "title": "Method",
+      "type": "string"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "description": "A way to obtain a particular form inside a particular game.",
+      "properties": {
+        "form_id": {
+          "maxLength": 80,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "Form Id",
+          "type": "string"
+        },
+        "game_id": {
+          "maxLength": 40,
+          "minLength": 2,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "title": "Game Id",
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/$defs/Method"
+        },
+        "method_details": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Method Details"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "requires_dlc": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Requires Dlc"
+        },
+        "requires_trade": {
+          "default": false,
+          "title": "Requires Trade",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "form_id",
+        "game_id",
+        "method"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "items": {
+    "$ref": "#/$defs/Source"
+  },
+  "title": "SourceList",
+  "type": "array"
+}
