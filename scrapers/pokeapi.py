@@ -194,6 +194,7 @@ IN_SCOPE_VERSIONS: frozenset[str] = frozenset(
         "legends-arceus",
         "scarlet",
         "violet",
+        "legends-za",
     }
 )
 
@@ -255,16 +256,18 @@ ENCOUNTER_METHOD_TO_METHOD: dict[str, Method] = {
 # through sources.json with method=event since there's no real encounter.
 # Game-exclusive forms like pikachu-starter / eevee-starter (Let's Go P/E)
 # are NOT event-only — their game-locking is a gift-method source instead.
-#
-# floette-eternal note: was distribution-data-only through Gen 6/7 and never
-# legitimately released, but became a regular Pokémon Legends: Z-A capture
-# (Oct 2025; HOME compat Apr 2026). Remove from this set and add a real
-# source row once Z-A is added to games.json.
 EVENT_ONLY_FORM_IDS = {
-    "floette-eternal",
     "greninja-battle-bond",
     "magearna-original",
     "zarude-dada",
+}
+
+# Form-level override for species whose non-default forms are otherwise
+# species-level-categorised incorrectly. floette's flower-colour variants
+# are cosmetic, but floette-eternal (Eternal Flower Floette) has a unique
+# ability, signature move, and stat spread — it's functional.
+FUNCTIONAL_FORM_IDS = {
+    "floette-eternal",
 }
 
 
@@ -334,7 +337,9 @@ def categorize(
     if not is_default_form and form_name in {"female", "male"}:
         cats.append(FormCategory.GENDER_DIFFERENCE)
     if not is_default_form and not cats:
-        if species_id in COSMETIC_SPECIES:
+        if form_id in FUNCTIONAL_FORM_IDS:
+            cats.append(FormCategory.FUNCTIONAL)
+        elif species_id in COSMETIC_SPECIES:
             cats.append(FormCategory.COSMETIC)
         elif species_id in FUNCTIONAL_SPECIES:
             cats.append(FormCategory.FUNCTIONAL)
