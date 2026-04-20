@@ -44,6 +44,16 @@ tests/           pytest suites
    contact email; rate-limit to 1 req/sec; respect `robots.txt`.
 6. **No secrets in the repo.** Use `.env` (git-ignored) locally; GitHub
    Actions secrets in CI.
+7. **`Source.method_details` is omitted when it equals the method enum
+   value.** A row like `{method:"gift", method_details:"gift"}` duplicates
+   information — either drop the field or fill it with genuine extra detail.
+8. **No runtime backend.** This dataset is consumed as static JSON by a
+   static-site app.
+9. **Don't put "Pokémon" in repo names, domains, or user-facing branding.**
+   The Pokémon Company is aggressive about trademark; public-facing copy
+   must note the project is unofficial.
+10. **Never skip git hooks (`--no-verify`).** If a hook fails, investigate
+    and fix the underlying issue rather than bypassing it.
 
 ## ID conventions
 
@@ -56,6 +66,39 @@ All IDs are lowercase, alphanumeric, hyphen-separated: `^[a-z0-9]+(?:-[a-z0-9]+)
 - **Form IDs**: `<species-id>-<form-suffix>` when non-default:
   `vulpix-alolan`, `rotom-wash`, `vivillon-polar`. The default form's ID
   equals the species ID: `vulpix`.
+
+## Common commands
+
+```bash
+uv sync                                                   # first-time setup
+uv run pytest -q                                          # all tests
+uv run pytest tests/test_models.py::test_game_round_trip  # single test
+uv run python scripts/validate.py                         # cross-file reference check
+uv run python scripts/export_schemas.py                   # regenerate schemas/ from models
+uv run ruff check . && uv run ruff format .
+uv run pip-audit --skip-editable                          # CI mirror
+uv run --with packaging --no-project python scripts/check_dep_age.py <pkg>  # 48h rule check
+
+# Scrapers — run on-demand; commit results
+uv run python scrapers/pokeapi.py --mode forms   --max-dex 1025
+uv run python scrapers/pokeapi.py --mode sources --max-dex 1025
+```
+
+## Architecture
+
+- **Pydantic models are the single source of truth.** `schemas/` is
+  regenerated from them; tests and scrapers round-trip through
+  `TypeAdapter(list[Model])` before writing. Schema changes always start
+  at `src/homestretch_data/models/`.
+- **`scripts/validate.py` does cross-file reference checking** beyond
+  schema validation: every `sources.json` `game_id`/`form_id` and every
+  `transfers.json` `from_id`/`to_id` must exist in games.json/forms.json.
+  Both CI and pre-commit run it.
+- **Scraper merge is idempotent (`setdefault` by id/key).** After changing
+  categorization or skip/event logic, `rm data/forms.json` (or
+  `data/sources.json`) before re-running, or stale entries survive.
+
+Scraper-specific conventions live in [`scrapers/CLAUDE.md`](scrapers/CLAUDE.md).
 
 ## Adding a new entity
 
