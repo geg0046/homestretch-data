@@ -2,8 +2,8 @@
   "$defs": {
     "TransferMechanism": {
       "enum": [
-        "pokemon-home",
-        "pokemon-bank",
+        "home",
+        "bank",
         "poke-transporter",
         "go-link",
         "lets-go-link",
@@ -23,7 +23,7 @@
     },
     "from_id": {
       "maxLength": 40,
-      "minLength": 2,
+      "minLength": 1,
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
       "title": "From Id",
       "type": "string"
@@ -45,7 +45,7 @@
     },
     "to_id": {
       "maxLength": 40,
-      "minLength": 2,
+      "minLength": 1,
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
       "title": "To Id",
       "type": "string"

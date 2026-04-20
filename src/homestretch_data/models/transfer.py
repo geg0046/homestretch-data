@@ -5,13 +5,13 @@ from pydantic import BaseModel, ConfigDict, StringConstraints
 
 NodeId = Annotated[
     str,
-    StringConstraints(pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$", min_length=2, max_length=40),
+    StringConstraints(pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$", min_length=1, max_length=40),
 ]
 
 
 class TransferMechanism(StrEnum):
-    POKEMON_HOME = "pokemon-home"
-    POKEMON_BANK = "pokemon-bank"
+    POKEMON_HOME = "home"
+    POKEMON_BANK = "bank"
     POKE_TRANSPORTER = "poke-transporter"
     GO_LINK = "go-link"
     LETS_GO_LINK = "lets-go-link"

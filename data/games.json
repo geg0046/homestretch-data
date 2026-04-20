@@ -1,6 +1,6 @@
 [
   {
-    "id": "pokemon-red",
+    "id": "red",
     "name": "Pokémon Red",
     "generation": 1,
     "platform": "game-boy",
@@ -11,7 +11,7 @@
     "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
   },
   {
-    "id": "pokemon-blue",
+    "id": "blue",
     "name": "Pokémon Blue",
     "generation": 1,
     "platform": "game-boy",
@@ -22,7 +22,7 @@
     "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
   },
   {
-    "id": "pokemon-yellow",
+    "id": "yellow",
     "name": "Pokémon Yellow",
     "generation": 1,
     "platform": "game-boy",
@@ -33,7 +33,7 @@
     "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
   },
   {
-    "id": "pokemon-gold",
+    "id": "gold",
     "name": "Pokémon Gold",
     "generation": 2,
     "platform": "game-boy-color",
@@ -44,7 +44,7 @@
     "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
   },
   {
-    "id": "pokemon-silver",
+    "id": "silver",
     "name": "Pokémon Silver",
     "generation": 2,
     "platform": "game-boy-color",
@@ -55,7 +55,7 @@
     "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
   },
   {
-    "id": "pokemon-crystal",
+    "id": "crystal",
     "name": "Pokémon Crystal",
     "generation": 2,
     "platform": "game-boy-color",
@@ -66,7 +66,7 @@
     "notes": "Requires 3DS Virtual Console re-release; moves via Poké Transporter → Bank → HOME."
   },
   {
-    "id": "pokemon-x",
+    "id": "x",
     "name": "Pokémon X",
     "generation": 6,
     "platform": "nintendo-3ds",
@@ -76,7 +76,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-y",
+    "id": "y",
     "name": "Pokémon Y",
     "generation": 6,
     "platform": "nintendo-3ds",
@@ -86,7 +86,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-omega-ruby",
+    "id": "omega-ruby",
     "name": "Pokémon Omega Ruby",
     "generation": 6,
     "platform": "nintendo-3ds",
@@ -96,7 +96,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-alpha-sapphire",
+    "id": "alpha-sapphire",
     "name": "Pokémon Alpha Sapphire",
     "generation": 6,
     "platform": "nintendo-3ds",
@@ -106,7 +106,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-sun",
+    "id": "sun",
     "name": "Pokémon Sun",
     "generation": 7,
     "platform": "nintendo-3ds",
@@ -116,7 +116,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-moon",
+    "id": "moon",
     "name": "Pokémon Moon",
     "generation": 7,
     "platform": "nintendo-3ds",
@@ -126,7 +126,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-ultra-sun",
+    "id": "ultra-sun",
     "name": "Pokémon Ultra Sun",
     "generation": 7,
     "platform": "nintendo-3ds",
@@ -136,7 +136,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-ultra-moon",
+    "id": "ultra-moon",
     "name": "Pokémon Ultra Moon",
     "generation": 7,
     "platform": "nintendo-3ds",
@@ -146,7 +146,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-lets-go-pikachu",
+    "id": "lets-go-pikachu",
     "name": "Pokémon: Let's Go, Pikachu!",
     "generation": 7,
     "platform": "nintendo-switch",
@@ -157,7 +157,7 @@
     "notes": "Transfers into HOME are one-way except for Pokémon originally sent from GO/HOME."
   },
   {
-    "id": "pokemon-lets-go-eevee",
+    "id": "lets-go-eevee",
     "name": "Pokémon: Let's Go, Eevee!",
     "generation": 7,
     "platform": "nintendo-switch",
@@ -168,7 +168,7 @@
     "notes": "Transfers into HOME are one-way except for Pokémon originally sent from GO/HOME."
   },
   {
-    "id": "pokemon-sword",
+    "id": "sword",
     "name": "Pokémon Sword",
     "generation": 8,
     "platform": "nintendo-switch",
@@ -178,7 +178,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-shield",
+    "id": "shield",
     "name": "Pokémon Shield",
     "generation": 8,
     "platform": "nintendo-switch",
@@ -188,7 +188,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-brilliant-diamond",
+    "id": "brilliant-diamond",
     "name": "Pokémon Brilliant Diamond",
     "generation": 8,
     "platform": "nintendo-switch",
@@ -198,7 +198,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-shining-pearl",
+    "id": "shining-pearl",
     "name": "Pokémon Shining Pearl",
     "generation": 8,
     "platform": "nintendo-switch",
@@ -208,7 +208,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-legends-arceus",
+    "id": "legends-arceus",
     "name": "Pokémon Legends: Arceus",
     "generation": 8,
     "platform": "nintendo-switch",
@@ -218,7 +218,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-scarlet",
+    "id": "scarlet",
     "name": "Pokémon Scarlet",
     "generation": 9,
     "platform": "nintendo-switch",
@@ -228,7 +228,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-violet",
+    "id": "violet",
     "name": "Pokémon Violet",
     "generation": 9,
     "platform": "nintendo-switch",
@@ -238,7 +238,7 @@
     "is_service": false
   },
   {
-    "id": "pokemon-go",
+    "id": "go",
     "name": "Pokémon GO",
     "generation": null,
     "platform": "mobile",
@@ -249,7 +249,7 @@
     "notes": "Mobile app; Pokémon transfer to HOME via GO Link (one-way)."
   },
   {
-    "id": "pokemon-home",
+    "id": "home",
     "name": "Pokémon HOME",
     "generation": null,
     "platform": "service",
@@ -260,7 +260,7 @@
     "notes": "The destination service itself. Available on Switch and mobile."
   },
   {
-    "id": "pokemon-bank",
+    "id": "bank",
     "name": "Pokémon Bank",
     "generation": null,
     "platform": "service",

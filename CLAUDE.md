@@ -49,8 +49,9 @@ tests/           pytest suites
 
 All IDs are lowercase, alphanumeric, hyphen-separated: `^[a-z0-9]+(?:-[a-z0-9]+)*$`.
 
-- **Game IDs**: `pokemon-scarlet`, `pokemon-legends-arceus`, `pokemon-go`,
-  `pokemon-home`, `poke-transporter`.
+- **Game IDs**: PokéAPI version names directly (`scarlet`, `legends-arceus`,
+  `omega-ruby`, `lets-go-pikachu`, `x`, `y`); services that have no PokéAPI
+  version keep descriptive names (`go`, `home`, `bank`, `poke-transporter`).
 - **Species IDs**: `vulpix`, `ninetales`, `mr-mime`, `porygon-z`.
 - **Form IDs**: `<species-id>-<form-suffix>` when non-default:
   `vulpix-alolan`, `rotom-wash`, `vivillon-polar`. The default form's ID

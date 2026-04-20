@@ -28,7 +28,7 @@ def _load(name: str) -> list[dict]:
 
 def test_game_round_trip() -> None:
     g = Game(
-        id="pokemon-scarlet",
+        id="scarlet",
         name="Pokémon Scarlet",
         generation=9,
         platform=Platform.NINTENDO_SWITCH,
@@ -42,7 +42,7 @@ def test_game_round_trip() -> None:
 def test_game_id_pattern_rejects_uppercase() -> None:
     with pytest.raises(ValidationError):
         Game(
-            id="Pokemon-Scarlet",
+            id="Scarlet",
             name="x",
             platform=Platform.NINTENDO_SWITCH,
             release_year=2022,
@@ -55,7 +55,7 @@ def test_extra_fields_forbidden() -> None:
     with pytest.raises(ValidationError):
         Game.model_validate(
             {
-                "id": "pokemon-scarlet",
+                "id": "scarlet",
                 "name": "Pokémon Scarlet",
                 "platform": "nintendo-switch",
                 "release_year": 2022,
@@ -80,7 +80,7 @@ def test_form_requires_valid_generation() -> None:
 def test_source_enum_serialization() -> None:
     s = Source(
         form_id="vulpix-alolan",
-        game_id="pokemon-sun",
+        game_id="sun",
         method=Method.WILD_ENCOUNTER,
     )
     assert s.model_dump()["method"] == "wild-encounter"
@@ -88,12 +88,12 @@ def test_source_enum_serialization() -> None:
 
 def test_transfer_enum_serialization() -> None:
     t = Transfer(
-        from_id="pokemon-scarlet",
-        to_id="pokemon-home",
+        from_id="scarlet",
+        to_id="home",
         mechanism=TransferMechanism.POKEMON_HOME,
         bidirectional=True,
     )
-    assert t.model_dump()["mechanism"] == "pokemon-home"
+    assert t.model_dump()["mechanism"] == "home"
 
 
 def test_games_json_validates() -> None:
