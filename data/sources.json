@@ -4592,6 +4592,12 @@
     "method": "gift"
   },
   {
+    "form_id": "eevee-starter",
+    "game_id": "lets-go-eevee",
+    "method": "gift",
+    "method_details": "partner starter"
+  },
+  {
     "form_id": "ekans",
     "game_id": "crystal",
     "method": "wild-encounter",
@@ -6850,6 +6856,18 @@
     "game_id": "ultra-sun",
     "method": "static-encounter",
     "method_details": "island-scan"
+  },
+  {
+    "form_id": "greninja-battle-bond",
+    "game_id": "moon",
+    "method": "event",
+    "method_details": "Sun/Moon Special Demo Version transfer"
+  },
+  {
+    "form_id": "greninja-battle-bond",
+    "game_id": "sun",
+    "method": "event",
+    "method_details": "Sun/Moon Special Demo Version transfer"
   },
   {
     "form_id": "grimer",
@@ -10348,6 +10366,12 @@
     "method_details": "only-one"
   },
   {
+    "form_id": "magearna-original",
+    "game_id": "home",
+    "method": "event",
+    "method_details": "HOME National Dex completion reward"
+  },
+  {
     "form_id": "magikarp",
     "game_id": "blue",
     "method": "fishing",
@@ -13847,6 +13871,12 @@
     "form_id": "pikachu",
     "game_id": "yellow",
     "method": "gift"
+  },
+  {
+    "form_id": "pikachu-starter",
+    "game_id": "lets-go-pikachu",
+    "method": "gift",
+    "method_details": "partner starter"
   },
   {
     "form_id": "pikipek",
@@ -21357,6 +21387,18 @@
     "game_id": "yellow",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "zarude-dada",
+    "game_id": "shield",
+    "method": "event",
+    "method_details": "Secrets of the Jungle serial code distribution"
+  },
+  {
+    "form_id": "zarude-dada",
+    "game_id": "sword",
+    "method": "event",
+    "method_details": "Secrets of the Jungle serial code distribution"
   },
   {
     "form_id": "zebstrika",
