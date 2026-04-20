@@ -5626,6 +5626,12 @@
     "method_details": "walk"
   },
   {
+    "form_id": "floette-eternal",
+    "game_id": "legends-za",
+    "method": "static-encounter",
+    "method_details": "post-credits, 15th Infinite Z-A Royale match"
+  },
+  {
     "form_id": "fomantis",
     "game_id": "moon",
     "method": "wild-encounter",

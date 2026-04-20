@@ -8299,7 +8299,7 @@
     "is_default": false,
     "generation_introduced": 6,
     "categories": [
-      "event-only"
+      "functional"
     ]
   },
   {

@@ -238,6 +238,16 @@
     "is_service": false
   },
   {
+    "id": "legends-za",
+    "name": "Pokémon Legends: Z-A",
+    "generation": 9,
+    "platform": "nintendo-switch",
+    "release_year": 2025,
+    "home_compatible": true,
+    "transfer_route": "direct",
+    "is_service": false
+  },
+  {
     "id": "go",
     "name": "Pokémon GO",
     "generation": null,
