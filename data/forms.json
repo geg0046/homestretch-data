@@ -258,138 +258,6 @@
     "categories": []
   },
   {
-    "id": "pikachu-alola-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "alola-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-belle",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "belle",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-cosplay",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "cosplay",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-hoenn-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "hoenn-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-kalos-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "kalos-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-libre",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "libre",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-original-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "original-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-partner-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "partner-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-phd",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "phd",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-pop-star",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "pop-star",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-rock-star",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "rock-star",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-sinnoh-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "sinnoh-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
     "id": "pikachu-starter",
     "species_id": "pikachu",
     "national_dex": 25,
@@ -397,28 +265,6 @@
     "is_default": false,
     "generation_introduced": 1,
     "categories": []
-  },
-  {
-    "id": "pikachu-unova-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "unova-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
-  },
-  {
-    "id": "pikachu-world-cap",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "world-cap",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "event-only"
-    ]
   },
   {
     "id": "raichu",
@@ -2147,17 +1993,6 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
-  },
-  {
-    "id": "pichu-spiky-eared",
-    "species_id": "pichu",
-    "national_dex": 172,
-    "form_name": "spiky-eared",
-    "is_default": false,
-    "generation_introduced": 2,
-    "categories": [
-      "event-only"
-    ]
   },
   {
     "id": "cleffa",

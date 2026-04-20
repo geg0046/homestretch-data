@@ -116,11 +116,14 @@ FUNCTIONAL_SPECIES = {
     "zygarde",
 }
 
-# Forms PokéAPI exposes that cannot be stored separately in a PC box and
-# therefore aren't living-dex forms. Koraidon/Miraidon mount modes are
-# visual ride transformations of the default; eternatus-eternamax is a
-# story-only boss form never given to the player.
-SKIP_FORM_IDS = {
+# Forms PokéAPI exposes that have no living-dex slot in HOME, so the scraper
+# drops them from forms.json entirely. Two disjoint reasons, kept as separate
+# sets so future readers can see why each form was excluded.
+
+# (1) Not storable in their origin game. Koraidon/Miraidon mount-modes are
+# visual ride transformations of the default form and share its PC slot;
+# eternatus-eternamax is a story-only boss form never given to the player.
+SKIP_FORM_IDS_INGAME = {
     "eternatus-eternamax",
     "koraidon-gliding-build",
     "koraidon-limited-build",
@@ -132,10 +135,36 @@ SKIP_FORM_IDS = {
     "miraidon-low-power-mode",
 }
 
-# Forms that PokéAPI can't auto-flag as event-only but are distributed only via
-# events/promotions (Pokémon Center, movies, competitions). Game-exclusive forms
-# like pikachu-starter / eevee-starter (Let's Go P/E) are NOT event-only — their
-# game-locked availability is expressed through sources.json instead.
+# (2) Storable in their origin game but explicitly blocked from Pokémon Bank
+# / HOME transfer, so they cannot exist in a HOME living dex. References:
+# - pichu-spiky-eared: HGSS-only; Prof. Elm's in-game dialogue refuses Poké
+#   Transfer ("It appears to have traveled through time…").
+# - pikachu cosplay family (cosplay/belle/libre/phd/pop-star/rock-star):
+#   ORAS contest Pikachu. Cannot be deposited in Pokémon Bank, so no path
+#   into Gen 7+ or HOME.
+# - cap Pikachus (alola/hoenn/kalos/original/partner/sinnoh/unova/world):
+#   event-distributed across USUM / Sw-Sh / Let's Go / GO, but Bulbapedia
+#   confirms they cannot be transferred to HOME or to Sword/Shield.
+SKIP_FORM_IDS_HOME_UNREACHABLE = {
+    "pichu-spiky-eared",
+    "pikachu-belle",
+    "pikachu-cosplay",
+    "pikachu-libre",
+    "pikachu-phd",
+    "pikachu-pop-star",
+    "pikachu-rock-star",
+    "pikachu-alola-cap",
+    "pikachu-hoenn-cap",
+    "pikachu-kalos-cap",
+    "pikachu-original-cap",
+    "pikachu-partner-cap",
+    "pikachu-sinnoh-cap",
+    "pikachu-unova-cap",
+    "pikachu-world-cap",
+}
+
+SKIP_FORM_IDS = SKIP_FORM_IDS_INGAME | SKIP_FORM_IDS_HOME_UNREACHABLE
+
 # PokéAPI version names whose encounters we ingest. Matches the in-scope
 # game IDs in data/games.json (game IDs and PokéAPI version names are now the
 # same string, so this is just a membership filter). Versions outside this set
@@ -221,25 +250,20 @@ ENCOUNTER_METHOD_TO_METHOD: dict[str, Method] = {
     "npc-trade": Method.TRADE,
 }
 
+# Forms PokéAPI can't auto-flag as event-only but are distributed only via
+# events/promotions and ARE HOME-storable. Their acquisition is expressed
+# through sources.json with method=event since there's no real encounter.
+# Game-exclusive forms like pikachu-starter / eevee-starter (Let's Go P/E)
+# are NOT event-only — their game-locking is a gift-method source instead.
+#
+# floette-eternal note: was distribution-data-only through Gen 6/7 and never
+# legitimately released, but became a regular Pokémon Legends: Z-A capture
+# (Oct 2025; HOME compat Apr 2026). Remove from this set and add a real
+# source row once Z-A is added to games.json.
 EVENT_ONLY_FORM_IDS = {
     "floette-eternal",
     "greninja-battle-bond",
     "magearna-original",
-    "pichu-spiky-eared",
-    "pikachu-alola-cap",
-    "pikachu-belle",
-    "pikachu-cosplay",
-    "pikachu-hoenn-cap",
-    "pikachu-kalos-cap",
-    "pikachu-libre",
-    "pikachu-original-cap",
-    "pikachu-partner-cap",
-    "pikachu-phd",
-    "pikachu-pop-star",
-    "pikachu-rock-star",
-    "pikachu-sinnoh-cap",
-    "pikachu-unova-cap",
-    "pikachu-world-cap",
     "zarude-dada",
 }
 
