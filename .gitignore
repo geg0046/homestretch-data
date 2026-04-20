@@ -28,3 +28,6 @@ htmlcov/
 
 # Personal dev notes (not part of the project)
 STATUS.md
+
+# Scraper disk cache
+.cache/
