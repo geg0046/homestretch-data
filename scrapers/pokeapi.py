@@ -1,8 +1,9 @@
 """Scrape Pokémon species, form, and encounter data from PokéAPI.
 
-Two modes:
-    uv run python scrapers/pokeapi.py --mode forms --max-dex 1025
-    uv run python scrapers/pokeapi.py --mode sources --max-dex 1025
+Three modes:
+    uv run python scrapers/pokeapi.py --mode forms      --max-dex 1025
+    uv run python scrapers/pokeapi.py --mode sources    --max-dex 1025
+    uv run python scrapers/pokeapi.py --mode evolutions --max-dex 1025
 
 Respects a 1 req/sec rate limit, caches responses under .cache/pokeapi/, and
 merges results into data/forms.json or data/sources.json (existing entries are
@@ -458,6 +459,98 @@ def build_sources_for_species(
     return results
 
 
+# PokéAPI regional-pokédex names → in-scope game IDs. Used by the evolution
+# pass to decide which games an evolved species is available in (pokemon
+# endpoint's game_indices is empty for Gen 6+, so we can't use that signal
+# there). Omits national/conquest-gallery (too broad / out of scope) and
+# `champions` (unclear semantics across multiple gens). Pokédexes whose only
+# games are out of scope (original-sinnoh, original-unova, updated-unova,
+# hoenn for R/S/E) are also omitted.
+POKEDEX_TO_GAMES: dict[str, tuple[str, ...]] = {
+    "kanto": ("red", "blue", "yellow"),
+    "original-johto": ("gold", "silver"),
+    "updated-johto": ("crystal",),
+    "kalos-central": ("x", "y"),
+    "kalos-coastal": ("x", "y"),
+    "kalos-mountain": ("x", "y"),
+    "updated-hoenn": ("omega-ruby", "alpha-sapphire"),
+    "original-alola": ("sun", "moon"),
+    "original-melemele": ("sun", "moon"),
+    "original-akala": ("sun", "moon"),
+    "original-ulaula": ("sun", "moon"),
+    "original-poni": ("sun", "moon"),
+    "updated-alola": ("ultra-sun", "ultra-moon"),
+    "updated-melemele": ("ultra-sun", "ultra-moon"),
+    "updated-akala": ("ultra-sun", "ultra-moon"),
+    "updated-ulaula": ("ultra-sun", "ultra-moon"),
+    "updated-poni": ("ultra-sun", "ultra-moon"),
+    "letsgo-kanto": ("lets-go-pikachu", "lets-go-eevee"),
+    "galar": ("sword", "shield"),
+    "isle-of-armor": ("sword", "shield"),
+    "crown-tundra": ("sword", "shield"),
+    "extended-sinnoh": ("brilliant-diamond", "shining-pearl"),
+    "hisui": ("legends-arceus",),
+    "paldea": ("scarlet", "violet"),
+    "kitakami": ("scarlet", "violet"),
+    "blueberry": ("scarlet", "violet"),
+    "lumiose-city": ("legends-za",),
+}
+
+
+def build_evolution_sources_for_chain(
+    chain: dict[str, Any],
+    client: RateLimitedClient,
+    valid_form_ids: set[str],
+) -> list[dict[str, Any]]:
+    """Walk a PokéAPI evolution-chain and emit Source rows for each evolved
+    species. Method is `trade` when the trigger is `trade`, otherwise
+    `evolution`. method_details carries the raw PokéAPI trigger name(s).
+
+    Attribution is to the evolved species's default form (form_id == species_id).
+    Game scope is derived from the evolved species's `pokedex_numbers` via
+    POKEDEX_TO_GAMES — we only emit a row for games whose regional dex the
+    species appears in. This under-emits for branched regional evolutions
+    (e.g. yamask-galar → runerigus attributes to runerigus as a default-form
+    row, losing the pre-evolution provenance) but over-emission is worse
+    since it would misrepresent availability.
+    """
+    results: list[dict[str, Any]] = []
+
+    def walk(node: dict[str, Any]) -> None:
+        for child in node["evolves_to"]:
+            evolved_species_id = child["species"]["name"]
+            if evolved_species_id not in valid_form_ids:
+                walk(child)
+                continue
+            methods_by_kind: dict[Method, set[str]] = {}
+            for detail in child["evolution_details"]:
+                trigger = detail["trigger"]["name"]
+                method = Method.TRADE if trigger == "trade" else Method.EVOLUTION
+                methods_by_kind.setdefault(method, set()).add(trigger)
+
+            evolved_species = client.get_json(child["species"]["url"])
+            scope_games: set[str] = set()
+            for pdn in evolved_species.get("pokedex_numbers", []):
+                scope_games.update(POKEDEX_TO_GAMES.get(pdn["pokedex"]["name"], ()))
+            scope_games &= IN_SCOPE_VERSIONS
+
+            for method, triggers in methods_by_kind.items():
+                details_str = ", ".join(sorted(triggers))
+                for game_id in scope_games:
+                    entry: dict[str, Any] = {
+                        "form_id": evolved_species_id,
+                        "game_id": game_id,
+                        "method": method.value,
+                    }
+                    if details_str != method.value:
+                        entry["method_details"] = details_str
+                    results.append(entry)
+            walk(child)
+
+    walk(chain["chain"])
+    return results
+
+
 def load_existing_forms() -> list[dict[str, Any]]:
     if not FORMS_PATH.exists():
         return []
@@ -538,11 +631,42 @@ def _scrape_sources(client: RateLimitedClient, min_dex: int, max_dex: int) -> in
     return 0
 
 
+def _scrape_evolutions(client: RateLimitedClient, min_dex: int, max_dex: int) -> int:
+    existing_forms = load_existing_forms()
+    if not existing_forms:
+        print("error: data/forms.json is empty; run --mode forms first", file=sys.stderr)
+        return 1
+    valid_form_ids = {f["id"] for f in existing_forms}
+
+    seen_chain_urls: set[str] = set()
+    all_new: list[dict[str, Any]] = []
+    for dex in range(min_dex, max_dex + 1):
+        species = client.get_json(f"{BASE_URL}/pokemon-species/{dex}/")
+        chain_url = species["evolution_chain"]["url"]
+        if chain_url in seen_chain_urls:
+            print(f"  #{dex:04d} {species['name']}: chain already processed")
+            continue
+        seen_chain_urls.add(chain_url)
+        chain = client.get_json(chain_url)
+        sources = build_evolution_sources_for_chain(chain, client, valid_form_ids)
+        all_new.extend(sources)
+        print(f"  #{dex:04d} {species['name']}: {len(sources)} evolution source(s)")
+
+    merged = merge_sources(load_existing_sources(), all_new)
+    TypeAdapter(list[Source]).validate_python(merged)
+    SOURCES_PATH.write_text(
+        json.dumps(merged, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    print(f"wrote {len(merged)} sources to {SOURCES_PATH.relative_to(REPO_ROOT)}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--mode",
-        choices=("forms", "sources"),
+        choices=("forms", "sources", "evolutions"),
         default="forms",
         help="What to scrape (default: forms)",
     )
@@ -567,7 +691,9 @@ def main() -> int:
         client = RateLimitedClient(raw_client, MIN_REQUEST_INTERVAL)
         if args.mode == "forms":
             return _scrape_forms(client, args.min_dex, args.max_dex)
-        return _scrape_sources(client, args.min_dex, args.max_dex)
+        if args.mode == "sources":
+            return _scrape_sources(client, args.min_dex, args.max_dex)
+        return _scrape_evolutions(client, args.min_dex, args.max_dex)
 
 
 if __name__ == "__main__":

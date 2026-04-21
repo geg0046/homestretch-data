@@ -97,16 +97,42 @@ the same string, so this is just a membership check.
   authoritative encounter tables for older generations, MIT-ish license.
   Parse data files rather than scraping rendered wikis when possible.
 
+## Evolution mode: game-scope mapping
+
+`--mode evolutions` walks each species's `evolution_chain` and emits
+`method=evolution` / `method=trade` Source rows for evolved species. Two
+design decisions worth knowing:
+
+- **Game scope comes from `species.pokedex_numbers`, not `pokemon.game_indices`**.
+  PokéAPI's `game_indices` is only populated through Gen 5, so it can't
+  tell us which Gen 6+ games an evolution is available in. `POKEDEX_TO_GAMES`
+  maps each in-scope regional dex (`kanto`, `galar`, `hisui`, `paldea`,
+  `lumiose-city`, etc.) to the game IDs that share it. Pokédexes whose
+  only games are out of scope (RS/E `hoenn`, DP `original-sinnoh`,
+  B/W `original-unova`) are intentionally omitted. So is `champions`
+  (cross-gen achievement list with unclear semantics) and `national`
+  (too broad).
+- **Attribution is to the evolved species's default form** (`form_id ==
+  species_id`). Branched regional evolutions (yamask-galar → runerigus,
+  exeggcute → exeggutor-alola) emit a default-form row that loses the
+  pre-evolution provenance. This under-specifies but doesn't mis-specify;
+  refining to per-branch rows is a future pass.
+
+Method mapping: any PokéAPI trigger name of `trade` maps to `Method.TRADE`,
+everything else (`level-up`, `use-item`, `shed`, `agile-style-move`,
+`three-critical-hits`, etc.) maps to `Method.EVOLUTION`. The raw trigger
+name is preserved in `method_details` so the app can distinguish
+stone-use from level-up if it wants.
+
 ## Known gaps in PokéAPI encounter coverage
 
 These are PokéAPI limitations, not scraper bugs — they need separate
-passes (evolution-chain walker, hand-curated event rows, or future
-Bulbapedia/pret scrapes):
+passes (hand-curated event rows, branched regional-evolution pass, or
+future Bulbapedia/pret scrapes):
 
-- Evolutions (only surfaced in species `evolution_chain`)
 - Breeding-only mons (e.g. Cleffa, Smoochum in Gen 2)
-- Trade evolutions (Kadabra → Alakazam, etc.)
 - Fossils (partial gift/static coverage at best)
 - Gen 8/9 encounter data is weak — expect gaps
 - Event-only forms (hand-curated with `method=event`)
 - Game-locked starter forms (hand-curated with `method=gift`)
+- Branched regional-form evolutions (currently attributed to default form)
