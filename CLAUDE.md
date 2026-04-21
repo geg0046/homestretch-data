@@ -80,8 +80,9 @@ uv run pip-audit --skip-editable                          # CI mirror
 uv run --with packaging --no-project python scripts/check_dep_age.py <pkg>  # 48h rule check
 
 # Scrapers — run on-demand; commit results
-uv run python scrapers/pokeapi.py --mode forms   --max-dex 1025
-uv run python scrapers/pokeapi.py --mode sources --max-dex 1025
+uv run python scrapers/pokeapi.py --mode forms      --max-dex 1025
+uv run python scrapers/pokeapi.py --mode sources    --max-dex 1025
+uv run python scrapers/pokeapi.py --mode evolutions --max-dex 1025
 ```
 
 ## Architecture
