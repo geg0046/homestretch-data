@@ -13,15 +13,14 @@ preserved by composite key).
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import sys
-import time
 from pathlib import Path
 from typing import Any
 
 import httpx
 from pydantic import TypeAdapter
+from utils import RateLimitedClient, merge_by_key
 
 from homestretch_data.models import Form, FormCategory, Method, Source
 
@@ -270,40 +269,6 @@ EVENT_ONLY_FORM_IDS = {
 FUNCTIONAL_FORM_IDS = {
     "floette-eternal",
 }
-
-
-class RateLimitedClient:
-    def __init__(self, client: httpx.Client, min_interval: float) -> None:
-        self._client = client
-        self._min_interval = min_interval
-        self._last_request = 0.0
-
-    def get_json(self, url: str) -> dict[str, Any]:
-        cache_key = hashlib.sha256(url.encode()).hexdigest()[:16]
-        cache_path = CACHE_DIR / f"{cache_key}.json"
-        if cache_path.exists():
-            return json.loads(cache_path.read_text(encoding="utf-8"))
-
-        last_error: Exception | None = None
-        for attempt in range(5):
-            elapsed = time.monotonic() - self._last_request
-            if elapsed < self._min_interval:
-                time.sleep(self._min_interval - elapsed)
-            try:
-                resp = self._client.get(url)
-                resp.raise_for_status()
-                self._last_request = time.monotonic()
-                data = resp.json()
-                CACHE_DIR.mkdir(parents=True, exist_ok=True)
-                cache_path.write_text(json.dumps(data), encoding="utf-8")
-                return data
-            except (httpx.HTTPError, httpx.StreamError) as exc:
-                last_error = exc
-                self._last_request = time.monotonic()
-                backoff = 2**attempt
-                print(f"  retry {attempt + 1}/5 after {backoff}s: {url} ({exc})")
-                time.sleep(backoff)
-        raise RuntimeError(f"failed to fetch {url}") from last_error
 
 
 def _is_regional(form_name: str) -> bool:
@@ -560,10 +525,7 @@ def load_existing_forms() -> list[dict[str, Any]]:
 
 
 def merge_forms(existing: list[dict[str, Any]], new: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    by_id: dict[str, dict[str, Any]] = {f["id"]: f for f in existing}
-    for entry in new:
-        by_id.setdefault(entry["id"], entry)
-    merged = list(by_id.values())
+    merged = merge_by_key(existing, new, key_fn=lambda f: f["id"])
     merged.sort(key=lambda f: (f["national_dex"], f["id"]))
     return merged
 
@@ -583,10 +545,7 @@ def load_existing_sources() -> list[dict[str, Any]]:
 def merge_sources(
     existing: list[dict[str, Any]], new: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
-    by_key: dict[tuple[str, str, str], dict[str, Any]] = {_source_key(s): s for s in existing}
-    for entry in new:
-        by_key.setdefault(_source_key(entry), entry)
-    merged = list(by_key.values())
+    merged = merge_by_key(existing, new, key_fn=_source_key)
     merged.sort(key=_source_key)
     return merged
 
@@ -688,7 +647,7 @@ def main() -> int:
         headers={"User-Agent": USER_AGENT},
         timeout=30.0,
     ) as raw_client:
-        client = RateLimitedClient(raw_client, MIN_REQUEST_INTERVAL)
+        client = RateLimitedClient(raw_client, MIN_REQUEST_INTERVAL, CACHE_DIR)
         if args.mode == "forms":
             return _scrape_forms(client, args.min_dex, args.max_dex)
         if args.mode == "sources":
