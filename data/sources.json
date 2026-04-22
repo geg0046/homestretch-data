@@ -2042,6 +2042,24 @@
     "method_details": "only-one"
   },
   {
+    "form_id": "archaludon",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "use-item",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "item": "metal-alloy",
+    "from_form": "duraludon"
+  },
+  {
+    "form_id": "archaludon",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "use-item",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "item": "metal-alloy",
+    "from_form": "duraludon"
+  },
+  {
     "form_id": "archen",
     "game_id": "moon",
     "method": "gift"
@@ -3770,6 +3788,23 @@
     "game_id": "y",
     "method": "fishing",
     "method_details": "super-rod"
+  },
+  {
+    "form_id": "basculin-white-striped",
+    "game_id": "legends-arceus",
+    "method": "wild-encounter"
+  },
+  {
+    "form_id": "basculin-white-striped",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "basculin-white-striped",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
     "form_id": "bastiodon",
@@ -16611,6 +16646,11 @@
     "method": "gift"
   },
   {
+    "form_id": "eevee-starter",
+    "game_id": "lets-go-eevee",
+    "method": "gift"
+  },
+  {
     "form_id": "eiscue",
     "game_id": "shield",
     "method": "raid",
@@ -25633,6 +25673,16 @@
     "method_details": "level-up"
   },
   {
+    "form_id": "greninja-battle-bond",
+    "game_id": "moon",
+    "method": "event"
+  },
+  {
+    "form_id": "greninja-battle-bond",
+    "game_id": "sun",
+    "method": "event"
+  },
+  {
     "form_id": "grimer",
     "game_id": "alpha-sapphire",
     "method": "wild-encounter",
@@ -29411,6 +29461,24 @@
     "game_id": "y",
     "method": "trade",
     "held_item": "deep-sea-tooth"
+  },
+  {
+    "form_id": "hydrapple",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "known_move": "dragon-cheer",
+    "from_form": "dipplin"
+  },
+  {
+    "form_id": "hydrapple",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "known_move": "dragon-cheer",
+    "from_form": "dipplin"
   },
   {
     "form_id": "hydreigon",
@@ -37328,6 +37396,16 @@
     "game_id": "ultra-sun",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "magearna-original",
+    "game_id": "shield",
+    "method": "event"
+  },
+  {
+    "form_id": "magearna-original",
+    "game_id": "sword",
+    "method": "event"
   },
   {
     "form_id": "magikarp",
@@ -48594,6 +48672,11 @@
   {
     "form_id": "pikachu",
     "game_id": "yellow",
+    "method": "gift"
+  },
+  {
+    "form_id": "pikachu-starter",
+    "game_id": "lets-go-pikachu",
     "method": "gift"
   },
   {
@@ -72906,6 +72989,16 @@
     "game_id": "yellow",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "zarude-dada",
+    "game_id": "shield",
+    "method": "event"
+  },
+  {
+    "form_id": "zarude-dada",
+    "game_id": "sword",
+    "method": "event"
   },
   {
     "form_id": "zebstrika",
