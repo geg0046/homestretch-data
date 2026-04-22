@@ -79,12 +79,14 @@ uv run ruff check . && uv run ruff format .
 uv run pip-audit --skip-editable                          # CI mirror
 uv run --with packaging --no-project python scripts/check_dep_age.py <pkg>  # 48h rule check
 
-# Scrapers — run on-demand; commit results
+# Scrapers — run on-demand; commit results. seed_manual_sources runs last
+# so manual rows (breeding babies, Game Corner prizes) stay in sources.json.
 uv run python scrapers/pokeapi.py    --mode forms      --max-dex 1025
 uv run python scrapers/pokeapi.py    --mode sources    --max-dex 1025
 uv run python scrapers/pokeapi.py    --mode evolutions --max-dex 1025
 uv run python scrapers/bulbapedia.py --mode sources    --max-dex 1025
 uv run python scrapers/bulbapedia.py --mode evolutions --max-dex 1025
+uv run python scripts/seed_manual_sources.py
 ```
 
 ## Architecture
