@@ -351,6 +351,168 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
     },
+    # Mythicals. Distributed via serial codes, Pokémon Center events, movie
+    # tie-ins, or unique in-game mechanics — PokéAPI lists them in the
+    # Pokédex but emits no encounter data. Games listed are in-scope
+    # distribution venues; transfers to later games are covered by
+    # transfers.json, not replicated here.
+    {
+        "form_id": "victini",
+        "game_id": "sword",
+        "method": "event",
+        "notes": "Pokémon Day 2021 serial-code distribution.",
+    },
+    {
+        "form_id": "victini",
+        "game_id": "shield",
+        "method": "event",
+        "notes": "Pokémon Day 2021 serial-code distribution.",
+    },
+    # Genesect is Crown Tundra's Dynamax Adventure legendary — technically an
+    # encounter, not a distribution event.
+    {
+        "form_id": "genesect",
+        "game_id": "sword",
+        "method": "raid",
+        "method_details": "dynamax-adventure",
+        "requires_dlc": "expansion-pass",
+    },
+    {
+        "form_id": "genesect",
+        "game_id": "shield",
+        "method": "raid",
+        "method_details": "dynamax-adventure",
+        "requires_dlc": "expansion-pass",
+    },
+    {
+        "form_id": "diancie",
+        "game_id": "omega-ruby",
+        "method": "event",
+        "notes": "2014 Pokémon Center code distribution tied to the XY Wi-Fi event.",
+    },
+    {
+        "form_id": "diancie",
+        "game_id": "alpha-sapphire",
+        "method": "event",
+        "notes": "2014 Pokémon Center code distribution tied to the XY Wi-Fi event.",
+    },
+    {
+        "form_id": "hoopa",
+        "game_id": "omega-ruby",
+        "method": "event",
+        "notes": "2015 Pokémon Center serial-code distribution.",
+    },
+    {
+        "form_id": "hoopa",
+        "game_id": "alpha-sapphire",
+        "method": "event",
+        "notes": "2015 Pokémon Center serial-code distribution.",
+    },
+    {
+        "form_id": "volcanion",
+        "game_id": "omega-ruby",
+        "method": "event",
+        "notes": "2016 Volcanion and the Mechanical Marvel movie tie-in distribution.",
+    },
+    {
+        "form_id": "volcanion",
+        "game_id": "alpha-sapphire",
+        "method": "event",
+        "notes": "2016 Volcanion and the Mechanical Marvel movie tie-in distribution.",
+    },
+    {
+        "form_id": "marshadow",
+        "game_id": "ultra-sun",
+        "method": "event",
+        "notes": "2017 I Choose You movie tie-in serial-code distribution.",
+    },
+    {
+        "form_id": "marshadow",
+        "game_id": "ultra-moon",
+        "method": "event",
+        "notes": "2017 I Choose You movie tie-in serial-code distribution.",
+    },
+    {
+        "form_id": "zeraora",
+        "game_id": "ultra-sun",
+        "method": "event",
+        "notes": "2019 Pokémon Center / Power of Us movie tie-in distribution.",
+    },
+    {
+        "form_id": "zeraora",
+        "game_id": "ultra-moon",
+        "method": "event",
+        "notes": "2019 Pokémon Center / Power of Us movie tie-in distribution.",
+    },
+    {
+        "form_id": "zeraora",
+        "game_id": "sword",
+        "method": "event",
+        "notes": "2020 global Max Raid challenge giveaway.",
+    },
+    {
+        "form_id": "zeraora",
+        "game_id": "shield",
+        "method": "event",
+        "notes": "2020 global Max Raid challenge giveaway.",
+    },
+    # Meltan / Melmetal are exclusive to the Let's Go games' GO integration.
+    # Meltan is caught in the Mystery Box (received by transferring from GO).
+    # Melmetal must be evolved in GO with 400 Candy, then transferred back.
+    {
+        "form_id": "meltan",
+        "game_id": "lets-go-pikachu",
+        "method": "gift",
+        "notes": "Caught in the Mystery Box after connecting Pokémon GO.",
+    },
+    {
+        "form_id": "meltan",
+        "game_id": "lets-go-eevee",
+        "method": "gift",
+        "notes": "Caught in the Mystery Box after connecting Pokémon GO.",
+    },
+    {
+        "form_id": "melmetal",
+        "game_id": "lets-go-pikachu",
+        "method": "gift",
+        "notes": "Evolved from Meltan in Pokémon GO (400 Candy) and transferred.",
+    },
+    {
+        "form_id": "melmetal",
+        "game_id": "lets-go-eevee",
+        "method": "gift",
+        "notes": "Evolved from Meltan in Pokémon GO (400 Candy) and transferred.",
+    },
+    {
+        "form_id": "zarude",
+        "game_id": "sword",
+        "method": "event",
+        "notes": "2020 Coco movie tie-in serial-code distribution.",
+    },
+    {
+        "form_id": "zarude",
+        "game_id": "shield",
+        "method": "event",
+        "notes": "2020 Coco movie tie-in serial-code distribution.",
+    },
+    # Pecharunt is unlocked through the Mochi Mayhem epilogue in SV after
+    # finishing the Indigo Disk DLC. Story-driven single capture.
+    {
+        "form_id": "pecharunt",
+        "game_id": "scarlet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk.",
+    },
+    {
+        "form_id": "pecharunt",
+        "game_id": "violet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk.",
+    },
 ]
 
 

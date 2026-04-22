@@ -15711,6 +15711,18 @@
     "method_details": "only-one"
   },
   {
+    "form_id": "diancie",
+    "game_id": "alpha-sapphire",
+    "method": "event",
+    "notes": "2014 Pokémon Center code distribution tied to the XY Wi-Fi event."
+  },
+  {
+    "form_id": "diancie",
+    "game_id": "omega-ruby",
+    "method": "event",
+    "notes": "2014 Pokémon Center code distribution tied to the XY Wi-Fi event."
+  },
+  {
     "form_id": "diggersby",
     "game_id": "legends-za",
     "method": "evolution",
@@ -26852,6 +26864,20 @@
     "method_details": "walk"
   },
   {
+    "form_id": "genesect",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "genesect",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass"
+  },
+  {
     "form_id": "gengar",
     "game_id": "blue",
     "method": "trade"
@@ -34936,6 +34962,18 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "rough-terrain"
+  },
+  {
+    "form_id": "hoopa",
+    "game_id": "alpha-sapphire",
+    "method": "event",
+    "notes": "2015 Pokémon Center serial-code distribution."
+  },
+  {
+    "form_id": "hoopa",
+    "game_id": "omega-ruby",
+    "method": "event",
+    "notes": "2015 Pokémon Center serial-code distribution."
   },
   {
     "form_id": "hoothoot",
@@ -47676,6 +47714,18 @@
     "method": "evolution"
   },
   {
+    "form_id": "marshadow",
+    "game_id": "ultra-moon",
+    "method": "event",
+    "notes": "2017 I Choose You movie tie-in serial-code distribution."
+  },
+  {
+    "form_id": "marshadow",
+    "game_id": "ultra-sun",
+    "method": "event",
+    "notes": "2017 I Choose You movie tie-in serial-code distribution."
+  },
+  {
     "form_id": "marshtomp",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -48157,6 +48207,18 @@
     "method_details": "level-up"
   },
   {
+    "form_id": "melmetal",
+    "game_id": "lets-go-eevee",
+    "method": "gift",
+    "notes": "Evolved from Meltan in Pokémon GO (400 Candy) and transferred."
+  },
+  {
+    "form_id": "melmetal",
+    "game_id": "lets-go-pikachu",
+    "method": "gift",
+    "notes": "Evolved from Meltan in Pokémon GO (400 Candy) and transferred."
+  },
+  {
     "form_id": "meloetta",
     "game_id": "scarlet",
     "method": "static-encounter",
@@ -48169,6 +48231,18 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "meltan",
+    "game_id": "lets-go-eevee",
+    "method": "gift",
+    "notes": "Caught in the Mystery Box after connecting Pokémon GO."
+  },
+  {
+    "form_id": "meltan",
+    "game_id": "lets-go-pikachu",
+    "method": "gift",
+    "notes": "Caught in the Mystery Box after connecting Pokémon GO."
   },
   {
     "form_id": "meowscarada",
@@ -56271,6 +56345,22 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "red-flowers, walk"
+  },
+  {
+    "form_id": "pecharunt",
+    "game_id": "scarlet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk."
+  },
+  {
+    "form_id": "pecharunt",
+    "game_id": "violet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk."
   },
   {
     "form_id": "pelipper",
@@ -82479,6 +82569,18 @@
     "method_details": "level-up"
   },
   {
+    "form_id": "victini",
+    "game_id": "shield",
+    "method": "event",
+    "notes": "Pokémon Day 2021 serial-code distribution."
+  },
+  {
+    "form_id": "victini",
+    "game_id": "sword",
+    "method": "event",
+    "notes": "Pokémon Day 2021 serial-code distribution."
+  },
+  {
     "form_id": "victreebel",
     "game_id": "blue",
     "method": "evolution",
@@ -83182,6 +83284,18 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "purple-flowers, walk, yellow-flowers"
+  },
+  {
+    "form_id": "volcanion",
+    "game_id": "alpha-sapphire",
+    "method": "event",
+    "notes": "2016 Volcanion and the Mechanical Marvel movie tie-in distribution."
+  },
+  {
+    "form_id": "volcanion",
+    "game_id": "omega-ruby",
+    "method": "event",
+    "notes": "2016 Volcanion and the Mechanical Marvel movie tie-in distribution."
   },
   {
     "form_id": "volcarona",
@@ -87079,6 +87193,18 @@
     "requires_dlc": "expansion-pass"
   },
   {
+    "form_id": "zarude",
+    "game_id": "shield",
+    "method": "event",
+    "notes": "2020 Coco movie tie-in serial-code distribution."
+  },
+  {
+    "form_id": "zarude",
+    "game_id": "sword",
+    "method": "event",
+    "notes": "2020 Coco movie tie-in serial-code distribution."
+  },
+  {
     "form_id": "zarude-dada",
     "game_id": "shield",
     "method": "event"
@@ -87175,6 +87301,30 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "zeraora",
+    "game_id": "shield",
+    "method": "event",
+    "notes": "2020 global Max Raid challenge giveaway."
+  },
+  {
+    "form_id": "zeraora",
+    "game_id": "sword",
+    "method": "event",
+    "notes": "2020 global Max Raid challenge giveaway."
+  },
+  {
+    "form_id": "zeraora",
+    "game_id": "ultra-moon",
+    "method": "event",
+    "notes": "2019 Pokémon Center / Power of Us movie tie-in distribution."
+  },
+  {
+    "form_id": "zeraora",
+    "game_id": "ultra-sun",
+    "method": "event",
+    "notes": "2019 Pokémon Center / Power of Us movie tie-in distribution."
   },
   {
     "form_id": "zigzagoon",
