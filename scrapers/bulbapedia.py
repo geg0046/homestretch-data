@@ -247,11 +247,19 @@ def _species_page_title(display_name: str) -> str:
     return f"{display_name.replace(' ', '_')}_(Pokémon)"
 
 
+_REDIRECT_RE = re.compile(r"^\s*#redirect\s*\[\[([^\]]+)\]\]", re.I)
+
+
 def fetch_wikitext(
     bulba: RateLimitedClient,
     page_title: str,
 ) -> str | None:
-    """Return the raw wikitext of a Bulbapedia page, or None if missing."""
+    """Return the raw wikitext of a Bulbapedia page, or None if missing.
+
+    Follows `#redirect` pages once — Bulbapedia frequently uses them to
+    canonicalise apostrophe variants (curly vs straight, e.g. Sirfetch'd).
+    The redirect hop re-uses the per-URL cache, so both titles stay cheap.
+    """
     url = (
         f"{BULBAPEDIA_API}?action=parse"
         f"&page={quote(page_title, safe='')}"
@@ -260,7 +268,22 @@ def fetch_wikitext(
     data = bulba.get_json(url)
     if "error" in data:
         return None
-    return data.get("parse", {}).get("wikitext")
+    wikitext = data.get("parse", {}).get("wikitext")
+    if not wikitext:
+        return wikitext
+    m = _REDIRECT_RE.match(wikitext)
+    if m:
+        target = m.group(1).split("|", 1)[0].strip().replace(" ", "_")
+        redirect_url = (
+            f"{BULBAPEDIA_API}?action=parse"
+            f"&page={quote(target, safe='')}"
+            f"&prop=wikitext&format=json&formatversion=2"
+        )
+        data2 = bulba.get_json(redirect_url)
+        if "error" in data2:
+            return None
+        return data2.get("parse", {}).get("wikitext")
+    return wikitext
 
 
 def _english_name(species: dict[str, Any]) -> str | None:
@@ -450,6 +473,214 @@ def load_species_id_to_forms() -> dict[str, list[str]]:
     return out
 
 
+def load_dex_form_index() -> dict[tuple[int, str | None], str]:
+    """Return {(national_dex, form_name): form_id}. form_name is None for defaults."""
+    raw = json.loads(FORMS_PATH.read_text(encoding="utf-8"))
+    assert isinstance(raw, list)
+    out: dict[tuple[int, str | None], str] = {}
+    for form in raw:
+        out[(form["national_dex"], form.get("form_name"))] = form["id"]
+    return out
+
+
+# --- Evolution section parsing --------------------------------------------------
+
+
+# Bulbapedia regional suffix (as it appears in `noN=0000Species-Suffix`) →
+# forms.json form_name field.
+_REGIONAL_SUFFIX_MAP: dict[str, str] = {
+    "Galar": "galar",
+    "Alola": "alola",
+    "Hisui": "hisui",
+    "Paldea": "paldea",
+}
+
+# Bulbapedia `formN=` adjective phrases (e.g. "Galarian Form") mapping to
+# the same form_name slugs. Used as a fallback when `noN` has no suffix.
+_REGIONAL_FORM_TEXT_MAP: dict[str, str] = {
+    "Galarian Form": "galar",
+    "Alolan Form": "alola",
+    "Hisuian Form": "hisui",
+    "Paldean Form": "paldea",
+}
+
+# Hardcoded fallback game scope for regional variants when sources.json has
+# no existing rows to borrow from. Used only when emitting fresh evolution
+# rows for regional forms (e.g. raichu-alola) that PokéAPI mode skipped.
+_REGIONAL_GAMES: dict[str, tuple[str, ...]] = {
+    "alola": ("sun", "moon", "ultra-sun", "ultra-moon"),
+    "galar": ("sword", "shield"),
+    "hisui": ("legends-arceus",),
+    "paldea": ("scarlet", "violet"),
+}
+
+# Game-link text → in-scope game IDs. Only used for "cannot evolve in [[X]]"
+# exclusion phrases. Kept narrow: only games we might emit evolution rows for.
+_GAME_LINK_TO_GAMES: dict[str, tuple[str, ...]] = {
+    "Pokémon Scarlet and Violet": ("scarlet", "violet"),
+    "Pokémon Sword and Shield": ("sword", "shield"),
+    "Pokémon Brilliant Diamond and Shining Pearl": ("brilliant-diamond", "shining-pearl"),
+    "Pokémon Legends: Arceus": ("legends-arceus",),
+    "Pokémon Legends: Z-A": ("legends-za",),
+}
+
+# Item names (as they appear flattened from Bulbapedia wikitext) → slug to
+# append when PokéAPI's trigger collapses multiple items into a generic
+# `use-item`. Only items that gate evolutions uniquely on a specific game
+# are worth disambiguating; add entries as cases arise.
+_ITEM_NAME_TO_SLUG: dict[str, str] = {
+    "Black Augurite": "black-augurite",
+    "Peat Block": "peat-block",
+    "Linking Cord": "linking-cord",
+    "Auspicious Armor": "auspicious-armor",
+    "Malicious Armor": "malicious-armor",
+}
+
+
+def _extract_evolution_section(wikitext: str) -> str:
+    """Return the concatenated Evolution wikitext for a species page.
+
+    Captures both the top-level `===Evolution===` (under `==Biology==`) and
+    the deeper `===Evolution data===` (under `==Game data==`); Bulbapedia
+    frequently puts the per-game gating prose in the latter while the
+    evoboxes live in the former.
+    """
+    chunks: list[str] = []
+    for m in re.finditer(r"={2,4}\s*Evolution(?:\s+data)?\s*={2,4}", wikitext):
+        tail = wikitext[m.end() :]
+        # Stop at the next heading at the same or shallower depth.
+        depth = m.group(0).count("=") // 2
+        stop_re = re.compile(
+            r"\n=" + ("{" + str(depth) + ",4}") + r"[^=\n].*?=" + ("{" + str(depth) + ",4}")
+        )
+        end_match = stop_re.search(tail)
+        if end_match:
+            tail = tail[: end_match.start()]
+        chunks.append(tail)
+    return "\n".join(chunks)
+
+
+def _resolve_evobox_stage(
+    no_raw: str,
+    form_text: str,
+    dex_index: dict[tuple[int, str | None], str],
+) -> str | None:
+    """Map an evobox stage's `noN`/`formN` values to a form_id.
+
+    `no_raw` looks like "0562", "0562Yamask-Galar", or "0122Mr. Mime-Galar".
+    The 4-digit prefix is the national dex; a trailing `-Region` suffix
+    (or a `formN` value like "Galarian Form") pins the regional variant.
+    """
+    if not no_raw:
+        return None
+    m = re.match(r"0*(\d+)(.*)", no_raw.strip())
+    if not m:
+        return None
+    dex = int(m.group(1))
+    tail = m.group(2).strip()
+    region: str | None = None
+    for suffix, form_name in _REGIONAL_SUFFIX_MAP.items():
+        if tail.endswith(f"-{suffix}"):
+            region = form_name
+            break
+    if region is None and form_text:
+        for phrase, form_name in _REGIONAL_FORM_TEXT_MAP.items():
+            if phrase in form_text:
+                region = form_name
+                break
+    if region is not None:
+        fid = dex_index.get((dex, region))
+        if fid is not None:
+            return fid
+    return dex_index.get((dex, None))
+
+
+def _iter_evobox_templates(section: str) -> list[dict[str, str]]:
+    """Parse `{{Evobox-N|...}}` / `{{Evobox/...}}` templates from a section.
+
+    Bulbapedia uses `Evobox-2/3/4` for linear chains and `Evobox/2branch2`
+    style names for branched chains; both are matched case-insensitively.
+    """
+    out: list[dict[str, str]] = []
+    for start, end in _find_templates(section):
+        raw = section[start:end]
+        if not re.match(r"\{\{[Ee]vobox[/-]", raw):
+            continue
+        out.append(_parse_template(raw))
+    return out
+
+
+def _evobox_edges(
+    template: dict[str, str],
+    dex_index: dict[tuple[int, str | None], str],
+) -> list[tuple[str, str, str]]:
+    """Return (prev_form_id, next_form_id, trigger_text) edges for one evobox.
+
+    Handles linear chains (`no1`, `no2`, `no3`) and single-letter branches
+    (`no2a`, `no2b`). Trigger text is taken from the outgoing stage's
+    `evoN`/`evoNa`/`evoNb` field, flattened from wikitext to plain text.
+    """
+    # Collect stages: {(stage_num, letter): form_id}
+    stages: dict[tuple[int, str], str] = {}
+    for pname, pval in template.items():
+        m = re.fullmatch(r"no(\d+)([a-z]?)", pname)
+        if not m:
+            continue
+        n = int(m.group(1))
+        letter = m.group(2)
+        form_text = template.get(f"form{n}{letter}", "")
+        fid = _resolve_evobox_stage(pval, form_text, dex_index)
+        if fid is not None:
+            stages[(n, letter)] = fid
+
+    by_stage: dict[int, list[tuple[str, str]]] = {}
+    for (n, letter), fid in stages.items():
+        by_stage.setdefault(n, []).append((letter, fid))
+
+    edges: list[tuple[str, str, str]] = []
+    stage_nums = sorted(by_stage)
+    for i in range(len(stage_nums) - 1):
+        cur_n = stage_nums[i]
+        nxt_n = stage_nums[i + 1]
+        for prev_letter, prev_fid in by_stage[cur_n]:
+            trigger = template.get(f"evo{cur_n}{prev_letter}") or template.get(f"evo{cur_n}", "")
+            trigger_flat = _flatten_wikitext(trigger)
+            for _, next_fid in by_stage[nxt_n]:
+                edges.append((prev_fid, next_fid, trigger_flat))
+    return edges
+
+
+def _detect_item_slug(trigger_text: str) -> str | None:
+    """Map an evobox trigger's flattened text to a known item slug, if any."""
+    for name, slug in _ITEM_NAME_TO_SLUG.items():
+        if name in trigger_text:
+            return slug
+    return None
+
+
+def _parse_excluded_games(section: str) -> set[str]:
+    """Find games where evolution is explicitly blocked by prose.
+
+    Matches phrases like "... cannot evolve ... in [[Pokémon X and Y]]".
+    Narrow by design: the cost of a false positive (removing a valid row)
+    is higher than missing a rare phrasing.
+    """
+    excluded: set[str] = set()
+    # Stop at clause boundaries (comma/semicolon) so contrast phrases like
+    # "...cannot evolve in SV, but can be transferred to LA..." don't pull
+    # the LA link into the exclusion set.
+    pattern = re.compile(
+        r"\bcannot\b[^.,;]*?\bevolv[a-z]*\b[^.,;]*",
+        re.I,
+    )
+    for m in pattern.finditer(section):
+        phrase = m.group(0)
+        for link_text, game_ids in _GAME_LINK_TO_GAMES.items():
+            if link_text in phrase:
+                excluded.update(game_ids)
+    return excluded
+
+
 # --- CLI entry points -----------------------------------------------------------
 
 
@@ -496,20 +727,185 @@ def _scrape_sources(
     return 0
 
 
+def _regional_form_name(form_id: str) -> str | None:
+    """Return "galar"/"alola"/"hisui"/"paldea" if form_id ends in that suffix."""
+    for form_name in _REGIONAL_SUFFIX_MAP.values():
+        if form_id.endswith(f"-{form_name}"):
+            return form_name
+    return None
+
+
+def _enrich_details(details: str, pre_evo: str | None, item_slug: str | None) -> str:
+    """Append pre-evo and item annotations to a method_details string, idempotently."""
+    out = details
+    if item_slug and item_slug not in out:
+        out = f"{out} {item_slug}".strip() if out else item_slug
+    if pre_evo:
+        suffix = f"from {pre_evo}"
+        if suffix not in out:
+            out = f"{out} {suffix}".strip() if out else suffix
+    return out
+
+
 def _scrape_evolutions(
     bulba: RateLimitedClient,
     pokeapi: RateLimitedClient,
     min_dex: int,
     max_dex: int,
 ) -> int:
-    # Placeholder: evolutions refinement mode is tracked for Phase D of the
-    # plan. The stub here makes the CLI surface match pokeapi.py's for
-    # consistency; implementation will land in a follow-up commit.
-    print(
-        "bulbapedia --mode evolutions not yet implemented; see plan Phase D for scope.",
-        file=sys.stderr,
+    """Refine evolution Source rows using Bulbapedia's per-species Evolution wikitext.
+
+    Scope is narrow: PokéAPI's evolution mode remains authoritative for the
+    trigger catalog. This pass only (a) annotates pre-evo provenance when
+    Bulbapedia shows a regional variant on the pre-evo side, (b) adds
+    evolution rows for regional-variant forms that PokéAPI's default-form
+    attribution skipped entirely, (c) removes rows for games where prose
+    explicitly blocks the evolution, and (d) enriches a generic `use-item`
+    trigger with a known item slug when the evobox names a specific item.
+    """
+    dex_index = load_dex_form_index()
+    existing = load_existing_sources()
+
+    # Per-edge refinements indexed on the evolved side: (target_form_id) →
+    # {'pre_evo': str | None, 'item': str | None, 'excluded': set[str]}.
+    # 'excluded' games come from prose on the target's page and apply to
+    # every evolution row whose form_id == target (all triggers, all games).
+    refinements: dict[str, dict[str, Any]] = {}
+
+    # Edges keyed by (prev_form_id, next_form_id) so we can cross-reference
+    # game scope for regional-form row creation. Value is the trigger_flat.
+    edges_seen: dict[tuple[str, str], str] = {}
+
+    for dex in range(min_dex, max_dex + 1):
+        species = pokeapi.get_json(f"{POKEAPI_BASE}/pokemon-species/{dex}/")
+        species_id = species["name"]
+        english = _english_name(species)
+        if english is None:
+            continue
+        page_title = _species_page_title(english)
+        wikitext = fetch_wikitext(bulba, page_title)
+        if wikitext is None:
+            continue
+        section = _extract_evolution_section(wikitext)
+        if not section:
+            continue
+        excluded = _parse_excluded_games(section)
+        if excluded:
+            # Prose exclusions apply to the page's species itself — that's
+            # the evolved target the prose describes ("X cannot evolve into
+            # <species> in game Y").
+            refinements.setdefault(
+                species_id,
+                {"pre_evo": None, "item": None, "excluded": set()},
+            )["excluded"] |= excluded
+
+        for tmpl in _iter_evobox_templates(section):
+            for prev_fid, next_fid, trigger in _evobox_edges(tmpl, dex_index):
+                if prev_fid == next_fid:
+                    continue
+                edges_seen[(prev_fid, next_fid)] = trigger
+                prev_is_regional = _regional_form_name(prev_fid) is not None
+                next_is_regional = _regional_form_name(next_fid) is not None
+                item_slug = _detect_item_slug(trigger)
+                # Refine when the edge involves a regional form OR names a
+                # game-gating item. Plain level-up chains on default forms
+                # are already correctly attributed by PokéAPI mode.
+                if not (prev_is_regional or next_is_regional or item_slug):
+                    continue
+                entry = refinements.setdefault(
+                    next_fid,
+                    {"pre_evo": None, "item": None, "excluded": set()},
+                )
+                if prev_is_regional and entry["pre_evo"] is None:
+                    entry["pre_evo"] = prev_fid
+                if item_slug and entry["item"] is None:
+                    entry["item"] = item_slug
+
+    if not refinements:
+        print("no evolution refinements detected; sources.json unchanged.")
+        return 0
+
+    # Pre-compute existing non-evolution rows per form_id — used as the
+    # game-scope hint for regional-form evolution rows we're about to add.
+    rows_by_form: dict[str, list[dict[str, Any]]] = {}
+    for row in existing:
+        rows_by_form.setdefault(row["form_id"], []).append(row)
+
+    # Pass 1 — modify or drop existing evolution rows.
+    modified = 0
+    removed = 0
+    kept: list[dict[str, Any]] = []
+    for row in existing:
+        if row.get("method") != "evolution":
+            kept.append(row)
+            continue
+        fid = row["form_id"]
+        ref = refinements.get(fid)
+        if ref is None:
+            kept.append(row)
+            continue
+        if row["game_id"] in ref["excluded"]:
+            removed += 1
+            continue
+        new_details = _enrich_details(
+            row.get("method_details", ""),
+            ref["pre_evo"],
+            ref["item"],
+        )
+        if new_details != row.get("method_details", ""):
+            new_row = dict(row)
+            if new_details:
+                new_row["method_details"] = new_details
+            else:
+                new_row.pop("method_details", None)
+            kept.append(new_row)
+            modified += 1
+        else:
+            kept.append(row)
+
+    # Pass 2 — add fresh evolution rows for regional forms PokéAPI skipped.
+    added = 0
+    new_rows: list[dict[str, Any]] = []
+    for next_fid, ref in refinements.items():
+        region = _regional_form_name(next_fid)
+        if region is None:
+            continue
+        # If the regional form already has any evolution row, Pass 1 handled it.
+        if any(r.get("method") == "evolution" and r["form_id"] == next_fid for r in kept):
+            continue
+        # Scope: union of games where the regional form appears in
+        # non-evolution rows (proof of obtainability) with the hardcoded
+        # regional game list for the region. Excluded games are filtered
+        # out.
+        scoped = {r["game_id"] for r in rows_by_form.get(next_fid, [])}
+        scoped |= set(_REGIONAL_GAMES.get(region, ()))
+        scoped -= ref["excluded"]
+        if not scoped:
+            continue
+        details = _enrich_details("", ref["pre_evo"], ref["item"])
+        for game_id in sorted(scoped):
+            entry: dict[str, Any] = {
+                "form_id": next_fid,
+                "game_id": game_id,
+                "method": Method.EVOLUTION.value,
+            }
+            if details:
+                entry["method_details"] = details
+            new_rows.append(entry)
+            added += 1
+
+    merged = kept + new_rows
+    merged.sort(key=_source_key)
+    TypeAdapter(list[Source]).validate_python(merged)
+    SOURCES_PATH.write_text(
+        json.dumps(merged, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
     )
-    return 2
+    print(
+        f"evolutions refinement: {modified} modified, {removed} removed, "
+        f"{added} added; wrote {len(merged)} sources."
+    )
+    return 0
 
 
 def main() -> int:
