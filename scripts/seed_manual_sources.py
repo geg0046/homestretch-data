@@ -1,6 +1,6 @@
 """Merge manually-curated Source rows into `data/sources.json`.
 
-Covers two categories upstream doesn't express as structured data:
+Covers categories upstream doesn't express as structured data:
 
 1. **Breeding-only babies** (Pichu, Cleffa, Elekid, etc.) — one row per
    (baby, game) pair for games that: (a) are >= the baby's introduction
@@ -9,6 +9,10 @@ Covers two categories upstream doesn't express as structured data:
 2. **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/GSC, plus
    a handful of others) — encoded as `method=purchase,
    method_details=game-corner`.
+3. **Forms no scraper expresses at all** (event-only Pokémon, Let's Go
+   partner starters, Gen 9 DLC evolutions PokéAPI's evolution chain
+   data hasn't been updated for) — enumerated row-by-row in
+   `EXPLICIT_ROWS`.
 
 Re-runs are idempotent: rows are keyed on the full Source identity
 (`SOURCE_KEY_FIELDS`) and existing entries win on conflict, matching
@@ -83,6 +87,84 @@ PURCHASE_ROWS: list[tuple[str, list[str]]] = [
     ("wobbuffet", ["crystal"]),
 ]
 
+# Fully-specified rows for forms where scraper coverage is incomplete and the
+# acquisition path is narrow enough to enumerate. Each dict is a complete
+# Source payload (everything but the implicit idempotency key).
+EXPLICIT_ROWS: list[dict[str, object]] = [
+    # Event-only forms (scrapers/pokeapi.py::EVENT_ONLY_FORM_IDS marks the
+    # category; nothing emits the corresponding source rows).
+    # greninja-battle-bond: Ash-Greninja distribution in SM (2017).
+    {"form_id": "greninja-battle-bond", "game_id": "sun", "method": "event"},
+    {"form_id": "greninja-battle-bond", "game_id": "moon", "method": "event"},
+    # magearna-original: "Original Color" Magearna, awarded for completing
+    # the National Dex in Pokémon HOME from SwSh (2020).
+    {"form_id": "magearna-original", "game_id": "sword", "method": "event"},
+    {"form_id": "magearna-original", "game_id": "shield", "method": "event"},
+    # zarude-dada: serial-code distribution tied to the Coco movie (2020).
+    {"form_id": "zarude-dada", "game_id": "sword", "method": "event"},
+    {"form_id": "zarude-dada", "game_id": "shield", "method": "event"},
+    # Let's Go partner Pikachu/Eevee — game-locked gift at game start.
+    {"form_id": "pikachu-starter", "game_id": "lets-go-pikachu", "method": "gift"},
+    {"form_id": "eevee-starter", "game_id": "lets-go-eevee", "method": "gift"},
+    # basculin-white-striped: PLA wild + SV Indigo Disk Terarium.
+    {
+        "form_id": "basculin-white-striped",
+        "game_id": "legends-arceus",
+        "method": "wild-encounter",
+    },
+    {
+        "form_id": "basculin-white-striped",
+        "game_id": "scarlet",
+        "method": "wild-encounter",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+    },
+    {
+        "form_id": "basculin-white-striped",
+        "game_id": "violet",
+        "method": "wild-encounter",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+    },
+    # Indigo Disk evolutions PokéAPI's evolution-chain endpoint hasn't
+    # surfaced yet. Duraludon → Archaludon via Metal Alloy; Dipplin →
+    # Hydrapple via level-up while knowing Dragon Cheer.
+    {
+        "form_id": "archaludon",
+        "game_id": "scarlet",
+        "method": "evolution",
+        "method_details": "use-item",
+        "item": "metal-alloy",
+        "from_form": "duraludon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+    },
+    {
+        "form_id": "archaludon",
+        "game_id": "violet",
+        "method": "evolution",
+        "method_details": "use-item",
+        "item": "metal-alloy",
+        "from_form": "duraludon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+    },
+    {
+        "form_id": "hydrapple",
+        "game_id": "scarlet",
+        "method": "evolution",
+        "method_details": "level-up",
+        "known_move": "dragon-cheer",
+        "from_form": "dipplin",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+    },
+    {
+        "form_id": "hydrapple",
+        "game_id": "violet",
+        "method": "evolution",
+        "method_details": "level-up",
+        "known_move": "dragon-cheer",
+        "from_form": "dipplin",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+    },
+]
+
 
 def _build_rows() -> list[dict]:
     rows: list[dict] = []
@@ -106,6 +188,7 @@ def _build_rows() -> list[dict]:
                     "method_details": "game-corner",
                 }
             )
+    rows.extend(EXPLICIT_ROWS)
     return rows
 
 
