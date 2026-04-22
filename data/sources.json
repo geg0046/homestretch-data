@@ -167,6 +167,12 @@
   {
     "form_id": "abra",
     "game_id": "blue",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "abra",
+    "game_id": "blue",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -184,6 +190,12 @@
   {
     "form_id": "abra",
     "game_id": "crystal",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "abra",
+    "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -191,6 +203,12 @@
     "form_id": "abra",
     "game_id": "gold",
     "method": "gift"
+  },
+  {
+    "form_id": "abra",
+    "game_id": "gold",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "abra",
@@ -236,6 +254,12 @@
   {
     "form_id": "abra",
     "game_id": "red",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "abra",
+    "game_id": "red",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -256,6 +280,12 @@
     "form_id": "abra",
     "game_id": "silver",
     "method": "gift"
+  },
+  {
+    "form_id": "abra",
+    "game_id": "silver",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "abra",
@@ -304,6 +334,12 @@
     "form_id": "abra",
     "game_id": "yellow",
     "method": "gift"
+  },
+  {
+    "form_id": "abra",
+    "game_id": "yellow",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "abra",
@@ -9492,6 +9528,12 @@
   {
     "form_id": "clefairy",
     "game_id": "blue",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "clefairy",
+    "game_id": "blue",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -9601,6 +9643,12 @@
     "form_id": "clefairy",
     "game_id": "red",
     "method": "gift"
+  },
+  {
+    "form_id": "clefairy",
+    "game_id": "red",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "clefairy",
@@ -11854,6 +11902,12 @@
     "form_id": "cubone",
     "game_id": "crystal",
     "method": "gift"
+  },
+  {
+    "form_id": "cubone",
+    "game_id": "crystal",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "cubone",
@@ -14602,6 +14656,12 @@
   },
   {
     "form_id": "dratini",
+    "game_id": "blue",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "dratini",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "Mount Coronet (Super Rod)<br>Grand Underground - Fountainspring Cave (After obtaining the National Pokédex)"
@@ -14633,6 +14693,12 @@
     "form_id": "dratini",
     "game_id": "gold",
     "method": "gift"
+  },
+  {
+    "form_id": "dratini",
+    "game_id": "gold",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "dratini",
@@ -14683,6 +14749,12 @@
   },
   {
     "form_id": "dratini",
+    "game_id": "red",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "dratini",
     "game_id": "scarlet",
     "method": "raid",
     "method_details": "South Province: Area Six<br>North Province: Area Two, Casseroya Lake<br>Tera Raid Battles (3★)"
@@ -14710,6 +14782,12 @@
     "form_id": "dratini",
     "game_id": "silver",
     "method": "gift"
+  },
+  {
+    "form_id": "dratini",
+    "game_id": "silver",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "dratini",
@@ -16436,6 +16514,12 @@
   },
   {
     "form_id": "eevee",
+    "game_id": "gold",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "eevee",
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "'''Obsidian Fieldlands:''' Horseshoe Plains, Space-time distortions<br>'''Crimson Mirelands:''' Space-time distortions<br>'''Cobalt Coastlands:''' near Crossing Slope, Space-time distortions<br>'''Coronet Highlands:''' Space-time distortions<br>'''Alabaster Icelands:''' Space-time distortions"
@@ -16515,6 +16599,12 @@
     "form_id": "eevee",
     "game_id": "silver",
     "method": "gift"
+  },
+  {
+    "form_id": "eevee",
+    "game_id": "silver",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "eevee",
@@ -16626,6 +16716,12 @@
     "form_id": "ekans",
     "game_id": "gold",
     "method": "gift"
+  },
+  {
+    "form_id": "ekans",
+    "game_id": "gold",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "ekans",
@@ -33741,6 +33837,12 @@
   {
     "form_id": "larvitar",
     "game_id": "crystal",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "larvitar",
+    "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -41972,6 +42074,12 @@
   {
     "form_id": "mr-mime",
     "game_id": "gold",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "mr-mime",
+    "game_id": "gold",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -42064,6 +42172,12 @@
     "form_id": "mr-mime",
     "game_id": "silver",
     "method": "gift"
+  },
+  {
+    "form_id": "mr-mime",
+    "game_id": "silver",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "mr-mime",
@@ -43548,6 +43662,12 @@
   {
     "form_id": "nidorina",
     "game_id": "red",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "nidorina",
+    "game_id": "red",
     "method": "trade",
     "method_details": "npc-trade"
   },
@@ -43647,6 +43767,12 @@
     "form_id": "nidorino",
     "game_id": "blue",
     "method": "gift"
+  },
+  {
+    "form_id": "nidorino",
+    "game_id": "blue",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "nidorino",
@@ -47607,6 +47733,12 @@
   {
     "form_id": "pikachu",
     "game_id": "crystal",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "pikachu",
+    "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -48185,6 +48317,12 @@
   {
     "form_id": "pinsir",
     "game_id": "blue",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "pinsir",
+    "game_id": "blue",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -48278,6 +48416,12 @@
     "form_id": "pinsir",
     "game_id": "yellow",
     "method": "gift"
+  },
+  {
+    "form_id": "pinsir",
+    "game_id": "yellow",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "pinsir",
@@ -49393,6 +49537,12 @@
   },
   {
     "form_id": "porygon",
+    "game_id": "blue",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "porygon",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter",
     "method_details": "Trophy Garden"
@@ -49404,8 +49554,20 @@
   },
   {
     "form_id": "porygon",
+    "game_id": "crystal",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "porygon",
     "game_id": "gold",
     "method": "gift"
+  },
+  {
+    "form_id": "porygon",
+    "game_id": "gold",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "porygon",
@@ -49453,6 +49615,12 @@
   },
   {
     "form_id": "porygon",
+    "game_id": "red",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "porygon",
     "game_id": "scarlet",
     "method": "raid",
     "method_details": "Canyon Biome, Chargestone Cavern, Polar Biome<br>Tera Raid Battles (3★)",
@@ -49475,6 +49643,12 @@
     "form_id": "porygon",
     "game_id": "silver",
     "method": "gift"
+  },
+  {
+    "form_id": "porygon",
+    "game_id": "silver",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "porygon",
@@ -49509,6 +49683,12 @@
     "form_id": "porygon",
     "game_id": "yellow",
     "method": "gift"
+  },
+  {
+    "form_id": "porygon",
+    "game_id": "yellow",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "porygon-z",
@@ -54473,6 +54653,12 @@
   },
   {
     "form_id": "sandshrew",
+    "game_id": "silver",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "sandshrew",
     "game_id": "sword",
     "method": "raid",
     "method_details": "Warm-Up Tunnel <small>('''Kantonian Form''')</small><br>Challenge Beach, Courageous Cavern (Max Raid Battle) <small>('''Kantonian Form''')</small><br>Reward for finding at least 30 Alolan Diglett <small>('''Alolan Form''')</small>",
@@ -55340,6 +55526,12 @@
   {
     "form_id": "scyther",
     "game_id": "red",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
+    "form_id": "scyther",
+    "game_id": "red",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -55422,6 +55614,12 @@
     "form_id": "scyther",
     "game_id": "yellow",
     "method": "gift"
+  },
+  {
+    "form_id": "scyther",
+    "game_id": "yellow",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "scyther",
@@ -68985,6 +69183,12 @@
     "method": "gift"
   },
   {
+    "form_id": "vulpix",
+    "game_id": "yellow",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
     "form_id": "vulpix-alola",
     "game_id": "lets-go-eevee",
     "method": "trade",
@@ -70510,6 +70714,12 @@
     "method": "gift"
   },
   {
+    "form_id": "wigglytuff",
+    "game_id": "yellow",
+    "method": "purchase",
+    "method_details": "game-corner"
+  },
+  {
     "form_id": "wiglett",
     "game_id": "scarlet",
     "method": "raid",
@@ -70797,6 +71007,12 @@
     "form_id": "wobbuffet",
     "game_id": "crystal",
     "method": "gift"
+  },
+  {
+    "form_id": "wobbuffet",
+    "game_id": "crystal",
+    "method": "purchase",
+    "method_details": "game-corner"
   },
   {
     "form_id": "wobbuffet",
