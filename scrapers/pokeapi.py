@@ -19,8 +19,14 @@ from pathlib import Path
 from typing import Any
 
 import httpx
+from evolution_details import (
+    KNOWN_TRIGGERS,
+    detail_to_source_fields,
+    gate_games,
+    method_for_trigger,
+)
 from pydantic import TypeAdapter
-from utils import RateLimitedClient, merge_by_key
+from utils import RateLimitedClient, merge_by_key, source_key, source_sort_key
 
 from homestretch_data.models import Form, FormCategory, Method, Source
 
@@ -412,13 +418,18 @@ def build_sources_for_species(
 
     results: list[dict[str, Any]] = []
     for (form_id, game_id, method), method_names in by_key.items():
-        details_str = ", ".join(sorted(method_names))
+        # Rule 7: drop any component that equals the method enum — it's
+        # redundant with `method`. Matters when the collapsed set mixes
+        # a bare method name with a subtype (e.g. {"gift", "gift-egg"}
+        # → method_details="gift-egg", not "gift, gift-egg").
+        components = sorted(n for n in method_names if n != method.value)
+        details_str = ", ".join(components)
         entry: dict[str, Any] = {
             "form_id": form_id,
             "game_id": game_id,
             "method": method.value,
         }
-        if details_str != method.value:
+        if details_str:
             entry["method_details"] = details_str
         results.append(entry)
     return results
@@ -466,18 +477,24 @@ def build_evolution_sources_for_chain(
     chain: dict[str, Any],
     client: RateLimitedClient,
     valid_form_ids: set[str],
+    unknown_triggers: set[str] | None = None,
 ) -> list[dict[str, Any]]:
-    """Walk a PokéAPI evolution-chain and emit Source rows for each evolved
-    species. Method is `trade` when the trigger is `trade`, otherwise
-    `evolution`. method_details carries the raw PokéAPI trigger name(s).
+    """Walk a PokéAPI evolution-chain and emit one Source row per
+    evolution_detail per applicable game.
 
-    Attribution is to the evolved species's default form (form_id == species_id).
-    Game scope is derived from the evolved species's `pokedex_numbers` via
-    POKEDEX_TO_GAMES — we only emit a row for games whose regional dex the
-    species appears in. This under-emits for branched regional evolutions
-    (e.g. yamask-galar → runerigus attributes to runerigus as a default-form
-    row, losing the pre-evolution provenance) but over-emission is worse
-    since it would misrepresent availability.
+    Each PokéAPI `evolution_detail` dict is one specific evolution path
+    (Crabominable has two: one with `location=mount-lanakila`, one with
+    `item=ice-stone`). Each path gets its own row. Structured condition
+    fields (item, held_item, location, known_move, trade_species, …) are
+    populated via `detail_to_source_fields`. Per-game gating narrows the
+    species's pokedex scope when the detail names a location or item that
+    isn't available in every scoped game.
+
+    Attribution is to the evolved species's default form (form_id ==
+    species_id). Branched regional evolutions (runerigus from
+    yamask-galar) are refined afterwards by the Bulbapedia evolutions
+    pass, which fills `from_form` and adds rows for regional targets
+    PokéAPI skipped.
     """
     results: list[dict[str, Any]] = []
 
@@ -487,28 +504,40 @@ def build_evolution_sources_for_chain(
             if evolved_species_id not in valid_form_ids:
                 walk(child)
                 continue
-            methods_by_kind: dict[Method, set[str]] = {}
-            for detail in child["evolution_details"]:
-                trigger = detail["trigger"]["name"]
-                method = Method.TRADE if trigger == "trade" else Method.EVOLUTION
-                methods_by_kind.setdefault(method, set()).add(trigger)
 
             evolved_species = client.get_json(child["species"]["url"])
             scope_games: set[str] = set()
             for pdn in evolved_species.get("pokedex_numbers", []):
                 scope_games.update(POKEDEX_TO_GAMES.get(pdn["pokedex"]["name"], ()))
             scope_games &= IN_SCOPE_VERSIONS
+            if not scope_games:
+                walk(child)
+                continue
 
-            for method, triggers in methods_by_kind.items():
-                details_str = ", ".join(sorted(triggers))
-                for game_id in scope_games:
+            for detail in child["evolution_details"]:
+                trigger = detail.get("trigger", {}).get("name")
+                if not trigger:
+                    continue
+                if trigger not in KNOWN_TRIGGERS and unknown_triggers is not None:
+                    unknown_triggers.add(trigger)
+                method = method_for_trigger(trigger)
+                fields = detail_to_source_fields(detail)
+                applicable_games = gate_games(fields, scope_games, evolved_species_id)
+                if not applicable_games:
+                    continue
+                # Rule 7: omit method_details when it equals the enum.
+                details_str = fields.pop("method_details", None)
+                if details_str == method.value:
+                    details_str = None
+                for game_id in applicable_games:
                     entry: dict[str, Any] = {
                         "form_id": evolved_species_id,
                         "game_id": game_id,
                         "method": method.value,
                     }
-                    if details_str != method.value:
+                    if details_str is not None:
                         entry["method_details"] = details_str
+                    entry.update(fields)
                     results.append(entry)
             walk(child)
 
@@ -530,8 +559,8 @@ def merge_forms(existing: list[dict[str, Any]], new: list[dict[str, Any]]) -> li
     return merged
 
 
-def _source_key(entry: dict[str, Any]) -> tuple[str, str, str]:
-    return (entry["form_id"], entry["game_id"], entry["method"])
+_source_key = source_key
+_source_sort_key = source_sort_key
 
 
 def load_existing_sources() -> list[dict[str, Any]]:
@@ -546,7 +575,7 @@ def merge_sources(
     existing: list[dict[str, Any]], new: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
     merged = merge_by_key(existing, new, key_fn=_source_key)
-    merged.sort(key=_source_key)
+    merged.sort(key=_source_sort_key)
     return merged
 
 
@@ -599,6 +628,7 @@ def _scrape_evolutions(client: RateLimitedClient, min_dex: int, max_dex: int) ->
 
     seen_chain_urls: set[str] = set()
     all_new: list[dict[str, Any]] = []
+    unknown_triggers: set[str] = set()
     for dex in range(min_dex, max_dex + 1):
         species = client.get_json(f"{BASE_URL}/pokemon-species/{dex}/")
         chain_url = species["evolution_chain"]["url"]
@@ -607,7 +637,7 @@ def _scrape_evolutions(client: RateLimitedClient, min_dex: int, max_dex: int) ->
             continue
         seen_chain_urls.add(chain_url)
         chain = client.get_json(chain_url)
-        sources = build_evolution_sources_for_chain(chain, client, valid_form_ids)
+        sources = build_evolution_sources_for_chain(chain, client, valid_form_ids, unknown_triggers)
         all_new.extend(sources)
         print(f"  #{dex:04d} {species['name']}: {len(sources)} evolution source(s)")
 
@@ -618,6 +648,9 @@ def _scrape_evolutions(client: RateLimitedClient, min_dex: int, max_dex: int) ->
         encoding="utf-8",
     )
     print(f"wrote {len(merged)} sources to {SOURCES_PATH.relative_to(REPO_ROOT)}")
+    if unknown_triggers:
+        names = sorted(unknown_triggers)
+        print(f"warning: {len(names)} unrecognized evolution trigger(s): {names}")
     return 0
 
 

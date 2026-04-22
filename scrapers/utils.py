@@ -64,6 +64,54 @@ class RateLimitedClient:
         raise RuntimeError(f"failed to fetch {url}") from last_error
 
 
+# Full semantic identity of a Source row for dedup/merge. Alternative
+# evolution paths share (form_id, game_id, method) but differ in
+# method_details and the structured condition fields, so the merge key
+# must span them all. Fields must match Source model attribute names.
+SOURCE_KEY_FIELDS: tuple[str, ...] = (
+    "form_id",
+    "game_id",
+    "method",
+    "method_details",
+    "item",
+    "held_item",
+    "location",
+    "known_move",
+    "known_move_type",
+    "trade_species",
+    "party_species",
+    "party_type",
+    "from_form",
+    "time_of_day",
+    "gender",
+    "relative_physical_stats",
+    "min_happiness",
+    "min_affection",
+    "min_beauty",
+    "needs_overworld_rain",
+    "turn_upside_down",
+    "needs_multiplayer",
+    "requires_dlc",
+    "requires_trade",
+)
+
+
+def source_key(entry: dict[str, Any]) -> tuple[Any, ...]:
+    """Canonical merge/dedup key for a Source row dict."""
+    return tuple(entry.get(f) for f in SOURCE_KEY_FIELDS)
+
+
+def source_sort_key(entry: dict[str, Any]) -> tuple[str, str, str, str]:
+    """Stable sort order for sources.json: groups rows per form/game/method
+    and uses method_details as tiebreaker across alternative paths."""
+    return (
+        entry["form_id"],
+        entry["game_id"],
+        entry["method"],
+        entry.get("method_details") or "",
+    )
+
+
 def merge_by_key[T, K](
     existing: Iterable[T],
     new: Iterable[T],
