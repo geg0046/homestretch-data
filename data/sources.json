@@ -3080,9 +3080,27 @@
   },
   {
     "form_id": "azurill",
+    "game_id": "alpha-sapphire",
+    "method": "breeding",
+    "method_details": "from marill"
+  },
+  {
+    "form_id": "azurill",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter",
     "method_details": "Trophy Garden (after obtaining the National Pokédex), Great Marsh"
+  },
+  {
+    "form_id": "azurill",
+    "game_id": "moon",
+    "method": "breeding",
+    "method_details": "from marill"
+  },
+  {
+    "form_id": "azurill",
+    "game_id": "omega-ruby",
+    "method": "breeding",
+    "method_details": "from marill"
   },
   {
     "form_id": "azurill",
@@ -3102,6 +3120,12 @@
     "game_id": "shining-pearl",
     "method": "wild-encounter",
     "method_details": "Trophy Garden (after obtaining the National Pokédex), Great Marsh"
+  },
+  {
+    "form_id": "azurill",
+    "game_id": "sun",
+    "method": "breeding",
+    "method_details": "from marill"
   },
   {
     "form_id": "azurill",
@@ -5493,6 +5517,18 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "bonsly",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from sudowoodo"
+  },
+  {
+    "form_id": "bonsly",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from sudowoodo"
+  },
+  {
     "form_id": "bouffalant",
     "game_id": "shield",
     "method": "wild-encounter",
@@ -6101,6 +6137,12 @@
   },
   {
     "form_id": "budew",
+    "game_id": "alpha-sapphire",
+    "method": "breeding",
+    "method_details": "from roselia"
+  },
+  {
+    "form_id": "budew",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter",
     "method_details": "Routes {{rtn|204|Sinnoh}} and {{rtn|212|Sinnoh}}, Eterna Forest, Great Marsh<br>Grand Underground - Spacious Cave, Grassland Cave, Riverbank Cave, Still-Water Cavern, Sunlit Cavern"
@@ -6119,6 +6161,18 @@
   },
   {
     "form_id": "budew",
+    "game_id": "moon",
+    "method": "breeding",
+    "method_details": "from roselia"
+  },
+  {
+    "form_id": "budew",
+    "game_id": "omega-ruby",
+    "method": "breeding",
+    "method_details": "from roselia"
+  },
+  {
+    "form_id": "budew",
     "game_id": "shield",
     "method": "raid",
     "method_details": "{{rt|4|Galar}}, Rolling Fields, Dappled Grove, West Lake Axewell, East Lake Axewell, Giant's Mirror<br>Bridge Field, Dappled Grove, Giant's Mirror, Stony Wilderness (Max Raid Battle)"
@@ -6128,6 +6182,12 @@
     "game_id": "shining-pearl",
     "method": "wild-encounter",
     "method_details": "Routes {{rtn|204|Sinnoh}} and {{rtn|212|Sinnoh}}, Eterna Forest, Great Marsh<br>Grand Underground - Spacious Cave, Grassland Cave, Riverbank Cave, Still-Water Cavern, Sunlit Cavern"
+  },
+  {
+    "form_id": "budew",
+    "game_id": "sun",
+    "method": "breeding",
+    "method_details": "from roselia"
   },
   {
     "form_id": "budew",
@@ -8874,6 +8934,12 @@
   },
   {
     "form_id": "chingling",
+    "game_id": "alpha-sapphire",
+    "method": "breeding",
+    "method_details": "from chimecho"
+  },
+  {
+    "form_id": "chingling",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter",
     "method_details": "{{rt|211|Sinnoh}}, Lake Valor, Mt. Coronet, Lake Acuity<br>Grand Underground - Spacious Cave, Dazzling Cave, Stargleam Cavern (After obtaining {{TM|96|Strength}})"
@@ -8883,6 +8949,12 @@
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "'''Coronet Highlands:''' Primeval Grotto (mass outbreaks), Sacred Plaza, massive mass outbreaks<br>'''Alabaster Icelands:''' Lake Acuity"
+  },
+  {
+    "form_id": "chingling",
+    "game_id": "omega-ruby",
+    "method": "breeding",
+    "method_details": "from chimecho"
   },
   {
     "form_id": "chingling",
@@ -9698,6 +9770,12 @@
   },
   {
     "form_id": "cleffa",
+    "game_id": "gold",
+    "method": "breeding",
+    "method_details": "from clefairy"
+  },
+  {
+    "form_id": "cleffa",
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "'''Cobalt Coastlands:''' massive mass outbreaks<br>'''Coronet Highlands:''' Fabled Spring{{Sup/t|N}}, massive mass outbreaks"
@@ -9742,6 +9820,12 @@
   },
   {
     "form_id": "cleffa",
+    "game_id": "silver",
+    "method": "breeding",
+    "method_details": "from clefairy"
+  },
+  {
+    "form_id": "cleffa",
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -9777,6 +9861,18 @@
     "method": "raid",
     "method_details": "Reveler's Road, Kitakami Hall, Oni Mountain, Infernal Pass, Crystal Pool<br>Tera Raid Battles (1★)",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "cleffa",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from clefairy"
+  },
+  {
+    "form_id": "cleffa",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from clefairy"
   },
   {
     "form_id": "clobbopus",
@@ -17253,6 +17349,12 @@
   },
   {
     "form_id": "elekid",
+    "game_id": "gold",
+    "method": "breeding",
+    "method_details": "from electabuzz"
+  },
+  {
+    "form_id": "elekid",
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "'''Coronet Highlands:''' Cloudcap Pass, massive mass outbreaks<br>'''Alabaster Icelands:''' Icebound Falls, Arena's Approach"
@@ -17285,6 +17387,18 @@
   },
   {
     "form_id": "elekid",
+    "game_id": "shining-pearl",
+    "method": "breeding",
+    "method_details": "from electabuzz"
+  },
+  {
+    "form_id": "elekid",
+    "game_id": "silver",
+    "method": "breeding",
+    "method_details": "from electabuzz"
+  },
+  {
+    "form_id": "elekid",
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -17314,6 +17428,18 @@
     "method": "raid",
     "method_details": "Savanna Biome, Canyon Biome, Polar Biome, Chargestone Cavern<br>Tera Raid Battles (2★)",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "elekid",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from electabuzz"
+  },
+  {
+    "form_id": "elekid",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from electabuzz"
   },
   {
     "form_id": "elgyem",
@@ -26761,6 +26887,18 @@
     "method_details": "South Province: Area One, Area Two, Area Three, Area Five, Pokémon League<br>West Province: Area One"
   },
   {
+    "form_id": "happiny",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from chansey"
+  },
+  {
+    "form_id": "happiny",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from chansey"
+  },
+  {
     "form_id": "hariyama",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -29349,6 +29487,12 @@
   },
   {
     "form_id": "igglybuff",
+    "game_id": "alpha-sapphire",
+    "method": "breeding",
+    "method_details": "from jigglypuff"
+  },
+  {
+    "form_id": "igglybuff",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter",
     "method_details": "Trophy Garden"
@@ -29361,9 +29505,21 @@
   },
   {
     "form_id": "igglybuff",
+    "game_id": "gold",
+    "method": "breeding",
+    "method_details": "from jigglypuff"
+  },
+  {
+    "form_id": "igglybuff",
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "igglybuff",
+    "game_id": "omega-ruby",
+    "method": "breeding",
+    "method_details": "from jigglypuff"
   },
   {
     "form_id": "igglybuff",
@@ -29383,6 +29539,12 @@
     "game_id": "shining-pearl",
     "method": "wild-encounter",
     "method_details": "Trophy Garden"
+  },
+  {
+    "form_id": "igglybuff",
+    "game_id": "silver",
+    "method": "breeding",
+    "method_details": "from jigglypuff"
   },
   {
     "form_id": "igglybuff",
@@ -29414,6 +29576,18 @@
     "game_id": "violet",
     "method": "raid",
     "method_details": "South Province: Area One, Area Two, Los Platos, Pokémon League<br>Tera Raid Battles (1★)"
+  },
+  {
+    "form_id": "igglybuff",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from jigglypuff"
+  },
+  {
+    "form_id": "igglybuff",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from jigglypuff"
   },
   {
     "form_id": "illumise",
@@ -36707,9 +36881,21 @@
   },
   {
     "form_id": "magby",
+    "game_id": "brilliant-diamond",
+    "method": "breeding",
+    "method_details": "from magmar"
+  },
+  {
+    "form_id": "magby",
     "game_id": "crystal",
     "method": "gift",
     "method_details": "gift-egg"
+  },
+  {
+    "form_id": "magby",
+    "game_id": "gold",
+    "method": "breeding",
+    "method_details": "from magmar"
   },
   {
     "form_id": "magby",
@@ -36751,6 +36937,12 @@
   },
   {
     "form_id": "magby",
+    "game_id": "silver",
+    "method": "breeding",
+    "method_details": "from magmar"
+  },
+  {
+    "form_id": "magby",
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -36780,6 +36972,18 @@
     "method": "raid",
     "method_details": "Savanna Biome, Coastal Biome, Torchlit Labyrinth<br>Tera Raid Battles (2★)",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "magby",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from magmar"
+  },
+  {
+    "form_id": "magby",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from magmar"
   },
   {
     "form_id": "magcargo",
@@ -42515,6 +42719,18 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "munchlax",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from snorlax"
+  },
+  {
+    "form_id": "munchlax",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from snorlax"
+  },
+  {
     "form_id": "munkidori",
     "game_id": "scarlet",
     "method": "static-encounter",
@@ -46864,6 +47080,12 @@
   },
   {
     "form_id": "pichu",
+    "game_id": "alpha-sapphire",
+    "method": "breeding",
+    "method_details": "from pikachu"
+  },
+  {
+    "form_id": "pichu",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter",
     "method_details": "Trophy Garden"
@@ -46873,6 +47095,12 @@
     "game_id": "crystal",
     "method": "gift",
     "method_details": "gift-egg"
+  },
+  {
+    "form_id": "pichu",
+    "game_id": "gold",
+    "method": "breeding",
+    "method_details": "from pikachu"
   },
   {
     "form_id": "pichu",
@@ -46891,6 +47119,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "pichu",
+    "game_id": "omega-ruby",
+    "method": "breeding",
+    "method_details": "from pikachu"
   },
   {
     "form_id": "pichu",
@@ -46923,6 +47157,12 @@
     "game_id": "shining-pearl",
     "method": "wild-encounter",
     "method_details": "Trophy Garden"
+  },
+  {
+    "form_id": "pichu",
+    "game_id": "silver",
+    "method": "breeding",
+    "method_details": "from pikachu"
   },
   {
     "form_id": "pichu",
@@ -46967,6 +47207,18 @@
     "method": "wild-encounter",
     "method_details": "Kitakami Road, Apple Hills, Loyalty Plaza, Reveler's Road, Oni Mountain, Oni's Maw, Infernal Pass, Crystal Pool, Wistful Fields",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "pichu",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from pikachu"
+  },
+  {
+    "form_id": "pichu",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from pikachu"
   },
   {
     "form_id": "pidgeot",
@@ -58957,6 +59209,12 @@
   },
   {
     "form_id": "smoochum",
+    "game_id": "gold",
+    "method": "breeding",
+    "method_details": "from jynx"
+  },
+  {
+    "form_id": "smoochum",
     "game_id": "shield",
     "method": "raid",
     "method_details": "Slippery Slope, Frostpoint Field<br>Slippery Slope, Giant's Bed, Snowslide Slope, Frigid Sea (Max Raid Battle)",
@@ -58967,6 +59225,12 @@
     "game_id": "shining-pearl",
     "method": "wild-encounter",
     "method_details": "Lake Acuity (Swarm)<br>Grand Underground  - Icy Cave, Dazzling Cave, Stargleam Cavern, Glacial Cavern"
+  },
+  {
+    "form_id": "smoochum",
+    "game_id": "silver",
+    "method": "breeding",
+    "method_details": "from jynx"
   },
   {
     "form_id": "smoochum",
@@ -64476,6 +64740,12 @@
   },
   {
     "form_id": "togepi",
+    "game_id": "moon",
+    "method": "breeding",
+    "method_details": "from togetic"
+  },
+  {
+    "form_id": "togepi",
     "game_id": "omega-ruby",
     "method": "gift",
     "method_details": "gift-egg"
@@ -64497,6 +64767,12 @@
     "game_id": "silver",
     "method": "gift",
     "method_details": "gift-egg"
+  },
+  {
+    "form_id": "togepi",
+    "game_id": "sun",
+    "method": "breeding",
+    "method_details": "from togetic"
   },
   {
     "form_id": "togepi",
@@ -70895,6 +71171,18 @@
     "game_id": "sword",
     "method": "raid",
     "method_details": "Hammerlocke Hills, Motostoke Riverbank, Stony Wilderness (Max Raid Battle)"
+  },
+  {
+    "form_id": "wynaut",
+    "game_id": "x",
+    "method": "breeding",
+    "method_details": "from wobbuffet"
+  },
+  {
+    "form_id": "wynaut",
+    "game_id": "y",
+    "method": "breeding",
+    "method_details": "from wobbuffet"
   },
   {
     "form_id": "wyrdeer",
