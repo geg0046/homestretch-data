@@ -294,14 +294,11 @@ def categorize(
 ) -> list[FormCategory]:
     cats: list[FormCategory] = []
     form_name = form_data.get("form_name") or ""
-    if form_data.get("is_mega"):
-        cats.append(FormCategory.MEGA)
+    # Mega / Primal / Gigantamax variants hit the is_battle_only filter in
+    # build_forms_for_species() and never reach this function — they're not
+    # storage slots in HOME, so they don't belong in forms.json.
     if _is_regional(form_name):
         cats.append(FormCategory.REGIONAL_VARIANT)
-    if form_name == "gmax" or variety_name.endswith("-gmax"):
-        cats.append(FormCategory.GIGANTAMAX)
-    if form_name == "primal" or variety_name.endswith("-primal"):
-        cats.append(FormCategory.PRIMAL)
     if form_name.startswith("totem"):
         cats.append(FormCategory.TOTEM)
     if form_id in EVENT_ONLY_FORM_IDS:

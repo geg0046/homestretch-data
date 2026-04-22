@@ -76,11 +76,9 @@
       "type": "object"
     },
     "FormCategory": {
+      "description": "Categories for non-default forms that occupy their own HOME slot.\n\nBattle-only transformations (Mega Evolution, Primal Reversion, Gigantamax)\nare intentionally absent: they revert to the default form when stored,\nso they don't get their own entry in forms.json.",
       "enum": [
         "regional-variant",
-        "mega",
-        "primal",
-        "gigantamax",
         "gender-difference",
         "event-only",
         "cosmetic",

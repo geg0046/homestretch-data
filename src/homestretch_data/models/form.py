@@ -14,10 +14,14 @@ SpeciesId = Annotated[
 
 
 class FormCategory(StrEnum):
+    """Categories for non-default forms that occupy their own HOME slot.
+
+    Battle-only transformations (Mega Evolution, Primal Reversion, Gigantamax)
+    are intentionally absent: they revert to the default form when stored,
+    so they don't get their own entry in forms.json.
+    """
+
     REGIONAL_VARIANT = "regional-variant"
-    MEGA = "mega"
-    PRIMAL = "primal"
-    GIGANTAMAX = "gigantamax"
     GENDER_DIFFERENCE = "gender-difference"
     EVENT_ONLY = "event-only"
     COSMETIC = "cosmetic"
