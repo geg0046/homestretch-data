@@ -186,12 +186,17 @@ stone-use from level-up if it wants.
 These are PokéAPI limitations, not scraper bugs. Status as of the most
 recent scrape:
 
-- **Breeding-only mons** (e.g. Gen 2 babies: Cleffa, Smoochum, Igglybuff,
-  Elekid, Magby). `Method.BREEDING` is in the enum but currently has zero
-  rows in `data/sources.json`. Needs a curated pass.
-- **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/FRLG,
-  Abra/Dratini/etc. in GSC/HGSS, Clefairy in DPPt). `Method.PURCHASE` is
-  in the enum with zero rows. Needs a curated pass.
+- **Breeding-only mons** (Gen 2 babies: Pichu, Cleffa, Igglybuff, Smoochum,
+  Elekid, Magby, etc.) — covered with `method=breeding` rows, populated by
+  a one-shot script that emitted rows for `(baby, game)` pairs where the
+  game's generation ≥ baby's intro generation, no existing source row
+  exists, and at least one parent species has a source row in that game.
+  `method_details` is `"from <primary-parent>"`.
+- **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/GSC) —
+  covered with `method=purchase` rows, parsed from Bulbapedia's
+  `Celadon_Game_Corner` and `Goldenrod_Game_Corner` Prize Corner sections.
+  `method_details` is `"game-corner"`. Mauville (RSE) and Veilstone
+  (DPPt/Platinum) are excluded — their prize lists are TMs/items only.
 - **Fossils** — covered via `fossil-revive` rows from PokéAPI where it
   expresses them, plus raid rows in Gen 8 DLC; no known gaps remaining.
 - **Event-only forms** (Zarude-Dada, Magearna-Original, Greninja-Battle-Bond)
@@ -202,4 +207,14 @@ recent scrape:
 Gen 8/9 encounter coverage and branched regional-form evolution attribution
 are both addressed by `scrapers/bulbapedia.py` — see the Bulbapedia scraper
 section above. Older-gen precision (Gen 2–5 exact route lists) would benefit
-from a pret-decomps pass but is not currently tracked as a blocking gap.
+from a pret-decomps pass (MIT-licensed decompilations at
+<https://github.com/pret>) but is not currently tracked as a blocking gap.
+
+## Game scope
+
+`data/games.json` covers Gen 1–2 and Gen 6–9 plus HOME/Bank/GO/Transporter.
+Gen 3–5 mainline games (RSE, FRLG, DPPt, HGSS, BW, B2W2) are intentionally
+out-of-scope: scrapers should filter emitted rows to `game_ids` present in
+`games.json` and log skipped out-of-scope rows rather than error. This came
+up during the Game Corner pass — FRLG/HGSS prize data is on Bulbapedia but
+was deliberately skipped.
