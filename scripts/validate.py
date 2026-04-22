@@ -7,6 +7,7 @@ Exits non-zero if validation fails. Intended to run in CI and pre-commit.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections.abc import Iterable
 from pathlib import Path
@@ -17,6 +18,19 @@ from homestretch_data.models import Form, Game, Source, Transfer
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data"
+
+# Lowercase hyphen-slug pattern (same shape as FormId / GameId). Applied to
+# Source string fields where Pydantic only knows they're `str | None`:
+# item, held_item, location, known_move, known_move_type, party_type.
+_SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+_SLUG_FIELDS: tuple[str, ...] = (
+    "item",
+    "held_item",
+    "location",
+    "known_move",
+    "known_move_type",
+    "party_type",
+)
 
 
 def _load_list[T](path: Path, model: type[T]) -> list[T]:
@@ -63,6 +77,27 @@ def main() -> int:
             errors.append(f"sources.json[{i}]: unknown game_id={s.game_id!r}")
         if s.form_id not in form_ids:
             errors.append(f"sources.json[{i}]: unknown form_id={s.form_id!r}")
+        for ref_field in ("trade_species", "party_species", "from_form"):
+            ref = getattr(s, ref_field)
+            if ref is not None and ref not in form_ids:
+                errors.append(f"sources.json[{i}]: unknown {ref_field}={ref!r}")
+        for slug_field in _SLUG_FIELDS:
+            val = getattr(s, slug_field)
+            if val is not None and not _SLUG_RE.match(val):
+                errors.append(f"sources.json[{i}]: {slug_field}={val!r} is not a lowercase slug")
+        if s.method_details is not None and not _SLUG_RE.match(s.method_details):
+            # method_details may be a comma-joined slug list for fishing rods.
+            parts = [p.strip() for p in s.method_details.split(",")]
+            if not all(_SLUG_RE.match(p) for p in parts if p):
+                errors.append(
+                    f"sources.json[{i}]: method_details={s.method_details!r} "
+                    "is not a slug (or comma-joined slug list)"
+                )
+        if s.method_details is not None and s.method_details == s.method.value:
+            errors.append(
+                f"sources.json[{i}]: method_details={s.method_details!r} "
+                "duplicates method; drop the field (rule 7)"
+            )
 
     for i, t in enumerate(transfers):
         if t.from_id not in game_ids:
