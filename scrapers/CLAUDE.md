@@ -122,9 +122,9 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
      evobox shows a regional variant on the pre-evo side (e.g.
      `no1=0562Yamask-Galar` for Runerigus, `form2=Galarian Form` for
      Mr. Rime's 3-stage chain), the evolved species's existing evolution
-     rows get a `from <regional-form-id>` suffix appended to their
-     `method_details` (e.g. `take-damage` → `take-damage from yamask-galar`).
-     Evobox templates `Evobox-N` and `Evobox/Nbranch*` are both parsed.
+     rows get the structured `from_form` field populated with the
+     regional form id (e.g. `from_form=yamask-galar`). Evobox templates
+     `Evobox-N` and `Evobox/Nbranch*` are both parsed.
   2. **New rows for regional-form species PokéAPI skipped.** PokéAPI
      attributes every evolution row to the default form; Alolan Raichu,
      Galarian Slowking, Hisuian Typhlosion, etc. therefore have zero
@@ -136,8 +136,8 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
      matching rows (regex stops at clause boundaries so contrast phrases
      don't over-match). Evobox trigger text naming a specific item from
      `_ITEM_NAME_TO_SLUG` (Black Augurite, Peat Block, Linking Cord,
-     Auspicious/Malicious Armor) appends the item slug to `method_details`
-     so `use-item` becomes `use-item black-augurite` for Kleavor/LA.
+     Auspicious/Malicious Armor) fills the structured `item` field so
+     `use-item` + `item=black-augurite` for Kleavor/LA.
   
   Merge semantics for evolutions mode diverge from sources mode:
   existing rows may be **rewritten or removed**, and new rows may be
@@ -171,9 +171,9 @@ design decisions worth knowing:
   species_id`). Branched regional evolutions (yamask-galar → runerigus,
   exeggcute → exeggutor-alola) emit a default-form row that loses the
   pre-evolution provenance. The Bulbapedia `--mode evolutions` pass
-  refines this afterwards — appending `from <regional-form-id>` to
-  `method_details` and filling in the regional-variant rows PokéAPI
-  skipped entirely.
+  refines this afterwards — populating the structured `from_form` field
+  with the regional pre-evolution id, and filling in the regional-variant
+  rows PokéAPI skipped entirely.
 
 Method mapping: any PokéAPI trigger name of `trade` maps to `Method.TRADE`,
 everything else (`level-up`, `use-item`, `shed`, `agile-style-move`,
@@ -181,22 +181,66 @@ everything else (`level-up`, `use-item`, `shed`, `agile-style-move`,
 name is preserved in `method_details` so the app can distinguish
 stone-use from level-up if it wants.
 
+## `method_details` and structured conditions
+
+`method_details` is a **short categorical slug**, never prose. For evolution
+rows it's the raw PokéAPI trigger slug (`level-up`, `use-item`, `trade`,
+`shed`, `spin`, `three-critical-hits`, `take-damage`, `recoil-damage`,
+`agile-style-move`, `strong-style-move`, `tower-of-darkness`,
+`tower-of-waters`, `gimmmighoul-coins`, `three-defeated-bisharp`,
+`use-move`, `other`). For non-evolution rows it's the acquisition subtype
+slug (`walk`, `surf`, `overworld`, `mass-outbreak`, `space-time-distortion`,
+`sos-encounter`, `horde`, `old-rod` / `good-rod` / `super-rod` (or a
+comma-joined subset), `tera-raid`, `max-raid`, `gmax`, `dynamax-adventure`,
+`N-star`, `only-one`, `pokeflute`, `squirt-bottle`, `wailmer-pail`,
+`devon-scope`, `island-scan`, `roaming`, `game-corner`). Rule 7 still
+applies: omit when it equals the method enum.
+
+**One row per PokéAPI `evolution_detail`.** Alternative paths become
+alternative rows, not comma-joined. Crabominable in SM/USUM emits two
+rows per game: `level-up` + `location=mount-lanakila` and `use-item` +
+`item=ice-stone`.
+
+**Specifics live in structured fields** — `item`, `held_item`, `location`,
+`known_move`, `known_move_type`, `trade_species`, `party_species`,
+`party_type`, `from_form`, `time_of_day`, `min_happiness`, `min_affection`,
+`min_beauty`, `gender`, `relative_physical_stats`, `needs_overworld_rain`,
+`turn_upside_down`, `needs_multiplayer`. All are optional and default to
+`None` / `False`; `Source.model_dump(exclude_none=True, exclude_defaults=True)`
+keeps JSON clean.
+
+**Per-game gating** for evolution rows beyond species-level scope:
+`LOCATION_TO_GAMES` and `ITEM_TO_GAMES` in `scrapers/evolution_details.py`
+intersect with the species scope when `location` / `item` / `held_item`
+is set. Location/item slugs not listed there fall through unchanged. The
+Bulbapedia `==Evolution==` "cannot evolve in [[X]]" prose filter remains
+the fallback for cases PokéAPI can't express.
+
+**Normalization** for Bulbapedia-sourced prose lives in
+`scrapers/method_details.py::normalize_method_details`. It strips wiki
+markup (`{{rt|...}}`, `{{tt|...}}`, `[[...|x]]`, `<br>`, `'''`, `&nbsp;`,
+etc.) and applies per-method recognizers. Unrecognized prose drops to
+`None` rather than leaking — `game_id` already scopes availability.
+
 ## Known gaps in PokéAPI encounter coverage
 
 These are PokéAPI limitations, not scraper bugs. Status as of the most
 recent scrape:
 
 - **Breeding-only mons** (Gen 2 babies: Pichu, Cleffa, Igglybuff, Smoochum,
-  Elekid, Magby, etc.) — covered with `method=breeding` rows, populated by
-  a one-shot script that emitted rows for `(baby, game)` pairs where the
-  game's generation ≥ baby's intro generation, no existing source row
-  exists, and at least one parent species has a source row in that game.
-  `method_details` is `"from <primary-parent>"`.
+  Elekid, Magby, etc.) — covered with `method=breeding` rows emitted by
+  [`scripts/seed_manual_sources.py`](../scripts/seed_manual_sources.py).
+  The script seeds `(baby, game)` pairs where the game's generation ≥
+  the baby's intro generation and the parent species is obtainable in
+  that game; the structured `from_form` field points to the parent
+  species. Re-run after a fresh scrape.
 - **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/GSC) —
-  covered with `method=purchase` rows, parsed from Bulbapedia's
-  `Celadon_Game_Corner` and `Goldenrod_Game_Corner` Prize Corner sections.
-  `method_details` is `"game-corner"`. Mauville (RSE) and Veilstone
-  (DPPt/Platinum) are excluded — their prize lists are TMs/items only.
+  covered with `method=purchase` / `method_details=game-corner` rows
+  emitted by [`scripts/seed_manual_sources.py`](../scripts/seed_manual_sources.py)
+  alongside the breeding seeds. Species list was originally compiled from
+  Bulbapedia's `Celadon_Game_Corner` and `Goldenrod_Game_Corner` Prize
+  Corner sections. Mauville (RSE) and Veilstone (DPPt/Platinum) are
+  excluded — their prize lists are TMs/items only.
 - **Fossils** — covered via `fossil-revive` rows from PokéAPI where it
   expresses them, plus raid rows in Gen 8 DLC; no known gaps remaining.
 - **Event-only forms** (Zarude-Dada, Magearna-Original, Greninja-Battle-Bond)

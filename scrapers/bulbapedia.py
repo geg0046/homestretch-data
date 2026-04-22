@@ -21,8 +21,9 @@ from typing import Any
 from urllib.parse import quote
 
 import httpx
+from method_details import normalize_method_details
 from pydantic import TypeAdapter
-from utils import RateLimitedClient, merge_by_key
+from utils import RateLimitedClient, merge_by_key, source_key, source_sort_key
 
 from homestretch_data.models import Method, Source
 
@@ -435,8 +436,9 @@ def parse_sources_from_wikitext(wikitext: str, form_id: str) -> list[dict[str, A
                     "game_id": gid,
                     "method": method.value,
                 }
-                if details_text and details_text.lower() != method.value:
-                    entry["method_details"] = details_text
+                normalized = normalize_method_details(method, details_text)
+                if normalized is not None:
+                    entry["method_details"] = normalized
                 if dlc:
                     entry["requires_dlc"] = dlc
                 rows.append(entry)
@@ -446,13 +448,7 @@ def parse_sources_from_wikitext(wikitext: str, form_id: str) -> list[dict[str, A
 # --- Disk state -----------------------------------------------------------------
 
 
-def _source_key(entry: dict[str, Any]) -> tuple[str, str, str, str]:
-    return (
-        entry["form_id"],
-        entry["game_id"],
-        entry["method"],
-        entry.get("method_details") or "",
-    )
+_source_key = source_key
 
 
 def load_existing_sources() -> list[dict[str, Any]]:
@@ -717,7 +713,7 @@ def _scrape_sources(
         print(f"  #{dex:04d} {species_id}: {len(rows)} Gen 8/9 source(s)")
 
     merged = merge_by_key(load_existing_sources(), all_new, key_fn=_source_key)
-    merged.sort(key=_source_key)
+    merged.sort(key=source_sort_key)
     TypeAdapter(list[Source]).validate_python(merged)
     SOURCES_PATH.write_text(
         json.dumps(merged, indent=2, ensure_ascii=False) + "\n",
@@ -735,16 +731,32 @@ def _regional_form_name(form_id: str) -> str | None:
     return None
 
 
-def _enrich_details(details: str, pre_evo: str | None, item_slug: str | None) -> str:
-    """Append pre-evo and item annotations to a method_details string, idempotently."""
-    out = details
-    if item_slug and item_slug not in out:
-        out = f"{out} {item_slug}".strip() if out else item_slug
-    if pre_evo:
-        suffix = f"from {pre_evo}"
-        if suffix not in out:
-            out = f"{out} {suffix}".strip() if out else suffix
-    return out
+def _apply_refinement(
+    row: dict[str, Any],
+    pre_evo: str | None,
+    item_slug: str | None,
+) -> dict[str, Any] | None:
+    """Return a new row with structured fields populated from a refinement.
+
+    - `pre_evo` fills `from_form` (regional pre-evolution provenance).
+    - `item_slug` fills `item` (specific stone/item when PokéAPI emitted a
+      generic `use-item` trigger).
+
+    Returns None if no change — caller keeps the original row. Idempotent:
+    existing structured values win over refinements so re-runs don't
+    over-annotate.
+    """
+    updated = dict(row)
+    changed = False
+    if pre_evo and updated.get("from_form") is None:
+        updated["from_form"] = pre_evo
+        changed = True
+    # Only attach the refined item when PokéAPI emitted use-item without
+    # filling `item`. Don't clobber a PokéAPI-provided item.
+    if item_slug and updated.get("method_details") == "use-item" and updated.get("item") is None:
+        updated["item"] = item_slug
+        changed = True
+    return updated if changed else None
 
 
 def _scrape_evolutions(
@@ -847,18 +859,9 @@ def _scrape_evolutions(
         if row["game_id"] in ref["excluded"]:
             removed += 1
             continue
-        new_details = _enrich_details(
-            row.get("method_details", ""),
-            ref["pre_evo"],
-            ref["item"],
-        )
-        if new_details != row.get("method_details", ""):
-            new_row = dict(row)
-            if new_details:
-                new_row["method_details"] = new_details
-            else:
-                new_row.pop("method_details", None)
-            kept.append(new_row)
+        updated = _apply_refinement(row, ref["pre_evo"], ref["item"])
+        if updated is not None:
+            kept.append(updated)
             modified += 1
         else:
             kept.append(row)
@@ -882,20 +885,22 @@ def _scrape_evolutions(
         scoped -= ref["excluded"]
         if not scoped:
             continue
-        details = _enrich_details("", ref["pre_evo"], ref["item"])
         for game_id in sorted(scoped):
             entry: dict[str, Any] = {
                 "form_id": next_fid,
                 "game_id": game_id,
                 "method": Method.EVOLUTION.value,
             }
-            if details:
-                entry["method_details"] = details
+            if ref["item"]:
+                entry["method_details"] = "use-item"
+                entry["item"] = ref["item"]
+            if ref["pre_evo"]:
+                entry["from_form"] = ref["pre_evo"]
             new_rows.append(entry)
             added += 1
 
     merged = kept + new_rows
-    merged.sort(key=_source_key)
+    merged.sort(key=source_sort_key)
     TypeAdapter(list[Source]).validate_python(merged)
     SOURCES_PATH.write_text(
         json.dumps(merged, indent=2, ensure_ascii=False) + "\n",
