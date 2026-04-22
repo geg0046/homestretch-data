@@ -305,22 +305,18 @@ def test_resolve_urshifu_tower_of_waters_routes_to_rapid_strike() -> None:
 
 def test_resolve_urshifu_tower_of_darkness_routes_to_default() -> None:
     detail = _detail(trigger=_named("tower-of-darkness"))
-    assert resolve_branched_form_ids("urshifu", detail, set(_BRANCHED_VALID_FORMS)) == {
-        "urshifu"
-    }
+    assert resolve_branched_form_ids("urshifu", detail, set(_BRANCHED_VALID_FORMS)) == {"urshifu"}
 
 
 def test_resolve_lycanroc_by_time_of_day() -> None:
     valid = set(_BRANCHED_VALID_FORMS)
-    assert resolve_branched_form_ids(
-        "lycanroc", _detail(time_of_day="day"), valid
-    ) == {"lycanroc"}
-    assert resolve_branched_form_ids(
-        "lycanroc", _detail(time_of_day="night"), valid
-    ) == {"lycanroc-midnight"}
-    assert resolve_branched_form_ids(
-        "lycanroc", _detail(time_of_day="dusk"), valid
-    ) == {"lycanroc-dusk"}
+    assert resolve_branched_form_ids("lycanroc", _detail(time_of_day="day"), valid) == {"lycanroc"}
+    assert resolve_branched_form_ids("lycanroc", _detail(time_of_day="night"), valid) == {
+        "lycanroc-midnight"
+    }
+    assert resolve_branched_form_ids("lycanroc", _detail(time_of_day="dusk"), valid) == {
+        "lycanroc-dusk"
+    }
 
 
 def test_resolve_basculegion_fans_out_both_genders() -> None:
@@ -365,9 +361,10 @@ def test_resolve_non_branched_species_returns_default_only() -> None:
 def test_resolve_filters_out_forms_missing_from_valid_set() -> None:
     # If the branched form isn't in forms.json, it shouldn't emit a row for it.
     valid = {"wormadam", "wormadam-sandy"}  # trash intentionally missing
-    assert resolve_branched_form_ids(
-        "wormadam", _detail(trigger=_named("level-up")), valid
-    ) == {"wormadam", "wormadam-sandy"}
+    assert resolve_branched_form_ids("wormadam", _detail(trigger=_named("level-up")), valid) == {
+        "wormadam",
+        "wormadam-sandy",
+    }
 
 
 def test_unencoded_branch_forms_table_matches_forms_file_species() -> None:
