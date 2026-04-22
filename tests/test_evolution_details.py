@@ -10,9 +10,11 @@ from evolution_details import (
     ITEM_TO_GAMES,
     KNOWN_TRIGGERS,
     LOCATION_TO_GAMES,
+    UNENCODED_BRANCH_FORMS,
     detail_to_source_fields,
     gate_games,
     method_for_trigger,
+    resolve_branched_form_ids,
 )
 
 from homestretch_data.models import Method
@@ -267,3 +269,110 @@ def test_evolution_path_games_covers_late_added_stone_paths() -> None:
         ("probopass", "thunder-stone"),
     ]:
         assert pair in EVOLUTION_PATH_GAMES, pair
+
+
+_BRANCHED_VALID_FORMS = frozenset(
+    {
+        "urshifu",
+        "urshifu-rapid-strike",
+        "lycanroc",
+        "lycanroc-midnight",
+        "lycanroc-dusk",
+        "basculegion",
+        "basculegion-female",
+        "wormadam",
+        "wormadam-sandy",
+        "wormadam-trash",
+        "gourgeist",
+        "gourgeist-small",
+        "gourgeist-large",
+        "gourgeist-super",
+        "toxtricity",
+        "toxtricity-low-key",
+        "dudunsparce",
+        "dudunsparce-three-segment",
+        "pikachu",  # non-branched control
+    }
+)
+
+
+def test_resolve_urshifu_tower_of_waters_routes_to_rapid_strike() -> None:
+    detail = _detail(trigger=_named("tower-of-waters"))
+    assert resolve_branched_form_ids("urshifu", detail, set(_BRANCHED_VALID_FORMS)) == {
+        "urshifu-rapid-strike"
+    }
+
+
+def test_resolve_urshifu_tower_of_darkness_routes_to_default() -> None:
+    detail = _detail(trigger=_named("tower-of-darkness"))
+    assert resolve_branched_form_ids("urshifu", detail, set(_BRANCHED_VALID_FORMS)) == {"urshifu"}
+
+
+def test_resolve_lycanroc_by_time_of_day() -> None:
+    valid = set(_BRANCHED_VALID_FORMS)
+    assert resolve_branched_form_ids("lycanroc", _detail(time_of_day="day"), valid) == {"lycanroc"}
+    assert resolve_branched_form_ids("lycanroc", _detail(time_of_day="night"), valid) == {
+        "lycanroc-midnight"
+    }
+    assert resolve_branched_form_ids("lycanroc", _detail(time_of_day="dusk"), valid) == {
+        "lycanroc-dusk"
+    }
+
+
+def test_resolve_basculegion_fans_out_both_genders() -> None:
+    # PokeAPI leaves gender=null on the basculin → basculegion detail,
+    # so we emit for both forms and let pre-evolution gender decide.
+    valid = set(_BRANCHED_VALID_FORMS)
+    assert resolve_branched_form_ids(
+        "basculegion", _detail(trigger=_named("recoil-damage")), valid
+    ) == {"basculegion", "basculegion-female"}
+
+
+def test_resolve_unencoded_branches_fan_out() -> None:
+    valid = set(_BRANCHED_VALID_FORMS)
+    detail = _detail(trigger=_named("level-up"))
+    assert resolve_branched_form_ids("wormadam", detail, valid) == {
+        "wormadam",
+        "wormadam-sandy",
+        "wormadam-trash",
+    }
+    assert resolve_branched_form_ids("gourgeist", detail, valid) == {
+        "gourgeist",
+        "gourgeist-small",
+        "gourgeist-large",
+        "gourgeist-super",
+    }
+    assert resolve_branched_form_ids("toxtricity", detail, valid) == {
+        "toxtricity",
+        "toxtricity-low-key",
+    }
+    assert resolve_branched_form_ids("dudunsparce", detail, valid) == {
+        "dudunsparce",
+        "dudunsparce-three-segment",
+    }
+
+
+def test_resolve_non_branched_species_returns_default_only() -> None:
+    assert resolve_branched_form_ids(
+        "pikachu", _detail(trigger=_named("level-up")), set(_BRANCHED_VALID_FORMS)
+    ) == {"pikachu"}
+
+
+def test_resolve_filters_out_forms_missing_from_valid_set() -> None:
+    # If the branched form isn't in forms.json, it shouldn't emit a row for it.
+    valid = {"wormadam", "wormadam-sandy"}  # trash intentionally missing
+    assert resolve_branched_form_ids("wormadam", _detail(trigger=_named("level-up")), valid) == {
+        "wormadam",
+        "wormadam-sandy",
+    }
+
+
+def test_unencoded_branch_forms_table_matches_forms_file_species() -> None:
+    # Regression guard: if someone adds a branch, they should extend the table.
+    assert set(UNENCODED_BRANCH_FORMS) == {
+        "wormadam",
+        "gourgeist",
+        "toxtricity",
+        "dudunsparce",
+        "basculegion",
+    }

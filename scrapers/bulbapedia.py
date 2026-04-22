@@ -393,11 +393,136 @@ def _is_skippable_area(area: str) -> bool:
     return flat.startswith("evolve")
 
 
-def parse_sources_from_wikitext(wikitext: str, form_id: str) -> list[dict[str, Any]]:
+# Regional-form annotation vocabulary. Bulbapedia species pages mix
+# availability for all regional variants in one ===Game locations===
+# section and disambiguate via inline annotations like
+# "<small>('''Galarian Form''')</small>" / "'''Alolan/Galarian Forms'''" /
+# "'''Paldean Form (Combat Breed)'''". These map the annotation phrase to a
+# form_id suffix (None = default species_id).
+_ANNOTATION_TO_SUFFIX: dict[str, str | None] = {
+    "Alolan": "alola",
+    "Galarian": "galar",
+    "Hisuian": "hisui",
+    "Paldean": "paldea",
+    # Base-region phrases all resolve to the species default form_id.
+    "Kantonian": None,
+    "Johtonian": None,
+    "Hoennian": None,
+    "Sinnohian": None,
+    "Unovan": None,
+    "Kalosian": None,
+}
+
+# Inside `'''...'''` bold markers in an annotation. Captures region phrases
+# (possibly slash-combined, e.g. "Alolan/Galarian") and "All Forms".
+_ANNOTATION_PHRASE_RE = re.compile(r"'''([^']+?)'''")
+_REGION_WORD_RE = re.compile(
+    r"\b(" + "|".join(re.escape(k) for k in _ANNOTATION_TO_SUFFIX) + r")\b"
+)
+# Paldean tauros breeds: "(Combat Breed)", "(Aqua Breed)",
+# "(Combat and Blaze Breeds)", "(Combat, Blaze Breeds)", etc.
+_BREED_RE = re.compile(r"\(([A-Za-z ,]+?)\s+Breeds?\)", re.IGNORECASE)
+_ALL_FORMS_RE = re.compile(r"\bAll\s+Forms\b", re.IGNORECASE)
+
+
+def resolve_form_ids_from_segment(
+    segment: str,
+    species_id: str,
+    species_form_ids: set[str],
+) -> list[str]:
+    """Resolve the form_id(s) a Bulbapedia area-segment applies to.
+
+    `segment` is one `<br>`-separated piece of an availability entry's area
+    text. If bold form annotations are present, they pick the form(s); if
+    absent, we fall back to the species default form_id.
+
+    Returns an empty list when no form_id resolves to a form we actually
+    carry in forms.json (e.g. annotation names a regional variant we don't
+    track, or species has no default form row).
+    """
+    annotations = _ANNOTATION_PHRASE_RE.findall(segment)
+
+    # "All Forms" / "Both Forms" → every form this species has, but only
+    # those currently in forms.json.
+    for ann in annotations:
+        if _ALL_FORMS_RE.search(ann) or "Both Forms" in ann:
+            return sorted(species_form_ids)
+
+    resolved: list[str] = []
+    for ann in annotations:
+        regions = _REGION_WORD_RE.findall(ann)
+        if not regions:
+            continue
+        breed_match = _BREED_RE.search(ann)
+        breed_tokens: list[str] = []
+        if breed_match:
+            # Split "Combat and Blaze" / "Combat, Blaze" / "Combat" into tokens.
+            breed_tokens = [
+                t.strip().lower()
+                for t in re.split(r"\s+and\s+|,\s*", breed_match.group(1))
+                if t.strip()
+            ]
+        for region in regions:
+            suffix = _ANNOTATION_TO_SUFFIX[region]
+            if breed_tokens:
+                for breed in breed_tokens:
+                    form_id = f"{species_id}-{suffix}-{breed}-breed" if suffix else species_id
+                    if form_id in species_form_ids:
+                        resolved.append(form_id)
+                continue
+            form_id = f"{species_id}-{suffix}" if suffix else species_id
+            if form_id in species_form_ids:
+                resolved.append(form_id)
+                continue
+            # Fallback for species where the regional form_id carries an
+            # extra mode suffix (e.g. darmanitan-galar-standard). If there's
+            # exactly one form_id in the species set that extends the
+            # constructed prefix, use it.
+            prefix = f"{form_id}-"
+            candidates = [fid for fid in species_form_ids if fid.startswith(prefix)]
+            if len(candidates) == 1:
+                resolved.append(candidates[0])
+
+    if resolved:
+        # Preserve order but dedupe.
+        seen: set[str] = set()
+        unique: list[str] = []
+        for fid in resolved:
+            if fid not in seen:
+                seen.add(fid)
+                unique.append(fid)
+        return unique
+
+    # No annotation matched a known form; fall back to species default.
+    return [species_id] if species_id in species_form_ids else []
+
+
+def split_area_segments(area: str) -> list[str]:
+    """Split an availability entry's area on `<br>` boundaries.
+
+    Each segment is one acquisition path and carries its own method /
+    annotations. Trailing whitespace is trimmed; empty segments dropped.
+    """
+    parts = re.split(r"<br\s*/?>", area, flags=re.IGNORECASE)
+    return [p.strip() for p in parts if p.strip()]
+
+
+def parse_sources_from_wikitext(
+    wikitext: str,
+    species_id: str,
+    species_form_ids: set[str],
+) -> list[dict[str, Any]]:
     """Emit Source dicts for each base-game location entry on a species page.
 
     Only rows whose resolved game_id lies in GEN_8_9_GAME_IDS are returned;
     pre-Gen-8 games are already covered by PokéAPI.
+
+    Availability entries are split on `<br>` so each acquisition path is
+    processed independently — Bulbapedia packs paths for multiple regional
+    forms (e.g. Kantonian + Galarian Meowth) into one entry, each tagged
+    with `'''(Region) Form'''` annotations. `resolve_form_ids_from_segment`
+    picks the right form_id per segment; unannotated segments fall back to
+    the species default.
     """
     section = _extract_main_games_section(wikitext)
     if not section:
@@ -413,7 +538,6 @@ def parse_sources_from_wikitext(wikitext: str, form_id: str) -> list[dict[str, A
         area = tmpl.get("area", "")
         if _is_skippable_area(area):
             continue
-        method, details_text = _infer_method(area)
 
         vs: list[str] = []
         if "Entry1" in name:
@@ -426,22 +550,34 @@ def parse_sources_from_wikitext(wikitext: str, form_id: str) -> list[dict[str, A
                 if v:
                     vs.append(v)
 
-        for v in vs:
-            games, dlc = _resolve_version(v)
-            for gid in games:
-                if gid not in GEN_8_9_GAME_IDS:
-                    continue
-                entry: dict[str, Any] = {
-                    "form_id": form_id,
-                    "game_id": gid,
-                    "method": method.value,
-                }
-                normalized = normalize_method_details(method, details_text)
-                if normalized is not None:
-                    entry["method_details"] = normalized
-                if dlc:
-                    entry["requires_dlc"] = dlc
-                rows.append(entry)
+        # Per-segment: infer method + resolve form_id(s) from inline region
+        # annotations. A multi-path area with form annotations emits one row
+        # per segment/form/version/game combination.
+        segments = split_area_segments(area) or [area]
+        for segment in segments:
+            if _is_skippable_area(segment):
+                continue
+            method, details_text = _infer_method(segment)
+            resolved_forms = resolve_form_ids_from_segment(segment, species_id, species_form_ids)
+            if not resolved_forms:
+                continue
+            for v in vs:
+                games, dlc = _resolve_version(v)
+                for gid in games:
+                    if gid not in GEN_8_9_GAME_IDS:
+                        continue
+                    for form_id in resolved_forms:
+                        entry: dict[str, Any] = {
+                            "form_id": form_id,
+                            "game_id": gid,
+                            "method": method.value,
+                        }
+                        normalized = normalize_method_details(method, details_text)
+                        if normalized is not None:
+                            entry["method_details"] = normalized
+                        if dlc:
+                            entry["requires_dlc"] = dlc
+                        rows.append(entry)
     return rows
 
 
@@ -701,14 +837,16 @@ def _scrape_sources(
         if wikitext is None:
             print(f"  #{dex:04d} {species_id}: Bulbapedia page '{page_title}' not found")
             continue
-        # Attribute to the default form (species_id). Regional variants
-        # living on the same page are not split here — that refinement
-        # happens in evolutions mode for branched regional lines.
-        default_form_id = species_id if species_id in species_forms else None
-        if default_form_id is None:
+        # Availability entries are split per regional-form annotation inside
+        # parse_sources_from_wikitext; pass the full set of form_ids this
+        # species has so the parser can route each segment correctly.
+        form_ids = set(species_forms.get(species_id, ()))
+        if species_id not in form_ids:
+            # No default-form row in forms.json means we have nothing to
+            # anchor unannotated segments to. Skip the whole page.
             print(f"  #{dex:04d} {species_id}: no matching form; skipping")
             continue
-        rows = parse_sources_from_wikitext(wikitext, default_form_id)
+        rows = parse_sources_from_wikitext(wikitext, species_id, form_ids)
         all_new.extend(rows)
         print(f"  #{dex:04d} {species_id}: {len(rows)} Gen 8/9 source(s)")
 

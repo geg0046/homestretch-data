@@ -262,6 +262,62 @@ def method_for_trigger(trigger: str) -> Method:
     return Method.TRADE if trigger == "trade" else Method.EVOLUTION
 
 
+# Species with branched forms PokeAPI's evolution_chain endpoint doesn't track.
+# The endpoint attributes every detail to the default form_id; we need to fan
+# each detail out across the correct branched form(s). Two cases:
+#
+# 1. "Encoded" branches — the detail carries enough info to pick the branch
+#    deterministically (urshifu's trigger, lycanroc's time_of_day,
+#    basculegion's gender). Handled inline in resolve_branched_form_ids.
+# 2. "Unencoded" branches — the detail is identical across all branches; the
+#    branch is determined by pre-evolution state the detail doesn't expose
+#    (wormadam's cloak, gourgeist's size, toxtricity's nature, dudunsparce's
+#    RNG). Listed here; the scraper emits the row for every listed form.
+UNENCODED_BRANCH_FORMS: dict[str, tuple[str, ...]] = {
+    "wormadam": ("wormadam", "wormadam-sandy", "wormadam-trash"),
+    "gourgeist": ("gourgeist", "gourgeist-small", "gourgeist-large", "gourgeist-super"),
+    "toxtricity": ("toxtricity", "toxtricity-low-key"),
+    "dudunsparce": ("dudunsparce", "dudunsparce-three-segment"),
+    # Basculegion is gender-branched but PokéAPI's evolution_detail leaves
+    # `gender: null` on the basculin → basculegion path. Both forms share the
+    # recoil-damage trigger; the caller's pre-evolution gender determines
+    # which one they get.
+    "basculegion": ("basculegion", "basculegion-female"),
+}
+
+
+def resolve_branched_form_ids(
+    species_id: str,
+    detail: dict[str, Any],
+    valid_form_ids: set[str],
+) -> set[str]:
+    """Return every form_id this evolution_detail should emit a row for.
+
+    For most species, PokeAPI's evolution_chain attribution to the default
+    form is correct, so we return `{species_id}`. Species with branched
+    evolutions (see UNENCODED_BRANCH_FORMS and the inline encoded-branch
+    rules) return a different set.
+    """
+    if species_id == "urshifu":
+        trigger = (detail.get("trigger") or {}).get("name")
+        form_id = "urshifu-rapid-strike" if trigger == "tower-of-waters" else "urshifu"
+        return {form_id} & valid_form_ids
+
+    if species_id == "lycanroc":
+        tod_to_form = {
+            "day": "lycanroc",
+            "night": "lycanroc-midnight",
+            "dusk": "lycanroc-dusk",
+        }
+        form_id = tod_to_form.get(detail.get("time_of_day"), "lycanroc")
+        return {form_id} & valid_form_ids
+
+    if species_id in UNENCODED_BRANCH_FORMS:
+        return set(UNENCODED_BRANCH_FORMS[species_id]) & valid_form_ids
+
+    return {species_id} & valid_form_ids
+
+
 def gate_games(
     detail_fields: dict[str, Any],
     species_scope: set[str],
