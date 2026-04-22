@@ -513,6 +513,59 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk.",
     },
+    # Gen 9 paradox Pokémon absent from PokéAPI encounter data. Walking
+    # Wake / Iron Leaves were the SV 1.2.0 Tera Raid event in 2023 (no DLC
+    # required). The remaining four (Gouging Fire, Raging Bolt, Iron
+    # Boulder, Iron Crown) became permanently catchable via the
+    # Area Zero Underdepths special encounter in the Indigo Disk DLC —
+    # version-exclusive along the same ancient/future split as the other
+    # paradox pairs.
+    {
+        "form_id": "walking-wake",
+        "game_id": "scarlet",
+        "method": "raid",
+        "method_details": "tera-raid",
+        "notes": "SV 1.2.0 Tera Raid Battle event (2023).",
+    },
+    {
+        "form_id": "iron-leaves",
+        "game_id": "violet",
+        "method": "raid",
+        "method_details": "tera-raid",
+        "notes": "SV 1.2.0 Tera Raid Battle event (2023).",
+    },
+    {
+        "form_id": "gouging-fire",
+        "game_id": "scarlet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
+    },
+    {
+        "form_id": "raging-bolt",
+        "game_id": "scarlet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
+    },
+    {
+        "form_id": "iron-boulder",
+        "game_id": "violet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
+    },
+    {
+        "form_id": "iron-crown",
+        "game_id": "violet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
+    },
 ]
 
 

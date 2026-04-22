@@ -30202,6 +30202,14 @@
     "method_details": "purple-flowers, red-flowers, walk, yellow-flowers"
   },
   {
+    "form_id": "gouging-fire",
+    "game_id": "scarlet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC."
+  },
+  {
     "form_id": "gourgeist",
     "game_id": "legends-za",
     "method": "trade"
@@ -36372,9 +36380,25 @@
     "method_details": "level-up"
   },
   {
+    "form_id": "iron-boulder",
+    "game_id": "violet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC."
+  },
+  {
     "form_id": "iron-bundle",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "iron-crown",
+    "game_id": "violet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC."
   },
   {
     "form_id": "iron-hands",
@@ -36385,6 +36409,13 @@
     "form_id": "iron-jugulis",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "iron-leaves",
+    "game_id": "violet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "notes": "SV 1.2.0 Tera Raid Battle event (2023)."
   },
   {
     "form_id": "iron-moth",
@@ -61922,6 +61953,14 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "raging-bolt",
+    "game_id": "scarlet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC."
+  },
+  {
     "form_id": "raichu",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -84010,6 +84049,13 @@
     "game_id": "y",
     "method": "evolution",
     "method_details": "level-up"
+  },
+  {
+    "form_id": "walking-wake",
+    "game_id": "scarlet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "notes": "SV 1.2.0 Tera Raid Battle event (2023)."
   },
   {
     "form_id": "walrein",
