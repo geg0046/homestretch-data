@@ -91,11 +91,66 @@ the same string, so this is just a membership check.
 
 - **PokéAPI** — <https://pokeapi.co>. Species, abilities, forms, partial
   encounter coverage. GitHub mirror at PokeAPI/api-data for bulk pulls.
-- **Serebii / Bulbapedia** — prose encounter and availability info;
-  future scraper targets. Use the same UA pattern as the PokéAPI scraper.
+- **Bulbapedia** — <https://bulbapedia.bulbagarden.net>. Structured wikitext
+  accessed via MediaWiki `api.php`. Covers the Gen 8/9 encounter data
+  PokéAPI omits and the branched-regional-evolution provenance PokéAPI
+  can't express. See the Bulbapedia section below for merge semantics.
+- **Serebii** — prose encounter and availability info; a potential future
+  fallback. Use the same UA pattern if/when added.
 - **pret decomps** (pokeemerald, pokeheartgold, pokeruby, pokecrystal) —
   authoritative encounter tables for older generations, MIT-ish license.
   Parse data files rather than scraping rendered wikis when possible.
+
+## Bulbapedia scraper
+
+`scrapers/bulbapedia.py` supplements PokéAPI where its coverage is weakest.
+Two modes, both reading Bulbapedia's `api.php?action=parse&prop=wikitext`
+endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
+
+- `--mode sources` — closes the Gen 8/9 encounter gap. Parses
+  `==Game locations==` `{{Availability/EntryN}}` templates for each
+  species. Emissions are filtered to the eight Gen 8/9 game IDs
+  (`GEN_8_9_GAME_IDS`); pre-Gen-8 rows stay PokéAPI-sourced. Method labels
+  are inferred by regex over the area text (`_METHOD_PATTERNS`) — unmatched
+  areas default to `wild-encounter`. Merge is **additive**: rows are
+  keyed on `(form_id, game_id, method, method_details)` and existing
+  entries win on conflict, so a re-run never rewrites PokéAPI-sourced rows.
+- `--mode evolutions` — refines the `method=evolution` rows PokéAPI
+  already emits. Three narrow refinements only; the PokéAPI trigger
+  catalog is otherwise authoritative:
+  1. **Regional pre-evo provenance.** When Bulbapedia's `==Evolution==`
+     evobox shows a regional variant on the pre-evo side (e.g.
+     `no1=0562Yamask-Galar` for Runerigus, `form2=Galarian Form` for
+     Mr. Rime's 3-stage chain), the evolved species's existing evolution
+     rows get a `from <regional-form-id>` suffix appended to their
+     `method_details` (e.g. `take-damage` → `take-damage from yamask-galar`).
+     Evobox templates `Evobox-N` and `Evobox/Nbranch*` are both parsed.
+  2. **New rows for regional-form species PokéAPI skipped.** PokéAPI
+     attributes every evolution row to the default form; Alolan Raichu,
+     Galarian Slowking, Hisuian Typhlosion, etc. therefore have zero
+     evolution rows in `data/sources.json`. Evolutions mode emits fresh
+     rows for these, scoped to the union of `_REGIONAL_GAMES[region]`
+     and any games where the form already appears in non-evolution rows.
+  3. **Per-game gating via prose + evobox item detection.** Prose phrases
+     like "...cannot evolve in [[Pokémon Scarlet and Violet]]..." remove
+     matching rows (regex stops at clause boundaries so contrast phrases
+     don't over-match). Evobox trigger text naming a specific item from
+     `_ITEM_NAME_TO_SLUG` (Black Augurite, Peat Block, Linking Cord,
+     Auspicious/Malicious Armor) appends the item slug to `method_details`
+     so `use-item` becomes `use-item black-augurite` for Kleavor/LA.
+  
+  Merge semantics for evolutions mode diverge from sources mode:
+  existing rows may be **rewritten or removed**, and new rows may be
+  **added** for regional forms. Re-runs are idempotent (annotation
+  suffixes are not re-appended if already present).
+
+`fetch_wikitext` follows `#redirect` pages once — Bulbapedia canonicalises
+apostrophe variants this way (Sirfetch'd/Sirfetch’d), so the shared cache
+stays effective across both spellings.
+
+UA: `HomeStretch/0.1 (+https://github.com/geg0046/homestretch-data;
+contact: homestretchapp@outlook.com)` — same as the PokéAPI scraper, using
+the project email.
 
 ## Evolution mode: game-scope mapping
 
@@ -115,8 +170,10 @@ design decisions worth knowing:
 - **Attribution is to the evolved species's default form** (`form_id ==
   species_id`). Branched regional evolutions (yamask-galar → runerigus,
   exeggcute → exeggutor-alola) emit a default-form row that loses the
-  pre-evolution provenance. This under-specifies but doesn't mis-specify;
-  refining to per-branch rows is a future pass.
+  pre-evolution provenance. The Bulbapedia `--mode evolutions` pass
+  refines this afterwards — appending `from <regional-form-id>` to
+  `method_details` and filling in the regional-variant rows PokéAPI
+  skipped entirely.
 
 Method mapping: any PokéAPI trigger name of `trade` maps to `Method.TRADE`,
 everything else (`level-up`, `use-item`, `shed`, `agile-style-move`,
@@ -127,12 +184,15 @@ stone-use from level-up if it wants.
 ## Known gaps in PokéAPI encounter coverage
 
 These are PokéAPI limitations, not scraper bugs — they need separate
-passes (hand-curated event rows, branched regional-evolution pass, or
-future Bulbapedia/pret scrapes):
+passes (Bulbapedia for Gen 8/9 and branched regional evolutions, curated
+rows for event-only forms and game-locked starters, pret decomps for
+older-gen precision):
 
 - Breeding-only mons (e.g. Cleffa, Smoochum in Gen 2)
 - Fossils (partial gift/static coverage at best)
-- Gen 8/9 encounter data is weak — expect gaps
-- Event-only forms (hand-curated with `method=event`)
-- Game-locked starter forms (hand-curated with `method=gift`)
-- Branched regional-form evolutions (currently attributed to default form)
+- Event-only forms (curated with `method=event`)
+- Game-locked starter forms (curated with `method=gift`)
+
+Gen 8/9 encounter coverage and branched regional-form evolution
+attribution are both addressed by `scrapers/bulbapedia.py` — see the
+Bulbapedia scraper section above.
