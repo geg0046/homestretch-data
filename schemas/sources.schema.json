@@ -21,7 +21,7 @@
     },
     "Source": {
       "additionalProperties": false,
-      "description": "A way to obtain a particular form inside a particular game.",
+      "description": "A way to obtain a particular form inside a particular game.\n\n`method` is the broad category. `method_details` is a short categorical\nslug that refines the subtype (e.g. `walk` / `surf` / `tera-raid` /\n`level-up` / `use-item`). Specific entities \u2014 items held or used,\nevolution locations, trade/party partner species, move conditions \u2014 go\nin the structured fields below. This keeps `method_details` queryable\nas a facet and the specifics available without string parsing.",
       "properties": {
         "form_id": {
           "maxLength": 80,
@@ -30,12 +30,103 @@
           "title": "Form Id",
           "type": "string"
         },
+        "from_form": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "minLength": 2,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "From Form"
+        },
         "game_id": {
           "maxLength": 40,
           "minLength": 1,
           "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
           "title": "Game Id",
           "type": "string"
+        },
+        "gender": {
+          "anyOf": [
+            {
+              "enum": [
+                "male",
+                "female"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gender"
+        },
+        "held_item": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Held Item"
+        },
+        "item": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Item"
+        },
+        "known_move": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Known Move"
+        },
+        "known_move_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Known Move Type"
+        },
+        "location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location"
         },
         "method": {
           "$ref": "#/$defs/Method"
@@ -52,6 +143,55 @@
           "default": null,
           "title": "Method Details"
         },
+        "min_affection": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Affection"
+        },
+        "min_beauty": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Beauty"
+        },
+        "min_happiness": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Happiness"
+        },
+        "needs_multiplayer": {
+          "default": false,
+          "title": "Needs Multiplayer",
+          "type": "boolean"
+        },
+        "needs_overworld_rain": {
+          "default": false,
+          "title": "Needs Overworld Rain",
+          "type": "boolean"
+        },
         "notes": {
           "anyOf": [
             {
@@ -63,6 +203,50 @@
           ],
           "default": null,
           "title": "Notes"
+        },
+        "party_species": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "minLength": 2,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Party Species"
+        },
+        "party_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Party Type"
+        },
+        "relative_physical_stats": {
+          "anyOf": [
+            {
+              "enum": [
+                "atk-gt-def",
+                "atk-lt-def",
+                "atk-eq-def"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Relative Physical Stats"
         },
         "requires_dlc": {
           "anyOf": [
@@ -79,6 +263,44 @@
         "requires_trade": {
           "default": false,
           "title": "Requires Trade",
+          "type": "boolean"
+        },
+        "time_of_day": {
+          "anyOf": [
+            {
+              "enum": [
+                "day",
+                "night",
+                "dusk",
+                "full-moon"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time Of Day"
+        },
+        "trade_species": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "minLength": 2,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Trade Species"
+        },
+        "turn_upside_down": {
+          "default": false,
+          "title": "Turn Upside Down",
           "type": "boolean"
         }
       },
