@@ -163,6 +163,194 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "from_form": "dipplin",
         "requires_dlc": "hidden-treasure-of-area-zero",
     },
+    # Fusion and held-item forms. These are HOME-storable state changes
+    # (not battle-only) but PokéAPI doesn't express them as evolutions —
+    # they're triggered by key items outside the evolution system.
+    # Encoded as method=gift: the key item is the gift; the form is what
+    # holding or using it on the base legendary produces. from_form points
+    # at the base; the fusion partner / mask goes in notes since no
+    # structured field fits.
+    # Kyurem-black / -white via DNA Splicers (Zekrom / Reshiram fusion).
+    # Obtainable where both base legendaries + splicers are available: SwSh
+    # Crown Tundra and SV Indigo Disk.
+    {
+        "form_id": "kyurem-black",
+        "game_id": "sword",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
+    },
+    {
+        "form_id": "kyurem-black",
+        "game_id": "shield",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
+    },
+    {
+        "form_id": "kyurem-black",
+        "game_id": "scarlet",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
+    },
+    {
+        "form_id": "kyurem-black",
+        "game_id": "violet",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
+    },
+    {
+        "form_id": "kyurem-white",
+        "game_id": "sword",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
+    },
+    {
+        "form_id": "kyurem-white",
+        "game_id": "shield",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
+    },
+    {
+        "form_id": "kyurem-white",
+        "game_id": "scarlet",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
+    },
+    {
+        "form_id": "kyurem-white",
+        "game_id": "violet",
+        "method": "gift",
+        "from_form": "kyurem",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
+    },
+    # Calyrex-ice / -shadow via Reins of Unity (Glastrier / Spectrier fusion).
+    # SwSh Crown Tundra only.
+    {
+        "form_id": "calyrex-ice",
+        "game_id": "sword",
+        "method": "gift",
+        "from_form": "calyrex",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
+    },
+    {
+        "form_id": "calyrex-ice",
+        "game_id": "shield",
+        "method": "gift",
+        "from_form": "calyrex",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
+    },
+    {
+        "form_id": "calyrex-shadow",
+        "game_id": "sword",
+        "method": "gift",
+        "from_form": "calyrex",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
+    },
+    {
+        "form_id": "calyrex-shadow",
+        "game_id": "shield",
+        "method": "gift",
+        "from_form": "calyrex",
+        "requires_dlc": "expansion-pass",
+        "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
+    },
+    # Necrozma-dawn / -dusk via N-Lunarizer / N-Solarizer (Lunala / Solgaleo
+    # fusion). USUM only; fusion persists in storage.
+    {
+        "form_id": "necrozma-dawn",
+        "game_id": "ultra-sun",
+        "method": "gift",
+        "from_form": "necrozma",
+        "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
+    },
+    {
+        "form_id": "necrozma-dawn",
+        "game_id": "ultra-moon",
+        "method": "gift",
+        "from_form": "necrozma",
+        "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
+    },
+    {
+        "form_id": "necrozma-dusk",
+        "game_id": "ultra-sun",
+        "method": "gift",
+        "from_form": "necrozma",
+        "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
+    },
+    {
+        "form_id": "necrozma-dusk",
+        "game_id": "ultra-moon",
+        "method": "gift",
+        "from_form": "necrozma",
+        "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
+    },
+    # Ogerpon masks: each mask is a SV Teal Mask DLC quest reward; holding
+    # it on Ogerpon produces the corresponding form.
+    {
+        "form_id": "ogerpon-wellspring-mask",
+        "game_id": "scarlet",
+        "method": "gift",
+        "from_form": "ogerpon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
+    },
+    {
+        "form_id": "ogerpon-wellspring-mask",
+        "game_id": "violet",
+        "method": "gift",
+        "from_form": "ogerpon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
+    },
+    {
+        "form_id": "ogerpon-hearthflame-mask",
+        "game_id": "scarlet",
+        "method": "gift",
+        "from_form": "ogerpon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
+    },
+    {
+        "form_id": "ogerpon-hearthflame-mask",
+        "game_id": "violet",
+        "method": "gift",
+        "from_form": "ogerpon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
+    },
+    {
+        "form_id": "ogerpon-cornerstone-mask",
+        "game_id": "scarlet",
+        "method": "gift",
+        "from_form": "ogerpon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
+    },
+    {
+        "form_id": "ogerpon-cornerstone-mask",
+        "game_id": "violet",
+        "method": "gift",
+        "from_form": "ogerpon",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
+    },
 ]
 
 

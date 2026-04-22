@@ -24,6 +24,7 @@ from evolution_details import (
     detail_to_source_fields,
     gate_games,
     method_for_trigger,
+    resolve_branched_form_ids,
 )
 from pydantic import TypeAdapter
 from utils import RateLimitedClient, merge_by_key, source_key, source_sort_key
@@ -490,11 +491,12 @@ def build_evolution_sources_for_chain(
     species's pokedex scope when the detail names a location or item that
     isn't available in every scoped game.
 
-    Attribution is to the evolved species's default form (form_id ==
-    species_id). Branched regional evolutions (runerigus from
-    yamask-galar) are refined afterwards by the Bulbapedia evolutions
-    pass, which fills `from_form` and adds rows for regional targets
-    PokéAPI skipped.
+    Attribution uses `resolve_branched_form_ids` to pick the right
+    form(s) for species with intra-species branches (urshifu, lycanroc,
+    basculegion, wormadam, gourgeist, toxtricity, dudunsparce).
+    Regional-variant branches (runerigus from yamask-galar) are refined
+    afterwards by the Bulbapedia evolutions pass, which fills
+    `from_form` and adds rows for regional targets PokéAPI skipped.
     """
     results: list[dict[str, Any]] = []
 
@@ -529,16 +531,20 @@ def build_evolution_sources_for_chain(
                 details_str = fields.pop("method_details", None)
                 if details_str == method.value:
                     details_str = None
-                for game_id in applicable_games:
-                    entry: dict[str, Any] = {
-                        "form_id": evolved_species_id,
-                        "game_id": game_id,
-                        "method": method.value,
-                    }
-                    if details_str is not None:
-                        entry["method_details"] = details_str
-                    entry.update(fields)
-                    results.append(entry)
+                target_form_ids = resolve_branched_form_ids(
+                    evolved_species_id, detail, valid_form_ids
+                )
+                for form_id in target_form_ids:
+                    for game_id in applicable_games:
+                        entry: dict[str, Any] = {
+                            "form_id": form_id,
+                            "game_id": game_id,
+                            "method": method.value,
+                        }
+                        if details_str is not None:
+                            entry["method_details"] = details_str
+                        entry.update(fields)
+                        results.append(entry)
             walk(child)
 
     walk(chain["chain"])

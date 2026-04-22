@@ -3698,6 +3698,24 @@
     "method_details": "recoil-damage"
   },
   {
+    "form_id": "basculegion-female",
+    "game_id": "legends-arceus",
+    "method": "evolution",
+    "method_details": "recoil-damage"
+  },
+  {
+    "form_id": "basculegion-female",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "recoil-damage"
+  },
+  {
+    "form_id": "basculegion-female",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "recoil-damage"
+  },
+  {
     "form_id": "basculin",
     "game_id": "legends-arceus",
     "method": "wild-encounter",
@@ -6754,6 +6772,38 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "calyrex-ice",
+    "game_id": "shield",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
+    "from_form": "calyrex"
+  },
+  {
+    "form_id": "calyrex-ice",
+    "game_id": "sword",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
+    "from_form": "calyrex"
+  },
+  {
+    "form_id": "calyrex-shadow",
+    "game_id": "shield",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
+    "from_form": "calyrex"
+  },
+  {
+    "form_id": "calyrex-shadow",
+    "game_id": "sword",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
+    "from_form": "calyrex"
   },
   {
     "form_id": "camerupt",
@@ -15473,6 +15523,20 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "dudunsparce-three-segment",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "known_move": "hyper-drill"
+  },
+  {
+    "form_id": "dudunsparce-three-segment",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "known_move": "hyper-drill"
   },
   {
     "form_id": "dugtrio",
@@ -25079,6 +25143,81 @@
     "method": "trade"
   },
   {
+    "form_id": "gourgeist-large",
+    "game_id": "legends-za",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-large",
+    "game_id": "shield",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-large",
+    "game_id": "sword",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-large",
+    "game_id": "x",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-large",
+    "game_id": "y",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-small",
+    "game_id": "legends-za",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-small",
+    "game_id": "shield",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-small",
+    "game_id": "sword",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-small",
+    "game_id": "x",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-small",
+    "game_id": "y",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-super",
+    "game_id": "legends-za",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-super",
+    "game_id": "shield",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-super",
+    "game_id": "sword",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-super",
+    "game_id": "x",
+    "method": "trade"
+  },
+  {
+    "form_id": "gourgeist-super",
+    "game_id": "y",
+    "method": "trade"
+  },
+  {
     "form_id": "grafaiai",
     "game_id": "scarlet",
     "method": "evolution",
@@ -33277,6 +33416,70 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "kyurem-black",
+    "game_id": "scarlet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
+    "from_form": "kyurem"
+  },
+  {
+    "form_id": "kyurem-black",
+    "game_id": "shield",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
+    "from_form": "kyurem"
+  },
+  {
+    "form_id": "kyurem-black",
+    "game_id": "sword",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
+    "from_form": "kyurem"
+  },
+  {
+    "form_id": "kyurem-black",
+    "game_id": "violet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
+    "from_form": "kyurem"
+  },
+  {
+    "form_id": "kyurem-white",
+    "game_id": "scarlet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
+    "from_form": "kyurem"
+  },
+  {
+    "form_id": "kyurem-white",
+    "game_id": "shield",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
+    "from_form": "kyurem"
+  },
+  {
+    "form_id": "kyurem-white",
+    "game_id": "sword",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
+    "from_form": "kyurem"
+  },
+  {
+    "form_id": "kyurem-white",
+    "game_id": "violet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
+    "from_form": "kyurem"
+  },
+  {
     "form_id": "lairon",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -36345,20 +36548,6 @@
   {
     "form_id": "lycanroc",
     "game_id": "moon",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "moon",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -36368,20 +36557,6 @@
     "method": "evolution",
     "method_details": "level-up",
     "time_of_day": "day"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "scarlet",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "scarlet",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
   },
   {
     "form_id": "lycanroc",
@@ -36405,20 +36580,6 @@
   {
     "form_id": "lycanroc",
     "game_id": "shield",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "shield",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "shield",
     "method": "raid",
     "method_details": "dynamax-adventure",
     "requires_dlc": "expansion-pass"
@@ -36433,20 +36594,6 @@
   {
     "form_id": "lycanroc",
     "game_id": "sun",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "sun",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -36456,20 +36603,6 @@
     "method": "evolution",
     "method_details": "level-up",
     "time_of_day": "day"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "sword",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "sword",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
   },
   {
     "form_id": "lycanroc",
@@ -36488,20 +36621,6 @@
   {
     "form_id": "lycanroc",
     "game_id": "ultra-moon",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "ultra-moon",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -36515,20 +36634,6 @@
   {
     "form_id": "lycanroc",
     "game_id": "ultra-sun",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "ultra-sun",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "ultra-sun",
     "method": "wild-encounter",
     "method_details": "walk"
   },
@@ -36538,20 +36643,6 @@
     "method": "evolution",
     "method_details": "level-up",
     "time_of_day": "day"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "violet",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "night"
-  },
-  {
-    "form_id": "lycanroc",
-    "game_id": "violet",
-    "method": "evolution",
-    "method_details": "level-up",
-    "time_of_day": "dusk"
   },
   {
     "form_id": "lycanroc",
@@ -36566,6 +36657,69 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "lycanroc-dusk",
+    "game_id": "moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-dusk",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-dusk",
+    "game_id": "shield",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-dusk",
+    "game_id": "sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-dusk",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-dusk",
+    "game_id": "ultra-moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-dusk",
+    "game_id": "ultra-sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-dusk",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "dusk"
+  },
+  {
+    "form_id": "lycanroc-midnight",
+    "game_id": "moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
+  },
+  {
     "form_id": "lycanroc-midnight",
     "game_id": "moon",
     "method": "wild-encounter",
@@ -36573,9 +36727,44 @@
   },
   {
     "form_id": "lycanroc-midnight",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "lycanroc-midnight",
+    "game_id": "shield",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "lycanroc-midnight",
+    "game_id": "sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "lycanroc-midnight",
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "lycanroc-midnight",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "lycanroc-midnight",
+    "game_id": "ultra-moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
   },
   {
     "form_id": "lycanroc-midnight",
@@ -36586,8 +36775,22 @@
   {
     "form_id": "lycanroc-midnight",
     "game_id": "ultra-sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "lycanroc-midnight",
+    "game_id": "ultra-sun",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "lycanroc-midnight",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "time_of_day": "night"
   },
   {
     "form_id": "mabosstiff",
@@ -43547,6 +43750,34 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "necrozma-dawn",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
+    "from_form": "necrozma"
+  },
+  {
+    "form_id": "necrozma-dawn",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
+    "from_form": "necrozma"
+  },
+  {
+    "form_id": "necrozma-dusk",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
+    "from_form": "necrozma"
+  },
+  {
+    "form_id": "necrozma-dusk",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
+    "from_form": "necrozma"
+  },
+  {
     "form_id": "nickit",
     "game_id": "shield",
     "method": "raid",
@@ -45673,6 +45904,54 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "ogerpon-cornerstone-mask",
+    "game_id": "scarlet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
+    "from_form": "ogerpon"
+  },
+  {
+    "form_id": "ogerpon-cornerstone-mask",
+    "game_id": "violet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
+    "from_form": "ogerpon"
+  },
+  {
+    "form_id": "ogerpon-hearthflame-mask",
+    "game_id": "scarlet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
+    "from_form": "ogerpon"
+  },
+  {
+    "form_id": "ogerpon-hearthflame-mask",
+    "game_id": "violet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
+    "from_form": "ogerpon"
+  },
+  {
+    "form_id": "ogerpon-wellspring-mask",
+    "game_id": "scarlet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
+    "from_form": "ogerpon"
+  },
+  {
+    "form_id": "ogerpon-wellspring-mask",
+    "game_id": "violet",
+    "method": "gift",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
+    "from_form": "ogerpon"
   },
   {
     "form_id": "oinkologne",
@@ -66610,6 +66889,30 @@
     "method_details": "tera-raid"
   },
   {
+    "form_id": "toxtricity-low-key",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up"
+  },
+  {
+    "form_id": "toxtricity-low-key",
+    "game_id": "shield",
+    "method": "evolution",
+    "method_details": "level-up"
+  },
+  {
+    "form_id": "toxtricity-low-key",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up"
+  },
+  {
+    "form_id": "toxtricity-low-key",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up"
+  },
+  {
     "form_id": "tranquill",
     "game_id": "shield",
     "method": "evolution",
@@ -68045,18 +68348,18 @@
   },
   {
     "form_id": "urshifu",
-    "game_id": "shield",
-    "method": "evolution",
-    "method_details": "tower-of-waters"
-  },
-  {
-    "form_id": "urshifu",
     "game_id": "sword",
     "method": "evolution",
     "method_details": "tower-of-darkness"
   },
   {
-    "form_id": "urshifu",
+    "form_id": "urshifu-rapid-strike",
+    "game_id": "shield",
+    "method": "evolution",
+    "method_details": "tower-of-waters"
+  },
+  {
+    "form_id": "urshifu-rapid-strike",
     "game_id": "sword",
     "method": "evolution",
     "method_details": "tower-of-waters"
@@ -72284,6 +72587,76 @@
   },
   {
     "form_id": "wormadam",
+    "game_id": "y",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-sandy",
+    "game_id": "brilliant-diamond",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-sandy",
+    "game_id": "legends-arceus",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-sandy",
+    "game_id": "shining-pearl",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-sandy",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-sandy",
+    "game_id": "y",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-trash",
+    "game_id": "brilliant-diamond",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-trash",
+    "game_id": "legends-arceus",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-trash",
+    "game_id": "shining-pearl",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-trash",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "wormadam-trash",
     "game_id": "y",
     "method": "evolution",
     "method_details": "level-up",
