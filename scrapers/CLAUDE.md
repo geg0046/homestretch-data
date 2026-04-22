@@ -183,16 +183,23 @@ stone-use from level-up if it wants.
 
 ## Known gaps in PokéAPI encounter coverage
 
-These are PokéAPI limitations, not scraper bugs — they need separate
-passes (Bulbapedia for Gen 8/9 and branched regional evolutions, curated
-rows for event-only forms and game-locked starters, pret decomps for
-older-gen precision):
+These are PokéAPI limitations, not scraper bugs. Status as of the most
+recent scrape:
 
-- Breeding-only mons (e.g. Cleffa, Smoochum in Gen 2)
-- Fossils (partial gift/static coverage at best)
-- Event-only forms (curated with `method=event`)
-- Game-locked starter forms (curated with `method=gift`)
+- **Breeding-only mons** (e.g. Gen 2 babies: Cleffa, Smoochum, Igglybuff,
+  Elekid, Magby). `Method.BREEDING` is in the enum but currently has zero
+  rows in `data/sources.json`. Needs a curated pass.
+- **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/FRLG,
+  Abra/Dratini/etc. in GSC/HGSS, Clefairy in DPPt). `Method.PURCHASE` is
+  in the enum with zero rows. Needs a curated pass.
+- **Fossils** — covered via `fossil-revive` rows from PokéAPI where it
+  expresses them, plus raid rows in Gen 8 DLC; no known gaps remaining.
+- **Event-only forms** (Zarude-Dada, Magearna-Original, Greninja-Battle-Bond)
+  — covered with `method=event` rows.
+- **Game-locked starter forms** (Let's Go `pikachu-starter`/`eevee-starter`)
+  — covered with `method=gift` rows.
 
-Gen 8/9 encounter coverage and branched regional-form evolution
-attribution are both addressed by `scrapers/bulbapedia.py` — see the
-Bulbapedia scraper section above.
+Gen 8/9 encounter coverage and branched regional-form evolution attribution
+are both addressed by `scrapers/bulbapedia.py` — see the Bulbapedia scraper
+section above. Older-gen precision (Gen 2–5 exact route lists) would benefit
+from a pret-decomps pass but is not currently tracked as a blocking gap.
