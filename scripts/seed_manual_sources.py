@@ -104,62 +104,13 @@ GENDER_DIFFERENCE_PAIRS: list[tuple[str, str]] = [
     ("oinkologne-female", "oinkologne"),
 ]
 
-# Arceus elemental plates. Form change is triggered by Arceus holding the
-# corresponding Plate item. Arceus is obtainable in BDSP/SP (Ramanas Park)
-# and PLA (story); plates are collectible in all three. `arceus-unknown`
-# (the "???"-type Curse variant) has been pruned from forms.json entirely
-# — datamine-only, never distributed, and the "???" type was removed in
-# Gen V so no HOME-reachable path exists.
-ARCEUS_PLATE_TYPES: tuple[str, ...] = (
-    "bug",
-    "dark",
-    "dragon",
-    "electric",
-    "fairy",
-    "fighting",
-    "fire",
-    "flying",
-    "ghost",
-    "grass",
-    "ground",
-    "ice",
-    "poison",
-    "psychic",
-    "rock",
-    "steel",
-    "water",
-)
-ARCEUS_PLATE_GAMES: tuple[str, ...] = (
-    "brilliant-diamond",
-    "shining-pearl",
-    "legends-arceus",
-)
-
-# Silvally type memories. Form change is triggered by Silvally holding the
-# corresponding Memory item. Memories are obtainable only in SM/USUM (Game
-# Freak gift + Aether Foundation); the SwSh Silvally that appears in
-# Dynamax Adventures has no in-game memories, so any memory form there
-# requires HOME transfer rather than in-game acquisition.
-SILVALLY_MEMORY_TYPES: tuple[str, ...] = (
-    "bug",
-    "dark",
-    "dragon",
-    "electric",
-    "fairy",
-    "fighting",
-    "fire",
-    "flying",
-    "ghost",
-    "grass",
-    "ground",
-    "ice",
-    "poison",
-    "psychic",
-    "rock",
-    "steel",
-    "water",
-)
-SILVALLY_MEMORY_GAMES: tuple[str, ...] = ("sun", "moon", "ultra-sun", "ultra-moon")
+# Arceus plate forms, Silvally memory forms, and other held-item-triggered
+# form changes are NOT tracked. Pokémon HOME strips held items on deposit,
+# collapsing the Pokémon back to its default form in HOME storage, so those
+# forms have no distinct HOME slot. See `scrapers/pokeapi.py`
+# `SKIP_FORM_IDS_HOME_UNREACHABLE` for the complete list, and
+# `reference_serebii_home_nondepositable` memory for the authoritative
+# source (<https://www.serebii.net/pokemonhome/nondepositablepokemon.shtml>).
 
 # USUM totem-sized Pokémon. Each is redeemed from Samson Oak at Heahea
 # Beach in exchange for Totem Stickers collected throughout Alola.
@@ -185,9 +136,6 @@ USUM_TOTEM_FORMS: tuple[str, ...] = (
 EXPLICIT_ROWS: list[dict[str, object]] = [
     # Event-only forms (scrapers/pokeapi.py::EVENT_ONLY_FORM_IDS marks the
     # category; nothing emits the corresponding source rows).
-    # greninja-battle-bond: Ash-Greninja distribution in SM (2017).
-    {"form_id": "greninja-battle-bond", "game_id": "sun", "method": "event"},
-    {"form_id": "greninja-battle-bond", "game_id": "moon", "method": "event"},
     # magearna-original: "Original Color" Magearna, awarded for completing
     # the National Dex in Pokémon HOME from SwSh (2020).
     {"form_id": "magearna-original", "game_id": "sword", "method": "event"},
@@ -195,9 +143,10 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     # zarude-dada: serial-code distribution tied to the Coco movie (2020).
     {"form_id": "zarude-dada", "game_id": "sword", "method": "event"},
     {"form_id": "zarude-dada", "game_id": "shield", "method": "event"},
-    # Let's Go partner Pikachu/Eevee — game-locked gift at game start.
-    {"form_id": "pikachu-starter", "game_id": "lets-go-pikachu", "method": "gift"},
-    {"form_id": "eevee-starter", "game_id": "lets-go-eevee", "method": "gift"},
+    # Let's Go partner Pikachu/Eevee and greninja-battle-bond (Ash-Greninja)
+    # are NOT tracked — all three are on Serebii's HOME non-depositable list
+    # (partners are permanently save-bound; Ash-Greninja is a listed form
+    # change). See scrapers/pokeapi.py SKIP_FORM_IDS_HOME_UNREACHABLE.
     # basculin-white-striped: PLA wild + SV Indigo Disk Terarium.
     {
         "form_id": "basculin-white-striped",
@@ -255,194 +204,10 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "from_form": "dipplin",
         "requires_dlc": "hidden-treasure-of-area-zero",
     },
-    # Fusion and held-item forms. These are HOME-storable state changes
-    # (not battle-only) but PokéAPI doesn't express them as evolutions —
-    # they're triggered by key items outside the evolution system.
-    # Encoded as method=gift: the key item is the gift; the form is what
-    # holding or using it on the base legendary produces. from_form points
-    # at the base; the fusion partner / mask goes in notes since no
-    # structured field fits.
-    # Kyurem-black / -white via DNA Splicers (Zekrom / Reshiram fusion).
-    # Obtainable where both base legendaries + splicers are available: SwSh
-    # Crown Tundra and SV Indigo Disk.
-    {
-        "form_id": "kyurem-black",
-        "game_id": "sword",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
-    },
-    {
-        "form_id": "kyurem-black",
-        "game_id": "shield",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
-    },
-    {
-        "form_id": "kyurem-black",
-        "game_id": "scarlet",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
-    },
-    {
-        "form_id": "kyurem-black",
-        "game_id": "violet",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
-    },
-    {
-        "form_id": "kyurem-white",
-        "game_id": "sword",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
-    },
-    {
-        "form_id": "kyurem-white",
-        "game_id": "shield",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
-    },
-    {
-        "form_id": "kyurem-white",
-        "game_id": "scarlet",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
-    },
-    {
-        "form_id": "kyurem-white",
-        "game_id": "violet",
-        "method": "gift",
-        "from_form": "kyurem",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
-    },
-    # Calyrex-ice / -shadow via Reins of Unity (Glastrier / Spectrier fusion).
-    # SwSh Crown Tundra only.
-    {
-        "form_id": "calyrex-ice",
-        "game_id": "sword",
-        "method": "gift",
-        "from_form": "calyrex",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
-    },
-    {
-        "form_id": "calyrex-ice",
-        "game_id": "shield",
-        "method": "gift",
-        "from_form": "calyrex",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
-    },
-    {
-        "form_id": "calyrex-shadow",
-        "game_id": "sword",
-        "method": "gift",
-        "from_form": "calyrex",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
-    },
-    {
-        "form_id": "calyrex-shadow",
-        "game_id": "shield",
-        "method": "gift",
-        "from_form": "calyrex",
-        "requires_dlc": "expansion-pass",
-        "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
-    },
-    # Necrozma-dawn / -dusk via N-Lunarizer / N-Solarizer (Lunala / Solgaleo
-    # fusion). USUM only; fusion persists in storage.
-    {
-        "form_id": "necrozma-dawn",
-        "game_id": "ultra-sun",
-        "method": "gift",
-        "from_form": "necrozma",
-        "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
-    },
-    {
-        "form_id": "necrozma-dawn",
-        "game_id": "ultra-moon",
-        "method": "gift",
-        "from_form": "necrozma",
-        "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
-    },
-    {
-        "form_id": "necrozma-dusk",
-        "game_id": "ultra-sun",
-        "method": "gift",
-        "from_form": "necrozma",
-        "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
-    },
-    {
-        "form_id": "necrozma-dusk",
-        "game_id": "ultra-moon",
-        "method": "gift",
-        "from_form": "necrozma",
-        "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
-    },
-    # Ogerpon masks: each mask is a SV Teal Mask DLC quest reward; holding
-    # it on Ogerpon produces the corresponding form.
-    {
-        "form_id": "ogerpon-wellspring-mask",
-        "game_id": "scarlet",
-        "method": "gift",
-        "from_form": "ogerpon",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
-    },
-    {
-        "form_id": "ogerpon-wellspring-mask",
-        "game_id": "violet",
-        "method": "gift",
-        "from_form": "ogerpon",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
-    },
-    {
-        "form_id": "ogerpon-hearthflame-mask",
-        "game_id": "scarlet",
-        "method": "gift",
-        "from_form": "ogerpon",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
-    },
-    {
-        "form_id": "ogerpon-hearthflame-mask",
-        "game_id": "violet",
-        "method": "gift",
-        "from_form": "ogerpon",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
-    },
-    {
-        "form_id": "ogerpon-cornerstone-mask",
-        "game_id": "scarlet",
-        "method": "gift",
-        "from_form": "ogerpon",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
-    },
-    {
-        "form_id": "ogerpon-cornerstone-mask",
-        "game_id": "violet",
-        "method": "gift",
-        "from_form": "ogerpon",
-        "requires_dlc": "hidden-treasure-of-area-zero",
-        "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
-    },
+    # Kyurem-Black/White, Calyrex-Ice/Shadow, Necrozma-Dawn/Dusk, and the
+    # three Ogerpon mask forms are NOT tracked: all are on Serebii's HOME
+    # non-depositable list. Fused forms cannot be deposited in HOME at all;
+    # mask forms require a held item that HOME strips on deposit.
     # Mythicals. Distributed via serial codes, Pokémon Center events, movie
     # tie-ins, or unique in-game mechanics — PokéAPI lists them in the
     # Pokédex but emits no encounter data. Games listed are in-scope
@@ -728,10 +493,14 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     # source rows. Divided by acquisition mechanic:
     #   (A) Burmy / Mothim alternate cloaks — environment-determined
     #   (B) Legendary form-change items — method=gift + item, following the
-    #       plate / memory / mask / fusion convention
+    #       plate / memory / mask convention
     #   (C) Meteorite-driven Deoxys formes — method=gift + from_form
-    #   (D) Genesect Drive items — method=gift + item
-    #   (E) Floette-Eternal — Legends Z-A story gift
+    #   (D) Floette-Eternal — Legends Z-A story gift
+    #
+    # Giratina-Origin and Genesect Drive forms were evaluated and excluded:
+    # HOME strips held items on deposit, and neither form has a save-data
+    # flag that persists through HOME (Guidebook does not acknowledge
+    # Genesect drives at all). Both are pruned from forms.json.
     # -------------------------------------------------------------------------
     # (A) Burmy Sandy / Trash cloaks. Burmy's cloak changes after a battle
     # based on surroundings (rocky/sand → Sandy, buildings/structures → Trash,
@@ -790,73 +559,14 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         }
         for game in ("x", "y", "brilliant-diamond", "shining-pearl", "legends-arceus")
     ),
-    # (B) Legendary form-change items. Encoded as method=gift with the
-    # triggering item + from_form, matching the Arceus plate / Silvally
-    # memory / Ogerpon mask / Kyurem-Calyrex-Necrozma fusion convention.
-    # Only seeded for games where BOTH the base form and the triggering
-    # item are obtainable in-game (transfers are covered by transfers.json).
+    # (B) Save-data-persistent form-change items. Encoded as method=gift
+    # with the triggering item + from_form. Only seeded for games where
+    # both the base form and the triggering item are obtainable in-game
+    # (transfers are covered by transfers.json).
     #
-    # Dialga-Origin / Palkia-Origin: introduced in Legends: Arceus.
-    # Adamant Crystal / Lustrous Globe are PLA rewards (Requests 89 / 90);
-    # BDSP does not have the items in-game.
-    {
-        "form_id": "dialga-origin",
-        "game_id": "legends-arceus",
-        "method": "gift",
-        "from_form": "dialga",
-        "item": "adamant-crystal",
-        "notes": "Adamant Crystal received as the reward for Request 89 at Lake Valor.",
-    },
-    {
-        "form_id": "palkia-origin",
-        "game_id": "legends-arceus",
-        "method": "gift",
-        "from_form": "palkia",
-        "item": "lustrous-globe",
-        "notes": "Lustrous Globe received as the reward for Request 90 at Pearl Settlement.",
-    },
-    # Giratina-Origin: Griseous Orb triggers the form change in every Gen
-    # 6-8 game where it's obtainable; Legends: Arceus uses the Griseous Core.
-    *(
-        {
-            "form_id": "giratina-origin",
-            "game_id": game,
-            "method": "gift",
-            "from_form": "giratina",
-            "item": "griseous-orb",
-            "notes": notes,
-        }
-        for game, notes in (
-            ("omega-ruby", "Griseous Orb on Route 130 (underwater)."),
-            ("alpha-sapphire", "Griseous Orb on Route 130 (underwater)."),
-            ("ultra-sun", "Griseous Orb from the Antiquities of the Ages shop in Hau'oli City."),
-            ("ultra-moon", "Griseous Orb from the Antiquities of the Ages shop in Hau'oli City."),
-            (
-                "sword",
-                "Griseous Orb from the Stow-on-Side bargain shop after completing the main story.",
-            ),
-            (
-                "shield",
-                "Griseous Orb from the Stow-on-Side bargain shop after completing the main story.",
-            ),
-            (
-                "brilliant-diamond",
-                "Griseous Orb at Ramanas Park after defeating Origin Forme Giratina.",
-            ),
-            (
-                "shining-pearl",
-                "Griseous Orb at Ramanas Park after defeating Origin Forme Giratina.",
-            ),
-        )
-    ),
-    {
-        "form_id": "giratina-origin",
-        "game_id": "legends-arceus",
-        "method": "gift",
-        "from_form": "giratina",
-        "item": "griseous-core",
-        "notes": "Form change triggered at Turnback Cave; Griseous Core available in-game.",
-    },
+    # Origin Formes (Dialga, Palkia, Giratina) are NOT tracked: all three
+    # are on Serebii's HOME non-depositable list. See scrapers/pokeapi.py
+    # SKIP_FORM_IDS_HOME_UNREACHABLE.
     # Shaymin-Sky: only in-game path for the base Shaymin form is PLA
     # (Request 92, requires Sword/Shield save data). Gracidea also arrives
     # in PLA during that request.
@@ -1078,27 +788,10 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         for form_id in ("deoxys-attack", "deoxys-defense", "deoxys-speed")
         for game in ("omega-ruby", "alpha-sapphire")
     ),
-    # (D) Genesect Drive items. Each drive, when held, changes Genesect's
-    # form (and the move Techno Blast's type). Only in-scope game with a
-    # legitimate base Genesect encounter is the SwSh Crown Tundra Dynamax
-    # Adventure; the bargain shop in Stow-on-Side sells all four drives
-    # once the player owns a Genesect.
-    *(
-        {
-            "form_id": f"genesect-{drive}",
-            "game_id": game,
-            "method": "gift",
-            "from_form": "genesect",
-            "item": f"{drive}-drive",
-            "requires_dlc": "expansion-pass",
-            "notes": (
-                f"{drive.capitalize()} Drive from the Stow-on-Side bargain shop "
-                "while the player owns a Genesect."
-            ),
-        }
-        for drive in ("burn", "chill", "douse", "shock")
-        for game in ("sword", "shield")
-    ),
+    # Genesect Drive forms are NOT tracked: Bulbapedia's Pokémon HOME article
+    # explicitly lists "Genesect's drive forms" among forms "not acknowledged
+    # at all" by the Pokémon Guidebook, and HOME strips the held Drive on
+    # deposit. See scrapers/pokeapi.py SKIP_FORM_IDS_HOME_UNREACHABLE.
     # (E) Floette-Eternal: AZ's Floette, legitimately obtainable for the
     # first time in Legends: Z-A as a story gift from Taunie/Urbain after
     # completing Main Mission 39. One per save file.
@@ -1132,34 +825,6 @@ def _build_rows(existing: list[dict]) -> list[dict]:
                     "game_id": game,
                     "method": "purchase",
                     "method_details": "game-corner",
-                }
-            )
-    # Arceus plates: method=gift follows the fusion/hold-item convention
-    # established by ogerpon masks and kyurem/calyrex fusions. Structured
-    # `item` captures the plate slug; `from_form` preserves provenance.
-    for plate_type in ARCEUS_PLATE_TYPES:
-        for game in ARCEUS_PLATE_GAMES:
-            rows.append(
-                {
-                    "form_id": f"arceus-{plate_type}",
-                    "game_id": game,
-                    "method": "gift",
-                    "from_form": "arceus",
-                    "item": f"{plate_type}-plate",
-                    "notes": "Form change by holding the corresponding Plate.",
-                }
-            )
-    # Silvally memories: same convention as arceus plates.
-    for memory_type in SILVALLY_MEMORY_TYPES:
-        for game in SILVALLY_MEMORY_GAMES:
-            rows.append(
-                {
-                    "form_id": f"silvally-{memory_type}",
-                    "game_id": game,
-                    "method": "gift",
-                    "from_form": "silvally",
-                    "item": f"{memory_type}-memory",
-                    "notes": "Form change by holding the corresponding Memory.",
                 }
             )
     # USUM totem stickers: redeemable at Heahea Beach from Samson Oak.
