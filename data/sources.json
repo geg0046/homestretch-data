@@ -670,6 +670,20 @@
   },
   {
     "form_id": "aerodactyl",
+    "game_id": "x",
+    "method": "fossil-revive",
+    "notes": "Old Amber at the Ambrette Town Fossil Lab.",
+    "item": "old-amber"
+  },
+  {
+    "form_id": "aerodactyl",
+    "game_id": "y",
+    "method": "fossil-revive",
+    "notes": "Old Amber at the Ambrette Town Fossil Lab.",
+    "item": "old-amber"
+  },
+  {
+    "form_id": "aerodactyl",
     "game_id": "yellow",
     "method": "gift"
   },
@@ -2907,6 +2921,12 @@
     "method_details": "horde"
   },
   {
+    "form_id": "aron",
+    "game_id": "y",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from X."
+  },
+  {
     "form_id": "arrokuda",
     "game_id": "scarlet",
     "method": "raid",
@@ -2982,6 +3002,20 @@
   },
   {
     "form_id": "articuno",
+    "game_id": "crystal",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Seafoam Islands in post-game Kanto."
+  },
+  {
+    "form_id": "articuno",
+    "game_id": "gold",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Seafoam Islands in post-game Kanto."
+  },
+  {
+    "form_id": "articuno",
     "game_id": "lets-go-eevee",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -3029,6 +3063,13 @@
     "game_id": "shining-pearl",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "articuno",
+    "game_id": "silver",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Seafoam Islands in post-game Kanto."
   },
   {
     "form_id": "articuno",
@@ -3882,6 +3923,12 @@
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "sos-encounter, sos-from-bubbling-spot"
+  },
+  {
+    "form_id": "baltoy",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "banette",
@@ -5370,9 +5417,21 @@
   },
   {
     "form_id": "bellsprout",
+    "game_id": "lets-go-pikachu",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Eevee."
+  },
+  {
+    "form_id": "bellsprout",
     "game_id": "moon",
     "method": "static-encounter",
     "method_details": "island-scan"
+  },
+  {
+    "form_id": "bellsprout",
+    "game_id": "red",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Blue."
   },
   {
     "form_id": "bellsprout",
@@ -5924,6 +5983,12 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "blacephalon",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "blacephalon",
@@ -6744,6 +6809,18 @@
     "form_id": "bounsweet",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "bounsweet",
+    "game_id": "ultra-moon",
+    "method": "wild-encounter",
+    "notes": "Lush Jungle tall grass."
+  },
+  {
+    "form_id": "bounsweet",
+    "game_id": "ultra-sun",
+    "method": "wild-encounter",
+    "notes": "Lush Jungle tall grass."
   },
   {
     "form_id": "bounsweet",
@@ -7546,6 +7623,18 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "buizel",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 22 / Azure Bay wilds."
+  },
+  {
+    "form_id": "buizel",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 22 / Azure Bay wilds."
+  },
+  {
     "form_id": "bulbasaur",
     "game_id": "blue",
     "method": "gift"
@@ -7554,6 +7643,20 @@
     "form_id": "bulbasaur",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "bulbasaur",
+    "game_id": "crystal",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
+  },
+  {
+    "form_id": "bulbasaur",
+    "game_id": "gold",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
     "form_id": "bulbasaur",
@@ -7609,6 +7712,13 @@
     "form_id": "bulbasaur",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "bulbasaur",
+    "game_id": "silver",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
     "form_id": "bulbasaur",
@@ -8053,6 +8163,12 @@
   },
   {
     "form_id": "buzzwole",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "buzzwole",
     "game_id": "shield",
     "method": "static-encounter",
     "method_details": "only-one",
@@ -8076,6 +8192,12 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "buzzwole",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "buzzwole",
@@ -8627,6 +8749,12 @@
   },
   {
     "form_id": "carvanha",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "carvanha",
     "game_id": "shield",
     "method": "fishing",
     "requires_dlc": "expansion-pass"
@@ -8641,6 +8769,13 @@
     "form_id": "carvanha",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "carvanha",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "method_details": "sos-encounter",
+    "notes": "SOS call from Sharpedo on Melemele Sea (Sun-exclusive)."
   },
   {
     "form_id": "carvanha",
@@ -8841,6 +8976,12 @@
   },
   {
     "form_id": "caterpie",
+    "game_id": "silver",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Gold."
+  },
+  {
+    "form_id": "caterpie",
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "sos-encounter, walk"
@@ -8889,8 +9030,26 @@
   {
     "form_id": "celebi",
     "game_id": "crystal",
+    "method": "event",
+    "notes": "Virtual Console Gen 2 launch serial-code distribution (2018)."
+  },
+  {
+    "form_id": "celebi",
+    "game_id": "crystal",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "celebi",
+    "game_id": "gold",
+    "method": "event",
+    "notes": "Virtual Console Gen 2 launch serial-code distribution (2018)."
+  },
+  {
+    "form_id": "celebi",
+    "game_id": "silver",
+    "method": "event",
+    "notes": "Virtual Console Gen 2 launch serial-code distribution (2018)."
   },
   {
     "form_id": "celesteela",
@@ -8913,6 +9072,12 @@
   },
   {
     "form_id": "celesteela",
+    "game_id": "sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Moon."
+  },
+  {
+    "form_id": "celesteela",
     "game_id": "sword",
     "method": "static-encounter",
     "method_details": "only-one",
@@ -8923,6 +9088,12 @@
     "game_id": "ultra-moon",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "celesteela",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "centiskorch",
@@ -9817,6 +9988,20 @@
   },
   {
     "form_id": "charmander",
+    "game_id": "crystal",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
+  },
+  {
+    "form_id": "charmander",
+    "game_id": "gold",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
+  },
+  {
+    "form_id": "charmander",
     "game_id": "legends-za",
     "method": "gift"
   },
@@ -9873,6 +10058,13 @@
     "form_id": "charmander",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "charmander",
+    "game_id": "silver",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
     "form_id": "charmander",
@@ -11053,6 +11245,12 @@
     "game_id": "x",
     "method": "fishing",
     "method_details": "good-rod"
+  },
+  {
+    "form_id": "clauncher",
+    "game_id": "y",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from X."
   },
   {
     "form_id": "clawitzer",
@@ -13366,6 +13564,12 @@
   },
   {
     "form_id": "cottonee",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "cottonee",
     "game_id": "scarlet",
     "method": "raid",
     "method_details": "tera-raid",
@@ -13440,6 +13644,12 @@
     "game_id": "sword",
     "method": "wild-encounter",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "cottonee",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "cottonee",
@@ -15235,6 +15445,18 @@
     "notes": "Version-exclusive; trade from Scarlet."
   },
   {
+    "form_id": "deino",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Terminus Cave."
+  },
+  {
+    "form_id": "deino",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Terminus Cave."
+  },
+  {
     "form_id": "delcatty",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -15272,6 +15494,12 @@
     "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "delibird",
+    "game_id": "gold",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Silver."
   },
   {
     "form_id": "delibird",
@@ -16073,6 +16301,18 @@
   },
   {
     "form_id": "diglett",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Connecting Cave."
+  },
+  {
+    "form_id": "diglett",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Connecting Cave."
+  },
+  {
+    "form_id": "diglett",
     "game_id": "yellow",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -17649,6 +17889,12 @@
   },
   {
     "form_id": "drampa",
+    "game_id": "sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Moon."
+  },
+  {
+    "form_id": "drampa",
     "game_id": "sword",
     "method": "trade",
     "notes": "Version-exclusive; trade from Shield."
@@ -17658,6 +17904,12 @@
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "drampa",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "drapion",
@@ -20415,6 +20667,12 @@
   },
   {
     "form_id": "ekans",
+    "game_id": "blue",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Red."
+  },
+  {
+    "form_id": "ekans",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -20445,6 +20703,12 @@
     "game_id": "lets-go-eevee",
     "method": "wild-encounter",
     "method_details": "overworld"
+  },
+  {
+    "form_id": "ekans",
+    "game_id": "lets-go-pikachu",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Eevee."
   },
   {
     "form_id": "ekans",
@@ -20507,6 +20771,12 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "horde"
+  },
+  {
+    "form_id": "ekans",
+    "game_id": "yellow",
+    "method": "trade",
+    "notes": "Not catchable in Yellow; trade from Red."
   },
   {
     "form_id": "eldegoss",
@@ -20989,6 +21259,18 @@
     "form_id": "electrike",
     "game_id": "ultra-moon",
     "method": "gift"
+  },
+  {
+    "form_id": "electrike",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
+  },
+  {
+    "form_id": "electrike",
+    "game_id": "x",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Y."
   },
   {
     "form_id": "electrike",
@@ -26959,6 +27241,18 @@
   },
   {
     "form_id": "gastly",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 14 tall grass at night."
+  },
+  {
+    "form_id": "gastly",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 14 tall grass at night."
+  },
+  {
+    "form_id": "gastly",
     "game_id": "yellow",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -27542,6 +27836,18 @@
   },
   {
     "form_id": "geodude-alola",
+    "game_id": "ultra-moon",
+    "method": "wild-encounter",
+    "notes": "Ten Carat Hill caves and Melemele Island routes."
+  },
+  {
+    "form_id": "geodude-alola",
+    "game_id": "ultra-sun",
+    "method": "wild-encounter",
+    "notes": "Ten Carat Hill caves and Melemele Island routes."
+  },
+  {
+    "form_id": "geodude-alola",
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid",
@@ -27588,6 +27894,13 @@
   },
   {
     "form_id": "gible",
+    "game_id": "moon",
+    "method": "wild-encounter",
+    "method_details": "sos-encounter",
+    "notes": "Rare SOS call from Sandile in Haina Desert."
+  },
+  {
+    "form_id": "gible",
     "game_id": "scarlet",
     "method": "raid",
     "method_details": "tera-raid"
@@ -27618,11 +27931,32 @@
   },
   {
     "form_id": "gible",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "method_details": "sos-encounter",
+    "notes": "Rare SOS call from Sandile in Haina Desert."
+  },
+  {
+    "form_id": "gible",
     "game_id": "sword",
     "method": "raid",
     "method_details": "dynamax-adventure",
     "requires_dlc": "expansion-pass",
     "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
+  },
+  {
+    "form_id": "gible",
+    "game_id": "ultra-moon",
+    "method": "wild-encounter",
+    "method_details": "sos-encounter",
+    "notes": "Rare SOS call from Sandile in Haina Desert."
+  },
+  {
+    "form_id": "gible",
+    "game_id": "ultra-sun",
+    "method": "wild-encounter",
+    "method_details": "sos-encounter",
+    "notes": "Rare SOS call from Sandile in Haina Desert."
   },
   {
     "form_id": "gible",
@@ -27761,6 +28095,12 @@
     "form_id": "girafarig",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "girafarig",
+    "game_id": "crystal",
+    "method": "trade",
+    "notes": "Not catchable in Crystal; trade from Gold or Silver."
   },
   {
     "form_id": "girafarig",
@@ -27921,6 +28261,14 @@
   },
   {
     "form_id": "glaceon",
+    "game_id": "moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "mount-lanakila",
+    "from_form": "eevee"
+  },
+  {
+    "form_id": "glaceon",
     "game_id": "scarlet",
     "method": "evolution",
     "method_details": "use-item",
@@ -27977,6 +28325,14 @@
   },
   {
     "form_id": "glaceon",
+    "game_id": "sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "mount-lanakila",
+    "from_form": "eevee"
+  },
+  {
+    "form_id": "glaceon",
     "game_id": "sword",
     "method": "evolution",
     "method_details": "use-item",
@@ -28005,6 +28361,22 @@
     "game_id": "sword",
     "method": "wild-encounter",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "glaceon",
+    "game_id": "ultra-moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "mount-lanakila",
+    "from_form": "eevee"
+  },
+  {
+    "form_id": "glaceon",
+    "game_id": "ultra-sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "mount-lanakila",
+    "from_form": "eevee"
   },
   {
     "form_id": "glaceon",
@@ -28332,6 +28704,12 @@
   },
   {
     "form_id": "gligar",
+    "game_id": "silver",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Gold."
+  },
+  {
+    "form_id": "gligar",
     "game_id": "x",
     "method": "wild-encounter",
     "method_details": "horde"
@@ -29722,6 +30100,12 @@
     "form_id": "golett",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "golett",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "golett",
@@ -30364,6 +30748,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "gothita",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 19."
+  },
+  {
+    "form_id": "gothita",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 19."
   },
   {
     "form_id": "gothitelle",
@@ -31443,6 +31839,12 @@
   },
   {
     "form_id": "grimer",
+    "game_id": "lets-go-eevee",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Pikachu."
+  },
+  {
+    "form_id": "grimer",
     "game_id": "lets-go-pikachu",
     "method": "wild-encounter",
     "method_details": "overworld"
@@ -31824,6 +32226,12 @@
   },
   {
     "form_id": "growlithe",
+    "game_id": "blue",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Red."
+  },
+  {
+    "form_id": "growlithe",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -31838,6 +32246,12 @@
     "game_id": "gold",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "growlithe",
+    "game_id": "lets-go-eevee",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Pikachu."
   },
   {
     "form_id": "growlithe",
@@ -31884,6 +32298,12 @@
     "form_id": "growlithe",
     "game_id": "shield",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "growlithe",
+    "game_id": "silver",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Gold."
   },
   {
     "form_id": "growlithe",
@@ -35916,6 +36336,12 @@
   },
   {
     "form_id": "houndour",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
+  },
+  {
+    "form_id": "houndour",
     "game_id": "ultra-sun",
     "method": "gift"
   },
@@ -35941,6 +36367,12 @@
     "game_id": "x",
     "method": "wild-encounter",
     "method_details": "horde, walk, yellow-flowers"
+  },
+  {
+    "form_id": "houndour",
+    "game_id": "y",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from X."
   },
   {
     "form_id": "houndstone",
@@ -38101,6 +38533,20 @@
   },
   {
     "form_id": "kabuto",
+    "game_id": "crystal",
+    "method": "fossil-revive",
+    "notes": "Dome Fossil from the Kabuto chamber puzzle at the Ruins of Alph.",
+    "item": "dome-fossil"
+  },
+  {
+    "form_id": "kabuto",
+    "game_id": "gold",
+    "method": "fossil-revive",
+    "notes": "Dome Fossil from the Kabuto chamber puzzle at the Ruins of Alph.",
+    "item": "dome-fossil"
+  },
+  {
+    "form_id": "kabuto",
     "game_id": "lets-go-eevee",
     "method": "gift"
   },
@@ -38126,6 +38572,13 @@
     "form_id": "kabuto",
     "game_id": "shining-pearl",
     "method": "fossil-revive"
+  },
+  {
+    "form_id": "kabuto",
+    "game_id": "silver",
+    "method": "fossil-revive",
+    "notes": "Dome Fossil from the Kabuto chamber puzzle at the Ruins of Alph.",
+    "item": "dome-fossil"
   },
   {
     "form_id": "kabuto",
@@ -38743,6 +39196,12 @@
   },
   {
     "form_id": "kartana",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "kartana",
     "game_id": "shield",
     "method": "static-encounter",
     "method_details": "only-one",
@@ -38766,6 +39225,12 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "kartana",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "kartana",
@@ -39757,6 +40222,12 @@
   },
   {
     "form_id": "koffing",
+    "game_id": "lets-go-pikachu",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Eevee."
+  },
+  {
+    "form_id": "koffing",
     "game_id": "omega-ruby",
     "method": "wild-encounter",
     "method_details": "horde"
@@ -39818,6 +40289,12 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "koffing",
+    "game_id": "yellow",
+    "method": "trade",
+    "notes": "Not catchable in Yellow; trade from Blue."
   },
   {
     "form_id": "komala",
@@ -41561,6 +42038,12 @@
   },
   {
     "form_id": "larvitar",
+    "game_id": "x",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Y."
+  },
+  {
+    "form_id": "larvitar",
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "horde"
@@ -41697,6 +42180,14 @@
   },
   {
     "form_id": "leafeon",
+    "game_id": "moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "lush-jungle",
+    "from_form": "eevee"
+  },
+  {
+    "form_id": "leafeon",
     "game_id": "scarlet",
     "method": "evolution",
     "method_details": "use-item",
@@ -41759,6 +42250,14 @@
   },
   {
     "form_id": "leafeon",
+    "game_id": "sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "lush-jungle",
+    "from_form": "eevee"
+  },
+  {
+    "form_id": "leafeon",
     "game_id": "sword",
     "method": "evolution",
     "method_details": "use-item",
@@ -41787,6 +42286,22 @@
     "game_id": "sword",
     "method": "wild-encounter",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "leafeon",
+    "game_id": "ultra-moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "lush-jungle",
+    "from_form": "eevee"
+  },
+  {
+    "form_id": "leafeon",
+    "game_id": "ultra-sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "lush-jungle",
+    "from_form": "eevee"
   },
   {
     "form_id": "leafeon",
@@ -42035,6 +42550,12 @@
     "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "headbutt-low, headbutt-normal, walk"
+  },
+  {
+    "form_id": "ledyba",
+    "game_id": "gold",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Silver."
   },
   {
     "form_id": "ledyba",
@@ -43242,6 +43763,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "lotad",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 3."
+  },
+  {
+    "form_id": "lotad",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 3."
   },
   {
     "form_id": "loudred",
@@ -45509,6 +46042,18 @@
   },
   {
     "form_id": "magearna",
+    "game_id": "moon",
+    "method": "event",
+    "notes": "2017 QR Scanner serial-code distribution after completing the main story."
+  },
+  {
+    "form_id": "magearna",
+    "game_id": "sun",
+    "method": "event",
+    "notes": "2017 QR Scanner serial-code distribution after completing the main story."
+  },
+  {
+    "form_id": "magearna",
     "game_id": "ultra-moon",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -46344,6 +46889,18 @@
   },
   {
     "form_id": "magnemite",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 10."
+  },
+  {
+    "form_id": "magnemite",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 10."
+  },
+  {
+    "form_id": "magnemite",
     "game_id": "yellow",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -46842,6 +47399,18 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "makuhita",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Cyllage City / Route 8."
+  },
+  {
+    "form_id": "makuhita",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Cyllage City / Route 8."
+  },
+  {
     "form_id": "malamar",
     "game_id": "legends-za",
     "method": "evolution",
@@ -47305,14 +47874,32 @@
   },
   {
     "form_id": "mankey",
+    "game_id": "blue",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Red."
+  },
+  {
+    "form_id": "mankey",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "mankey",
+    "game_id": "crystal",
+    "method": "trade",
+    "notes": "Not catchable in Crystal; trade from Gold."
   },
   {
     "form_id": "mankey",
     "game_id": "gold",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "mankey",
+    "game_id": "lets-go-eevee",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Pikachu."
   },
   {
     "form_id": "mankey",
@@ -47353,6 +47940,12 @@
     "form_id": "mankey",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "mankey",
+    "game_id": "silver",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Gold."
   },
   {
     "form_id": "mankey",
@@ -47801,6 +48394,12 @@
     "form_id": "mareep",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "mareep",
+    "game_id": "crystal",
+    "method": "trade",
+    "notes": "Not catchable in Crystal; trade from Gold or Silver."
   },
   {
     "form_id": "mareep",
@@ -49208,9 +49807,27 @@
   },
   {
     "form_id": "meowth",
+    "game_id": "gold",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Silver."
+  },
+  {
+    "form_id": "meowth",
     "game_id": "lets-go-eevee",
     "method": "wild-encounter",
     "method_details": "overworld"
+  },
+  {
+    "form_id": "meowth",
+    "game_id": "lets-go-pikachu",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Eevee."
+  },
+  {
+    "form_id": "meowth",
+    "game_id": "red",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Blue."
   },
   {
     "form_id": "meowth",
@@ -49276,6 +49893,12 @@
     "form_id": "meowth",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "meowth",
+    "game_id": "yellow",
+    "method": "trade",
+    "notes": "Not catchable in Yellow; trade from Blue."
   },
   {
     "form_id": "meowth-alola",
@@ -49901,15 +50524,65 @@
   },
   {
     "form_id": "mew",
+    "game_id": "blue",
+    "method": "event",
+    "notes": "Pokémon 20th-anniversary Virtual Console distribution (2016)."
+  },
+  {
+    "form_id": "mew",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
     "method_details": "only-one"
   },
   {
     "form_id": "mew",
+    "game_id": "crystal",
+    "method": "event",
+    "notes": "Virtual Console Gen 2 launch serial-code distribution (2018)."
+  },
+  {
+    "form_id": "mew",
+    "game_id": "gold",
+    "method": "event",
+    "notes": "Virtual Console Gen 2 launch serial-code distribution (2018)."
+  },
+  {
+    "form_id": "mew",
+    "game_id": "lets-go-eevee",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Redeemed from the Poké Ball Plus peripheral (one per save)."
+  },
+  {
+    "form_id": "mew",
+    "game_id": "lets-go-pikachu",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Redeemed from the Poké Ball Plus peripheral (one per save)."
+  },
+  {
+    "form_id": "mew",
+    "game_id": "red",
+    "method": "event",
+    "notes": "Pokémon 20th-anniversary Virtual Console distribution (2016)."
+  },
+  {
+    "form_id": "mew",
     "game_id": "shining-pearl",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "mew",
+    "game_id": "silver",
+    "method": "event",
+    "notes": "Virtual Console Gen 2 launch serial-code distribution (2018)."
+  },
+  {
+    "form_id": "mew",
+    "game_id": "yellow",
+    "method": "event",
+    "notes": "Pokémon 20th-anniversary Virtual Console distribution (2016)."
   },
   {
     "form_id": "mewtwo",
@@ -49922,6 +50595,20 @@
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "mewtwo",
+    "game_id": "crystal",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Cerulean Cave in post-game Kanto."
+  },
+  {
+    "form_id": "mewtwo",
+    "game_id": "gold",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Cerulean Cave in post-game Kanto."
   },
   {
     "form_id": "mewtwo",
@@ -49960,6 +50647,13 @@
     "game_id": "shining-pearl",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "mewtwo",
+    "game_id": "silver",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Cerulean Cave in post-game Kanto."
   },
   {
     "form_id": "mewtwo",
@@ -51166,6 +51860,20 @@
   },
   {
     "form_id": "moltres",
+    "game_id": "crystal",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Mt. Silver in post-game Kanto."
+  },
+  {
+    "form_id": "moltres",
+    "game_id": "gold",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Mt. Silver in post-game Kanto."
+  },
+  {
+    "form_id": "moltres",
     "game_id": "lets-go-eevee",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -51213,6 +51921,13 @@
     "game_id": "shining-pearl",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "moltres",
+    "game_id": "silver",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Mt. Silver in post-game Kanto."
   },
   {
     "form_id": "moltres",
@@ -55456,6 +56171,12 @@
   },
   {
     "form_id": "oddish",
+    "game_id": "blue",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Red."
+  },
+  {
+    "form_id": "oddish",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -55470,6 +56191,12 @@
     "game_id": "gold",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "oddish",
+    "game_id": "lets-go-eevee",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Pikachu."
   },
   {
     "form_id": "oddish",
@@ -55680,6 +56407,20 @@
   },
   {
     "form_id": "omanyte",
+    "game_id": "crystal",
+    "method": "fossil-revive",
+    "notes": "Helix Fossil from the Aerodactyl chamber puzzle at the Ruins of Alph.",
+    "item": "helix-fossil"
+  },
+  {
+    "form_id": "omanyte",
+    "game_id": "gold",
+    "method": "fossil-revive",
+    "notes": "Helix Fossil from the Aerodactyl chamber puzzle at the Ruins of Alph.",
+    "item": "helix-fossil"
+  },
+  {
+    "form_id": "omanyte",
     "game_id": "lets-go-eevee",
     "method": "gift"
   },
@@ -55705,6 +56446,13 @@
     "form_id": "omanyte",
     "game_id": "shining-pearl",
     "method": "fossil-revive"
+  },
+  {
+    "form_id": "omanyte",
+    "game_id": "silver",
+    "method": "fossil-revive",
+    "notes": "Helix Fossil from the Aerodactyl chamber puzzle at the Ruins of Alph.",
+    "item": "helix-fossil"
   },
   {
     "form_id": "omanyte",
@@ -55987,6 +56735,12 @@
   },
   {
     "form_id": "oranguru",
+    "game_id": "sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Moon."
+  },
+  {
+    "form_id": "oranguru",
     "game_id": "sword",
     "method": "trade",
     "notes": "Version-exclusive; trade from Shield."
@@ -55996,6 +56750,12 @@
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots, walk"
+  },
+  {
+    "form_id": "oranguru",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "oranguru",
@@ -57107,6 +57867,12 @@
   },
   {
     "form_id": "passimian",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "passimian",
     "game_id": "scarlet",
     "method": "trade",
     "notes": "Version-exclusive; trade from Violet."
@@ -57136,6 +57902,12 @@
   },
   {
     "form_id": "passimian",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
+  },
+  {
+    "form_id": "passimian",
     "game_id": "ultra-sun",
     "method": "wild-encounter",
     "method_details": "bubbling-spots, walk"
@@ -57155,6 +57927,18 @@
     "form_id": "patrat",
     "game_id": "legends-za",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "patrat",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 2 / Route 22."
+  },
+  {
+    "form_id": "patrat",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 2 / Route 22."
   },
   {
     "form_id": "pawmi",
@@ -57994,6 +58778,12 @@
   },
   {
     "form_id": "petilil",
+    "game_id": "sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Moon."
+  },
+  {
+    "form_id": "petilil",
     "game_id": "sword",
     "method": "wild-encounter",
     "requires_dlc": "expansion-pass"
@@ -58003,6 +58793,12 @@
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots, walk"
+  },
+  {
+    "form_id": "petilil",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "petilil",
@@ -58043,6 +58839,12 @@
     "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "phanpy",
+    "game_id": "gold",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Silver."
   },
   {
     "form_id": "phanpy",
@@ -58237,6 +59039,12 @@
   },
   {
     "form_id": "pheromosa",
+    "game_id": "sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Moon."
+  },
+  {
+    "form_id": "pheromosa",
     "game_id": "sword",
     "method": "static-encounter",
     "method_details": "only-one",
@@ -58247,6 +59055,12 @@
     "game_id": "ultra-moon",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "pheromosa",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "phione",
@@ -59572,6 +60386,18 @@
   },
   {
     "form_id": "pinsir",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Bug-Catching Contest reward at the Johto National Park."
+  },
+  {
+    "form_id": "pinsir",
+    "game_id": "gold",
+    "method": "wild-encounter",
+    "notes": "Bug-Catching Contest reward at the Johto National Park."
+  },
+  {
+    "form_id": "pinsir",
     "game_id": "legends-za",
     "method": "wild-encounter"
   },
@@ -59580,6 +60406,12 @@
     "game_id": "lets-go-eevee",
     "method": "wild-encounter",
     "method_details": "overworld"
+  },
+  {
+    "form_id": "pinsir",
+    "game_id": "lets-go-pikachu",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Eevee."
   },
   {
     "form_id": "pinsir",
@@ -59594,6 +60426,12 @@
   },
   {
     "form_id": "pinsir",
+    "game_id": "red",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Blue."
+  },
+  {
+    "form_id": "pinsir",
     "game_id": "shield",
     "method": "raid",
     "method_details": "dynamax-adventure",
@@ -59604,6 +60442,12 @@
     "form_id": "pinsir",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "pinsir",
+    "game_id": "silver",
+    "method": "wild-encounter",
+    "notes": "Bug-Catching Contest reward at the Johto National Park."
   },
   {
     "form_id": "pinsir",
@@ -60954,6 +61798,18 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "poochyena",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 2."
+  },
+  {
+    "form_id": "poochyena",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 2."
+  },
+  {
     "form_id": "popplio",
     "game_id": "moon",
     "method": "gift"
@@ -62148,6 +63004,18 @@
     "form_id": "purrloin",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "purrloin",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 3."
+  },
+  {
+    "form_id": "purrloin",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 3."
   },
   {
     "form_id": "purugly",
@@ -64643,6 +65511,12 @@
   },
   {
     "form_id": "remoraid",
+    "game_id": "crystal",
+    "method": "trade",
+    "notes": "Not catchable in Crystal; trade from Gold or Silver."
+  },
+  {
+    "form_id": "remoraid",
     "game_id": "gold",
     "method": "fishing",
     "method_details": "good-rod, old-rod, super-rod"
@@ -66406,6 +67280,18 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "rotom",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Lost Hotel (rare)."
+  },
+  {
+    "form_id": "rotom",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Lost Hotel (rare)."
+  },
+  {
     "form_id": "rotom-fan",
     "game_id": "shield",
     "method": "wild-encounter",
@@ -66534,6 +67420,12 @@
   },
   {
     "form_id": "rufflet",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "rufflet",
     "game_id": "omega-ruby",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -66582,6 +67474,12 @@
     "form_id": "rufflet",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "rufflet",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "rufflet",
@@ -67274,6 +68172,18 @@
   },
   {
     "form_id": "sandile",
+    "game_id": "ultra-moon",
+    "method": "wild-encounter",
+    "notes": "Haina Desert sand patches."
+  },
+  {
+    "form_id": "sandile",
+    "game_id": "ultra-sun",
+    "method": "wild-encounter",
+    "notes": "Haina Desert sand patches."
+  },
+  {
+    "form_id": "sandile",
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid"
@@ -67327,6 +68237,12 @@
   },
   {
     "form_id": "sandshrew",
+    "game_id": "lets-go-eevee",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Pikachu."
+  },
+  {
+    "form_id": "sandshrew",
     "game_id": "lets-go-pikachu",
     "method": "wild-encounter",
     "method_details": "overworld"
@@ -67336,6 +68252,12 @@
     "game_id": "omega-ruby",
     "method": "wild-encounter",
     "method_details": "horde"
+  },
+  {
+    "form_id": "sandshrew",
+    "game_id": "red",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Blue."
   },
   {
     "form_id": "sandshrew",
@@ -67368,6 +68290,12 @@
   },
   {
     "form_id": "sandshrew",
+    "game_id": "sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Moon."
+  },
+  {
+    "form_id": "sandshrew",
     "game_id": "sword",
     "method": "raid",
     "method_details": "max-raid",
@@ -67378,6 +68306,12 @@
     "game_id": "sword",
     "method": "wild-encounter",
     "requires_dlc": "expansion-pass"
+  },
+  {
+    "form_id": "sandshrew",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "sandshrew",
@@ -68503,8 +69437,26 @@
   },
   {
     "form_id": "scyther",
+    "game_id": "blue",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Red."
+  },
+  {
+    "form_id": "scyther",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "scyther",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Bug-Catching Contest reward at the Johto National Park."
+  },
+  {
+    "form_id": "scyther",
+    "game_id": "gold",
+    "method": "wild-encounter",
+    "notes": "Bug-Catching Contest reward at the Johto National Park."
   },
   {
     "form_id": "scyther",
@@ -68527,6 +69479,12 @@
     "form_id": "scyther",
     "game_id": "legends-za",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "scyther",
+    "game_id": "lets-go-eevee",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Pikachu."
   },
   {
     "form_id": "scyther",
@@ -68597,6 +69555,12 @@
     "game_id": "shining-pearl",
     "method": "trade",
     "notes": "Version-exclusive; trade from Brilliant Diamond."
+  },
+  {
+    "form_id": "scyther",
+    "game_id": "silver",
+    "method": "wild-encounter",
+    "notes": "Bug-Catching Contest reward at the Johto National Park."
   },
   {
     "form_id": "scyther",
@@ -70202,6 +71166,12 @@
   },
   {
     "form_id": "shellder",
+    "game_id": "x",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Y."
+  },
+  {
+    "form_id": "shellder",
     "game_id": "y",
     "method": "fishing",
     "method_details": "good-rod"
@@ -71294,6 +72264,12 @@
   },
   {
     "form_id": "skarmory",
+    "game_id": "gold",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Silver."
+  },
+  {
+    "form_id": "skarmory",
     "game_id": "legends-za",
     "method": "wild-encounter"
   },
@@ -71658,6 +72634,12 @@
     "game_id": "violet",
     "method": "trade",
     "notes": "Version-exclusive; trade from Scarlet."
+  },
+  {
+    "form_id": "skrelp",
+    "game_id": "x",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Y."
   },
   {
     "form_id": "skrelp",
@@ -74654,6 +75636,12 @@
   },
   {
     "form_id": "spinarak",
+    "game_id": "silver",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Gold."
+  },
+  {
+    "form_id": "spinarak",
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -74682,6 +75670,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "spinarak",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Santalune Forest."
+  },
+  {
+    "form_id": "spinarak",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Santalune Forest."
   },
   {
     "form_id": "spinda",
@@ -74981,6 +75981,20 @@
   },
   {
     "form_id": "squirtle",
+    "game_id": "crystal",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
+  },
+  {
+    "form_id": "squirtle",
+    "game_id": "gold",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
+  },
+  {
+    "form_id": "squirtle",
     "game_id": "legends-za",
     "method": "gift"
   },
@@ -75033,6 +76047,13 @@
     "form_id": "squirtle",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "squirtle",
+    "game_id": "silver",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
     "form_id": "squirtle",
@@ -75099,6 +76120,12 @@
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "stakataka",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "stantler",
@@ -75798,6 +76825,12 @@
     "game_id": "x",
     "method": "fishing",
     "method_details": "good-rod"
+  },
+  {
+    "form_id": "staryu",
+    "game_id": "y",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from X."
   },
   {
     "form_id": "staryu",
@@ -76924,6 +77957,18 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "surskit",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 3 (water)."
+  },
+  {
+    "form_id": "surskit",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 3 (water)."
+  },
+  {
     "form_id": "swablu",
     "game_id": "alpha-sapphire",
     "method": "wild-encounter",
@@ -77392,6 +78437,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "swinub",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Frost Cavern."
+  },
+  {
+    "form_id": "swinub",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Frost Cavern."
   },
   {
     "form_id": "swirlix",
@@ -78649,6 +79706,12 @@
   },
   {
     "form_id": "teddiursa",
+    "game_id": "silver",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Gold."
+  },
+  {
+    "form_id": "teddiursa",
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid"
@@ -79495,6 +80558,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "timburr",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 18."
+  },
+  {
+    "form_id": "timburr",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 18."
   },
   {
     "form_id": "ting-lu",
@@ -81360,6 +82435,18 @@
     "method_details": "walk"
   },
   {
+    "form_id": "trubbish",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Lost Hotel."
+  },
+  {
+    "form_id": "trubbish",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Lost Hotel."
+  },
+  {
     "form_id": "trumbeak",
     "game_id": "moon",
     "method": "evolution",
@@ -81570,6 +82657,12 @@
     "form_id": "tsareena",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "turtonator",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
   },
   {
     "form_id": "turtonator",
@@ -81593,6 +82686,12 @@
     "form_id": "turtonator",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "turtonator",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "turtonator",
@@ -83353,6 +84452,18 @@
     "requires_dlc": "expansion-pass"
   },
   {
+    "form_id": "venipede",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 5."
+  },
+  {
+    "form_id": "venipede",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 5."
+  },
+  {
     "form_id": "venomoth",
     "game_id": "alpha-sapphire",
     "method": "wild-encounter",
@@ -84965,6 +86076,18 @@
   },
   {
     "form_id": "voltorb",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 10."
+  },
+  {
+    "form_id": "voltorb",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 10."
+  },
+  {
+    "form_id": "voltorb",
     "game_id": "yellow",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -85040,6 +86163,12 @@
   },
   {
     "form_id": "vullaby",
+    "game_id": "sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Moon."
+  },
+  {
+    "form_id": "vullaby",
     "game_id": "sword",
     "method": "trade",
     "notes": "Version-exclusive; trade from Shield."
@@ -85049,6 +86178,12 @@
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "vullaby",
+    "game_id": "ultra-sun",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Moon."
   },
   {
     "form_id": "vullaby",
@@ -85089,6 +86224,18 @@
   },
   {
     "form_id": "vulpix",
+    "game_id": "crystal",
+    "method": "trade",
+    "notes": "Not catchable in Crystal; trade from Silver."
+  },
+  {
+    "form_id": "vulpix",
+    "game_id": "gold",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Silver."
+  },
+  {
+    "form_id": "vulpix",
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "mass-outbreak"
@@ -85101,9 +86248,27 @@
   },
   {
     "form_id": "vulpix",
+    "game_id": "lets-go-pikachu",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Let's Go Eevee."
+  },
+  {
+    "form_id": "vulpix",
+    "game_id": "moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "vulpix",
     "game_id": "omega-ruby",
     "method": "wild-encounter",
     "method_details": "horde, walk"
+  },
+  {
+    "form_id": "vulpix",
+    "game_id": "red",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Blue."
   },
   {
     "form_id": "vulpix",
@@ -85141,6 +86306,12 @@
     "form_id": "vulpix",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "vulpix",
+    "game_id": "ultra-moon",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Ultra Sun."
   },
   {
     "form_id": "vulpix",
@@ -85729,6 +86900,15 @@
   },
   {
     "form_id": "weavile",
+    "game_id": "moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "held_item": "razor-claw",
+    "from_form": "sneasel",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "weavile",
     "game_id": "scarlet",
     "method": "evolution",
     "method_details": "level-up",
@@ -85788,6 +86968,15 @@
   },
   {
     "form_id": "weavile",
+    "game_id": "sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "held_item": "razor-claw",
+    "from_form": "sneasel",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "weavile",
     "game_id": "sword",
     "method": "evolution",
     "method_details": "level-up",
@@ -85820,6 +87009,24 @@
   },
   {
     "form_id": "weavile",
+    "game_id": "ultra-moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "held_item": "razor-claw",
+    "from_form": "sneasel",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "weavile",
+    "game_id": "ultra-sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "held_item": "razor-claw",
+    "from_form": "sneasel",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "weavile",
     "game_id": "violet",
     "method": "evolution",
     "method_details": "level-up",
@@ -85838,6 +87045,24 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "weavile",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "held_item": "razor-claw",
+    "from_form": "sneasel",
+    "time_of_day": "night"
+  },
+  {
+    "form_id": "weavile",
+    "game_id": "y",
+    "method": "evolution",
+    "method_details": "level-up",
+    "held_item": "razor-claw",
+    "from_form": "sneasel",
+    "time_of_day": "night"
+  },
+  {
     "form_id": "weedle",
     "game_id": "blue",
     "method": "wild-encounter",
@@ -85848,6 +87073,12 @@
     "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "headbutt-high, walk"
+  },
+  {
+    "form_id": "weedle",
+    "game_id": "gold",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Silver."
   },
   {
     "form_id": "weedle",
@@ -85900,6 +87131,12 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "weedle",
+    "game_id": "yellow",
+    "method": "trade",
+    "notes": "Not catchable in Yellow (Pikachu starter swap); trade from Red."
   },
   {
     "form_id": "weepinbell",
@@ -88535,6 +89772,20 @@
   },
   {
     "form_id": "zapdos",
+    "game_id": "crystal",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Power Plant in post-game Kanto."
+  },
+  {
+    "form_id": "zapdos",
+    "game_id": "gold",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Power Plant in post-game Kanto."
+  },
+  {
+    "form_id": "zapdos",
     "game_id": "lets-go-eevee",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -88582,6 +89833,13 @@
     "game_id": "shining-pearl",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "zapdos",
+    "game_id": "silver",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Power Plant in post-game Kanto."
   },
   {
     "form_id": "zapdos",
@@ -89044,6 +90302,18 @@
     "form_id": "zorua",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "zorua",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Route 20 (Winding Woods)."
+  },
+  {
+    "form_id": "zorua",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Route 20 (Winding Woods)."
   },
   {
     "form_id": "zorua-hisui",

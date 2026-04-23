@@ -41,6 +41,28 @@ USER_AGENT = (
 # the audit's denominator lookups. Each Gen 8/9 game lists the PokéAPI
 # pokedex names whose union defines its "expected species" set.
 GAME_TO_POKEDEXES: dict[str, tuple[str, ...]] = {
+    "red": ("kanto",),
+    "blue": ("kanto",),
+    "yellow": ("kanto",),
+    "gold": ("original-johto",),
+    "silver": ("original-johto",),
+    "crystal": ("original-johto",),
+    "x": ("kalos-central", "kalos-coastal", "kalos-mountain"),
+    "y": ("kalos-central", "kalos-coastal", "kalos-mountain"),
+    # Gen 6 ORAS: known systematic scraper gap — `scrapers/bulbapedia.py`
+    # currently filters `--mode sources` to GEN_8_9_GAME_IDS so ORAS
+    # relies on PokéAPI's incomplete encounter dataset, leaving dozens of
+    # common wild species (magikarp, horsea, goldeen, heracross, pinsir…)
+    # unsourced. Closing this gap is a scraper-extension tier (tier 13),
+    # not a manual-seed job.
+    "omega-ruby": ("updated-hoenn",),
+    "alpha-sapphire": ("updated-hoenn",),
+    "sun": ("original-alola",),
+    "moon": ("original-alola",),
+    "ultra-sun": ("updated-alola",),
+    "ultra-moon": ("updated-alola",),
+    "lets-go-pikachu": ("letsgo-kanto",),
+    "lets-go-eevee": ("letsgo-kanto",),
     "sword": ("galar", "isle-of-armor", "crown-tundra"),
     "shield": ("galar", "isle-of-armor", "crown-tundra"),
     "brilliant-diamond": ("extended-sinnoh",),
@@ -57,6 +79,15 @@ GAME_TO_POKEDEXES: dict[str, tuple[str, ...]] = {
 # the regional-dex audit reports genuine in-game gaps rather than
 # HOME-only entries. Verified per-species via Bulbapedia Game locations.
 HOME_TRANSFER_ONLY_DEX: dict[str, frozenset[str]] = {
+    # SM: Marshadow, Shellos, Snubbull all appear in the Alola dex but
+    # were only added natively in USUM — base SM has no wild/event path
+    # for these, so they reach the SM dex only via HOME transfer.
+    "sun": frozenset({"marshadow", "shellos", "snubbull"}),
+    "moon": frozenset({"marshadow", "shellos", "snubbull"}),
+    # USUM: Clauncher and Skrelp are XY-exclusive species that appear in
+    # the Alola aggregate dex but have no USUM native encounter.
+    "ultra-sun": frozenset({"clauncher", "skrelp"}),
+    "ultra-moon": frozenset({"clauncher", "skrelp"}),
     # SwSh: Clauncher/Skrelp are not wild, raid, Max Lair, or trade targets
     # in Sword/Shield — registered in the Galar dex via HOME only.
     "sword": frozenset({"clauncher", "skrelp"}),
@@ -197,9 +228,9 @@ def _regional_dex_section(
 
     out: list[dict[str, Any]] = []
     for g in games:
-        if g.get("generation") not in (8, 9):
-            continue
         gid = g["id"]
+        if gid not in GAME_TO_POKEDEXES:
+            continue
         pokedex_names = GAME_TO_POKEDEXES.get(gid, ())
         expected: set[str] = set()
         for pdn in pokedex_names:
@@ -273,7 +304,7 @@ def _render(
         lines.append("")
 
     if regional:
-        lines.append(h2("Regional-dex completeness (Gen 8/9)"))
+        lines.append(h2("Regional-dex completeness"))
         lines.append("")
         lines.append("| game | expected | covered | missing (first 20) |")
         lines.append("|---|---:|---:|---|")
