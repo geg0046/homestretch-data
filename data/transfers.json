@@ -25,5 +25,7 @@
   { "from_id": "scarlet", "to_id": "home", "mechanism": "home", "bidirectional": true },
   { "from_id": "violet", "to_id": "home", "mechanism": "home", "bidirectional": true },
   { "from_id": "legends-za", "to_id": "home", "mechanism": "home", "bidirectional": true, "notes": "Mons originating in Z-A cannot be moved back to pre-SV titles via HOME." },
-  { "from_id": "go", "to_id": "home", "mechanism": "go-link", "bidirectional": false, "notes": "One-way; requires GO Link." }
+  { "from_id": "go", "to_id": "home", "mechanism": "go-link", "bidirectional": false, "notes": "One-way; requires GO Link." },
+  { "from_id": "go", "to_id": "lets-go-pikachu", "mechanism": "lets-go-link", "bidirectional": false, "notes": "Transfer via GO Park (Fuchsia City) using GO Link; one-way, cannot return to GO." },
+  { "from_id": "go", "to_id": "lets-go-eevee", "mechanism": "lets-go-link", "bidirectional": false, "notes": "Transfer via GO Park (Fuchsia City) using GO Link; one-way, cannot return to GO." }
 ]
