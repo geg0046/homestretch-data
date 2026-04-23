@@ -51,6 +51,46 @@ GAME_TO_POKEDEXES: dict[str, tuple[str, ...]] = {
     "legends-za": ("lumiose-city",),
 }
 
+# Species that appear in a game's aggregated PokéAPI pokedex but have NO
+# legitimate in-game acquisition — the dex entry is registered only via
+# Pokémon HOME transfer. These are subtracted from the "expected" set so
+# the regional-dex audit reports genuine in-game gaps rather than
+# HOME-only entries. Verified per-species via Bulbapedia Game locations.
+HOME_TRANSFER_ONLY_DEX: dict[str, frozenset[str]] = {
+    # SwSh: Clauncher/Skrelp are not wild, raid, Max Lair, or trade targets
+    # in Sword/Shield — registered in the Galar dex via HOME only.
+    "sword": frozenset({"clauncher", "skrelp"}),
+    "shield": frozenset({"clauncher", "skrelp"}),
+    # SV: default Kanto/Sinnoh/SwSh species that appear in the aggregated
+    # Paldea/Kitakami/Blueberry dex but have no in-game SV acquisition
+    # path in either version (wild/raid/trade/event). Transferred via
+    # HOME from their native games.
+    "scarlet": frozenset(
+        {
+            "aipom",
+            "cramorant",
+            "cranidos",
+            "gligar",
+            "morpeko",
+            "sandshrew",
+            "shieldon",
+            "vulpix",
+        }
+    ),
+    "violet": frozenset(
+        {
+            "aipom",
+            "cramorant",
+            "cranidos",
+            "gligar",
+            "morpeko",
+            "sandshrew",
+            "shieldon",
+            "vulpix",
+        }
+    ),
+}
+
 # Functional forms that are known event/item-only acquisitions. Used to
 # flag which zero-source forms should be routed to seed_manual_sources.py
 # versus treated as a scraper gap. Forms whose form changes are triggered
@@ -164,6 +204,7 @@ def _regional_dex_section(
         expected: set[str] = set()
         for pdn in pokedex_names:
             expected |= _fetch_pokedex_species(client, pdn)
+        expected -= HOME_TRANSFER_ONLY_DEX.get(gid, frozenset())
         covered = covered_by_game.get(gid, set())
         missing = sorted(expected - covered) if expected else []
         out.append(
