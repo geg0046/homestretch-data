@@ -56,15 +56,10 @@ tests/           pytest suites
     and fix the underlying issue rather than bypassing it.
 11. **Form inclusion is gated by the HOME-deposit test.** A form enters
     `data/forms.json` only if it can be deposited into Pokémon HOME and
-    come out of HOME as that same form in at least one HOME-compatible
-    game. Held-item-only form changes (Arceus plates, Silvally memories,
-    Ogerpon masks, Genesect drives, Giratina/Dialga/Palkia Origin) fail
-    the test because HOME strips held items on deposit. Fused legendaries
-    (Kyurem-Black/White, Calyrex-Ice/Shadow, Necrozma-Dawn/Dusk) and
-    Let's Go partner Pokémon are explicitly non-depositable. Authoritative
-    source: <https://www.serebii.net/pokemonhome/nondepositablepokemon.shtml>.
-    Scraper-side enforcement lives in `SKIP_FORM_IDS_HOME_UNREACHABLE`
-    (see `scrapers/CLAUDE.md`).
+    come out as that same form in at least one HOME-compatible game.
+    Authoritative reference: <https://www.serebii.net/pokemonhome/nondepositablepokemon.shtml>.
+    Scraper-side enforcement and the categorised exclusion list live in
+    `scrapers/CLAUDE.md` under `SKIP_FORM_IDS_HOME_UNREACHABLE`.
 
 ## ID conventions
 
@@ -130,16 +125,11 @@ uv run python scripts/seed_manual_sources.py
     5. every default form has ≥1 source row.
   Both CI and pre-commit run it.
 - **`scripts/coverage_audit.py` reports gap-level coverage**: per-game
-  source/form/species counts, zero-source forms grouped by category
-  tuple (`functional` / `cosmetic` / `event-only` / `gender-difference` /
-  …), and a regional-dex expected-vs-covered gap report per game
-  driven by PokéAPI's pokedex endpoints. The audit's
-  `HOME_TRANSFER_ONLY_DEX` map subtracts species PokéAPI's aggregated
-  regional dex over-includes — entries that are HOME-transfer-only for
-  the game, never natively obtainable — so the "missing" list reports
-  real in-game gaps rather than dex metadata artefacts. Run after any
-  bulk data change; both sections (zero-source and regional-dex) should
-  stay at zero after tier-14 closure.
+  counts, zero-source forms by category, and a regional-dex
+  expected-vs-covered report driven by PokéAPI's pokedex endpoints.
+  `HOME_TRANSFER_ONLY_DEX` subtracts HOME-transfer-only species from
+  the expected set so the "missing" list reflects real in-game gaps.
+  Run after any bulk change; both sections should stay at zero.
 - **Scraper merge is idempotent (`setdefault` by id/key).** After changing
   categorization or skip/event logic, `rm data/forms.json` (or
   `data/sources.json`) before re-running, or stale entries survive.

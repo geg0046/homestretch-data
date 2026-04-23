@@ -59,13 +59,6 @@ user sign-off.** These exclusions are deliberate.
   the forms have different abilities or stats. The semantic meaning is
   gender; keep category lists short.
 
-## Starter game-locks
-
-`pikachu-starter` / `eevee-starter` are Let's Go P/E partner starters.
-They are **NOT** `event-only` — their game-locking is expressed via
-`sources.json` rows (`method=gift`, `game_id=lets-go-pikachu` /
-`lets-go-eevee`), not via `FormCategory`.
-
 ## Idempotency
 
 Scraper merge uses `setdefault` by id/key. After changing categorization
@@ -108,11 +101,11 @@ the same string, so this is just a membership check.
   accessed via MediaWiki `api.php`. Covers the Gen 8/9 encounter data
   PokéAPI omits and the branched-regional-evolution provenance PokéAPI
   can't express. See the Bulbapedia section below for merge semantics.
-- **Serebii** — prose encounter and availability info; a potential future
-  fallback. Use the same UA pattern if/when added.
-- **pret decomps** (pokeemerald, pokeheartgold, pokeruby, pokecrystal) —
-  authoritative encounter tables for older generations, MIT-ish license.
-  Parse data files rather than scraping rendered wikis when possible.
+- **Serebii** — <https://www.serebii.net>. Used for HOME-compatibility
+  decisions (the non-depositable list at
+  `/pokemonhome/nondepositablepokemon.shtml` is the authoritative source
+  for the `SKIP_FORM_IDS_HOME_UNREACHABLE` set). Manual cross-checks
+  only — no scraper.
 
 ## Bulbapedia scraper
 
@@ -196,18 +189,14 @@ stone-use from level-up if it wants.
 
 ## `method_details` and structured conditions
 
-`method_details` is a **short categorical slug**, never prose. For evolution
-rows it's the raw PokéAPI trigger slug (`level-up`, `use-item`, `trade`,
-`shed`, `spin`, `three-critical-hits`, `take-damage`, `recoil-damage`,
-`agile-style-move`, `strong-style-move`, `tower-of-darkness`,
-`tower-of-waters`, `gimmmighoul-coins`, `three-defeated-bisharp`,
-`use-move`, `other`). For non-evolution rows it's the acquisition subtype
-slug (`walk`, `surf`, `overworld`, `mass-outbreak`, `space-time-distortion`,
-`sos-encounter`, `horde`, `old-rod` / `good-rod` / `super-rod` (or a
-comma-joined subset), `tera-raid`, `max-raid`, `gmax`, `dynamax-adventure`,
-`N-star`, `only-one`, `pokeflute`, `squirt-bottle`, `wailmer-pail`,
-`devon-scope`, `island-scan`, `roaming`, `game-corner`). Rule 7 still
-applies: omit when it equals the method enum.
+`method_details` is a **short categorical slug**, never prose. For
+evolution rows it's the raw PokéAPI trigger slug (pass-through from
+`evolution_detail.trigger.name`). For non-evolution rows it's the
+acquisition subtype — the canonical set lives in
+`ENCOUNTER_METHOD_TO_METHOD` in `pokeapi.py` (wild subtypes) and in
+the seed rows in `scripts/seed_manual_sources.py` (raid subtypes,
+`only-one`, `game-corner`, etc.). Root CLAUDE.md rule 7 applies: omit
+when the slug equals the method enum value.
 
 **One row per PokéAPI `evolution_detail`.** Alternative paths become
 alternative rows, not comma-joined. Crabominable in SM/USUM emits two
@@ -240,46 +229,25 @@ etc.) and applies per-method recognizers. Unrecognized prose drops to
 These are PokéAPI limitations, not scraper bugs. Status as of the most
 recent scrape:
 
-- **Breeding-only mons** (Gen 2 babies: Pichu, Cleffa, Igglybuff, Smoochum,
-  Elekid, Magby, etc.) — covered with `method=breeding` rows emitted by
-  [`scripts/seed_manual_sources.py`](../scripts/seed_manual_sources.py).
-  The script seeds `(baby, game)` pairs where the game's generation ≥
-  the baby's intro generation and the parent species is obtainable in
-  that game; the structured `from_form` field points to the parent
-  species. Re-run after a fresh scrape.
-- **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/GSC) —
-  covered with `method=purchase` / `method_details=game-corner` rows
-  emitted by [`scripts/seed_manual_sources.py`](../scripts/seed_manual_sources.py)
-  alongside the breeding seeds. Species list was originally compiled from
-  Bulbapedia's `Celadon_Game_Corner` and `Goldenrod_Game_Corner` Prize
-  Corner sections. Mauville (RSE) and Veilstone (DPPt/Platinum) are
-  excluded — their prize lists are TMs/items only.
-- **Fossils** — Gen 8/9 covered via PokéAPI `fossil-revive` + Bulbapedia
-  raid rows. Pre-Gen-8 fossil revivals (GSC Kabuto / Omanyte at the
-  Ruins of Alph; ORAS Anorith / Lileep via Mirage Spots + Devon Corp)
-  are covered by tier-12 / tier-13 manual seeds in `seed_manual_sources.py`.
-- **Event-only forms** (Zarude-Dada, Magearna-Original) — covered with
-  `method=event` rows. Ash-Greninja (`greninja-battle-bond`) was pruned
-  in tier 8 because HOME does not acknowledge it as a distinct form.
-- **Game-locked starter forms** — pre-tier-8 `pikachu-starter` /
-  `eevee-starter` were sourced as `method=gift`, but both were pruned
-  in tier 8 once Bulbapedia confirmed Let's Go partner Pokémon cannot
-  be deposited in HOME (permanently save-bound). Both form ids live in
-  `SKIP_FORM_IDS_HOME_UNREACHABLE` now.
-- **Pre-Gen-8 regional-dex completeness** — Tier 12 closed Gen 1 / 2 /
-  Gen 6 XY / SM / USUM / LGPE via `seed_manual_sources.py`; tier 13
-  closed ORAS (47 species × 2 versions via manual wild-encounter +
-  trade + fossil + evolution rows). Tier 14 closed the 189 cosmetic
-  variants (Vivillon patterns, Alcremie, Unown letters, etc.). Extending
-  `GEN_8_9_GAME_IDS` in `bulbapedia.py` to include pre-Gen-8 games is
-  a known future-infrastructure option that would let re-scrapes
-  supersede those manual seeds.
+All gaps below are covered by [`scripts/seed_manual_sources.py`](../scripts/seed_manual_sources.py).
+Re-run the script after any fresh scrape to re-apply manual rows.
 
-Gen 8/9 encounter coverage and branched regional-form evolution attribution
-are both addressed by `scrapers/bulbapedia.py` — see the Bulbapedia scraper
-section above. Older-gen precision (Gen 2–5 exact route lists) would benefit
-from a pret-decomps pass (MIT-licensed decompilations at
-<https://github.com/pret>) but is not currently tracked as a blocking gap.
+- **Breeding-only mons** (Gen 2 babies: Pichu, Cleffa, Igglybuff, etc.)
+  — `method=breeding` + `from_form=<parent>`. Seeded per `(baby, game)`
+  where the game's generation ≥ the baby's intro generation and the
+  parent is obtainable.
+- **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/GSC) —
+  `method=purchase`, `method_details=game-corner`.
+- **Fossils** — Gen 8/9 scraped; pre-Gen-8 manual (GSC Kabuto/Omanyte
+  at the Ruins of Alph, ORAS Anorith/Lileep via Mirage Spots).
+- **Event-only forms** — `method=event` rows for Zarude-Dada and
+  Magearna-Original (both tagged `event-only` in `categories`).
+  Ash-Greninja was pruned in tier 8; see the HOME-deposit section above.
+- **Pre-Gen-8 regional-dex completeness** — Tiers 12–13 manual-seed
+  Gen 1 / 2 / 6 / 7 / LGPE / ORAS encounter rows; tier 14 seeds the
+  189 cosmetic variants. The Bulbapedia `--mode sources` filter
+  (`GEN_8_9_GAME_IDS`) is the known extension point — widening it
+  would let re-scrapes supersede these manual seeds.
 
 ## Coverage-audit `HOME_TRANSFER_ONLY_DEX`
 
