@@ -78,7 +78,6 @@ KNOWN_ITEM_OR_EVENT_ONLY: frozenset[str] = frozenset(
                 "rock",
                 "steel",
                 "water",
-                "unknown",
             )
         ),
         # Silvally memories

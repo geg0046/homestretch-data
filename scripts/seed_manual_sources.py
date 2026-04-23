@@ -107,8 +107,9 @@ GENDER_DIFFERENCE_PAIRS: list[tuple[str, str]] = [
 # Arceus elemental plates. Form change is triggered by Arceus holding the
 # corresponding Plate item. Arceus is obtainable in BDSP/SP (Ramanas Park)
 # and PLA (story); plates are collectible in all three. `arceus-unknown`
-# (the "???"-type Curse variant) is a datamine-only form never distributed
-# and is intentionally omitted.
+# (the "???"-type Curse variant) has been pruned from forms.json entirely
+# — datamine-only, never distributed, and the "???" type was removed in
+# Gen V so no HOME-reachable path exists.
 ARCEUS_PLATE_TYPES: tuple[str, ...] = (
     "bug",
     "dark",
@@ -721,6 +722,392 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC).",
+    },
+    # --- Tier 8: zero-source functional forms ---------------------------------
+    # Remaining HOME-storable `functional` forms with no scraper-emitted
+    # source rows. Divided by acquisition mechanic:
+    #   (A) Burmy / Mothim alternate cloaks — environment-determined
+    #   (B) Legendary form-change items — method=gift + item, following the
+    #       plate / memory / mask / fusion convention
+    #   (C) Meteorite-driven Deoxys formes — method=gift + from_form
+    #   (D) Genesect Drive items — method=gift + item
+    #   (E) Floette-Eternal — Legends Z-A story gift
+    # -------------------------------------------------------------------------
+    # (A) Burmy Sandy / Trash cloaks. Burmy's cloak changes after a battle
+    # based on surroundings (rocky/sand → Sandy, buildings/structures → Trash,
+    # everything else → Plant). In PLA the three cloaks spawn wild directly in
+    # matching environments. Seed for every game where the default Plant
+    # cloak is obtainable.
+    *(
+        {
+            "form_id": "burmy-sandy",
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": (
+                "Cloak changes to Sandy after battles in rocky or sand-floored areas; "
+                "in Legends: Arceus, also spawns directly in matching environments."
+            ),
+        }
+        for game in ("x", "y", "brilliant-diamond", "shining-pearl", "legends-arceus")
+    ),
+    *(
+        {
+            "form_id": "burmy-trash",
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": (
+                "Cloak changes to Trash after battles inside buildings or structures; "
+                "in Legends: Arceus, also spawns directly in matching environments."
+            ),
+        }
+        for game in ("x", "y", "brilliant-diamond", "shining-pearl", "legends-arceus")
+    ),
+    # Mothim alternate cloaks: not visually distinct, but a male Burmy
+    # retains its cloak value through evolution at level 20, producing a
+    # cloak-tagged Mothim in HOME storage. Seeded in the same games the
+    # default Mothim is obtainable.
+    *(
+        {
+            "form_id": "mothim-sandy",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "from_form": "burmy-sandy",
+            "gender": "male",
+            "notes": "Cloak value carries over from the Sandy Cloak male Burmy it evolves from.",
+        }
+        for game in ("x", "y", "brilliant-diamond", "shining-pearl", "legends-arceus")
+    ),
+    *(
+        {
+            "form_id": "mothim-trash",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "from_form": "burmy-trash",
+            "gender": "male",
+            "notes": "Cloak value carries over from the Trash Cloak male Burmy it evolves from.",
+        }
+        for game in ("x", "y", "brilliant-diamond", "shining-pearl", "legends-arceus")
+    ),
+    # (B) Legendary form-change items. Encoded as method=gift with the
+    # triggering item + from_form, matching the Arceus plate / Silvally
+    # memory / Ogerpon mask / Kyurem-Calyrex-Necrozma fusion convention.
+    # Only seeded for games where BOTH the base form and the triggering
+    # item are obtainable in-game (transfers are covered by transfers.json).
+    #
+    # Dialga-Origin / Palkia-Origin: introduced in Legends: Arceus.
+    # Adamant Crystal / Lustrous Globe are PLA rewards (Requests 89 / 90);
+    # BDSP does not have the items in-game.
+    {
+        "form_id": "dialga-origin",
+        "game_id": "legends-arceus",
+        "method": "gift",
+        "from_form": "dialga",
+        "item": "adamant-crystal",
+        "notes": "Adamant Crystal received as the reward for Request 89 at Lake Valor.",
+    },
+    {
+        "form_id": "palkia-origin",
+        "game_id": "legends-arceus",
+        "method": "gift",
+        "from_form": "palkia",
+        "item": "lustrous-globe",
+        "notes": "Lustrous Globe received as the reward for Request 90 at Pearl Settlement.",
+    },
+    # Giratina-Origin: Griseous Orb triggers the form change in every Gen
+    # 6-8 game where it's obtainable; Legends: Arceus uses the Griseous Core.
+    *(
+        {
+            "form_id": "giratina-origin",
+            "game_id": game,
+            "method": "gift",
+            "from_form": "giratina",
+            "item": "griseous-orb",
+            "notes": notes,
+        }
+        for game, notes in (
+            ("omega-ruby", "Griseous Orb on Route 130 (underwater)."),
+            ("alpha-sapphire", "Griseous Orb on Route 130 (underwater)."),
+            ("ultra-sun", "Griseous Orb from the Antiquities of the Ages shop in Hau'oli City."),
+            ("ultra-moon", "Griseous Orb from the Antiquities of the Ages shop in Hau'oli City."),
+            (
+                "sword",
+                "Griseous Orb from the Stow-on-Side bargain shop after completing the main story.",
+            ),
+            (
+                "shield",
+                "Griseous Orb from the Stow-on-Side bargain shop after completing the main story.",
+            ),
+            (
+                "brilliant-diamond",
+                "Griseous Orb at Ramanas Park after defeating Origin Forme Giratina.",
+            ),
+            (
+                "shining-pearl",
+                "Griseous Orb at Ramanas Park after defeating Origin Forme Giratina.",
+            ),
+        )
+    ),
+    {
+        "form_id": "giratina-origin",
+        "game_id": "legends-arceus",
+        "method": "gift",
+        "from_form": "giratina",
+        "item": "griseous-core",
+        "notes": "Form change triggered at Turnback Cave; Griseous Core available in-game.",
+    },
+    # Shaymin-Sky: only in-game path for the base Shaymin form is PLA
+    # (Request 92, requires Sword/Shield save data). Gracidea also arrives
+    # in PLA during that request.
+    {
+        "form_id": "shaymin-sky",
+        "game_id": "legends-arceus",
+        "method": "gift",
+        "from_form": "shaymin",
+        "item": "gracidea",
+        "notes": "Gracidea received from Medi at Fieldlands Camp during Request 92.",
+    },
+    # Therian Formes: Reveal Glass toggles between Incarnate and Therian.
+    # Seed for the intersection of each base legendary's availability and
+    # Reveal Glass availability. Tornadus/Thundurus version-split across
+    # ORAS and USUM; Landorus is present in both versions.
+    {
+        "form_id": "tornadus-therian",
+        "game_id": "omega-ruby",
+        "method": "gift",
+        "from_form": "tornadus",
+        "item": "reveal-glass",
+        "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
+    },
+    {
+        "form_id": "tornadus-therian",
+        "game_id": "ultra-sun",
+        "method": "gift",
+        "from_form": "tornadus",
+        "item": "reveal-glass",
+        "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
+    },
+    {
+        "form_id": "tornadus-therian",
+        "game_id": "legends-arceus",
+        "method": "gift",
+        "from_form": "tornadus",
+        "item": "reveal-glass",
+        "notes": (
+            "Reveal Glass from Cogita at Ancient Retreat after completing the "
+            "Forces of Nature Pokédex entries."
+        ),
+    },
+    {
+        "form_id": "thundurus-therian",
+        "game_id": "alpha-sapphire",
+        "method": "gift",
+        "from_form": "thundurus",
+        "item": "reveal-glass",
+        "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
+    },
+    {
+        "form_id": "thundurus-therian",
+        "game_id": "ultra-moon",
+        "method": "gift",
+        "from_form": "thundurus",
+        "item": "reveal-glass",
+        "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
+    },
+    {
+        "form_id": "thundurus-therian",
+        "game_id": "legends-arceus",
+        "method": "gift",
+        "from_form": "thundurus",
+        "item": "reveal-glass",
+        "notes": (
+            "Reveal Glass from Cogita at Ancient Retreat after completing the "
+            "Forces of Nature Pokédex entries."
+        ),
+    },
+    *(
+        {
+            "form_id": "landorus-therian",
+            "game_id": game,
+            "method": "gift",
+            "from_form": "landorus",
+            "item": "reveal-glass",
+            "notes": notes,
+        }
+        for game, notes in (
+            ("omega-ruby", "Reveal Glass from the mirror shop on Mauville City 1F."),
+            ("alpha-sapphire", "Reveal Glass from the mirror shop on Mauville City 1F."),
+            ("ultra-sun", "Reveal Glass from Professor Burnet at the Dimensional Research Lab."),
+            ("ultra-moon", "Reveal Glass from Professor Burnet at the Dimensional Research Lab."),
+            (
+                "sword",
+                "Reveal Glass from the Stow-on-Side bargain shop after completing the main story.",
+            ),
+            (
+                "shield",
+                "Reveal Glass from the Stow-on-Side bargain shop after completing the main story.",
+            ),
+            (
+                "legends-arceus",
+                "Reveal Glass from Cogita at Ancient Retreat after completing the "
+                "Forces of Nature Pokédex entries.",
+            ),
+        )
+    ),
+    {
+        "form_id": "enamorus-therian",
+        "game_id": "legends-arceus",
+        "method": "gift",
+        "from_form": "enamorus",
+        "item": "reveal-glass",
+        "notes": (
+            "Reveal Glass from Cogita at Ancient Retreat after completing the "
+            "Forces of Nature Pokédex entries."
+        ),
+    },
+    # Hoopa-Unbound: Prison Bottle. Only in-scope game with a legitimate
+    # base Hoopa encounter is ORAS (the 2015 event distribution already
+    # seeded above). The clerk dispenses the Prison Bottle at any Poké Mart
+    # once Hoopa is in the party.
+    {
+        "form_id": "hoopa-unbound",
+        "game_id": "omega-ruby",
+        "method": "gift",
+        "from_form": "hoopa",
+        "item": "prison-bottle",
+        "notes": "Prison Bottle given by a clerk at any Poké Mart while Hoopa is in the party.",
+    },
+    {
+        "form_id": "hoopa-unbound",
+        "game_id": "alpha-sapphire",
+        "method": "gift",
+        "from_form": "hoopa",
+        "item": "prison-bottle",
+        "notes": "Prison Bottle given by a clerk at any Poké Mart while Hoopa is in the party.",
+    },
+    # Keldeo-Resolute: form changes automatically when Keldeo knows the move
+    # Secret Sword. Only in-scope legitimate base encounter is the SwSh
+    # Crown Tundra Dynamax Adventure.
+    {
+        "form_id": "keldeo-resolute",
+        "game_id": "sword",
+        "method": "gift",
+        "from_form": "keldeo",
+        "known_move": "secret-sword",
+        "requires_dlc": "expansion-pass",
+        "notes": "Form change triggered when Keldeo knows Secret Sword (tutor move).",
+    },
+    {
+        "form_id": "keldeo-resolute",
+        "game_id": "shield",
+        "method": "gift",
+        "from_form": "keldeo",
+        "known_move": "secret-sword",
+        "requires_dlc": "expansion-pass",
+        "notes": "Form change triggered when Keldeo knows Secret Sword (tutor move).",
+    },
+    # Zygarde Power-Construct 10% / 50%: only the USUM Reassembly Unit (via
+    # collected Zygarde Cells and Cores) and the SwSh Max Lair Dynamax
+    # Adventure produce Power-Construct specimens. SM's Reassembly Unit
+    # also exists at the Aether Paradise.
+    *(
+        {
+            "form_id": "zygarde-10-power-construct",
+            "game_id": game,
+            "method": "gift",
+            "from_form": "zygarde-10",
+            "notes": (
+                "Assembled at the Reassembly Unit at Aether Paradise; "
+                "Power Construct requires using at least one Zygarde Core."
+            ),
+        }
+        for game in ("sun", "moon", "ultra-sun", "ultra-moon")
+    ),
+    *(
+        {
+            "form_id": "zygarde-50-power-construct",
+            "game_id": game,
+            "method": "gift",
+            "from_form": "zygarde",
+            "notes": (
+                "Assembled at the Reassembly Unit at Aether Paradise; "
+                "Power Construct requires using at least one Zygarde Core."
+            ),
+        }
+        for game in ("sun", "moon", "ultra-sun", "ultra-moon")
+    ),
+    {
+        "form_id": "zygarde-50-power-construct",
+        "game_id": "sword",
+        "method": "raid",
+        "method_details": "dynamax-adventure",
+        "requires_dlc": "expansion-pass",
+        "notes": (
+            "Dynamax Adventure encounter in the Max Lair (Crown Tundra); "
+            "Zygarde in Max Lair always has Power Construct."
+        ),
+    },
+    {
+        "form_id": "zygarde-50-power-construct",
+        "game_id": "shield",
+        "method": "raid",
+        "method_details": "dynamax-adventure",
+        "requires_dlc": "expansion-pass",
+        "notes": (
+            "Dynamax Adventure encounter in the Max Lair (Crown Tundra); "
+            "Zygarde in Max Lair always has Power Construct."
+        ),
+    },
+    # (C) Deoxys Attack / Defense / Speed Formes: form changes via
+    # interacting with the Fallarbor Town meteorite at Professor Cozmo's
+    # house. Cycles Normal → Attack → Defense → Speed → Normal per
+    # interaction. ORAS is the only in-scope game where base Deoxys is
+    # catchable and the meteorite exists.
+    *(
+        {
+            "form_id": form_id,
+            "game_id": game,
+            "method": "gift",
+            "from_form": "deoxys",
+            "notes": (
+                "Form cycled by interacting with the meteorite at Professor "
+                "Cozmo's house in Fallarbor Town."
+            ),
+        }
+        for form_id in ("deoxys-attack", "deoxys-defense", "deoxys-speed")
+        for game in ("omega-ruby", "alpha-sapphire")
+    ),
+    # (D) Genesect Drive items. Each drive, when held, changes Genesect's
+    # form (and the move Techno Blast's type). Only in-scope game with a
+    # legitimate base Genesect encounter is the SwSh Crown Tundra Dynamax
+    # Adventure; the bargain shop in Stow-on-Side sells all four drives
+    # once the player owns a Genesect.
+    *(
+        {
+            "form_id": f"genesect-{drive}",
+            "game_id": game,
+            "method": "gift",
+            "from_form": "genesect",
+            "item": f"{drive}-drive",
+            "requires_dlc": "expansion-pass",
+            "notes": (
+                f"{drive.capitalize()} Drive from the Stow-on-Side bargain shop "
+                "while the player owns a Genesect."
+            ),
+        }
+        for drive in ("burn", "chill", "douse", "shock")
+        for game in ("sword", "shield")
+    ),
+    # (E) Floette-Eternal: AZ's Floette, legitimately obtainable for the
+    # first time in Legends: Z-A as a story gift from Taunie/Urbain after
+    # completing Main Mission 39. One per save file.
+    {
+        "form_id": "floette-eternal",
+        "game_id": "legends-za",
+        "method": "gift",
+        "method_details": "only-one",
+        "notes": "Received from Taunie/Urbain upon completing Main Mission 39.",
     },
 ]
 

@@ -5654,17 +5654,6 @@
     ]
   },
   {
-    "id": "arceus-unknown",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "unknown",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
     "id": "arceus-water",
     "species_id": "arceus",
     "national_dex": 493,

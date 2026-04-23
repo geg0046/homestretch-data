@@ -129,8 +129,12 @@ FUNCTIONAL_SPECIES = {
 
 # (1) Not storable in their origin game. Koraidon/Miraidon mount-modes are
 # visual ride transformations of the default form and share its PC slot;
-# eternatus-eternamax is a story-only boss form never given to the player.
+# eternatus-eternamax is a story-only boss form never given to the player;
+# arceus-unknown is the "???"-type datamine form accessible only via the
+# Gen IV Curse-move glitch, and the "???" type was removed in Gen V so it
+# has no HOME-reachable path.
 SKIP_FORM_IDS_INGAME = {
+    "arceus-unknown",
     "eternatus-eternamax",
     "koraidon-gliding-build",
     "koraidon-limited-build",
