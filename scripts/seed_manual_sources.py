@@ -802,6 +802,224 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "method_details": "only-one",
         "notes": "Received from Taunie/Urbain upon completing Main Mission 39.",
     },
+    # --- Tier 9: Gen 8/9 regional-dex gap closures -----------------------------
+    # Closes species flagged by scripts/coverage_audit.py as missing from a
+    # game's regional Pokédex. Three sub-buckets:
+    #   (F) Version-exclusive trade rows — species catchable only on the
+    #       paired version; method=trade documents the local-trade path.
+    #   (G) SwSh Crown Tundra Max Lair (Dynamax Adventure) rows — species
+    #       PokéAPI doesn't surface from the Max Lair encounter table.
+    #   (H) Story / event rows PokéAPI / Bulbapedia scrapers missed:
+    #       Ramanas Park post-game legendaries, Phione → Manaphy egg event,
+    #       Legends: Z-A Mystery-Gift-gated encounters (Mewtwo, Diancie).
+    # Species that appear in both paired versions' missing lists and have no
+    # in-game acquisition in SwSh or SV are handled via a coverage_audit.py
+    # exclusion set (HOME-transfer-only dex entries), not fake source rows.
+    # -------------------------------------------------------------------------
+    # (F) Version-exclusive trade rows. method=trade with no trade_species,
+    # since the "trade partner" is simply the paired-version player.
+    #
+    # Sword ← Shield
+    *(
+        {
+            "form_id": sp,
+            "game_id": "sword",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Shield.",
+        }
+        for sp in (
+            "corsola",
+            "croagunk",
+            "drampa",
+            "eiscue",
+            "goomy",
+            "larvitar",
+            "lotad",
+            "lunatone",
+            "oranguru",
+            "ponyta",
+            "sableye",
+            "solosis",
+            "spritzee",
+            "vullaby",
+            "zamazenta",
+        )
+    ),
+    # Shield ← Sword
+    *(
+        {
+            "form_id": sp,
+            "game_id": "shield",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Sword.",
+        }
+        for sp in (
+            "darumaka",
+            "deino",
+            "farfetchd",
+            "gothita",
+            "jangmo-o",
+            "mawile",
+            "passimian",
+            "rufflet",
+            "scraggy",
+            "seedot",
+            "solrock",
+            "stonjourner",
+            "swirlix",
+            "turtonator",
+            "zacian",
+        )
+    ),
+    # Brilliant Diamond ← Shining Pearl (BD-exclusive fossil Shieldon, plus
+    # SP-exclusive wilds). Palkia and Dialga are handled in bucket H via
+    # Ramanas Park, not trade.
+    *(
+        {
+            "form_id": sp,
+            "game_id": "brilliant-diamond",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Shining Pearl.",
+        }
+        for sp in ("glameow", "misdreavus", "shieldon")
+    ),
+    # Shining Pearl ← Brilliant Diamond
+    *(
+        {
+            "form_id": sp,
+            "game_id": "shining-pearl",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Brilliant Diamond.",
+        }
+        for sp in ("cranidos", "gligar", "murkrow", "scyther", "stunky")
+    ),
+    # Scarlet ← Violet (includes box legendary Miraidon and all Violet-native
+    # Iron paradoxes from tier 6).
+    *(
+        {
+            "form_id": sp,
+            "game_id": "scarlet",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Violet.",
+        }
+        for sp in (
+            "bagon",
+            "clauncher",
+            "dreepy",
+            "eiscue",
+            "iron-boulder",
+            "iron-bundle",
+            "iron-crown",
+            "iron-hands",
+            "iron-jugulis",
+            "iron-leaves",
+            "iron-moth",
+            "iron-thorns",
+            "iron-treads",
+            "iron-valiant",
+            "miraidon",
+            "misdreavus",
+            "passimian",
+        )
+    ),
+    # Violet ← Scarlet (includes Koraidon and all Scarlet-native ancient
+    # paradoxes from tier 6).
+    *(
+        {
+            "form_id": sp,
+            "game_id": "violet",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Scarlet.",
+        }
+        for sp in (
+            "brute-bonnet",
+            "deino",
+            "drifloon",
+            "flutter-mane",
+            "gouging-fire",
+            "great-tusk",
+            "koraidon",
+            "larvitar",
+            "oranguru",
+            "raging-bolt",
+            "roaring-moon",
+            "sandy-shocks",
+            "scream-tail",
+            "skrelp",
+            "slither-wing",
+            "stonjourner",
+            "stunky",
+            "walking-wake",
+        )
+    ),
+    # (G) SwSh Crown Tundra Max Lair (Dynamax Adventure) — species missing
+    # from BOTH Sword and Shield because PokéAPI doesn't surface Max Lair
+    # encounters. Max Lair is version-agnostic so both versions get rows.
+    *(
+        {
+            "form_id": sp,
+            "game_id": game,
+            "method": "raid",
+            "method_details": "dynamax-adventure",
+            "requires_dlc": "expansion-pass",
+            "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra).",
+        }
+        for sp in ("bagon", "gible", "heracross", "kabuto", "omanyte", "pinsir")
+        for game in ("sword", "shield")
+    ),
+    # (H) Story / event rows.
+    #
+    # BDSP Ramanas Park — post-game legendary slates. Each version catches
+    # its counterpart mascot there (Dialga in SP, Palkia in BD) after the
+    # player completes the National Pokédex. Method is static-encounter,
+    # method_details=only-one (single available capture).
+    {
+        "form_id": "palkia",
+        "game_id": "brilliant-diamond",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "notes": "Ramanas Park Lustrous Slate after completing the National Pokédex.",
+    },
+    {
+        "form_id": "dialga",
+        "game_id": "shining-pearl",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "notes": "Ramanas Park Adamant Slate after completing the National Pokédex.",
+    },
+    # BDSP Manaphy — Phione egg from Ramanas Park's Manaphy Slate hatches
+    # into Phione in the normal case, but the unique Manaphy pre-event
+    # gift (via serial code / mystery gift) provided a Manaphy egg in both
+    # versions. Encoded as method=gift, method_details=only-one.
+    {
+        "form_id": "manaphy",
+        "game_id": "brilliant-diamond",
+        "method": "gift",
+        "method_details": "only-one",
+        "notes": "Manaphy Egg via Mystery Gift (2022 promotion).",
+    },
+    {
+        "form_id": "manaphy",
+        "game_id": "shining-pearl",
+        "method": "gift",
+        "method_details": "only-one",
+        "notes": "Manaphy Egg via Mystery Gift (2022 promotion).",
+    },
+    # Legends: Z-A — Mystery-Gift-activated static encounters.
+    {
+        "form_id": "mewtwo",
+        "game_id": "legends-za",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "notes": "Magenta District Lysandre Labs; requires Mystery Gift activation.",
+    },
+    {
+        "form_id": "diancie",
+        "game_id": "legends-za",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "notes": "Magenta Sector 8; requires Mystery Gift activation.",
+    },
 ]
 
 

@@ -3779,6 +3779,20 @@
   },
   {
     "form_id": "bagon",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "bagon",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
+  },
+  {
+    "form_id": "bagon",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
   },
@@ -3787,6 +3801,14 @@
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "bagon",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
   },
   {
     "form_id": "bagon",
@@ -7307,6 +7329,12 @@
     "form_id": "brute-bonnet",
     "game_id": "scarlet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "brute-bonnet",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "bruxish",
@@ -11005,6 +11033,12 @@
   },
   {
     "form_id": "clauncher",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "clauncher",
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid"
@@ -12987,6 +13021,12 @@
   },
   {
     "form_id": "corsola",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
+  },
+  {
+    "form_id": "corsola",
     "game_id": "ultra-moon",
     "method": "fishing",
     "method_details": "super-rod"
@@ -13668,6 +13708,12 @@
   },
   {
     "form_id": "cranidos",
+    "game_id": "shining-pearl",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Brilliant Diamond."
+  },
+  {
+    "form_id": "cranidos",
     "game_id": "sun",
     "method": "gift"
   },
@@ -13957,6 +14003,12 @@
     "form_id": "croagunk",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "croagunk",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "croagunk",
@@ -14952,6 +15004,12 @@
   },
   {
     "form_id": "darumaka",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
+  },
+  {
+    "form_id": "darumaka",
     "game_id": "sword",
     "method": "trade"
   },
@@ -15149,6 +15207,12 @@
   },
   {
     "form_id": "deino",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
+  },
+  {
+    "form_id": "deino",
     "game_id": "sun",
     "method": "static-encounter",
     "method_details": "island-scan"
@@ -15163,6 +15227,12 @@
     "form_id": "deino",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "deino",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "delcatty",
@@ -15788,6 +15858,13 @@
   },
   {
     "form_id": "dialga",
+    "game_id": "shining-pearl",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Ramanas Park Adamant Slate after completing the National Pokédex."
+  },
+  {
+    "form_id": "dialga",
     "game_id": "ultra-sun",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -15797,6 +15874,13 @@
     "game_id": "alpha-sapphire",
     "method": "event",
     "notes": "2014 Pokémon Center code distribution tied to the XY Wi-Fi event."
+  },
+  {
+    "form_id": "diancie",
+    "game_id": "legends-za",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Magenta Sector 8; requires Mystery Gift activation."
   },
   {
     "form_id": "diancie",
@@ -17565,6 +17649,12 @@
   },
   {
     "form_id": "drampa",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
+  },
+  {
+    "form_id": "drampa",
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -18038,6 +18128,12 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "dreepy",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
   },
   {
     "form_id": "dreepy",
@@ -18339,6 +18435,12 @@
     "game_id": "ultra-sun",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "drifloon",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "drifloon",
@@ -20279,6 +20381,12 @@
   },
   {
     "form_id": "eiscue",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "eiscue",
     "game_id": "shield",
     "method": "raid",
     "method_details": "max-raid"
@@ -20287,6 +20395,12 @@
     "form_id": "eiscue",
     "game_id": "shield",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "eiscue",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "eiscue",
@@ -22826,6 +22940,12 @@
   },
   {
     "form_id": "farfetchd",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
+  },
+  {
+    "form_id": "farfetchd",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
   },
@@ -24650,6 +24770,12 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "flutter-mane",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
+  },
+  {
     "form_id": "flygon",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -27479,8 +27605,24 @@
   },
   {
     "form_id": "gible",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
+  },
+  {
+    "form_id": "gible",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "gible",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
   },
   {
     "form_id": "gible",
@@ -28110,6 +28252,12 @@
   },
   {
     "form_id": "glameow",
+    "game_id": "brilliant-diamond",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shining Pearl."
+  },
+  {
+    "form_id": "glameow",
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "mass-outbreak"
@@ -28175,6 +28323,12 @@
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "mass-outbreak"
+  },
+  {
+    "form_id": "gligar",
+    "game_id": "shining-pearl",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Brilliant Diamond."
   },
   {
     "form_id": "gligar",
@@ -29998,6 +30152,12 @@
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "sos-encounter"
+  },
+  {
+    "form_id": "goomy",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "goomy",
@@ -30164,6 +30324,12 @@
     "game_id": "scarlet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "gothita",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "gothita",
@@ -30382,6 +30548,12 @@
     "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC."
   },
   {
+    "form_id": "gouging-fire",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
+  },
+  {
     "form_id": "gourgeist",
     "game_id": "legends-za",
     "method": "trade"
@@ -31063,6 +31235,12 @@
     "form_id": "great-tusk",
     "game_id": "scarlet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "great-tusk",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "greavard",
@@ -34135,6 +34313,14 @@
   },
   {
     "form_id": "heracross",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
+  },
+  {
+    "form_id": "heracross",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
   },
@@ -34143,6 +34329,14 @@
     "game_id": "silver",
     "method": "wild-encounter",
     "method_details": "headbutt-high"
+  },
+  {
+    "form_id": "heracross",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
   },
   {
     "form_id": "heracross",
@@ -36637,6 +36831,12 @@
   },
   {
     "form_id": "iron-boulder",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "iron-boulder",
     "game_id": "violet",
     "method": "static-encounter",
     "method_details": "only-one",
@@ -36645,8 +36845,20 @@
   },
   {
     "form_id": "iron-bundle",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "iron-bundle",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "iron-crown",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
   },
   {
     "form_id": "iron-crown",
@@ -36658,13 +36870,31 @@
   },
   {
     "form_id": "iron-hands",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "iron-hands",
     "game_id": "violet",
     "method": "wild-encounter"
   },
   {
     "form_id": "iron-jugulis",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "iron-jugulis",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "iron-leaves",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
   },
   {
     "form_id": "iron-leaves",
@@ -36675,13 +36905,31 @@
   },
   {
     "form_id": "iron-moth",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "iron-moth",
     "game_id": "violet",
     "method": "wild-encounter"
   },
   {
     "form_id": "iron-thorns",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "iron-thorns",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "iron-treads",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
   },
   {
     "form_id": "iron-treads",
@@ -36693,6 +36941,12 @@
     "form_id": "iron-treads",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "iron-valiant",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
   },
   {
     "form_id": "iron-valiant",
@@ -36831,6 +37085,12 @@
     "game_id": "scarlet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "jangmo-o",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "jangmo-o",
@@ -37856,8 +38116,24 @@
   },
   {
     "form_id": "kabuto",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
+  },
+  {
+    "form_id": "kabuto",
     "game_id": "shining-pearl",
     "method": "fossil-revive"
+  },
+  {
+    "form_id": "kabuto",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
   },
   {
     "form_id": "kabuto",
@@ -39710,6 +39986,12 @@
     "method_details": "only-one"
   },
   {
+    "form_id": "koraidon",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
+  },
+  {
     "form_id": "krabby",
     "game_id": "blue",
     "method": "fishing",
@@ -41255,6 +41537,12 @@
   },
   {
     "form_id": "larvitar",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
+  },
+  {
+    "form_id": "larvitar",
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -41264,6 +41552,12 @@
     "game_id": "ultra-sun",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "larvitar",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "larvitar",
@@ -42932,6 +43226,12 @@
   },
   {
     "form_id": "lotad",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
+  },
+  {
+    "form_id": "lotad",
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid",
@@ -43577,6 +43877,12 @@
     "form_id": "lunatone",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "lunatone",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "lunatone",
@@ -46771,9 +47077,23 @@
   },
   {
     "form_id": "manaphy",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Manaphy Egg via Mystery Gift (2022 promotion)."
+  },
+  {
+    "form_id": "manaphy",
     "game_id": "legends-arceus",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "manaphy",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Manaphy Egg via Mystery Gift (2022 promotion)."
   },
   {
     "form_id": "mandibuzz",
@@ -48371,6 +48691,12 @@
     "game_id": "omega-ruby",
     "method": "wild-encounter",
     "method_details": "horde"
+  },
+  {
+    "form_id": "mawile",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "mawile",
@@ -49599,6 +49925,13 @@
   },
   {
     "form_id": "mewtwo",
+    "game_id": "legends-za",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Magenta District Lysandre Labs; requires Mystery Gift activation."
+  },
+  {
+    "form_id": "mewtwo",
     "game_id": "lets-go-eevee",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -50639,9 +50972,21 @@
   },
   {
     "form_id": "miraidon",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "miraidon",
     "game_id": "violet",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "misdreavus",
+    "game_id": "brilliant-diamond",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shining Pearl."
   },
   {
     "form_id": "misdreavus",
@@ -50666,6 +51011,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "misdreavus",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
   },
   {
     "form_id": "misdreavus",
@@ -52420,6 +52771,12 @@
     "form_id": "murkrow",
     "game_id": "scarlet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "murkrow",
+    "game_id": "shining-pearl",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Brilliant Diamond."
   },
   {
     "form_id": "murkrow",
@@ -55338,8 +55695,24 @@
   },
   {
     "form_id": "omanyte",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
+  },
+  {
+    "form_id": "omanyte",
     "game_id": "shining-pearl",
     "method": "fossil-revive"
+  },
+  {
+    "form_id": "omanyte",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
   },
   {
     "form_id": "omanyte",
@@ -55614,9 +55987,21 @@
   },
   {
     "form_id": "oranguru",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
+  },
+  {
+    "form_id": "oranguru",
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots, walk"
+  },
+  {
+    "form_id": "oranguru",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "orbeetle",
@@ -56064,6 +56449,13 @@
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid"
+  },
+  {
+    "form_id": "palkia",
+    "game_id": "brilliant-diamond",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Ramanas Park Lustrous Slate after completing the National Pokédex."
   },
   {
     "form_id": "palkia",
@@ -56712,6 +57104,18 @@
     "game_id": "yellow",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "passimian",
+    "game_id": "scarlet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Violet."
+  },
+  {
+    "form_id": "passimian",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "passimian",
@@ -59190,6 +59594,14 @@
   },
   {
     "form_id": "pinsir",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
+  },
+  {
+    "form_id": "pinsir",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
   },
@@ -59203,6 +59615,14 @@
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "pinsir",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra)."
   },
   {
     "form_id": "pinsir",
@@ -60449,6 +60869,12 @@
     "game_id": "silver",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "ponyta",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "ponyta",
@@ -62624,6 +63050,12 @@
     "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC."
+  },
+  {
+    "form_id": "raging-bolt",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "raichu",
@@ -65326,6 +65758,12 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "roaring-moon",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
+  },
+  {
     "form_id": "rockruff",
     "game_id": "moon",
     "method": "wild-encounter",
@@ -66119,6 +66557,12 @@
   },
   {
     "form_id": "rufflet",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
+  },
+  {
+    "form_id": "rufflet",
     "game_id": "sun",
     "method": "gift"
   },
@@ -66255,6 +66699,12 @@
     "game_id": "sun",
     "method": "wild-encounter",
     "method_details": "sos-encounter"
+  },
+  {
+    "form_id": "sableye",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "sableye",
@@ -67358,6 +67808,12 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "sandy-shocks",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
+  },
+  {
     "form_id": "sandygast",
     "game_id": "moon",
     "method": "wild-encounter",
@@ -67982,6 +68438,12 @@
   },
   {
     "form_id": "scraggy",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
+  },
+  {
+    "form_id": "scraggy",
     "game_id": "sword",
     "method": "raid",
     "method_details": "max-raid"
@@ -68032,6 +68494,12 @@
     "form_id": "scream-tail",
     "game_id": "scarlet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "scream-tail",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "scyther",
@@ -68126,6 +68594,12 @@
   },
   {
     "form_id": "scyther",
+    "game_id": "shining-pearl",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Brilliant Diamond."
+  },
+  {
+    "form_id": "scyther",
     "game_id": "sun",
     "method": "gift"
   },
@@ -68784,6 +69258,12 @@
     "game_id": "scarlet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "seedot",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "seedot",
@@ -69849,6 +70329,12 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "purple-flowers, rough-terrain, walk, yellow-flowers"
+  },
+  {
+    "form_id": "shieldon",
+    "game_id": "brilliant-diamond",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shining Pearl."
   },
   {
     "form_id": "shieldon",
@@ -71169,6 +71655,12 @@
   },
   {
     "form_id": "skrelp",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
+  },
+  {
+    "form_id": "skrelp",
     "game_id": "y",
     "method": "fishing",
     "method_details": "good-rod"
@@ -71673,6 +72165,12 @@
     "form_id": "slither-wing",
     "game_id": "scarlet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "slither-wing",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "slowbro",
@@ -73723,6 +74221,12 @@
   },
   {
     "form_id": "solosis",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
+  },
+  {
+    "form_id": "solosis",
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid",
@@ -73750,6 +74254,12 @@
     "form_id": "solrock",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "solrock",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "solrock",
@@ -74388,6 +74898,12 @@
     "form_id": "spritzee",
     "game_id": "shield",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "spritzee",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "spritzee",
@@ -75554,6 +76070,12 @@
   },
   {
     "form_id": "stonjourner",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
+  },
+  {
+    "form_id": "stonjourner",
     "game_id": "sword",
     "method": "raid",
     "method_details": "max-raid"
@@ -75562,6 +76084,12 @@
     "form_id": "stonjourner",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "stonjourner",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "stoutland",
@@ -75823,6 +76351,12 @@
   },
   {
     "form_id": "stunky",
+    "game_id": "shining-pearl",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Brilliant Diamond."
+  },
+  {
+    "form_id": "stunky",
     "game_id": "sword",
     "method": "raid",
     "method_details": "max-raid"
@@ -75831,6 +76365,12 @@
     "form_id": "stunky",
     "game_id": "sword",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "stunky",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "stunky",
@@ -76857,6 +77397,12 @@
     "form_id": "swirlix",
     "game_id": "legends-za",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "swirlix",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "swirlix",
@@ -81024,6 +81570,12 @@
     "form_id": "tsareena",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "turtonator",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
   },
   {
     "form_id": "turtonator",
@@ -84488,6 +85040,12 @@
   },
   {
     "form_id": "vullaby",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
+  },
+  {
+    "form_id": "vullaby",
     "game_id": "ultra-moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
@@ -84883,6 +85441,12 @@
     "method": "raid",
     "method_details": "tera-raid",
     "notes": "SV 1.2.0 Tera Raid Battle event (2023)."
+  },
+  {
+    "form_id": "walking-wake",
+    "game_id": "violet",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Scarlet."
   },
   {
     "form_id": "walrein",
@@ -87890,6 +88454,12 @@
   },
   {
     "form_id": "zacian",
+    "game_id": "shield",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Sword."
+  },
+  {
+    "form_id": "zacian",
     "game_id": "sword",
     "method": "static-encounter",
     "method_details": "only-one"
@@ -87899,6 +88469,12 @@
     "game_id": "shield",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "zamazenta",
+    "game_id": "sword",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Shield."
   },
   {
     "form_id": "zangoose",
