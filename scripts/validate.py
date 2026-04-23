@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from collections import defaultdict
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -18,6 +19,13 @@ from homestretch_data.models import Form, Game, Source, Transfer
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "data"
+
+sys.path.insert(0, str(REPO_ROOT / "scrapers"))
+from utils import SOURCE_KEY_FIELDS  # noqa: E402
+
+# Methods a form with the `event-only` category may legitimately have. Any
+# other method on such a form indicates miscategorisation.
+_EVENT_ONLY_ALLOWED_METHODS: frozenset[str] = frozenset({"event", "gift", "transfer"})
 
 # Lowercase hyphen-slug pattern (same shape as FormId / GameId). Applied to
 # Source string fields where Pydantic only knows they're `str | None`:
@@ -72,6 +80,32 @@ def main() -> int:
     game_ids = {g.id for g in games}
     form_ids = {f.id for f in forms}
 
+    # Invariant: each species has exactly one default form, and that
+    # default form's id equals the species id (per CLAUDE.md ID conventions).
+    by_species: dict[str, list[Form]] = defaultdict(list)
+    for f in forms:
+        by_species[f.species_id].append(f)
+    for species_id, fs in by_species.items():
+        defaults = [f for f in fs if f.is_default]
+        if len(defaults) == 0:
+            alt_ids = [f.id for f in fs]
+            errors.append(
+                f"forms.json: species={species_id!r} has no default form (alt forms: {alt_ids})"
+            )
+        elif len(defaults) > 1:
+            default_ids = [f.id for f in defaults]
+            errors.append(
+                f"forms.json: species={species_id!r} has {len(defaults)} "
+                f"default forms (expected 1): {default_ids}"
+            )
+        else:
+            default = defaults[0]
+            if default.id != species_id:
+                errors.append(
+                    f"forms.json: default form {default.id!r} must equal "
+                    f"its species_id={species_id!r}"
+                )
+
     for i, s in enumerate(sources):
         if s.game_id not in game_ids:
             errors.append(f"sources.json[{i}]: unknown game_id={s.game_id!r}")
@@ -99,6 +133,39 @@ def main() -> int:
                 "duplicates method; drop the field (rule 7)"
             )
 
+    # Invariant: every source row must be unique on its identity tuple.
+    # Reuses SOURCE_KEY_FIELDS so the invariant tracks whatever the scraper
+    # merge key tracks — if the scraper considers two rows distinct, so does
+    # this check, and vice versa.
+    key_first_idx: dict[tuple, int] = {}
+    for i, s in enumerate(sources):
+        key = tuple(getattr(s, f, None) for f in SOURCE_KEY_FIELDS)
+        # Normalise enum -> value so the tuple is hashable and comparable
+        # across JSON-loaded and Pydantic-object flows.
+        key = tuple(v.value if hasattr(v, "value") else v for v in key)
+        if key in key_first_idx:
+            errors.append(
+                f"sources.json[{i}]: duplicate source key, first seen at index {key_first_idx[key]}"
+            )
+        else:
+            key_first_idx[key] = i
+
+    # Invariant: forms tagged `event-only` may only have event / gift /
+    # transfer method rows. Anything else indicates miscategorisation.
+    event_only_form_ids = {f.id for f in forms if "event-only" in (f.categories or [])}
+    for i, s in enumerate(sources):
+        if s.form_id in event_only_form_ids and s.method.value not in _EVENT_ONLY_ALLOWED_METHODS:
+            errors.append(
+                f"sources.json[{i}]: form={s.form_id!r} is event-only but "
+                f"method={s.method.value!r} is not event/gift/transfer"
+            )
+
+    # Invariant: every default form has at least one source row. If a
+    # species is in forms.json we must be able to say how to obtain it.
+    default_form_ids = {f.id for f in forms if f.is_default}
+    covered_form_ids = {s.form_id for s in sources}
+    for fid in sorted(default_form_ids - covered_form_ids):
+        errors.append(f"forms.json: default form {fid!r} has zero source rows in sources.json")
     for i, t in enumerate(transfers):
         if t.from_id not in game_ids:
             errors.append(f"transfers.json[{i}]: unknown from_id={t.from_id!r}")
