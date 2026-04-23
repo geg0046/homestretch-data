@@ -1767,6 +1767,363 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         )
         for game in ("omega-ruby", "alpha-sapphire")
     ),
+    # --- Tier 14: cosmetic zero-source forms -----------------------------------
+    # Closes the 189-form "Zero-source forms by category tuple → cosmetic"
+    # bucket in `scripts/coverage_audit.py`. One representative source row
+    # per cosmetic form in one representative game each — enough to close
+    # the audit; future tiers can thicken per-game coverage if needed.
+    #
+    # Grouped by species family:
+    #   (T) Alcremie 62 swirl-by-sweet combinations (SwSh: evolution from
+    #       Milcery holding the matching Sweet; swirl chosen by spin/time).
+    #   (U) Unown 27 letter / punctuation forms (Crystal: Ruins of Alph
+    #       chambers after solving the sliding-tile puzzles).
+    #   (V) Scatterbug / Spewpa / Vivillon 19 patterns each (XY: 3DS-
+    #       region-locked pattern; inherited through the evolution line).
+    #   (W) Furfrou 9 trims (XY: Friseur Furfrou salon in Lumiose).
+    #   (X) Minior 7 core colours (SM: random colour when shield breaks).
+    #   (Y) Flabébé / Floette / Florges 12 colour variants.
+    #   (Z) Deerling / Sawsbuck 6 seasonal forms.
+    #   (AA) Shellos-East / Gastrodon-East (BDSP: East Sea routes).
+    #   (AB) SV cosmetic variants (Tatsugiri droopy/stretchy, Maushold
+    #        family-of-three, Polteageist/Sinistea Antique, Poltchageist/
+    #        Sinistcha Masterpiece/Artisan).
+    # -------------------------------------------------------------------------
+    # (T) Alcremie — 62 swirl-by-sweet combinations. Milcery evolves when
+    # holding a Sweet; swirl chosen by spin direction, duration, and
+    # time-of-day. Seed in Sword.
+    *(
+        {
+            "form_id": f"alcremie-{swirl}-{sweet}-sweet",
+            "game_id": "sword",
+            "method": "evolution",
+            "method_details": "level-up",
+            "from_form": "milcery",
+            "held_item": f"{sweet}-sweet",
+            "notes": (
+                f"Evolve Milcery holding a {sweet.replace('-', ' ').title()} Sweet; "
+                f"swirl ({swirl.replace('-', ' ')}) determined by spin direction, "
+                "duration, and time of day."
+            ),
+        }
+        for swirl in (
+            "caramel-swirl",
+            "lemon-cream",
+            "matcha-cream",
+            "mint-cream",
+            "rainbow-swirl",
+            "ruby-cream",
+            "ruby-swirl",
+            "salted-cream",
+            "vanilla-cream",
+        )
+        for sweet in (
+            "berry",
+            "clover",
+            "flower",
+            "love",
+            "ribbon",
+            "star",
+            "strawberry",
+        )
+        # vanilla-cream + strawberry-sweet is the default `alcremie` form,
+        # already sourced via Milcery's native evolution row; skip to avoid
+        # duplicating the default.
+        if not (swirl == "vanilla-cream" and sweet == "strawberry")
+    ),
+    # (U) Unown — 26 letters + ! + ?. Seed as wild-encounter in Crystal
+    # (Ruins of Alph). Default form "unown" (letter A) already sourced.
+    *(
+        {
+            "form_id": f"unown-{letter}",
+            "game_id": "crystal",
+            "method": "wild-encounter",
+            "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles.",
+        }
+        for letter in (
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+            "exclamation",
+            "question",
+        )
+    ),
+    # (V) Scatterbug / Spewpa / Vivillon — 19 patterns each. Each pattern
+    # is tied to the player's 3DS region in XY; patterns trickle through
+    # the evolution line (Scatterbug → Spewpa → Vivillon). Seed in X.
+    # "fancy" and "poke-ball" patterns are event-distributed; "icy-snow"
+    # is the Scatterbug/Spewpa default-pattern fallback missing from
+    # their respective missing lists.
+    *(
+        {
+            "form_id": f"{species}-{pattern}",
+            "game_id": "x",
+            "method": "wild-encounter",
+            "notes": notes,
+        }
+        for species, patterns in (
+            (
+                "scatterbug",
+                (
+                    "archipelago",
+                    "continental",
+                    "elegant",
+                    "fancy",
+                    "garden",
+                    "high-plains",
+                    "jungle",
+                    "marine",
+                    "meadow",
+                    "modern",
+                    "monsoon",
+                    "ocean",
+                    "poke-ball",
+                    "polar",
+                    "river",
+                    "sandstorm",
+                    "savanna",
+                    "sun",
+                    "tundra",
+                ),
+            ),
+            (
+                "spewpa",
+                (
+                    "archipelago",
+                    "continental",
+                    "elegant",
+                    "fancy",
+                    "garden",
+                    "high-plains",
+                    "jungle",
+                    "marine",
+                    "meadow",
+                    "modern",
+                    "monsoon",
+                    "ocean",
+                    "poke-ball",
+                    "polar",
+                    "river",
+                    "sandstorm",
+                    "savanna",
+                    "sun",
+                    "tundra",
+                ),
+            ),
+            (
+                "vivillon",
+                (
+                    "archipelago",
+                    "continental",
+                    "elegant",
+                    "fancy",
+                    "garden",
+                    "high-plains",
+                    "icy-snow",
+                    "jungle",
+                    "marine",
+                    "modern",
+                    "monsoon",
+                    "ocean",
+                    "poke-ball",
+                    "polar",
+                    "river",
+                    "sandstorm",
+                    "savanna",
+                    "sun",
+                    "tundra",
+                ),
+            ),
+        )
+        for pattern in patterns
+        for notes in (
+            "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+            if pattern not in ("fancy", "poke-ball")
+            else (
+                "Fancy pattern — special event distribution (2014 Pokémon Center)."
+                if pattern == "fancy"
+                else ("Poké Ball pattern — 2014 20M-download commemorative event distribution.")
+            ),
+        )
+    ),
+    # (W) Furfrou — 9 non-default trims applied at the Friseur Furfrou
+    # salon in Lumiose City. Trim lasts ~5 in-game days before reverting.
+    *(
+        {
+            "form_id": f"furfrou-{trim}",
+            "game_id": "x",
+            "method": "gift",
+            "from_form": "furfrou",
+            "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+        }
+        for trim in (
+            "dandy",
+            "debutante",
+            "diamond",
+            "heart",
+            "kabuki",
+            "la-reine",
+            "matron",
+            "pharaoh",
+            "star",
+        )
+    ),
+    # (X) Minior — 7 core colours. Random colour when the meteor shield
+    # breaks in battle. Default Meteor Forme is already sourced.
+    *(
+        {
+            "form_id": f"minior-{colour}",
+            "game_id": "sun",
+            "method": "wild-encounter",
+            "notes": (
+                "Core colour revealed when the meteor shield breaks in battle; "
+                "random per encounter."
+            ),
+        }
+        for colour in ("blue", "green", "indigo", "orange", "red", "violet", "yellow")
+    ),
+    # (Y) Flabébé / Floette / Florges — 4 non-red colour variants (blue /
+    # orange / white / yellow). Each colour is tied to specific Kalos
+    # routes; Florges obtained by evolution with a Shiny Stone.
+    *(
+        {
+            "form_id": f"flabebe-{colour}",
+            "game_id": "x",
+            "method": "wild-encounter",
+            "notes": f"{colour.title()} Flower form; tied to specific Kalos routes.",
+        }
+        for colour in ("blue", "orange", "white", "yellow")
+    ),
+    *(
+        {
+            "form_id": f"floette-{colour}",
+            "game_id": "x",
+            "method": "evolution",
+            "method_details": "level-up",
+            "from_form": f"flabebe-{colour}",
+        }
+        for colour in ("blue", "orange", "white", "yellow")
+    ),
+    *(
+        {
+            "form_id": f"florges-{colour}",
+            "game_id": "x",
+            "method": "evolution",
+            "method_details": "use-item",
+            "item": "shiny-stone",
+            "from_form": f"floette-{colour}",
+        }
+        for colour in ("blue", "orange", "white", "yellow")
+    ),
+    # (Z) Deerling / Sawsbuck — three non-default seasonal forms each.
+    # Form matches the in-game season; Sawsbuck evolves from Deerling at
+    # level 34 (same season inherited).
+    *(
+        {
+            "form_id": f"deerling-{season}",
+            "game_id": "x",
+            "method": "wild-encounter",
+            "notes": f"Seasonal form; catchable in {season} (game-calendar-gated).",
+        }
+        for season in ("autumn", "summer", "winter")
+    ),
+    *(
+        {
+            "form_id": f"sawsbuck-{season}",
+            "game_id": "x",
+            "method": "evolution",
+            "method_details": "level-up",
+            "from_form": f"deerling-{season}",
+            "notes": f"Evolved from the matching {season} Deerling.",
+        }
+        for season in ("autumn", "summer", "winter")
+    ),
+    # (AA) Shellos-East / Gastrodon-East — East Sea regional colour.
+    # Native to east Sinnoh routes; available in BDSP as wild Shellos +
+    # level-up evolution.
+    {
+        "form_id": "shellos-east",
+        "game_id": "brilliant-diamond",
+        "method": "wild-encounter",
+        "notes": "Route 213 and other east-Sinnoh coastal routes.",
+    },
+    {
+        "form_id": "gastrodon-east",
+        "game_id": "brilliant-diamond",
+        "method": "evolution",
+        "method_details": "level-up",
+        "from_form": "shellos-east",
+    },
+    # (AB) SV cosmetic variants.
+    *(
+        {
+            "form_id": f"tatsugiri-{shape}",
+            "game_id": "scarlet",
+            "method": "wild-encounter",
+            "notes": "Paldea coastal waters; shape variant is random per encounter.",
+        }
+        for shape in ("droopy", "stretchy")
+    ),
+    {
+        "form_id": "maushold-family-of-three",
+        "game_id": "scarlet",
+        "method": "evolution",
+        "method_details": "level-up",
+        "from_form": "tandemaus",
+        "notes": "Family-of-three configuration is a random outcome when Tandemaus evolves.",
+    },
+    {
+        "form_id": "sinistea-antique",
+        "game_id": "scarlet",
+        "method": "wild-encounter",
+        "notes": "Rare Antique variant; distinguished from the Phony form by the maker's mark.",
+    },
+    {
+        "form_id": "polteageist-antique",
+        "game_id": "scarlet",
+        "method": "evolution",
+        "method_details": "use-item",
+        "item": "cracked-pot",
+        "from_form": "sinistea-antique",
+    },
+    {
+        "form_id": "poltchageist-artisan",
+        "game_id": "scarlet",
+        "method": "wild-encounter",
+        "requires_dlc": "teal-mask",
+        "notes": "Rare Artisan variant; Kitakami (Teal Mask DLC).",
+    },
+    {
+        "form_id": "sinistcha-masterpiece",
+        "game_id": "scarlet",
+        "method": "evolution",
+        "method_details": "use-item",
+        "item": "unremarkable-teacup",
+        "from_form": "poltchageist-artisan",
+        "requires_dlc": "teal-mask",
+    },
 ]
 
 

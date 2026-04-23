@@ -1077,6 +1077,564 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "alcremie-caramel-swirl-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (caramel swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-caramel-swirl-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (caramel swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-caramel-swirl-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (caramel swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-caramel-swirl-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (caramel swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-caramel-swirl-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (caramel swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-caramel-swirl-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (caramel swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-caramel-swirl-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (caramel swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-lemon-cream-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (lemon cream) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-lemon-cream-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (lemon cream) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-lemon-cream-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (lemon cream) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-lemon-cream-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (lemon cream) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-lemon-cream-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (lemon cream) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-lemon-cream-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (lemon cream) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-lemon-cream-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (lemon cream) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-matcha-cream-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (matcha cream) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-matcha-cream-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (matcha cream) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-matcha-cream-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (matcha cream) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-matcha-cream-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (matcha cream) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-matcha-cream-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (matcha cream) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-matcha-cream-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (matcha cream) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-matcha-cream-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (matcha cream) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-mint-cream-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (mint cream) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-mint-cream-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (mint cream) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-mint-cream-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (mint cream) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-mint-cream-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (mint cream) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-mint-cream-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (mint cream) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-mint-cream-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (mint cream) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-mint-cream-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (mint cream) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-rainbow-swirl-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (rainbow swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-rainbow-swirl-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (rainbow swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-rainbow-swirl-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (rainbow swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-rainbow-swirl-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (rainbow swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-rainbow-swirl-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (rainbow swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-rainbow-swirl-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (rainbow swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-rainbow-swirl-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (rainbow swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-cream-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (ruby cream) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-cream-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (ruby cream) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-cream-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (ruby cream) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-cream-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (ruby cream) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-cream-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (ruby cream) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-cream-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (ruby cream) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-cream-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (ruby cream) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-swirl-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (ruby swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-swirl-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (ruby swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-swirl-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (ruby swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-swirl-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (ruby swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-swirl-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (ruby swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-swirl-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (ruby swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-ruby-swirl-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (ruby swirl) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-salted-cream-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (salted cream) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-salted-cream-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (salted cream) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-salted-cream-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (salted cream) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-salted-cream-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (salted cream) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-salted-cream-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (salted cream) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-salted-cream-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (salted cream) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-salted-cream-strawberry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Strawberry Sweet; swirl (salted cream) determined by spin direction, duration, and time of day.",
+    "held_item": "strawberry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-vanilla-cream-berry-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Berry Sweet; swirl (vanilla cream) determined by spin direction, duration, and time of day.",
+    "held_item": "berry-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-vanilla-cream-clover-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Clover Sweet; swirl (vanilla cream) determined by spin direction, duration, and time of day.",
+    "held_item": "clover-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-vanilla-cream-flower-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Flower Sweet; swirl (vanilla cream) determined by spin direction, duration, and time of day.",
+    "held_item": "flower-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-vanilla-cream-love-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Love Sweet; swirl (vanilla cream) determined by spin direction, duration, and time of day.",
+    "held_item": "love-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-vanilla-cream-ribbon-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Ribbon Sweet; swirl (vanilla cream) determined by spin direction, duration, and time of day.",
+    "held_item": "ribbon-sweet",
+    "from_form": "milcery"
+  },
+  {
+    "form_id": "alcremie-vanilla-cream-star-sweet",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolve Milcery holding a Star Sweet; swirl (vanilla cream) determined by spin direction, duration, and time of day.",
+    "held_item": "star-sweet",
+    "from_form": "milcery"
+  },
+  {
     "form_id": "alomomola",
     "game_id": "moon",
     "method": "fishing",
@@ -15533,6 +16091,24 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "deerling-autumn",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Seasonal form; catchable in autumn (game-calendar-gated)."
+  },
+  {
+    "form_id": "deerling-summer",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Seasonal form; catchable in summer (game-calendar-gated)."
+  },
+  {
+    "form_id": "deerling-winter",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Seasonal form; catchable in winter (game-calendar-gated)."
+  },
+  {
     "form_id": "deino",
     "game_id": "moon",
     "method": "static-encounter",
@@ -24276,6 +24852,30 @@
     "method_details": "purple-flowers, red-flowers, walk, yellow-flowers"
   },
   {
+    "form_id": "flabebe-blue",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Blue Flower form; tied to specific Kalos routes."
+  },
+  {
+    "form_id": "flabebe-orange",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Orange Flower form; tied to specific Kalos routes."
+  },
+  {
+    "form_id": "flabebe-white",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "White Flower form; tied to specific Kalos routes."
+  },
+  {
+    "form_id": "flabebe-yellow",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Yellow Flower form; tied to specific Kalos routes."
+  },
+  {
     "form_id": "flamigo",
     "game_id": "scarlet",
     "method": "raid",
@@ -25110,11 +25710,39 @@
     "method_details": "walk"
   },
   {
+    "form_id": "floette-blue",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "flabebe-blue"
+  },
+  {
     "form_id": "floette-eternal",
     "game_id": "legends-za",
     "method": "gift",
     "method_details": "only-one",
     "notes": "Received from Taunie/Urbain upon completing Main Mission 39."
+  },
+  {
+    "form_id": "floette-orange",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "flabebe-orange"
+  },
+  {
+    "form_id": "floette-white",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "flabebe-white"
+  },
+  {
+    "form_id": "floette-yellow",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "flabebe-yellow"
   },
   {
     "form_id": "floragato",
@@ -25203,6 +25831,38 @@
     "method": "evolution",
     "method_details": "use-item",
     "item": "shiny-stone"
+  },
+  {
+    "form_id": "florges-blue",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "shiny-stone",
+    "from_form": "floette-blue"
+  },
+  {
+    "form_id": "florges-orange",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "shiny-stone",
+    "from_form": "floette-orange"
+  },
+  {
+    "form_id": "florges-white",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "shiny-stone",
+    "from_form": "floette-white"
+  },
+  {
+    "form_id": "florges-yellow",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "shiny-stone",
+    "from_form": "floette-yellow"
   },
   {
     "form_id": "flutter-mane",
@@ -26195,6 +26855,69 @@
     "method_details": "purple-flowers, walk"
   },
   {
+    "form_id": "furfrou-dandy",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-debutante",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-diamond",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-heart",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-kabuki",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-la-reine",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-matron",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-pharaoh",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
+    "form_id": "furfrou-star",
+    "game_id": "x",
+    "method": "gift",
+    "notes": "Trim applied at the Friseur Furfrou salon in Lumiose City.",
+    "from_form": "furfrou"
+  },
+  {
     "form_id": "furret",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
@@ -27600,6 +28323,13 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "gastrodon-east",
+    "game_id": "brilliant-diamond",
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "shellos-east"
   },
   {
     "form_id": "genesect",
@@ -49604,6 +50334,14 @@
     "method_details": "tera-raid"
   },
   {
+    "form_id": "maushold-family-of-three",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Family-of-three configuration is a random outcome when Tandemaus evolves.",
+    "from_form": "tandemaus"
+  },
+  {
     "form_id": "mawile",
     "game_id": "alpha-sapphire",
     "method": "trade",
@@ -51943,6 +52681,48 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "minior-blue",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "notes": "Core colour revealed when the meteor shield breaks in battle; random per encounter."
+  },
+  {
+    "form_id": "minior-green",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "notes": "Core colour revealed when the meteor shield breaks in battle; random per encounter."
+  },
+  {
+    "form_id": "minior-indigo",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "notes": "Core colour revealed when the meteor shield breaks in battle; random per encounter."
+  },
+  {
+    "form_id": "minior-orange",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "notes": "Core colour revealed when the meteor shield breaks in battle; random per encounter."
+  },
+  {
+    "form_id": "minior-red",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "notes": "Core colour revealed when the meteor shield breaks in battle; random per encounter."
+  },
+  {
+    "form_id": "minior-violet",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "notes": "Core colour revealed when the meteor shield breaks in battle; random per encounter."
+  },
+  {
+    "form_id": "minior-yellow",
+    "game_id": "sun",
+    "method": "wild-encounter",
+    "notes": "Core colour revealed when the meteor shield breaks in battle; random per encounter."
   },
   {
     "form_id": "minun",
@@ -61956,6 +62736,13 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "poltchageist-artisan",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "requires_dlc": "teal-mask",
+    "notes": "Rare Artisan variant; Kitakami (Teal Mask DLC)."
+  },
+  {
     "form_id": "polteageist",
     "game_id": "scarlet",
     "method": "evolution",
@@ -62032,6 +62819,14 @@
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid"
+  },
+  {
+    "form_id": "polteageist-antique",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "cracked-pot",
+    "from_form": "sinistea-antique"
   },
   {
     "form_id": "ponyta",
@@ -69344,6 +70139,30 @@
     "method_details": "walk"
   },
   {
+    "form_id": "sawsbuck-autumn",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolved from the matching autumn Deerling.",
+    "from_form": "deerling-autumn"
+  },
+  {
+    "form_id": "sawsbuck-summer",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolved from the matching summer Deerling.",
+    "from_form": "deerling-summer"
+  },
+  {
+    "form_id": "sawsbuck-winter",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Evolved from the matching winter Deerling.",
+    "from_form": "deerling-winter"
+  },
+  {
     "form_id": "scatterbug",
     "game_id": "legends-za",
     "method": "wild-encounter"
@@ -69381,6 +70200,120 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "scatterbug-archipelago",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-continental",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-elegant",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-fancy",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Fancy pattern — special event distribution (2014 Pokémon Center)."
+  },
+  {
+    "form_id": "scatterbug-garden",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-high-plains",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-jungle",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-marine",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-meadow",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-modern",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-monsoon",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-ocean",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-poke-ball",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Poké Ball pattern — special event distribution (2014 20M-download commemorative)."
+  },
+  {
+    "form_id": "scatterbug-polar",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-river",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-sandstorm",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-savanna",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-sun",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "scatterbug-tundra",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
   },
   {
     "form_id": "sceptile",
@@ -71719,6 +72652,12 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "shellos-east",
+    "game_id": "brilliant-diamond",
+    "method": "wild-encounter",
+    "notes": "Route 213 and other east-Sinnoh coastal routes."
+  },
+  {
     "form_id": "shelmet",
     "game_id": "shield",
     "method": "raid",
@@ -72548,6 +73487,15 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "sinistcha-masterpiece",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "use-item",
+    "requires_dlc": "teal-mask",
+    "item": "unremarkable-teacup",
+    "from_form": "poltchageist-artisan"
+  },
+  {
     "form_id": "sinistea",
     "game_id": "scarlet",
     "method": "raid",
@@ -72628,6 +73576,12 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "sinistea-antique",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "notes": "Rare Antique variant; distinguished from the Phony form by the maker's mark."
   },
   {
     "form_id": "sirfetchd",
@@ -75939,6 +76893,120 @@
     "game_id": "y",
     "method": "evolution",
     "method_details": "level-up"
+  },
+  {
+    "form_id": "spewpa-archipelago",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-continental",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-elegant",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-fancy",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Fancy pattern — special event distribution (2014 Pokémon Center)."
+  },
+  {
+    "form_id": "spewpa-garden",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-high-plains",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-jungle",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-marine",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-meadow",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-modern",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-monsoon",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-ocean",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-poke-ball",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Poké Ball pattern — special event distribution (2014 20M-download commemorative)."
+  },
+  {
+    "form_id": "spewpa-polar",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-river",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-sandstorm",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-savanna",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-sun",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "spewpa-tundra",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
   },
   {
     "form_id": "spheal",
@@ -79958,6 +81026,18 @@
     "form_id": "tatsugiri",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "tatsugiri-droopy",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "notes": "Paldea coastal waters; shape variant is random per encounter."
+  },
+  {
+    "form_id": "tatsugiri-stretchy",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "notes": "Paldea coastal waters; shape variant is random per encounter."
   },
   {
     "form_id": "tauros",
@@ -84125,6 +85205,168 @@
     "method_details": "walk"
   },
   {
+    "form_id": "unown-b",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-c",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-d",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-e",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-exclamation",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-f",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-g",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-h",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-i",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-j",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-k",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-l",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-m",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-n",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-o",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-p",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-q",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-question",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-r",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-s",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-t",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-u",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-v",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-w",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-x",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-y",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
+    "form_id": "unown-z",
+    "game_id": "crystal",
+    "method": "wild-encounter",
+    "notes": "Ruins of Alph inner chamber after solving the sliding-tile puzzles."
+  },
+  {
     "form_id": "ursaluna",
     "game_id": "legends-arceus",
     "method": "evolution",
@@ -86313,6 +87555,120 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "vivillon-archipelago",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-continental",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-elegant",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-fancy",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Fancy pattern — special event distribution (2014 Pokémon Center)."
+  },
+  {
+    "form_id": "vivillon-garden",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-high-plains",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-icy-snow",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-jungle",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-marine",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-modern",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-monsoon",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-ocean",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-poke-ball",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Poké Ball pattern — special event distribution (2014 20M-download commemorative)."
+  },
+  {
+    "form_id": "vivillon-polar",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-river",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-sandstorm",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-savanna",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-sun",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
+  },
+  {
+    "form_id": "vivillon-tundra",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "3DS-region-locked pattern; inherited through the Scatterbug → Spewpa → Vivillon line."
   },
   {
     "form_id": "volbeat",
