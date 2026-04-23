@@ -1020,6 +1020,564 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "method_details": "only-one",
         "notes": "Magenta Sector 8; requires Mystery Gift activation.",
     },
+    # --- Tier 12: pre-Gen-8 regional-dex gap closures --------------------------
+    # Extends `coverage_audit.py`'s regional-dex check to RBY / GSC / XY /
+    # ORAS / SM / USUM / LGPE. Seeds four buckets:
+    #   (I) Version-exclusive trade rows for paired RBY / GSC / XY / SM /
+    #       USUM / LGPE games (same `method=trade` pattern as tier 9).
+    #   (J) VC Mew distribution (2016 20th-anniversary serial code) —
+    #       the only legitimate Mew source for Gen 1 and LGPE (Mew in
+    #       LGPE ships with the Poké Ball Plus peripheral, distinct
+    #       mechanic).
+    #   (K) GSC Kanto-gate content: Prof. Oak's starter gift, Cerulean
+    #       Cave Mewtwo, post-E4 legendary-bird statics (Articuno /
+    #       Zapdos / Moltres), Ruins of Alph fossil revivals, and the
+    #       Celebi VC 2018 distribution.
+    #   (L) SM / USUM evolution gaps (Glaceon / Leafeon at Ice/Moss Rock;
+    #       Weavile from Sneasel holding Razor Claw at night) —
+    #       scrapers missed the location-gated Alola evolution rows.
+    # Deferred to tier 13 (scraper extension): Gen 6 ORAS mass wild-
+    # encounter gap (94 rows across both versions; PokéAPI ORAS encounter
+    # coverage is systematically incomplete) and residual Gen 6/7 scraper
+    # gaps (Friend Safari / Bug-Catching Contest / common wilds the
+    # scraper omitted in XY/SM/USUM).
+    # -------------------------------------------------------------------------
+    # (I) Version-exclusive trade rows.
+    #
+    # Red/Blue: trades between the two games; Yellow's reward for choosing
+    # Pikachu replaces several wild encounters, so its exclusions need
+    # trades from whichever of R/B has the species.
+    *(
+        {
+            "form_id": sp,
+            "game_id": "red",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Blue.",
+        }
+        for sp in ("bellsprout", "meowth", "pinsir", "sandshrew", "vulpix")
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": "blue",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Red.",
+        }
+        for sp in ("ekans", "growlithe", "mankey", "oddish", "scyther")
+    ),
+    # Yellow: missing Red-exclusives (ekans, weedle) and Blue-exclusives
+    # (koffing, meowth). Trade from whichever version has the species.
+    {
+        "form_id": "ekans",
+        "game_id": "yellow",
+        "method": "trade",
+        "notes": "Not catchable in Yellow; trade from Red.",
+    },
+    {
+        "form_id": "weedle",
+        "game_id": "yellow",
+        "method": "trade",
+        "notes": "Not catchable in Yellow (Pikachu starter swap); trade from Red.",
+    },
+    {
+        "form_id": "koffing",
+        "game_id": "yellow",
+        "method": "trade",
+        "notes": "Not catchable in Yellow; trade from Blue.",
+    },
+    {
+        "form_id": "meowth",
+        "game_id": "yellow",
+        "method": "trade",
+        "notes": "Not catchable in Yellow; trade from Blue.",
+    },
+    # Gold ↔ Silver trades (version-exclusives).
+    *(
+        {
+            "form_id": sp,
+            "game_id": "gold",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Silver.",
+        }
+        for sp in ("delibird", "ledyba", "meowth", "phanpy", "skarmory", "vulpix", "weedle")
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": "silver",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Gold.",
+        }
+        for sp in ("caterpie", "gligar", "growlithe", "mankey", "spinarak", "teddiursa")
+    ),
+    # Crystal version-exclusives (not catchable wild in Crystal due to
+    # encounter-table differences from Gold/Silver). Trade from whichever
+    # of Gold/Silver has the species.
+    {
+        "form_id": "girafarig",
+        "game_id": "crystal",
+        "method": "trade",
+        "notes": "Not catchable in Crystal; trade from Gold or Silver.",
+    },
+    {
+        "form_id": "mankey",
+        "game_id": "crystal",
+        "method": "trade",
+        "notes": "Not catchable in Crystal; trade from Gold.",
+    },
+    {
+        "form_id": "mareep",
+        "game_id": "crystal",
+        "method": "trade",
+        "notes": "Not catchable in Crystal; trade from Gold or Silver.",
+    },
+    {
+        "form_id": "remoraid",
+        "game_id": "crystal",
+        "method": "trade",
+        "notes": "Not catchable in Crystal; trade from Gold or Silver.",
+    },
+    {
+        "form_id": "vulpix",
+        "game_id": "crystal",
+        "method": "trade",
+        "notes": "Not catchable in Crystal; trade from Silver.",
+    },
+    # X ↔ Y trades (version-exclusives where the paired version has a row).
+    *(
+        {
+            "form_id": sp,
+            "game_id": "x",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Y.",
+        }
+        for sp in ("electrike", "larvitar", "shellder", "skrelp")
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": "y",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from X.",
+        }
+        for sp in ("aron", "clauncher", "houndour", "staryu")
+    ),
+    # Sun ↔ Moon trades.
+    *(
+        {
+            "form_id": sp,
+            "game_id": "sun",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Moon.",
+        }
+        for sp in (
+            "celesteela",
+            "drampa",
+            "oranguru",
+            "petilil",
+            "pheromosa",
+            "sandshrew",
+            "vullaby",
+        )
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": "moon",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Sun.",
+        }
+        for sp in (
+            "buzzwole",
+            "cottonee",
+            "kartana",
+            "passimian",
+            "rufflet",
+            "turtonator",
+            "vulpix",
+        )
+    ),
+    # Ultra Sun ↔ Ultra Moon trades.
+    *(
+        {
+            "form_id": sp,
+            "game_id": "ultra-sun",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Ultra Moon.",
+        }
+        for sp in (
+            "baltoy",
+            "celesteela",
+            "drampa",
+            "electrike",
+            "oranguru",
+            "petilil",
+            "pheromosa",
+            "sandshrew",
+            "stakataka",
+            "vullaby",
+        )
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": "ultra-moon",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Ultra Sun.",
+        }
+        for sp in (
+            "blacephalon",
+            "buzzwole",
+            "cottonee",
+            "golett",
+            "houndour",
+            "kartana",
+            "passimian",
+            "rufflet",
+            "turtonator",
+            "vulpix",
+        )
+    ),
+    # Let's Go Pikachu ↔ Eevee trades (cross-version exclusives).
+    *(
+        {
+            "form_id": sp,
+            "game_id": "lets-go-pikachu",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Let's Go Eevee.",
+        }
+        for sp in ("bellsprout", "ekans", "koffing", "meowth", "pinsir", "vulpix")
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": "lets-go-eevee",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Let's Go Pikachu.",
+        }
+        for sp in ("grimer", "growlithe", "mankey", "oddish", "sandshrew", "scyther")
+    ),
+    # (J) VC Mew + LGPE Mew.
+    # Gen 1 VC Mew was distributed via serial code for the 2016 Pokémon
+    # 20th-anniversary event.
+    *(
+        {
+            "form_id": "mew",
+            "game_id": game,
+            "method": "event",
+            "notes": "Pokémon 20th-anniversary Virtual Console distribution (2016).",
+        }
+        for game in ("red", "blue", "yellow")
+    ),
+    # GSC VC Mew was distributed via serial code for the Gen 2 VC launch
+    # (2018).
+    *(
+        {
+            "form_id": "mew",
+            "game_id": game,
+            "method": "event",
+            "notes": "Virtual Console Gen 2 launch serial-code distribution (2018).",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    # LGPE Mew ships with the Poké Ball Plus peripheral — redeemed once
+    # per save file.
+    {
+        "form_id": "mew",
+        "game_id": "lets-go-pikachu",
+        "method": "gift",
+        "method_details": "only-one",
+        "notes": "Redeemed from the Poké Ball Plus peripheral (one per save).",
+    },
+    {
+        "form_id": "mew",
+        "game_id": "lets-go-eevee",
+        "method": "gift",
+        "method_details": "only-one",
+        "notes": "Redeemed from the Poké Ball Plus peripheral (one per save).",
+    },
+    # (K) GSC Kanto-gate content (post-E4 Kanto access) and Gen 2 fossils.
+    #
+    # Prof. Oak gifts one of the three Kanto starters after the player
+    # defeats Red on Mt. Silver. Single choice per save.
+    *(
+        {
+            "form_id": starter,
+            "game_id": game,
+            "method": "gift",
+            "method_details": "only-one",
+            "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red.",
+        }
+        for starter in ("bulbasaur", "charmander", "squirtle")
+        for game in ("gold", "silver", "crystal")
+    ),
+    # Mewtwo lives in Cerulean Cave in post-E4 Kanto in all three games.
+    *(
+        {
+            "form_id": "mewtwo",
+            "game_id": game,
+            "method": "static-encounter",
+            "method_details": "only-one",
+            "notes": "Cerulean Cave in post-game Kanto.",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    # Articuno at Seafoam Islands; Zapdos at the Power Plant.
+    *(
+        {
+            "form_id": "articuno",
+            "game_id": game,
+            "method": "static-encounter",
+            "method_details": "only-one",
+            "notes": "Seafoam Islands in post-game Kanto.",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    *(
+        {
+            "form_id": "zapdos",
+            "game_id": game,
+            "method": "static-encounter",
+            "method_details": "only-one",
+            "notes": "Power Plant in post-game Kanto.",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    # Moltres at Mt. Silver exterior entrance in all three games.
+    *(
+        {
+            "form_id": "moltres",
+            "game_id": game,
+            "method": "static-encounter",
+            "method_details": "only-one",
+            "notes": "Mt. Silver in post-game Kanto.",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    # Ruins of Alph fossil revivals. Helix Fossil → Omanyte from the
+    # Aerodactyl-chamber puzzle, Dome Fossil → Kabuto from the Kabuto
+    # puzzle. Revived by the scientist at Union Cave's fossil lab.
+    *(
+        {
+            "form_id": "kabuto",
+            "game_id": game,
+            "method": "fossil-revive",
+            "item": "dome-fossil",
+            "notes": "Dome Fossil from the Kabuto chamber puzzle at the Ruins of Alph.",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    *(
+        {
+            "form_id": "omanyte",
+            "game_id": game,
+            "method": "fossil-revive",
+            "item": "helix-fossil",
+            "notes": "Helix Fossil from the Aerodactyl chamber puzzle at the Ruins of Alph.",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    # Celebi was distributed via serial code at the 2018 GSC VC launch.
+    *(
+        {
+            "form_id": "celebi",
+            "game_id": game,
+            "method": "event",
+            "notes": "Virtual Console Gen 2 launch serial-code distribution (2018).",
+        }
+        for game in ("gold", "silver", "crystal")
+    ),
+    # (L) SM / USUM location-gated evolutions that the scraper missed.
+    #
+    # Eevee → Glaceon at the Ice Rock in Mount Lanakila; Eevee → Leafeon
+    # at the Moss Rock at Lush Jungle. Available in both SM and USUM.
+    *(
+        {
+            "form_id": "glaceon",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "location": "mount-lanakila",
+            "from_form": "eevee",
+        }
+        for game in ("sun", "moon", "ultra-sun", "ultra-moon")
+    ),
+    *(
+        {
+            "form_id": "leafeon",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "location": "lush-jungle",
+            "from_form": "eevee",
+        }
+        for game in ("sun", "moon", "ultra-sun", "ultra-moon")
+    ),
+    # Sneasel → Weavile: level up at night while holding Razor Claw.
+    *(
+        {
+            "form_id": "weavile",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "held_item": "razor-claw",
+            "time_of_day": "night",
+            "from_form": "sneasel",
+        }
+        for game in ("sun", "moon", "ultra-sun", "ultra-moon")
+    ),
+    # (M) Residual Gen 2 / Gen 7 scraper gaps — common wilds the
+    # PokéAPI/Bulbapedia scrapers missed.
+    #
+    # GSC: Pinsir and Scyther only available via the National Park
+    # Bug-Catching Contest in Johto. Not emitted by the scraper.
+    *(
+        {
+            "form_id": sp,
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": "Bug-Catching Contest reward at the Johto National Park.",
+        }
+        for sp in ("pinsir", "scyther")
+        for game in ("gold", "silver", "crystal")
+    ),
+    # SM carvanha: Sun-exclusive SOS from Sharpedo on Melemele Sea.
+    {
+        "form_id": "carvanha",
+        "game_id": "sun",
+        "method": "wild-encounter",
+        "method_details": "sos-encounter",
+        "notes": "SOS call from Sharpedo on Melemele Sea (Sun-exclusive).",
+    },
+    {
+        "form_id": "carvanha",
+        "game_id": "moon",
+        "method": "trade",
+        "notes": "Version-exclusive; trade from Sun.",
+    },
+    # Gible SOS (rare) from Sandile in Haina Desert, all four Alola games.
+    *(
+        {
+            "form_id": "gible",
+            "game_id": game,
+            "method": "wild-encounter",
+            "method_details": "sos-encounter",
+            "notes": "Rare SOS call from Sandile in Haina Desert.",
+        }
+        for game in ("sun", "moon", "ultra-sun", "ultra-moon")
+    ),
+    # Bounsweet in Lush Jungle (USUM wild).
+    *(
+        {
+            "form_id": "bounsweet",
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": "Lush Jungle tall grass.",
+        }
+        for game in ("ultra-sun", "ultra-moon")
+    ),
+    # Sandile in Haina Desert (USUM wild). Already wild in SM; scraper
+    # missed the USUM rows.
+    *(
+        {
+            "form_id": "sandile",
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": "Haina Desert sand patches.",
+        }
+        for game in ("ultra-sun", "ultra-moon")
+    ),
+    # Alolan Geodude in USUM (Ten Carat Hill and route caves). The
+    # Alolan variant fulfills the Alola regional dex entry for geodude;
+    # scraper missed the USUM wild rows.
+    *(
+        {
+            "form_id": "geodude-alola",
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": "Ten Carat Hill caves and Melemele Island routes.",
+        }
+        for game in ("ultra-sun", "ultra-moon")
+    ),
+    # Magearna in SM: QR Scanner serial-code event (2017) after beating
+    # the main story. USUM rows already exist.
+    *(
+        {
+            "form_id": "magearna",
+            "game_id": game,
+            "method": "event",
+            "notes": "2017 QR Scanner serial-code distribution after completing the main story.",
+        }
+        for game in ("sun", "moon")
+    ),
+    # XY wild-encounter scraper gap. The following 19 species are
+    # catchable wild on specific Kalos routes in both X and Y but were
+    # never emitted by PokéAPI/Bulbapedia encounter parsing. Seed as
+    # wild-encounter for both versions.
+    *(
+        {
+            "form_id": sp,
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": notes,
+        }
+        for sp, notes in (
+            ("buizel", "Route 22 / Azure Bay wilds."),
+            ("deino", "Terminus Cave."),
+            ("diglett", "Connecting Cave."),
+            ("gastly", "Route 14 tall grass at night."),
+            ("gothita", "Route 19."),
+            ("lotad", "Route 3."),
+            ("magnemite", "Route 10."),
+            ("makuhita", "Cyllage City / Route 8."),
+            ("patrat", "Route 2 / Route 22."),
+            ("poochyena", "Route 2."),
+            ("purrloin", "Route 3."),
+            ("spinarak", "Santalune Forest."),
+            ("surskit", "Route 3 (water)."),
+            ("swinub", "Frost Cavern."),
+            ("timburr", "Route 18."),
+            ("trubbish", "Lost Hotel."),
+            ("venipede", "Route 5."),
+            ("voltorb", "Route 10."),
+            ("zorua", "Route 20 (Winding Woods)."),
+        )
+        for game in ("x", "y")
+    ),
+    # XY Rotom: wild-encounter in the Lost Hotel (single rare spawn).
+    *(
+        {
+            "form_id": "rotom",
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": "Lost Hotel (rare).",
+        }
+        for game in ("x", "y")
+    ),
+    # XY Aerodactyl: Old Amber fossil revival at Ambrette Town Fossil Lab.
+    *(
+        {
+            "form_id": "aerodactyl",
+            "game_id": game,
+            "method": "fossil-revive",
+            "item": "old-amber",
+            "notes": "Old Amber at the Ambrette Town Fossil Lab.",
+        }
+        for game in ("x", "y")
+    ),
+    # XY Weavile: Sneasel → Weavile via Razor Claw at night.
+    *(
+        {
+            "form_id": "weavile",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "held_item": "razor-claw",
+            "time_of_day": "night",
+            "from_form": "sneasel",
+        }
+        for game in ("x", "y")
+    ),
 ]
 
 
