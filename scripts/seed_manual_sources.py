@@ -9,10 +9,14 @@ Covers categories upstream doesn't express as structured data:
 2. **Game Corner prize Pokémon** (Abra/Dratini/Porygon in RBY/GSC, plus
    a handful of others) — encoded as `method=purchase,
    method_details=game-corner`.
-3. **Forms no scraper expresses at all** (event-only Pokémon, Let's Go
+3. **Gender-difference female forms** — derived rows mirroring the
+   default species' existing encounters with `gender=female`. Stays in
+   sync with scraper output.
+4. **Forms no scraper expresses at all** (event-only Pokémon, Let's Go
    partner starters, Gen 9 DLC evolutions PokéAPI's evolution chain
-   data hasn't been updated for) — enumerated row-by-row in
-   `EXPLICIT_ROWS`.
+   data hasn't been updated for, item-triggered form changes like
+   Arceus plates and Silvally memories, USUM totem-sticker rewards) —
+   enumerated row-by-row in `EXPLICIT_ROWS`.
 
 Re-runs are idempotent: rows are keyed on the full Source identity
 (`SOURCE_KEY_FIELDS`) and existing entries win on conflict, matching
@@ -86,6 +90,93 @@ PURCHASE_ROWS: list[tuple[str, list[str]]] = [
     ("wigglytuff", ["yellow"]),
     ("wobbuffet", ["crystal"]),
 ]
+
+# Gender-difference pairs: (female_form, default_form). Rows are derived
+# at build time by mirroring every source row for the default with
+# `gender=female` set. Keeps in sync with authoritative scraper output
+# rather than hard-coding per-game encounter lists.
+GENDER_DIFFERENCE_PAIRS: list[tuple[str, str]] = [
+    ("frillish-female", "frillish"),
+    ("jellicent-female", "jellicent"),
+    ("pyroar-female", "pyroar"),
+    ("meowstic-female", "meowstic"),
+    ("indeedee-female", "indeedee"),
+    ("oinkologne-female", "oinkologne"),
+]
+
+# Arceus elemental plates. Form change is triggered by Arceus holding the
+# corresponding Plate item. Arceus is obtainable in BDSP/SP (Ramanas Park)
+# and PLA (story); plates are collectible in all three. `arceus-unknown`
+# (the "???"-type Curse variant) is a datamine-only form never distributed
+# and is intentionally omitted.
+ARCEUS_PLATE_TYPES: tuple[str, ...] = (
+    "bug",
+    "dark",
+    "dragon",
+    "electric",
+    "fairy",
+    "fighting",
+    "fire",
+    "flying",
+    "ghost",
+    "grass",
+    "ground",
+    "ice",
+    "poison",
+    "psychic",
+    "rock",
+    "steel",
+    "water",
+)
+ARCEUS_PLATE_GAMES: tuple[str, ...] = (
+    "brilliant-diamond",
+    "shining-pearl",
+    "legends-arceus",
+)
+
+# Silvally type memories. Form change is triggered by Silvally holding the
+# corresponding Memory item. Memories are obtainable only in SM/USUM (Game
+# Freak gift + Aether Foundation); the SwSh Silvally that appears in
+# Dynamax Adventures has no in-game memories, so any memory form there
+# requires HOME transfer rather than in-game acquisition.
+SILVALLY_MEMORY_TYPES: tuple[str, ...] = (
+    "bug",
+    "dark",
+    "dragon",
+    "electric",
+    "fairy",
+    "fighting",
+    "fire",
+    "flying",
+    "ghost",
+    "grass",
+    "ground",
+    "ice",
+    "poison",
+    "psychic",
+    "rock",
+    "steel",
+    "water",
+)
+SILVALLY_MEMORY_GAMES: tuple[str, ...] = ("sun", "moon", "ultra-sun", "ultra-moon")
+
+# USUM totem-sized Pokémon. Each is redeemed from Samson Oak at Heahea
+# Beach in exchange for Totem Stickers collected throughout Alola.
+# USUM-only; SM had totem battles but did not distribute the totem-sized
+# specimens as obtainable Pokémon.
+USUM_TOTEM_FORMS: tuple[str, ...] = (
+    "raticate-totem-alola",
+    "marowak-totem",
+    "gumshoos-totem",
+    "vikavolt-totem",
+    "ribombee-totem",
+    "araquanid-totem",
+    "lurantis-totem",
+    "salazzle-totem",
+    "togedemaru-totem",
+    "mimikyu-totem-disguised",
+    "kommo-o-totem",
+)
 
 # Fully-specified rows for forms where scraper coverage is incomplete and the
 # acquisition path is narrow enough to enumerate. Each dict is a complete
@@ -566,10 +657,75 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     },
+    # SV wild-encounter gaps Bulbapedia's availability tables don't split
+    # out as distinct form rows.
+    # Squawkabilly alternate plumages — all three colour variants are wild
+    # in Paldea alongside the default green.
+    {
+        "form_id": "squawkabilly-blue-plumage",
+        "game_id": "scarlet",
+        "method": "wild-encounter",
+    },
+    {
+        "form_id": "squawkabilly-blue-plumage",
+        "game_id": "violet",
+        "method": "wild-encounter",
+    },
+    {
+        "form_id": "squawkabilly-yellow-plumage",
+        "game_id": "scarlet",
+        "method": "wild-encounter",
+    },
+    {
+        "form_id": "squawkabilly-yellow-plumage",
+        "game_id": "violet",
+        "method": "wild-encounter",
+    },
+    {
+        "form_id": "squawkabilly-white-plumage",
+        "game_id": "scarlet",
+        "method": "wild-encounter",
+    },
+    {
+        "form_id": "squawkabilly-white-plumage",
+        "game_id": "violet",
+        "method": "wild-encounter",
+    },
+    # Gimmighoul's overworld "Roaming" form — distinct HOME slot from the
+    # default Chest form. Found walking around Paldea routes.
+    {
+        "form_id": "gimmighoul-roaming",
+        "game_id": "scarlet",
+        "method": "wild-encounter",
+        "method_details": "roaming",
+    },
+    {
+        "form_id": "gimmighoul-roaming",
+        "game_id": "violet",
+        "method": "wild-encounter",
+        "method_details": "roaming",
+    },
+    # Bloodmoon Ursaluna — single Teal Mask DLC story encounter.
+    {
+        "form_id": "ursaluna-bloodmoon",
+        "game_id": "scarlet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC).",
+    },
+    {
+        "form_id": "ursaluna-bloodmoon",
+        "game_id": "violet",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "requires_dlc": "hidden-treasure-of-area-zero",
+        "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC).",
+    },
 ]
 
 
-def _build_rows() -> list[dict]:
+def _build_rows(existing: list[dict]) -> list[dict]:
     rows: list[dict] = []
     for baby, parent, games in BREEDING_ROWS:
         for game in games:
@@ -591,19 +747,77 @@ def _build_rows() -> list[dict]:
                     "method_details": "game-corner",
                 }
             )
+    # Arceus plates: method=gift follows the fusion/hold-item convention
+    # established by ogerpon masks and kyurem/calyrex fusions. Structured
+    # `item` captures the plate slug; `from_form` preserves provenance.
+    for plate_type in ARCEUS_PLATE_TYPES:
+        for game in ARCEUS_PLATE_GAMES:
+            rows.append(
+                {
+                    "form_id": f"arceus-{plate_type}",
+                    "game_id": game,
+                    "method": "gift",
+                    "from_form": "arceus",
+                    "item": f"{plate_type}-plate",
+                    "notes": "Form change by holding the corresponding Plate.",
+                }
+            )
+    # Silvally memories: same convention as arceus plates.
+    for memory_type in SILVALLY_MEMORY_TYPES:
+        for game in SILVALLY_MEMORY_GAMES:
+            rows.append(
+                {
+                    "form_id": f"silvally-{memory_type}",
+                    "game_id": game,
+                    "method": "gift",
+                    "from_form": "silvally",
+                    "item": f"{memory_type}-memory",
+                    "notes": "Form change by holding the corresponding Memory.",
+                }
+            )
+    # USUM totem stickers: redeemable at Heahea Beach from Samson Oak.
+    for totem_form in USUM_TOTEM_FORMS:
+        for game in ("ultra-sun", "ultra-moon"):
+            rows.append(
+                {
+                    "form_id": totem_form,
+                    "game_id": game,
+                    "method": "gift",
+                    "notes": (
+                        "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+                    ),
+                }
+            )
+    # Gender-difference females: mirror every existing row for the default
+    # species with gender=female set. Only mirrors rows the scraper pass
+    # has written, so keeps in sync with upstream and avoids hand-listing
+    # per-game encounters.
+    default_to_female = {default: female for female, default in GENDER_DIFFERENCE_PAIRS}
+    for row in existing:
+        default = row["form_id"]
+        if default not in default_to_female:
+            continue
+        if row.get("gender") is not None:
+            # Skip rows already gender-restricted (none exist today, but
+            # defensive against future scraper additions).
+            continue
+        mirrored = dict(row)
+        mirrored["form_id"] = default_to_female[default]
+        mirrored["gender"] = "female"
+        rows.append(mirrored)
     rows.extend(EXPLICIT_ROWS)
     return rows
 
 
 def main() -> int:
-    new_rows = _build_rows()
-    adapter = TypeAdapter(list[Source])
-    # Validate shape before merging.
-    adapter.validate_python(new_rows)
-
     existing: list[dict] = []
     if SOURCES_PATH.exists():
         existing = json.loads(SOURCES_PATH.read_text(encoding="utf-8"))
+
+    new_rows = _build_rows(existing)
+    adapter = TypeAdapter(list[Source])
+    # Validate shape before merging.
+    adapter.validate_python(new_rows)
 
     merged = merge_by_key(existing, new_rows, source_key)
     merged.sort(key=source_sort_key)
