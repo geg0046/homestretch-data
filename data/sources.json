@@ -1983,6 +1983,18 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "araquanid-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "araquanid-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
     "form_id": "arbok",
     "game_id": "blue",
     "method": "evolution",
@@ -2375,6 +2387,414 @@
     "game_id": "shining-pearl",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "arceus-bug",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "bug-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-bug",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "bug-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-bug",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "bug-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-dark",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "dark-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-dark",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "dark-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-dark",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "dark-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-dragon",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "dragon-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-dragon",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "dragon-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-dragon",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "dragon-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-electric",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "electric-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-electric",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "electric-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-electric",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "electric-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fairy",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fairy-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fairy",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fairy-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fairy",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fairy-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fighting",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fighting-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fighting",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fighting-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fighting",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fighting-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fire",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fire-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fire",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fire-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-fire",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "fire-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-flying",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "flying-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-flying",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "flying-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-flying",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "flying-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ghost",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ghost-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ghost",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ghost-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ghost",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ghost-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-grass",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "grass-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-grass",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "grass-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-grass",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "grass-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ground",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ground-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ground",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ground-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ground",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ground-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ice",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ice-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ice",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ice-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-ice",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "ice-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-poison",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "poison-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-poison",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "poison-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-poison",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "poison-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-psychic",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "psychic-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-psychic",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "psychic-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-psychic",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "psychic-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-rock",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "rock-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-rock",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "rock-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-rock",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "rock-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-steel",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "steel-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-steel",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "steel-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-steel",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "steel-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-water",
+    "game_id": "brilliant-diamond",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "water-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-water",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "water-plate",
+    "from_form": "arceus"
+  },
+  {
+    "form_id": "arceus-water",
+    "game_id": "shining-pearl",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Plate.",
+    "item": "water-plate",
+    "from_form": "arceus"
   },
   {
     "form_id": "archaludon",
@@ -25080,6 +25500,74 @@
     "method_details": "surf"
   },
   {
+    "form_id": "frillish-female",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "shield",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "shield",
+    "method": "wild-encounter",
+    "requires_dlc": "expansion-pass",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "sword",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "sword",
+    "method": "wild-encounter",
+    "requires_dlc": "expansion-pass",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "ultra-moon",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "ultra-moon",
+    "method": "wild-encounter",
+    "method_details": "surf",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "ultra-sun",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "gender": "female"
+  },
+  {
+    "form_id": "frillish-female",
+    "game_id": "ultra-sun",
+    "method": "wild-encounter",
+    "method_details": "surf",
+    "gender": "female"
+  },
+  {
     "form_id": "froakie",
     "game_id": "legends-za",
     "method": "static-encounter",
@@ -27436,6 +27924,18 @@
     "form_id": "gimmighoul",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "gimmighoul-roaming",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "method_details": "roaming"
+  },
+  {
+    "form_id": "gimmighoul-roaming",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "method_details": "roaming"
   },
   {
     "form_id": "girafarig",
@@ -31924,6 +32424,18 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "gumshoos-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "gumshoos-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
     "form_id": "gurdurr",
     "game_id": "scarlet",
     "method": "evolution",
@@ -36231,6 +36743,72 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "indeedee-female",
+    "game_id": "scarlet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "shield",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "sword",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "violet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "indeedee-female",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
     "form_id": "infernape",
     "game_id": "brilliant-diamond",
     "method": "evolution",
@@ -36675,6 +37253,74 @@
     "game_id": "ultra-sun",
     "method": "evolution",
     "method_details": "level-up"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "shield",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "shield",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "shield",
+    "method": "wild-encounter",
+    "requires_dlc": "expansion-pass",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "sword",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "sword",
+    "method": "wild-encounter",
+    "requires_dlc": "expansion-pass",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "ultra-moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "jellicent-female",
+    "game_id": "ultra-sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
   },
   {
     "form_id": "jigglypuff",
@@ -39348,6 +39994,18 @@
     "method": "raid",
     "method_details": "tera-raid",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "kommo-o-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "kommo-o-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
   },
   {
     "form_id": "koraidon",
@@ -43350,6 +44008,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "lurantis-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "lurantis-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
   },
   {
     "form_id": "luvdisc",
@@ -47745,6 +48415,18 @@
     "method": "evolution"
   },
   {
+    "form_id": "marowak-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "marowak-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
     "form_id": "marshadow",
     "game_id": "ultra-moon",
     "method": "event",
@@ -48381,6 +49063,117 @@
     "game_id": "y",
     "method": "evolution",
     "method_details": "level-up"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "legends-za",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "legends-za",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "scarlet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "shield",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "shield",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "sword",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "max-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "sword",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "violet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "meowstic-female",
+    "game_id": "y",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
   },
   {
     "form_id": "meowth",
@@ -49949,6 +50742,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "mimikyu-totem-disguised",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "mimikyu-totem-disguised",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
   },
   {
     "form_id": "minccino",
@@ -54749,6 +55554,46 @@
     "form_id": "oinkologne",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "oinkologne-female",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "oinkologne-female",
+    "game_id": "scarlet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "oinkologne-female",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "oinkologne-female",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "oinkologne-female",
+    "game_id": "violet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "oinkologne-female",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "gender": "female"
   },
   {
     "form_id": "okidogi",
@@ -61328,6 +62173,129 @@
     "method_details": "walk"
   },
   {
+    "form_id": "pyroar-female",
+    "game_id": "legends-za",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "legends-za",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "scarlet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "scarlet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "scarlet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "ultra-moon",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "ultra-moon",
+    "method": "wild-encounter",
+    "method_details": "bubbling-spots",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "ultra-sun",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "ultra-sun",
+    "method": "wild-encounter",
+    "method_details": "bubbling-spots",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "violet",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "violet",
+    "method": "raid",
+    "method_details": "tera-raid",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "violet",
+    "method": "wild-encounter",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "method_details": "walk",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "y",
+    "method": "evolution",
+    "method_details": "level-up",
+    "gender": "female"
+  },
+  {
+    "form_id": "pyroar-female",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "method_details": "walk",
+    "gender": "female"
+  },
+  {
     "form_id": "pyukumuku",
     "game_id": "moon",
     "method": "gift"
@@ -62993,6 +63961,18 @@
     "method_details": "bubbling-spots, sos-encounter, walk"
   },
   {
+    "form_id": "raticate-totem-alola",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "raticate-totem-alola",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
     "form_id": "rattata",
     "game_id": "blue",
     "method": "wild-encounter",
@@ -64488,6 +65468,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "ribombee-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "ribombee-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
   },
   {
     "form_id": "rillaboom",
@@ -65941,6 +66933,18 @@
     "form_id": "salazzle",
     "game_id": "violet",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "salazzle-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "salazzle-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
   },
   {
     "form_id": "samurott",
@@ -69839,6 +70843,550 @@
     "min_happiness": 160
   },
   {
+    "form_id": "silvally-bug",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "bug-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-bug",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "bug-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-bug",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "bug-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-bug",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "bug-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dark",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dark-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dark",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dark-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dark",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dark-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dark",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dark-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dragon",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dragon-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dragon",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dragon-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dragon",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dragon-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-dragon",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "dragon-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-electric",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "electric-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-electric",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "electric-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-electric",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "electric-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-electric",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "electric-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fairy",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fairy-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fairy",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fairy-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fairy",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fairy-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fairy",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fairy-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fighting",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fighting-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fighting",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fighting-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fighting",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fighting-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fighting",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fighting-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fire",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fire-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fire",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fire-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fire",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fire-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-fire",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "fire-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-flying",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "flying-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-flying",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "flying-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-flying",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "flying-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-flying",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "flying-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ghost",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ghost-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ghost",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ghost-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ghost",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ghost-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ghost",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ghost-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-grass",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "grass-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-grass",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "grass-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-grass",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "grass-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-grass",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "grass-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ground",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ground-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ground",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ground-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ground",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ground-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ground",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ground-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ice",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ice-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ice",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ice-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ice",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ice-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-ice",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "ice-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-poison",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "poison-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-poison",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "poison-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-poison",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "poison-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-poison",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "poison-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-psychic",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "psychic-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-psychic",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "psychic-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-psychic",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "psychic-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-psychic",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "psychic-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-rock",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "rock-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-rock",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "rock-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-rock",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "rock-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-rock",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "rock-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-steel",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "steel-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-steel",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "steel-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-steel",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "steel-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-steel",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "steel-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-water",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "water-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-water",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "water-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-water",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "water-memory",
+    "from_form": "silvally"
+  },
+  {
+    "form_id": "silvally-water",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Form change by holding the corresponding Memory.",
+    "item": "water-memory",
+    "from_form": "silvally"
+  },
+  {
     "form_id": "simipour",
     "game_id": "legends-za",
     "method": "evolution",
@@ -73715,6 +75263,36 @@
     "method": "wild-encounter"
   },
   {
+    "form_id": "squawkabilly-blue-plumage",
+    "game_id": "scarlet",
+    "method": "wild-encounter"
+  },
+  {
+    "form_id": "squawkabilly-blue-plumage",
+    "game_id": "violet",
+    "method": "wild-encounter"
+  },
+  {
+    "form_id": "squawkabilly-white-plumage",
+    "game_id": "scarlet",
+    "method": "wild-encounter"
+  },
+  {
+    "form_id": "squawkabilly-white-plumage",
+    "game_id": "violet",
+    "method": "wild-encounter"
+  },
+  {
+    "form_id": "squawkabilly-yellow-plumage",
+    "game_id": "scarlet",
+    "method": "wild-encounter"
+  },
+  {
+    "form_id": "squawkabilly-yellow-plumage",
+    "game_id": "violet",
+    "method": "wild-encounter"
+  },
+  {
     "form_id": "squirtle",
     "game_id": "blue",
     "method": "gift"
@@ -78455,6 +80033,18 @@
     "method_details": "sos-encounter, walk"
   },
   {
+    "form_id": "togedemaru-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "togedemaru-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
     "form_id": "togekiss",
     "game_id": "brilliant-diamond",
     "method": "evolution",
@@ -81155,6 +82745,22 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
+    "form_id": "ursaluna-bloodmoon",
+    "game_id": "scarlet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC)."
+  },
+  {
+    "form_id": "ursaluna-bloodmoon",
+    "game_id": "violet",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC)."
+  },
+  {
     "form_id": "ursaring",
     "game_id": "crystal",
     "method": "evolution",
@@ -82993,6 +84599,18 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
+  },
+  {
+    "form_id": "vikavolt-totem",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+  },
+  {
+    "form_id": "vikavolt-totem",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
   },
   {
     "form_id": "vileplume",
