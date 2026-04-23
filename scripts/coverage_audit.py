@@ -118,7 +118,6 @@ KNOWN_ITEM_OR_EVENT_ONLY: frozenset[str] = frozenset(
         "giratina-origin",
         "shaymin-sky",
         "hoopa-unbound",
-        "necrozma-ultra",
         "keldeo-resolute",
         "floette-eternal",
         "tornadus-therian",
