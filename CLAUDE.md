@@ -54,6 +54,17 @@ tests/           pytest suites
    must note the project is unofficial.
 10. **Never skip git hooks (`--no-verify`).** If a hook fails, investigate
     and fix the underlying issue rather than bypassing it.
+11. **Form inclusion is gated by the HOME-deposit test.** A form enters
+    `data/forms.json` only if it can be deposited into Pokémon HOME and
+    come out of HOME as that same form in at least one HOME-compatible
+    game. Held-item-only form changes (Arceus plates, Silvally memories,
+    Ogerpon masks, Genesect drives, Giratina/Dialga/Palkia Origin) fail
+    the test because HOME strips held items on deposit. Fused legendaries
+    (Kyurem-Black/White, Calyrex-Ice/Shadow, Necrozma-Dawn/Dusk) and
+    Let's Go partner Pokémon are explicitly non-depositable. Authoritative
+    source: <https://www.serebii.net/pokemonhome/nondepositablepokemon.shtml>.
+    Scraper-side enforcement lives in `SKIP_FORM_IDS_HOME_UNREACHABLE`
+    (see `scrapers/CLAUDE.md`).
 
 ## ID conventions
 
@@ -67,6 +78,17 @@ All IDs are lowercase, alphanumeric, hyphen-separated: `^[a-z0-9]+(?:-[a-z0-9]+)
   `vulpix-alolan`, `rotom-wash`, `vivillon-polar`. The default form's ID
   equals the species ID: `vulpix`.
 
+## Version-exclusive rows
+
+Species catchable only on the paired version (Sword ↔ Shield, BD ↔ SP,
+Scarlet ↔ Violet, RBY pairs, GSC pairs, LGPE pair, XY, SM, USUM, ORAS)
+get a `method=trade` row on the off-version with
+`notes="Version-exclusive; trade from <Paired>."`. No `trade_species` —
+the partner is a human player holding the paired cartridge, not a
+specific Pokémon. This is distinct from the existing
+`method=trade, trade_species=<species>` pattern used for mutual trade
+evolutions like Shelmet ↔ Karrablast.
+
 ## Common commands
 
 ```bash
@@ -74,6 +96,7 @@ uv sync                                                   # first-time setup
 uv run pytest -q                                          # all tests
 uv run pytest tests/test_models.py::test_game_round_trip  # single test
 uv run python scripts/validate.py                         # cross-file reference check
+uv run python scripts/coverage_audit.py                   # gap report (hits PokéAPI; use --offline to skip)
 uv run python scripts/export_schemas.py                   # regenerate schemas/ from models
 uv run ruff check . && uv run ruff format .
 uv run pip-audit --skip-editable                          # CI mirror
@@ -98,7 +121,25 @@ uv run python scripts/seed_manual_sources.py
 - **`scripts/validate.py` does cross-file reference checking** beyond
   schema validation: every `sources.json` `game_id`/`form_id` and every
   `transfers.json` `from_id`/`to_id` must exist in games.json/forms.json.
+  It also enforces five data-health invariants (all pass on current
+  data; guard against future regressions):
+    1. unique source keys (dedup tuple matches the scraper merge key);
+    2. exactly one default form per species;
+    3. default form id equals species id;
+    4. forms tagged `event-only` only have event / gift / transfer sources;
+    5. every default form has ≥1 source row.
   Both CI and pre-commit run it.
+- **`scripts/coverage_audit.py` reports gap-level coverage**: per-game
+  source/form/species counts, zero-source forms grouped by category
+  tuple (`functional` / `cosmetic` / `event-only` / `gender-difference` /
+  …), and a regional-dex expected-vs-covered gap report per game
+  driven by PokéAPI's pokedex endpoints. The audit's
+  `HOME_TRANSFER_ONLY_DEX` map subtracts species PokéAPI's aggregated
+  regional dex over-includes — entries that are HOME-transfer-only for
+  the game, never natively obtainable — so the "missing" list reports
+  real in-game gaps rather than dex metadata artefacts. Run after any
+  bulk data change; both sections (zero-source and regional-dex) should
+  stay at zero after tier-14 closure.
 - **Scraper merge is idempotent (`setdefault` by id/key).** After changing
   categorization or skip/event logic, `rm data/forms.json` (or
   `data/sources.json`) before re-running, or stale entries survive.
@@ -111,7 +152,10 @@ Scraper-specific conventions live in [`scrapers/CLAUDE.md`](scrapers/CLAUDE.md).
 2. Run `uv run python scripts/validate.py`. Fix any errors it reports.
 3. If you changed a model in `src/homestretch_data/models/`, also run
    `uv run python scripts/export_schemas.py` to refresh `schemas/`.
-4. Pre-commit will do both of the above automatically on commit.
+4. For bulk additions (dozens of rows, new tier), also run
+   `uv run python scripts/coverage_audit.py` and confirm both the
+   zero-source and regional-dex sections stay empty.
+5. Pre-commit will run steps 2–3 automatically on commit.
 
 ## Style
 
