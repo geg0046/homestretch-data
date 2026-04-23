@@ -258,15 +258,6 @@
     "categories": []
   },
   {
-    "id": "pikachu-starter",
-    "species_id": "pikachu",
-    "national_dex": 25,
-    "form_name": "starter",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": []
-  },
-  {
     "id": "raichu",
     "species_id": "raichu",
     "national_dex": 26,
@@ -1587,15 +1578,6 @@
     "national_dex": 133,
     "form_name": null,
     "is_default": true,
-    "generation_introduced": 1,
-    "categories": []
-  },
-  {
-    "id": "eevee-starter",
-    "species_id": "eevee",
-    "national_dex": 133,
-    "form_name": "starter",
-    "is_default": false,
     "generation_introduced": 1,
     "categories": []
   },
@@ -5344,17 +5326,6 @@
     "categories": []
   },
   {
-    "id": "dialga-origin",
-    "species_id": "dialga",
-    "national_dex": 483,
-    "form_name": "origin",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
     "id": "palkia",
     "species_id": "palkia",
     "national_dex": 484,
@@ -5362,17 +5333,6 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
-  },
-  {
-    "id": "palkia-origin",
-    "species_id": "palkia",
-    "national_dex": 484,
-    "form_name": "origin",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
   },
   {
     "id": "heatran",
@@ -5400,17 +5360,6 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
-  },
-  {
-    "id": "giratina-origin",
-    "species_id": "giratina",
-    "national_dex": 487,
-    "form_name": "origin",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
   },
   {
     "id": "cresselia",
@@ -5476,204 +5425,6 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
-  },
-  {
-    "id": "arceus-bug",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "bug",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-dark",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "dark",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-dragon",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "dragon",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-electric",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "electric",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-fairy",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "fairy",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-fighting",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "fighting",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-fire",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "fire",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-flying",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "flying",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-ghost",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "ghost",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-grass",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "grass",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-ground",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "ground",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-ice",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "ice",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-poison",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "poison",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-psychic",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "psychic",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-rock",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "rock",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-steel",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "steel",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-unknown",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "unknown",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "arceus-water",
-    "species_id": "arceus",
-    "national_dex": 493,
-    "form_name": "water",
-    "is_default": false,
-    "generation_introduced": 4,
-    "categories": [
-      "functional"
-    ]
   },
   {
     "id": "victini",
@@ -7295,28 +7046,6 @@
     "categories": []
   },
   {
-    "id": "kyurem-black",
-    "species_id": "kyurem",
-    "national_dex": 646,
-    "form_name": "black",
-    "is_default": false,
-    "generation_introduced": 5,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "kyurem-white",
-    "species_id": "kyurem",
-    "national_dex": 646,
-    "form_name": "white",
-    "is_default": false,
-    "generation_introduced": 5,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
     "id": "keldeo",
     "species_id": "keldeo",
     "national_dex": 647,
@@ -7353,50 +7082,6 @@
     "is_default": true,
     "generation_introduced": 5,
     "categories": []
-  },
-  {
-    "id": "genesect-burn",
-    "species_id": "genesect",
-    "national_dex": 649,
-    "form_name": "burn",
-    "is_default": false,
-    "generation_introduced": 5,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "genesect-chill",
-    "species_id": "genesect",
-    "national_dex": 649,
-    "form_name": "chill",
-    "is_default": false,
-    "generation_introduced": 5,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "genesect-douse",
-    "species_id": "genesect",
-    "national_dex": 649,
-    "form_name": "douse",
-    "is_default": false,
-    "generation_introduced": 5,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "genesect-shock",
-    "species_id": "genesect",
-    "national_dex": 649,
-    "form_name": "shock",
-    "is_default": false,
-    "generation_introduced": 5,
-    "categories": [
-      "functional"
-    ]
   },
   {
     "id": "chespin",
@@ -7478,17 +7163,6 @@
     "is_default": true,
     "generation_introduced": 6,
     "categories": []
-  },
-  {
-    "id": "greninja-battle-bond",
-    "species_id": "greninja",
-    "national_dex": 658,
-    "form_name": "battle-bond",
-    "is_default": false,
-    "generation_introduced": 6,
-    "categories": [
-      "event-only"
-    ]
   },
   {
     "id": "bunnelby",
@@ -9703,193 +9377,6 @@
     "categories": []
   },
   {
-    "id": "silvally-bug",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "bug",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-dark",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "dark",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-dragon",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "dragon",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-electric",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "electric",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-fairy",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "fairy",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-fighting",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "fighting",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-fire",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "fire",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-flying",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "flying",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-ghost",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "ghost",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-grass",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "grass",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-ground",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "ground",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-ice",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "ice",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-poison",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "poison",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-psychic",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "psychic",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-rock",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "rock",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-steel",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "steel",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "silvally-water",
-    "species_id": "silvally",
-    "national_dex": 773,
-    "form_name": "water",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
     "id": "minior",
     "species_id": "minior",
     "national_dex": 774,
@@ -10241,28 +9728,6 @@
     "is_default": true,
     "generation_introduced": 7,
     "categories": []
-  },
-  {
-    "id": "necrozma-dawn",
-    "species_id": "necrozma",
-    "national_dex": 800,
-    "form_name": "dawn",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "necrozma-dusk",
-    "species_id": "necrozma",
-    "national_dex": 800,
-    "form_name": "dusk",
-    "is_default": false,
-    "generation_introduced": 7,
-    "categories": [
-      "functional"
-    ]
   },
   {
     "id": "magearna",
@@ -11906,28 +11371,6 @@
     "categories": []
   },
   {
-    "id": "calyrex-ice",
-    "species_id": "calyrex",
-    "national_dex": 898,
-    "form_name": "ice",
-    "is_default": false,
-    "generation_introduced": 8,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "calyrex-shadow",
-    "species_id": "calyrex",
-    "national_dex": 898,
-    "form_name": "shadow",
-    "is_default": false,
-    "generation_introduced": 8,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
     "id": "wyrdeer",
     "species_id": "wyrdeer",
     "national_dex": 899,
@@ -13151,39 +12594,6 @@
     "is_default": true,
     "generation_introduced": 9,
     "categories": []
-  },
-  {
-    "id": "ogerpon-cornerstone-mask",
-    "species_id": "ogerpon",
-    "national_dex": 1017,
-    "form_name": "cornerstone-mask",
-    "is_default": false,
-    "generation_introduced": 9,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "ogerpon-hearthflame-mask",
-    "species_id": "ogerpon",
-    "national_dex": 1017,
-    "form_name": "hearthflame-mask",
-    "is_default": false,
-    "generation_introduced": 9,
-    "categories": [
-      "functional"
-    ]
-  },
-  {
-    "id": "ogerpon-wellspring-mask",
-    "species_id": "ogerpon",
-    "national_dex": 1017,
-    "form_name": "wellspring-mask",
-    "is_default": false,
-    "generation_introduced": 9,
-    "categories": [
-      "functional"
-    ]
   },
   {
     "id": "archaludon",

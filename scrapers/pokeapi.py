@@ -129,8 +129,12 @@ FUNCTIONAL_SPECIES = {
 
 # (1) Not storable in their origin game. Koraidon/Miraidon mount-modes are
 # visual ride transformations of the default form and share its PC slot;
-# eternatus-eternamax is a story-only boss form never given to the player.
+# eternatus-eternamax is a story-only boss form never given to the player;
+# arceus-unknown is the "???"-type datamine form accessible only via the
+# Gen IV Curse-move glitch, and the "???" type was removed in Gen V so it
+# has no HOME-reachable path.
 SKIP_FORM_IDS_INGAME = {
+    "arceus-unknown",
     "eternatus-eternamax",
     "koraidon-gliding-build",
     "koraidon-limited-build",
@@ -142,16 +146,28 @@ SKIP_FORM_IDS_INGAME = {
     "miraidon-low-power-mode",
 }
 
-# (2) Storable in their origin game but explicitly blocked from Pokémon Bank
-# / HOME transfer, so they cannot exist in a HOME living dex. References:
-# - pichu-spiky-eared: HGSS-only; Prof. Elm's in-game dialogue refuses Poké
+# (2) Storable in their origin game but explicitly blocked from Pokémon
+# HOME deposit per the authoritative non-depositable list at
+# <https://www.serebii.net/pokemonhome/nondepositablepokemon.shtml> plus
+# Bulbapedia's Pokémon HOME article. A form on either list has no HOME
+# storage slot and is therefore not a distinct living-dex target.
+# References:
+# - pichu-spiky-eared: HGSS-only; Prof. Elm's dialogue refuses Poké
 #   Transfer ("It appears to have traveled through time…").
 # - pikachu cosplay family (cosplay/belle/libre/phd/pop-star/rock-star):
 #   ORAS contest Pikachu. Cannot be deposited in Pokémon Bank, so no path
 #   into Gen 7+ or HOME.
-# - cap Pikachus (alola/hoenn/kalos/original/partner/sinnoh/unova/world):
-#   event-distributed across USUM / Sw-Sh / Let's Go / GO, but Bulbapedia
-#   confirms they cannot be transferred to HOME or to Sword/Shield.
+# - pikachu cap forms (alola/hoenn/kalos/original/partner/sinnoh/unova/
+#   world-cap): event-distributed but cannot be transferred to HOME.
+# - pikachu-starter / eevee-starter: Let's Go partner Pokémon. Bulbapedia
+#   confirms "The player cannot store their 'Partner Pokémon' or Pokémon
+#   in their party" — permanently bound to the save file.
+# - Held-item form changes (HOME strips held items on deposit, reverting
+#   the form): 17 arceus plates, 17 silvally memories, 3 ogerpon masks,
+#   4 genesect drives, giratina-origin. All are on Serebii's list.
+# - Signature fused/alt forms on Serebii's non-depositable list:
+#   dialga-origin, palkia-origin, kyurem-black/white, necrozma-dawn/dusk,
+#   calyrex-ice/shadow, greninja-battle-bond (Ash-Greninja).
 SKIP_FORM_IDS_HOME_UNREACHABLE = {
     "pichu-spiky-eared",
     "pikachu-belle",
@@ -168,6 +184,66 @@ SKIP_FORM_IDS_HOME_UNREACHABLE = {
     "pikachu-sinnoh-cap",
     "pikachu-unova-cap",
     "pikachu-world-cap",
+    "pikachu-starter",
+    "eevee-starter",
+    # Arceus plates (Multitype + held Plate)
+    "arceus-bug",
+    "arceus-dark",
+    "arceus-dragon",
+    "arceus-electric",
+    "arceus-fairy",
+    "arceus-fighting",
+    "arceus-fire",
+    "arceus-flying",
+    "arceus-ghost",
+    "arceus-grass",
+    "arceus-ground",
+    "arceus-ice",
+    "arceus-poison",
+    "arceus-psychic",
+    "arceus-rock",
+    "arceus-steel",
+    "arceus-water",
+    # Silvally memories (RKS System + held Memory)
+    "silvally-bug",
+    "silvally-dark",
+    "silvally-dragon",
+    "silvally-electric",
+    "silvally-fairy",
+    "silvally-fighting",
+    "silvally-fire",
+    "silvally-flying",
+    "silvally-ghost",
+    "silvally-grass",
+    "silvally-ground",
+    "silvally-ice",
+    "silvally-poison",
+    "silvally-psychic",
+    "silvally-rock",
+    "silvally-steel",
+    "silvally-water",
+    # Ogerpon masks (held Mask)
+    "ogerpon-wellspring-mask",
+    "ogerpon-hearthflame-mask",
+    "ogerpon-cornerstone-mask",
+    # Genesect drives (held Drive)
+    "genesect-burn",
+    "genesect-chill",
+    "genesect-douse",
+    "genesect-shock",
+    # Origin Formes (held orb/crystal/globe/core)
+    "dialga-origin",
+    "palkia-origin",
+    "giratina-origin",
+    # Fused forms
+    "kyurem-black",
+    "kyurem-white",
+    "necrozma-dawn",
+    "necrozma-dusk",
+    "calyrex-ice",
+    "calyrex-shadow",
+    # Ash-Greninja
+    "greninja-battle-bond",
 }
 
 SKIP_FORM_IDS = SKIP_FORM_IDS_INGAME | SKIP_FORM_IDS_HOME_UNREACHABLE

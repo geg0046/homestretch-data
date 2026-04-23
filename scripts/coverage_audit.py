@@ -53,69 +53,18 @@ GAME_TO_POKEDEXES: dict[str, tuple[str, ...]] = {
 
 # Functional forms that are known event/item-only acquisitions. Used to
 # flag which zero-source forms should be routed to seed_manual_sources.py
-# versus treated as a scraper gap. Not exhaustive — the goal is to
-# highlight the obvious item/plate/drive families, not re-categorise.
+# versus treated as a scraper gap. Forms whose form changes are triggered
+# solely by held items (Arceus plates, Silvally memories, Ogerpon masks,
+# Genesect drives, Giratina/Dialga/Palkia Origin orbs) and fusion forms
+# (Kyurem/Calyrex/Necrozma) are intentionally absent here — they're
+# pruned upstream via `SKIP_FORM_IDS_HOME_UNREACHABLE` because HOME
+# cannot store them as distinct forms.
 KNOWN_ITEM_OR_EVENT_ONLY: frozenset[str] = frozenset(
     {
-        # Arceus plates
-        *(
-            f"arceus-{t}"
-            for t in (
-                "bug",
-                "dark",
-                "dragon",
-                "electric",
-                "fairy",
-                "fighting",
-                "fire",
-                "flying",
-                "ghost",
-                "grass",
-                "ground",
-                "ice",
-                "poison",
-                "psychic",
-                "rock",
-                "steel",
-                "water",
-                "unknown",
-            )
-        ),
-        # Silvally memories
-        *(
-            f"silvally-{t}"
-            for t in (
-                "bug",
-                "dark",
-                "dragon",
-                "electric",
-                "fairy",
-                "fighting",
-                "fire",
-                "flying",
-                "ghost",
-                "grass",
-                "ground",
-                "ice",
-                "poison",
-                "psychic",
-                "rock",
-                "steel",
-                "water",
-            )
-        ),
-        # Genesect drives
-        "genesect-burn",
-        "genesect-chill",
-        "genesect-douse",
-        "genesect-shock",
-        # Form-change items / story items
+        # Save-data-persistent form-change items / story-driven forms
         "deoxys-attack",
         "deoxys-defense",
         "deoxys-speed",
-        "dialga-origin",
-        "palkia-origin",
-        "giratina-origin",
         "shaymin-sky",
         "hoopa-unbound",
         "keldeo-resolute",

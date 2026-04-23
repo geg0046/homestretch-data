@@ -2389,414 +2389,6 @@
     "method_details": "only-one"
   },
   {
-    "form_id": "arceus-bug",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "bug-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-bug",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "bug-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-bug",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "bug-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-dark",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "dark-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-dark",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "dark-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-dark",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "dark-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-dragon",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "dragon-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-dragon",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "dragon-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-dragon",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "dragon-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-electric",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "electric-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-electric",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "electric-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-electric",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "electric-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fairy",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fairy-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fairy",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fairy-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fairy",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fairy-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fighting",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fighting-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fighting",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fighting-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fighting",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fighting-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fire",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fire-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fire",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fire-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-fire",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "fire-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-flying",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "flying-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-flying",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "flying-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-flying",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "flying-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ghost",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ghost-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ghost",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ghost-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ghost",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ghost-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-grass",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "grass-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-grass",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "grass-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-grass",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "grass-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ground",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ground-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ground",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ground-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ground",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ground-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ice",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ice-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ice",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ice-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-ice",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "ice-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-poison",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "poison-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-poison",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "poison-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-poison",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "poison-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-psychic",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "psychic-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-psychic",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "psychic-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-psychic",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "psychic-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-rock",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "rock-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-rock",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "rock-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-rock",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "rock-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-steel",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "steel-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-steel",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "steel-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-steel",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "steel-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-water",
-    "game_id": "brilliant-diamond",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "water-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-water",
-    "game_id": "legends-arceus",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "water-plate",
-    "from_form": "arceus"
-  },
-  {
-    "form_id": "arceus-water",
-    "game_id": "shining-pearl",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Plate.",
-    "item": "water-plate",
-    "from_form": "arceus"
-  },
-  {
     "form_id": "archaludon",
     "game_id": "scarlet",
     "method": "evolution",
@@ -8162,6 +7754,66 @@
     "method_details": "walk"
   },
   {
+    "form_id": "burmy-sandy",
+    "game_id": "brilliant-diamond",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Sandy after battles in rocky or sand-floored areas; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-sandy",
+    "game_id": "legends-arceus",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Sandy after battles in rocky or sand-floored areas; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-sandy",
+    "game_id": "shining-pearl",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Sandy after battles in rocky or sand-floored areas; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-sandy",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Sandy after battles in rocky or sand-floored areas; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-sandy",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Sandy after battles in rocky or sand-floored areas; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-trash",
+    "game_id": "brilliant-diamond",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Trash after battles inside buildings or structures; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-trash",
+    "game_id": "legends-arceus",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Trash after battles inside buildings or structures; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-trash",
+    "game_id": "shining-pearl",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Trash after battles inside buildings or structures; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-trash",
+    "game_id": "x",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Trash after battles inside buildings or structures; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
+    "form_id": "burmy-trash",
+    "game_id": "y",
+    "method": "wild-encounter",
+    "notes": "Cloak changes to Trash after battles inside buildings or structures; in Legends: Arceus, also spawns directly in matching environments."
+  },
+  {
     "form_id": "butterfree",
     "game_id": "blue",
     "method": "evolution",
@@ -8516,38 +8168,6 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "expansion-pass"
-  },
-  {
-    "form_id": "calyrex-ice",
-    "game_id": "shield",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
-    "from_form": "calyrex"
-  },
-  {
-    "form_id": "calyrex-ice",
-    "game_id": "sword",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Calyrex with Glastrier using Reins of Unity.",
-    "from_form": "calyrex"
-  },
-  {
-    "form_id": "calyrex-shadow",
-    "game_id": "shield",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
-    "from_form": "calyrex"
-  },
-  {
-    "form_id": "calyrex-shadow",
-    "game_id": "sword",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Calyrex with Spectrier using Reins of Unity.",
-    "from_form": "calyrex"
   },
   {
     "form_id": "camerupt",
@@ -15760,6 +15380,48 @@
     "method_details": "only-one"
   },
   {
+    "form_id": "deoxys-attack",
+    "game_id": "alpha-sapphire",
+    "method": "gift",
+    "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "from_form": "deoxys"
+  },
+  {
+    "form_id": "deoxys-attack",
+    "game_id": "omega-ruby",
+    "method": "gift",
+    "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "from_form": "deoxys"
+  },
+  {
+    "form_id": "deoxys-defense",
+    "game_id": "alpha-sapphire",
+    "method": "gift",
+    "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "from_form": "deoxys"
+  },
+  {
+    "form_id": "deoxys-defense",
+    "game_id": "omega-ruby",
+    "method": "gift",
+    "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "from_form": "deoxys"
+  },
+  {
+    "form_id": "deoxys-speed",
+    "game_id": "alpha-sapphire",
+    "method": "gift",
+    "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "from_form": "deoxys"
+  },
+  {
+    "form_id": "deoxys-speed",
+    "game_id": "omega-ruby",
+    "method": "gift",
+    "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "from_form": "deoxys"
+  },
+  {
     "form_id": "dewgong",
     "game_id": "blue",
     "method": "evolution",
@@ -20613,11 +20275,6 @@
   {
     "form_id": "eevee",
     "game_id": "yellow",
-    "method": "gift"
-  },
-  {
-    "form_id": "eevee-starter",
-    "game_id": "lets-go-eevee",
     "method": "gift"
   },
   {
@@ -21930,6 +21587,14 @@
     "game_id": "legends-arceus",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "enamorus-therian",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
+    "item": "reveal-glass",
+    "from_form": "enamorus"
   },
   {
     "form_id": "entei",
@@ -24883,6 +24548,13 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "floette-eternal",
+    "game_id": "legends-za",
+    "method": "gift",
+    "method_details": "only-one",
+    "notes": "Received from Taunie/Urbain upon completing Main Mission 39."
   },
   {
     "form_id": "floragato",
@@ -31563,16 +31235,6 @@
     "method_details": "level-up"
   },
   {
-    "form_id": "greninja-battle-bond",
-    "game_id": "moon",
-    "method": "event"
-  },
-  {
-    "form_id": "greninja-battle-bond",
-    "game_id": "sun",
-    "method": "event"
-  },
-  {
     "form_id": "grimer",
     "game_id": "alpha-sapphire",
     "method": "wild-encounter",
@@ -35494,6 +35156,22 @@
     "game_id": "omega-ruby",
     "method": "event",
     "notes": "2015 Pokémon Center serial-code distribution."
+  },
+  {
+    "form_id": "hoopa-unbound",
+    "game_id": "alpha-sapphire",
+    "method": "gift",
+    "notes": "Prison Bottle given by a clerk at any Poké Mart while Hoopa is in the party.",
+    "item": "prison-bottle",
+    "from_form": "hoopa"
+  },
+  {
+    "form_id": "hoopa-unbound",
+    "game_id": "omega-ruby",
+    "method": "gift",
+    "notes": "Prison Bottle given by a clerk at any Poké Mart while Hoopa is in the party.",
+    "item": "prison-bottle",
+    "from_form": "hoopa"
   },
   {
     "form_id": "hoothoot",
@@ -38887,6 +38565,24 @@
     "requires_dlc": "expansion-pass"
   },
   {
+    "form_id": "keldeo-resolute",
+    "game_id": "shield",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Form change triggered when Keldeo knows Secret Sword (tutor move).",
+    "known_move": "secret-sword",
+    "from_form": "keldeo"
+  },
+  {
+    "form_id": "keldeo-resolute",
+    "game_id": "sword",
+    "method": "gift",
+    "requires_dlc": "expansion-pass",
+    "notes": "Form change triggered when Keldeo knows Secret Sword (tutor move).",
+    "known_move": "secret-sword",
+    "from_form": "keldeo"
+  },
+  {
     "form_id": "kilowattrel",
     "game_id": "scarlet",
     "method": "evolution",
@@ -40662,70 +40358,6 @@
     "requires_dlc": "hidden-treasure-of-area-zero"
   },
   {
-    "form_id": "kyurem-black",
-    "game_id": "scarlet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
-    "from_form": "kyurem"
-  },
-  {
-    "form_id": "kyurem-black",
-    "game_id": "shield",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
-    "from_form": "kyurem"
-  },
-  {
-    "form_id": "kyurem-black",
-    "game_id": "sword",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Crown Tundra).",
-    "from_form": "kyurem"
-  },
-  {
-    "form_id": "kyurem-black",
-    "game_id": "violet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Fuse Kyurem with Zekrom using DNA Splicers (Indigo Disk).",
-    "from_form": "kyurem"
-  },
-  {
-    "form_id": "kyurem-white",
-    "game_id": "scarlet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
-    "from_form": "kyurem"
-  },
-  {
-    "form_id": "kyurem-white",
-    "game_id": "shield",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
-    "from_form": "kyurem"
-  },
-  {
-    "form_id": "kyurem-white",
-    "game_id": "sword",
-    "method": "gift",
-    "requires_dlc": "expansion-pass",
-    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Crown Tundra).",
-    "from_form": "kyurem"
-  },
-  {
-    "form_id": "kyurem-white",
-    "game_id": "violet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Fuse Kyurem with Reshiram using DNA Splicers (Indigo Disk).",
-    "from_form": "kyurem"
-  },
-  {
     "form_id": "lairon",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -40990,6 +40622,62 @@
     "game_id": "ultra-sun",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "landorus-therian",
+    "game_id": "alpha-sapphire",
+    "method": "gift",
+    "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
+    "item": "reveal-glass",
+    "from_form": "landorus"
+  },
+  {
+    "form_id": "landorus-therian",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
+    "item": "reveal-glass",
+    "from_form": "landorus"
+  },
+  {
+    "form_id": "landorus-therian",
+    "game_id": "omega-ruby",
+    "method": "gift",
+    "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
+    "item": "reveal-glass",
+    "from_form": "landorus"
+  },
+  {
+    "form_id": "landorus-therian",
+    "game_id": "shield",
+    "method": "gift",
+    "notes": "Reveal Glass from the Stow-on-Side bargain shop after completing the main story.",
+    "item": "reveal-glass",
+    "from_form": "landorus"
+  },
+  {
+    "form_id": "landorus-therian",
+    "game_id": "sword",
+    "method": "gift",
+    "notes": "Reveal Glass from the Stow-on-Side bargain shop after completing the main story.",
+    "item": "reveal-glass",
+    "from_form": "landorus"
+  },
+  {
+    "form_id": "landorus-therian",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
+    "item": "reveal-glass",
+    "from_form": "landorus"
+  },
+  {
+    "form_id": "landorus-therian",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
+    "item": "reveal-glass",
+    "from_form": "landorus"
   },
   {
     "form_id": "lanturn",
@@ -51522,6 +51210,96 @@
     "gender": "male"
   },
   {
+    "form_id": "mothim-sandy",
+    "game_id": "brilliant-diamond",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Sandy Cloak male Burmy it evolves from.",
+    "from_form": "burmy-sandy",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-sandy",
+    "game_id": "legends-arceus",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Sandy Cloak male Burmy it evolves from.",
+    "from_form": "burmy-sandy",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-sandy",
+    "game_id": "shining-pearl",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Sandy Cloak male Burmy it evolves from.",
+    "from_form": "burmy-sandy",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-sandy",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Sandy Cloak male Burmy it evolves from.",
+    "from_form": "burmy-sandy",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-sandy",
+    "game_id": "y",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Sandy Cloak male Burmy it evolves from.",
+    "from_form": "burmy-sandy",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-trash",
+    "game_id": "brilliant-diamond",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Trash Cloak male Burmy it evolves from.",
+    "from_form": "burmy-trash",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-trash",
+    "game_id": "legends-arceus",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Trash Cloak male Burmy it evolves from.",
+    "from_form": "burmy-trash",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-trash",
+    "game_id": "shining-pearl",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Trash Cloak male Burmy it evolves from.",
+    "from_form": "burmy-trash",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-trash",
+    "game_id": "x",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Trash Cloak male Burmy it evolves from.",
+    "from_form": "burmy-trash",
+    "gender": "male"
+  },
+  {
+    "form_id": "mothim-trash",
+    "game_id": "y",
+    "method": "evolution",
+    "method_details": "level-up",
+    "notes": "Cloak value carries over from the Trash Cloak male Burmy it evolves from.",
+    "from_form": "burmy-trash",
+    "gender": "male"
+  },
+  {
     "form_id": "mr-mime",
     "game_id": "blue",
     "method": "evolution",
@@ -52936,34 +52714,6 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero"
-  },
-  {
-    "form_id": "necrozma-dawn",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
-    "from_form": "necrozma"
-  },
-  {
-    "form_id": "necrozma-dawn",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Fuse Necrozma with Lunala using N-Lunarizer.",
-    "from_form": "necrozma"
-  },
-  {
-    "form_id": "necrozma-dusk",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
-    "from_form": "necrozma"
-  },
-  {
-    "form_id": "necrozma-dusk",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Fuse Necrozma with Solgaleo using N-Solarizer.",
-    "from_form": "necrozma"
   },
   {
     "form_id": "nickit",
@@ -55472,54 +55222,6 @@
     "method": "static-encounter",
     "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero"
-  },
-  {
-    "form_id": "ogerpon-cornerstone-mask",
-    "game_id": "scarlet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
-    "from_form": "ogerpon"
-  },
-  {
-    "form_id": "ogerpon-cornerstone-mask",
-    "game_id": "violet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Hold the Cornerstone Mask (Teal Mask DLC reward) on Ogerpon.",
-    "from_form": "ogerpon"
-  },
-  {
-    "form_id": "ogerpon-hearthflame-mask",
-    "game_id": "scarlet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
-    "from_form": "ogerpon"
-  },
-  {
-    "form_id": "ogerpon-hearthflame-mask",
-    "game_id": "violet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Hold the Hearthflame Mask (Teal Mask DLC reward) on Ogerpon.",
-    "from_form": "ogerpon"
-  },
-  {
-    "form_id": "ogerpon-wellspring-mask",
-    "game_id": "scarlet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
-    "from_form": "ogerpon"
-  },
-  {
-    "form_id": "ogerpon-wellspring-mask",
-    "game_id": "violet",
-    "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero",
-    "notes": "Hold the Wellspring Mask (Teal Mask DLC reward) on Ogerpon.",
-    "from_form": "ogerpon"
   },
   {
     "form_id": "oinkologne",
@@ -59065,11 +58767,6 @@
   {
     "form_id": "pikachu",
     "game_id": "yellow",
-    "method": "gift"
-  },
-  {
-    "form_id": "pikachu-starter",
-    "game_id": "lets-go-pikachu",
     "method": "gift"
   },
   {
@@ -69622,6 +69319,14 @@
     "method_details": "only-one"
   },
   {
+    "form_id": "shaymin-sky",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Gracidea received from Medi at Fieldlands Camp during Request 92.",
+    "item": "gracidea",
+    "from_form": "shaymin"
+  },
+  {
     "form_id": "shedinja",
     "game_id": "alpha-sapphire",
     "method": "evolution",
@@ -70841,550 +70546,6 @@
     "method": "evolution",
     "method_details": "level-up",
     "min_happiness": 160
-  },
-  {
-    "form_id": "silvally-bug",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "bug-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-bug",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "bug-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-bug",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "bug-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-bug",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "bug-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dark",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dark-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dark",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dark-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dark",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dark-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dark",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dark-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dragon",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dragon-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dragon",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dragon-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dragon",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dragon-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-dragon",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "dragon-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-electric",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "electric-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-electric",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "electric-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-electric",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "electric-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-electric",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "electric-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fairy",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fairy-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fairy",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fairy-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fairy",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fairy-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fairy",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fairy-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fighting",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fighting-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fighting",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fighting-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fighting",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fighting-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fighting",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fighting-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fire",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fire-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fire",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fire-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fire",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fire-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-fire",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "fire-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-flying",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "flying-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-flying",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "flying-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-flying",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "flying-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-flying",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "flying-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ghost",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ghost-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ghost",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ghost-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ghost",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ghost-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ghost",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ghost-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-grass",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "grass-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-grass",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "grass-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-grass",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "grass-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-grass",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "grass-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ground",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ground-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ground",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ground-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ground",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ground-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ground",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ground-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ice",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ice-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ice",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ice-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ice",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ice-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-ice",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "ice-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-poison",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "poison-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-poison",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "poison-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-poison",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "poison-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-poison",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "poison-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-psychic",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "psychic-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-psychic",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "psychic-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-psychic",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "psychic-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-psychic",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "psychic-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-rock",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "rock-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-rock",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "rock-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-rock",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "rock-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-rock",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "rock-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-steel",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "steel-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-steel",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "steel-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-steel",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "steel-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-steel",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "steel-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-water",
-    "game_id": "moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "water-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-water",
-    "game_id": "sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "water-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-water",
-    "game_id": "ultra-moon",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "water-memory",
-    "from_form": "silvally"
-  },
-  {
-    "form_id": "silvally-water",
-    "game_id": "ultra-sun",
-    "method": "gift",
-    "notes": "Form change by holding the corresponding Memory.",
-    "item": "water-memory",
-    "from_form": "silvally"
   },
   {
     "form_id": "simipour",
@@ -79680,6 +78841,30 @@
     "method_details": "only-one"
   },
   {
+    "form_id": "thundurus-therian",
+    "game_id": "alpha-sapphire",
+    "method": "gift",
+    "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
+    "item": "reveal-glass",
+    "from_form": "thundurus"
+  },
+  {
+    "form_id": "thundurus-therian",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
+    "item": "reveal-glass",
+    "from_form": "thundurus"
+  },
+  {
+    "form_id": "thundurus-therian",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
+    "item": "reveal-glass",
+    "from_form": "thundurus"
+  },
+  {
     "form_id": "thwackey",
     "game_id": "scarlet",
     "method": "evolution",
@@ -80521,6 +79706,30 @@
     "game_id": "ultra-sun",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "tornadus-therian",
+    "game_id": "legends-arceus",
+    "method": "gift",
+    "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
+    "item": "reveal-glass",
+    "from_form": "tornadus"
+  },
+  {
+    "form_id": "tornadus-therian",
+    "game_id": "omega-ruby",
+    "method": "gift",
+    "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
+    "item": "reveal-glass",
+    "from_form": "tornadus"
+  },
+  {
+    "form_id": "tornadus-therian",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
+    "item": "reveal-glass",
+    "from_form": "tornadus"
   },
   {
     "form_id": "torracat",
@@ -89606,5 +88815,77 @@
     "form_id": "zygarde-10",
     "game_id": "ultra-sun",
     "method": "gift"
+  },
+  {
+    "form_id": "zygarde-10-power-construct",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde-10"
+  },
+  {
+    "form_id": "zygarde-10-power-construct",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde-10"
+  },
+  {
+    "form_id": "zygarde-10-power-construct",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde-10"
+  },
+  {
+    "form_id": "zygarde-10-power-construct",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde-10"
+  },
+  {
+    "form_id": "zygarde-50-power-construct",
+    "game_id": "moon",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde"
+  },
+  {
+    "form_id": "zygarde-50-power-construct",
+    "game_id": "shield",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra); Zygarde in Max Lair always has Power Construct."
+  },
+  {
+    "form_id": "zygarde-50-power-construct",
+    "game_id": "sun",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde"
+  },
+  {
+    "form_id": "zygarde-50-power-construct",
+    "game_id": "sword",
+    "method": "raid",
+    "method_details": "dynamax-adventure",
+    "requires_dlc": "expansion-pass",
+    "notes": "Dynamax Adventure encounter in the Max Lair (Crown Tundra); Zygarde in Max Lair always has Power Construct."
+  },
+  {
+    "form_id": "zygarde-50-power-construct",
+    "game_id": "ultra-moon",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde"
+  },
+  {
+    "form_id": "zygarde-50-power-construct",
+    "game_id": "ultra-sun",
+    "method": "gift",
+    "notes": "Assembled at the Reassembly Unit at Aether Paradise; Power Construct requires using at least one Zygarde Core.",
+    "from_form": "zygarde"
   }
 ]
