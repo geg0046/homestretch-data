@@ -188,6 +188,12 @@
   },
   {
     "form_id": "abra",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 116 and DexNav."
+  },
+  {
+    "form_id": "abra",
     "game_id": "blue",
     "method": "gift"
   },
@@ -275,6 +281,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "abra",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 116 and DexNav."
   },
   {
     "form_id": "abra",
@@ -395,6 +407,12 @@
   },
   {
     "form_id": "absol",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 120."
+  },
+  {
+    "form_id": "absol",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -413,6 +431,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "absol",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 120."
   },
   {
     "form_id": "absol",
@@ -1639,8 +1663,22 @@
   },
   {
     "form_id": "anorith",
+    "game_id": "alpha-sapphire",
+    "method": "fossil-revive",
+    "notes": "Claw Fossil from Mirage Spots, revived at Devon Corp.",
+    "item": "claw-fossil"
+  },
+  {
+    "form_id": "anorith",
     "game_id": "brilliant-diamond",
     "method": "fossil-revive"
+  },
+  {
+    "form_id": "anorith",
+    "game_id": "omega-ruby",
+    "method": "fossil-revive",
+    "notes": "Claw Fossil from Mirage Spots, revived at Devon Corp.",
+    "item": "claw-fossil"
   },
   {
     "form_id": "anorith",
@@ -3888,8 +3926,20 @@
   },
   {
     "form_id": "baltoy",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Ancient Tomb and Route 111 desert."
+  },
+  {
+    "form_id": "baltoy",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "baltoy",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Ancient Tomb and Route 111 desert."
   },
   {
     "form_id": "baltoy",
@@ -4140,6 +4190,12 @@
   },
   {
     "form_id": "barboach",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 111 fishing."
+  },
+  {
+    "form_id": "barboach",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "good-rod"
@@ -4171,6 +4227,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "barboach",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 111 fishing."
   },
   {
     "form_id": "barboach",
@@ -8207,8 +8269,20 @@
   },
   {
     "form_id": "cacnea",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 111 desert."
+  },
+  {
+    "form_id": "cacnea",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "cacnea",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 111 desert."
   },
   {
     "form_id": "cacnea",
@@ -8733,6 +8807,12 @@
   },
   {
     "form_id": "carvanha",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 118 fishing."
+  },
+  {
+    "form_id": "carvanha",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "super-rod"
@@ -8752,6 +8832,12 @@
     "game_id": "moon",
     "method": "trade",
     "notes": "Version-exclusive; trade from Sun."
+  },
+  {
+    "form_id": "carvanha",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 118 fishing."
   },
   {
     "form_id": "carvanha",
@@ -10819,6 +10905,12 @@
   },
   {
     "form_id": "chinchou",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Routes 124 and 126 fishing."
+  },
+  {
+    "form_id": "chinchou",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "super-rod"
@@ -10851,6 +10943,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "chinchou",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Routes 124 and 126 fishing."
   },
   {
     "form_id": "chinchou",
@@ -11162,6 +11260,12 @@
   },
   {
     "form_id": "clamperl",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Underwater on Routes 124 and 126."
+  },
+  {
+    "form_id": "clamperl",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "super-rod"
@@ -11170,6 +11274,12 @@
     "form_id": "clamperl",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "clamperl",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Underwater on Routes 124 and 126."
   },
   {
     "form_id": "clamperl",
@@ -13044,6 +13154,12 @@
   },
   {
     "form_id": "corphish",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Routes 102 and 117 fishing."
+  },
+  {
+    "form_id": "corphish",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "super-rod"
@@ -13052,6 +13168,12 @@
     "form_id": "corphish",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "corphish",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Routes 102 and 117 fishing."
   },
   {
     "form_id": "corphish",
@@ -13162,6 +13284,12 @@
   },
   {
     "form_id": "corsola",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Underwater on Route 128."
+  },
+  {
+    "form_id": "corsola",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -13188,6 +13316,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "corsola",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Underwater on Route 128."
   },
   {
     "form_id": "corsola",
@@ -20084,6 +20218,12 @@
   },
   {
     "form_id": "duskull",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Mt. Pyre."
+  },
+  {
+    "form_id": "duskull",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -20097,6 +20237,12 @@
     "game_id": "legends-arceus",
     "method": "wild-encounter",
     "method_details": "mass-outbreak"
+  },
+  {
+    "form_id": "duskull",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Mt. Pyre."
   },
   {
     "form_id": "duskull",
@@ -23487,6 +23633,12 @@
   },
   {
     "form_id": "feebas",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 119 rare fishing spots."
+  },
+  {
+    "form_id": "feebas",
     "game_id": "brilliant-diamond",
     "method": "fishing"
   },
@@ -23501,6 +23653,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "feebas",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 119 rare fishing spots."
   },
   {
     "form_id": "feebas",
@@ -29428,6 +29586,12 @@
   },
   {
     "form_id": "goldeen",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Most water routes via Old Rod and Good Rod."
+  },
+  {
+    "form_id": "goldeen",
     "game_id": "blue",
     "method": "fishing",
     "method_details": "good-rod, super-rod"
@@ -29485,6 +29649,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "goldeen",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Most water routes via Old Rod and Good Rod."
   },
   {
     "form_id": "goldeen",
@@ -31851,6 +32021,12 @@
   },
   {
     "form_id": "grimer",
+    "game_id": "omega-ruby",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Alpha Sapphire."
+  },
+  {
+    "form_id": "grimer",
     "game_id": "red",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -32137,6 +32313,19 @@
     "game_id": "violet",
     "method": "evolution",
     "method_details": "level-up"
+  },
+  {
+    "form_id": "groudon",
+    "game_id": "alpha-sapphire",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Mirage Cave encounter after completing the Delta Episode."
+  },
+  {
+    "form_id": "groudon",
+    "game_id": "alpha-sapphire",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Omega Ruby."
   },
   {
     "form_id": "groudon",
@@ -32547,8 +32736,20 @@
   },
   {
     "form_id": "gulpin",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 110."
+  },
+  {
+    "form_id": "gulpin",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "gulpin",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 110."
   },
   {
     "form_id": "gulpin",
@@ -34672,6 +34873,12 @@
   },
   {
     "form_id": "heracross",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Safari Zone (Hoenn)."
+  },
+  {
+    "form_id": "heracross",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -34713,6 +34920,12 @@
     "form_id": "heracross",
     "game_id": "legends-za",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "heracross",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Safari Zone (Hoenn)."
   },
   {
     "form_id": "heracross",
@@ -35975,6 +36188,12 @@
   },
   {
     "form_id": "horsea",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Fishing on coastal routes."
+  },
+  {
+    "form_id": "horsea",
     "game_id": "blue",
     "method": "fishing",
     "method_details": "super-rod"
@@ -36031,6 +36250,12 @@
     "game_id": "moon",
     "method": "static-encounter",
     "method_details": "island-scan"
+  },
+  {
+    "form_id": "horsea",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Fishing on coastal routes."
   },
   {
     "form_id": "horsea",
@@ -36816,8 +37041,20 @@
   },
   {
     "form_id": "illumise",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 117 (AS-exclusive)."
+  },
+  {
+    "form_id": "illumise",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "illumise",
+    "game_id": "omega-ruby",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Alpha Sapphire."
   },
   {
     "form_id": "illumise",
@@ -37976,9 +38213,21 @@
   },
   {
     "form_id": "jirachi",
+    "game_id": "alpha-sapphire",
+    "method": "event",
+    "notes": "2014 Pokémon Bank 20th-anniversary promotional distribution."
+  },
+  {
+    "form_id": "jirachi",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "jirachi",
+    "game_id": "omega-ruby",
+    "method": "event",
+    "notes": "2014 Pokémon Bank 20th-anniversary promotional distribution."
   },
   {
     "form_id": "jirachi",
@@ -40180,6 +40429,12 @@
   },
   {
     "form_id": "koffing",
+    "game_id": "alpha-sapphire",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Omega Ruby."
+  },
+  {
+    "form_id": "koffing",
     "game_id": "blue",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -41037,6 +41292,13 @@
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
     "method_details": "only-one"
+  },
+  {
+    "form_id": "kyogre",
+    "game_id": "omega-ruby",
+    "method": "static-encounter",
+    "method_details": "only-one",
+    "notes": "Mirage Cave encounter after completing the Delta Episode."
   },
   {
     "form_id": "kyogre",
@@ -42891,8 +43153,22 @@
   },
   {
     "form_id": "lileep",
+    "game_id": "alpha-sapphire",
+    "method": "fossil-revive",
+    "notes": "Root Fossil from Mirage Spots, revived at Devon Corp.",
+    "item": "root-fossil"
+  },
+  {
+    "form_id": "lileep",
     "game_id": "brilliant-diamond",
     "method": "fossil-revive"
+  },
+  {
+    "form_id": "lileep",
+    "game_id": "omega-ruby",
+    "method": "fossil-revive",
+    "notes": "Root Fossil from Mirage Spots, revived at Devon Corp.",
+    "item": "root-fossil"
   },
   {
     "form_id": "lileep",
@@ -43718,6 +43994,12 @@
   },
   {
     "form_id": "lotad",
+    "game_id": "omega-ruby",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Alpha Sapphire."
+  },
+  {
+    "form_id": "lotad",
     "game_id": "scarlet",
     "method": "raid",
     "method_details": "tera-raid",
@@ -44397,6 +44679,18 @@
   },
   {
     "form_id": "lunatone",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Meteor Falls (AS-exclusive)."
+  },
+  {
+    "form_id": "lunatone",
+    "game_id": "omega-ruby",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Alpha Sapphire."
+  },
+  {
+    "form_id": "lunatone",
     "game_id": "shield",
     "method": "raid",
     "method_details": "max-raid"
@@ -44550,6 +44844,12 @@
   },
   {
     "form_id": "luvdisc",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 128 fishing."
+  },
+  {
+    "form_id": "luvdisc",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "super-rod"
@@ -44565,6 +44865,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "luvdisc",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 128 fishing."
   },
   {
     "form_id": "luvdisc",
@@ -46076,6 +46382,12 @@
   },
   {
     "form_id": "magikarp",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Every water route via Old Rod."
+  },
+  {
+    "form_id": "magikarp",
     "game_id": "blue",
     "method": "fishing",
     "method_details": "old-rod, super-rod"
@@ -46169,6 +46481,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "magikarp",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Every water route via Old Rod."
   },
   {
     "form_id": "magikarp",
@@ -47159,6 +47477,14 @@
   },
   {
     "form_id": "magnezone",
+    "game_id": "alpha-sapphire",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "new-mauville",
+    "from_form": "magneton"
+  },
+  {
+    "form_id": "magnezone",
     "game_id": "brilliant-diamond",
     "method": "evolution",
     "method_details": "level-up",
@@ -47190,6 +47516,14 @@
     "method": "evolution",
     "method_details": "level-up",
     "location": "vast-poni-canyon"
+  },
+  {
+    "form_id": "magnezone",
+    "game_id": "omega-ruby",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "new-mauville",
+    "from_form": "magneton"
   },
   {
     "form_id": "magnezone",
@@ -49268,6 +49602,12 @@
     "game_id": "violet",
     "method": "raid",
     "method_details": "tera-raid"
+  },
+  {
+    "form_id": "mawile",
+    "game_id": "alpha-sapphire",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Omega Ruby."
   },
   {
     "form_id": "mawile",
@@ -53665,6 +54005,12 @@
   },
   {
     "form_id": "natu",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Safari Zone (Hoenn)."
+  },
+  {
+    "form_id": "natu",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -53679,6 +54025,12 @@
     "game_id": "gold",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "natu",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Safari Zone (Hoenn)."
   },
   {
     "form_id": "natu",
@@ -55614,6 +55966,12 @@
   },
   {
     "form_id": "nosepass",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Granite Cave."
+  },
+  {
+    "form_id": "nosepass",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -55628,6 +55986,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "nosepass",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Granite Cave."
   },
   {
     "form_id": "nosepass",
@@ -58831,6 +59195,12 @@
   },
   {
     "form_id": "phanpy",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Safari Zone expansion area (Hoenn)."
+  },
+  {
+    "form_id": "phanpy",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -58845,6 +59215,12 @@
     "game_id": "gold",
     "method": "trade",
     "notes": "Version-exclusive; trade from Silver."
+  },
+  {
+    "form_id": "phanpy",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Safari Zone expansion area (Hoenn)."
   },
   {
     "form_id": "phanpy",
@@ -60369,6 +60745,12 @@
   },
   {
     "form_id": "pinsir",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Safari Zone (Hoenn)."
+  },
+  {
+    "form_id": "pinsir",
     "game_id": "blue",
     "method": "gift"
   },
@@ -60423,6 +60805,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "pinsir",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Safari Zone (Hoenn)."
   },
   {
     "form_id": "pinsir",
@@ -62479,6 +62867,14 @@
   },
   {
     "form_id": "probopass",
+    "game_id": "alpha-sapphire",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "new-mauville",
+    "from_form": "nosepass"
+  },
+  {
+    "form_id": "probopass",
     "game_id": "brilliant-diamond",
     "method": "evolution",
     "method_details": "level-up",
@@ -62510,6 +62906,14 @@
     "method": "evolution",
     "method_details": "level-up",
     "location": "vast-poni-canyon"
+  },
+  {
+    "form_id": "probopass",
+    "game_id": "omega-ruby",
+    "method": "evolution",
+    "method_details": "level-up",
+    "location": "new-mauville",
+    "from_form": "nosepass"
   },
   {
     "form_id": "probopass",
@@ -65359,6 +65763,12 @@
   },
   {
     "form_id": "relicanth",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Underwater on Routes 124 and 126."
+  },
+  {
+    "form_id": "relicanth",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "super-rod"
@@ -65374,6 +65784,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "relicanth",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Underwater on Routes 124 and 126."
   },
   {
     "form_id": "relicanth",
@@ -66033,6 +66449,12 @@
   },
   {
     "form_id": "rhyhorn",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 111 desert."
+  },
+  {
+    "form_id": "rhyhorn",
     "game_id": "blue",
     "method": "wild-encounter",
     "method_details": "walk"
@@ -66077,6 +66499,12 @@
     "game_id": "moon",
     "method": "static-encounter",
     "method_details": "island-scan"
+  },
+  {
+    "form_id": "rhyhorn",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 111 desert."
   },
   {
     "form_id": "rhyhorn",
@@ -67564,6 +67992,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "sos-encounter"
+  },
+  {
+    "form_id": "sableye",
+    "game_id": "omega-ruby",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Alpha Sapphire."
   },
   {
     "form_id": "sableye",
@@ -70201,6 +70635,12 @@
   },
   {
     "form_id": "seedot",
+    "game_id": "alpha-sapphire",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Omega Ruby."
+  },
+  {
+    "form_id": "seedot",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -70513,6 +70953,18 @@
     "game_id": "violet",
     "method": "evolution",
     "method_details": "level-up"
+  },
+  {
+    "form_id": "seviper",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 114 and Desert Ruins (AS-exclusive)."
+  },
+  {
+    "form_id": "seviper",
+    "game_id": "omega-ruby",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Alpha Sapphire."
   },
   {
     "form_id": "seviper",
@@ -72915,8 +73367,20 @@
   },
   {
     "form_id": "slakoth",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Petalburg Woods."
+  },
+  {
+    "form_id": "slakoth",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "slakoth",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Petalburg Woods."
   },
   {
     "form_id": "slakoth",
@@ -75234,8 +75698,20 @@
   },
   {
     "form_id": "solrock",
+    "game_id": "alpha-sapphire",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Omega Ruby."
+  },
+  {
+    "form_id": "solrock",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "solrock",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Meteor Falls (OR-exclusive)."
   },
   {
     "form_id": "solrock",
@@ -76661,6 +77137,12 @@
   },
   {
     "form_id": "staryu",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Various water routes via Super Rod at night."
+  },
+  {
+    "form_id": "staryu",
     "game_id": "blue",
     "method": "fishing",
     "method_details": "super-rod"
@@ -76727,6 +77209,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "staryu",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Various water routes via Super Rod at night."
   },
   {
     "form_id": "staryu",
@@ -77890,6 +78378,12 @@
   },
   {
     "form_id": "surskit",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 102."
+  },
+  {
+    "form_id": "surskit",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -77898,6 +78392,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "surf, walk"
+  },
+  {
+    "form_id": "surskit",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 102."
   },
   {
     "form_id": "surskit",
@@ -79735,6 +80235,12 @@
   },
   {
     "form_id": "tentacool",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Every sea route."
+  },
+  {
+    "form_id": "tentacool",
     "game_id": "blue",
     "method": "fishing",
     "method_details": "super-rod"
@@ -79803,6 +80309,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots, surf"
+  },
+  {
+    "form_id": "tentacool",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Every sea route."
   },
   {
     "form_id": "tentacool",
@@ -81184,6 +81696,12 @@
   },
   {
     "form_id": "torkoal",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Fiery Path."
+  },
+  {
+    "form_id": "torkoal",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -81192,6 +81710,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "walk"
+  },
+  {
+    "form_id": "torkoal",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Fiery Path."
   },
   {
     "form_id": "torkoal",
@@ -82021,6 +82545,12 @@
   },
   {
     "form_id": "trapinch",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 111 desert."
+  },
+  {
+    "form_id": "trapinch",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
   },
@@ -82029,6 +82559,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "trapinch",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 111 desert."
   },
   {
     "form_id": "trapinch",
@@ -82305,8 +82841,20 @@
   },
   {
     "form_id": "tropius",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Route 119."
+  },
+  {
+    "form_id": "tropius",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "tropius",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 119."
   },
   {
     "form_id": "tropius",
@@ -85768,8 +86316,20 @@
   },
   {
     "form_id": "volbeat",
+    "game_id": "alpha-sapphire",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Omega Ruby."
+  },
+  {
+    "form_id": "volbeat",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "volbeat",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 117 (OR-exclusive)."
   },
   {
     "form_id": "volbeat",
@@ -86372,6 +86932,12 @@
   },
   {
     "form_id": "wailmer",
+    "game_id": "alpha-sapphire",
+    "method": "wild-encounter",
+    "notes": "Most sea routes via Good Rod."
+  },
+  {
+    "form_id": "wailmer",
     "game_id": "brilliant-diamond",
     "method": "fishing",
     "method_details": "super-rod"
@@ -86387,6 +86953,12 @@
     "game_id": "moon",
     "method": "wild-encounter",
     "method_details": "bubbling-spots"
+  },
+  {
+    "form_id": "wailmer",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Most sea routes via Good Rod."
   },
   {
     "form_id": "wailmer",
@@ -89715,8 +90287,20 @@
   },
   {
     "form_id": "zangoose",
+    "game_id": "alpha-sapphire",
+    "method": "trade",
+    "notes": "Version-exclusive; trade from Omega Ruby."
+  },
+  {
+    "form_id": "zangoose",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
+  },
+  {
+    "form_id": "zangoose",
+    "game_id": "omega-ruby",
+    "method": "wild-encounter",
+    "notes": "Route 114 and Desert Ruins (OR-exclusive)."
   },
   {
     "form_id": "zangoose",
