@@ -22,10 +22,23 @@ Inside `scrapers/pokeapi.py` these sets govern what ends up in
   regardless of the battle-only flag. Koraidon/Miraidon mount-modes
   (visual ride transformations of the default) and `eternatus-eternamax`
   (story-only boss).
-- **`SKIP_FORM_IDS_HOME_UNREACHABLE`** — storable in origin game but
-  explicitly blocked from Bank/HOME transfer. Spiky-eared Pichu, the
-  ORAS cosplay Pikachu family, all 8 cap Pikachus. Rule: if it can't
-  reach HOME, it doesn't get a HOME-living-dex slot.
+- **`SKIP_FORM_IDS_HOME_UNREACHABLE`** — forms that can be obtained in
+  their origin game but do not survive a HOME deposit as that specific
+  form (the "HOME-deposit test" in the root CLAUDE.md). Grouped by
+  failure mode:
+  - **Held-item form changes** that revert when HOME strips the item on
+    deposit: Arceus plates (17), Silvally memories (17), Ogerpon masks
+    (3), Genesect drives (4), Giratina / Dialga / Palkia Origin.
+  - **Fused legendaries** explicitly on Serebii's non-depositable list:
+    Kyurem-Black / -White, Calyrex-Ice / -Shadow, Necrozma-Dawn / -Dusk.
+  - **Let's Go partner Pokémon**: `pikachu-starter`, `eevee-starter`.
+  - **Ash-Greninja** (`greninja-battle-bond`): not acknowledged by the
+    HOME Pokémon Guidebook.
+  - **Spiky-eared Pichu**, ORAS cosplay Pikachu family, all 8 cap
+    Pikachus: pre-HOME Bank-block cases documented by Bulbapedia.
+  Authoritative reference: <https://www.serebii.net/pokemonhome/nondepositablepokemon.shtml>.
+  The literal `frozenset` in `pokeapi.py` is the canonical enumeration
+  — don't duplicate it here.
 - **`EVENT_ONLY_FORM_IDS`** — HOME-storable forms with no wild encounters,
   obtained only via event distributions. Tagged `event-only` in
   `categories`; their acquisition is recorded in `sources.json` with
@@ -241,18 +254,43 @@ recent scrape:
   Bulbapedia's `Celadon_Game_Corner` and `Goldenrod_Game_Corner` Prize
   Corner sections. Mauville (RSE) and Veilstone (DPPt/Platinum) are
   excluded — their prize lists are TMs/items only.
-- **Fossils** — covered via `fossil-revive` rows from PokéAPI where it
-  expresses them, plus raid rows in Gen 8 DLC; no known gaps remaining.
-- **Event-only forms** (Zarude-Dada, Magearna-Original, Greninja-Battle-Bond)
-  — covered with `method=event` rows.
-- **Game-locked starter forms** (Let's Go `pikachu-starter`/`eevee-starter`)
-  — covered with `method=gift` rows.
+- **Fossils** — Gen 8/9 covered via PokéAPI `fossil-revive` + Bulbapedia
+  raid rows. Pre-Gen-8 fossil revivals (GSC Kabuto / Omanyte at the
+  Ruins of Alph; ORAS Anorith / Lileep via Mirage Spots + Devon Corp)
+  are covered by tier-12 / tier-13 manual seeds in `seed_manual_sources.py`.
+- **Event-only forms** (Zarude-Dada, Magearna-Original) — covered with
+  `method=event` rows. Ash-Greninja (`greninja-battle-bond`) was pruned
+  in tier 8 because HOME does not acknowledge it as a distinct form.
+- **Game-locked starter forms** — pre-tier-8 `pikachu-starter` /
+  `eevee-starter` were sourced as `method=gift`, but both were pruned
+  in tier 8 once Bulbapedia confirmed Let's Go partner Pokémon cannot
+  be deposited in HOME (permanently save-bound). Both form ids live in
+  `SKIP_FORM_IDS_HOME_UNREACHABLE` now.
+- **Pre-Gen-8 regional-dex completeness** — Tier 12 closed Gen 1 / 2 /
+  Gen 6 XY / SM / USUM / LGPE via `seed_manual_sources.py`; tier 13
+  closed ORAS (47 species × 2 versions via manual wild-encounter +
+  trade + fossil + evolution rows). Tier 14 closed the 189 cosmetic
+  variants (Vivillon patterns, Alcremie, Unown letters, etc.). Extending
+  `GEN_8_9_GAME_IDS` in `bulbapedia.py` to include pre-Gen-8 games is
+  a known future-infrastructure option that would let re-scrapes
+  supersede those manual seeds.
 
 Gen 8/9 encounter coverage and branched regional-form evolution attribution
 are both addressed by `scrapers/bulbapedia.py` — see the Bulbapedia scraper
 section above. Older-gen precision (Gen 2–5 exact route lists) would benefit
 from a pret-decomps pass (MIT-licensed decompilations at
 <https://github.com/pret>) but is not currently tracked as a blocking gap.
+
+## Coverage-audit `HOME_TRANSFER_ONLY_DEX`
+
+`scripts/coverage_audit.py` holds a `HOME_TRANSFER_ONLY_DEX` dict keyed
+by `game_id` listing species that PokéAPI's aggregated regional dex
+includes for that game but which have no legitimate in-game
+acquisition — registered only via HOME transfer. Entries are subtracted
+from the "expected" set before the regional-dex audit counts missing
+species, so the audit reports genuine in-game gaps rather than dex
+metadata artefacts. Populate it only when Bulbapedia confirms a species
+has no wild / raid / trade / event / gift path in the named game.
 
 ## Game scope
 
