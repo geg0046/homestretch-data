@@ -1578,6 +1578,195 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         }
         for game in ("x", "y")
     ),
+    # --- Tier 13: ORAS regional-dex gap closures -------------------------------
+    # Gen 6 ORAS has a systematic scraper gap: PokéAPI encounter coverage
+    # is incomplete for omega-ruby/alpha-sapphire, and scrapers/bulbapedia.py
+    # filters `--mode sources` to GEN_8_9_GAME_IDS. As a result 47 species
+    # per version were missing from the regional-dex audit. This tier
+    # manual-seeds ~95 rows to close the gap while the Bulbapedia scraper
+    # remains Gen-8/9-scoped.
+    #
+    # Six sub-buckets:
+    #   (N) Gen 3 version-exclusive wild + trade pairs (Zangoose/Seviper,
+    #       Solrock/Lunatone, Volbeat/Illumise).
+    #   (O) One-sided version-exclusives where the paired version is
+    #       already sourced (e.g. Grimer in AS wild, OR needs trade).
+    #   (P) Fossil revivals (Anorith, Lileep).
+    #   (Q) Jirachi 2014 Pokémon Bank distribution.
+    #   (R) Evolution scraper gaps (Magnezone, Probopass at New Mauville).
+    #   (S) Common wild-encounter rows both versions (~66 rows).
+    # -------------------------------------------------------------------------
+    # (N) Gen 3 version-exclusive wild + trade pairs.
+    *(
+        {
+            "form_id": sp,
+            "game_id": wild_game,
+            "method": "wild-encounter",
+            "notes": notes,
+        }
+        for sp, wild_game, notes in (
+            ("zangoose", "omega-ruby", "Route 114 and Desert Ruins (OR-exclusive)."),
+            ("solrock", "omega-ruby", "Meteor Falls (OR-exclusive)."),
+            ("volbeat", "omega-ruby", "Route 117 (OR-exclusive)."),
+            ("seviper", "alpha-sapphire", "Route 114 and Desert Ruins (AS-exclusive)."),
+            ("lunatone", "alpha-sapphire", "Meteor Falls (AS-exclusive)."),
+            ("illumise", "alpha-sapphire", "Route 117 (AS-exclusive)."),
+        )
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": trade_game,
+            "method": "trade",
+            "notes": f"Version-exclusive; trade from {paired_label}.",
+        }
+        for sp, trade_game, paired_label in (
+            ("zangoose", "alpha-sapphire", "Omega Ruby"),
+            ("solrock", "alpha-sapphire", "Omega Ruby"),
+            ("volbeat", "alpha-sapphire", "Omega Ruby"),
+            ("seviper", "omega-ruby", "Alpha Sapphire"),
+            ("lunatone", "omega-ruby", "Alpha Sapphire"),
+            ("illumise", "omega-ruby", "Alpha Sapphire"),
+        )
+    ),
+    # (O) One-sided version-exclusives where the paired version already
+    # has a source row — seed trade only on the missing side.
+    *(
+        {
+            "form_id": sp,
+            "game_id": "omega-ruby",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Alpha Sapphire.",
+        }
+        for sp in ("grimer", "lotad", "sableye")
+    ),
+    *(
+        {
+            "form_id": sp,
+            "game_id": "alpha-sapphire",
+            "method": "trade",
+            "notes": "Version-exclusive; trade from Omega Ruby.",
+        }
+        for sp in ("koffing", "mawile", "seedot")
+    ),
+    # Mascot legendaries on the opposite version — catchable post-Delta
+    # Episode at Mirage Spots (Kyogre in OR, Groudon in AS).
+    {
+        "form_id": "kyogre",
+        "game_id": "omega-ruby",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "notes": "Mirage Cave encounter after completing the Delta Episode.",
+    },
+    {
+        "form_id": "groudon",
+        "game_id": "alpha-sapphire",
+        "method": "static-encounter",
+        "method_details": "only-one",
+        "notes": "Mirage Cave encounter after completing the Delta Episode.",
+    },
+    # (P) Fossil revivals — Anorith (Claw Fossil) and Lileep (Root Fossil)
+    # obtained from Mirage Spots post-game and revived at Devon Corp.
+    *(
+        {
+            "form_id": "anorith",
+            "game_id": game,
+            "method": "fossil-revive",
+            "item": "claw-fossil",
+            "notes": "Claw Fossil from Mirage Spots, revived at Devon Corp.",
+        }
+        for game in ("omega-ruby", "alpha-sapphire")
+    ),
+    *(
+        {
+            "form_id": "lileep",
+            "game_id": game,
+            "method": "fossil-revive",
+            "item": "root-fossil",
+            "notes": "Root Fossil from Mirage Spots, revived at Devon Corp.",
+        }
+        for game in ("omega-ruby", "alpha-sapphire")
+    ),
+    # (Q) Jirachi — Pokémon Bank 20th-anniversary promotional distribution
+    # (2014).
+    *(
+        {
+            "form_id": "jirachi",
+            "game_id": game,
+            "method": "event",
+            "notes": "2014 Pokémon Bank 20th-anniversary promotional distribution.",
+        }
+        for game in ("omega-ruby", "alpha-sapphire")
+    ),
+    # (R) Location-gated evolutions at New Mauville (electromagnetic field).
+    *(
+        {
+            "form_id": "magnezone",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "location": "new-mauville",
+            "from_form": "magneton",
+        }
+        for game in ("omega-ruby", "alpha-sapphire")
+    ),
+    *(
+        {
+            "form_id": "probopass",
+            "game_id": game,
+            "method": "evolution",
+            "method_details": "level-up",
+            "location": "new-mauville",
+            "from_form": "nosepass",
+        }
+        for game in ("omega-ruby", "alpha-sapphire")
+    ),
+    # (S) Common wild-encounter rows — both OR and AS. 32 species, two
+    # games each. Brief route/location notes per Bulbapedia's Hoenn game
+    # locations.
+    *(
+        {
+            "form_id": sp,
+            "game_id": game,
+            "method": "wild-encounter",
+            "notes": notes,
+        }
+        for sp, notes in (
+            ("abra", "Route 116 and DexNav."),
+            ("absol", "Route 120."),
+            ("baltoy", "Ancient Tomb and Route 111 desert."),
+            ("barboach", "Route 111 fishing."),
+            ("cacnea", "Route 111 desert."),
+            ("carvanha", "Route 118 fishing."),
+            ("chinchou", "Routes 124 and 126 fishing."),
+            ("clamperl", "Underwater on Routes 124 and 126."),
+            ("corphish", "Routes 102 and 117 fishing."),
+            ("corsola", "Underwater on Route 128."),
+            ("duskull", "Mt. Pyre."),
+            ("feebas", "Route 119 rare fishing spots."),
+            ("goldeen", "Most water routes via Old Rod and Good Rod."),
+            ("gulpin", "Route 110."),
+            ("heracross", "Safari Zone (Hoenn)."),
+            ("horsea", "Fishing on coastal routes."),
+            ("luvdisc", "Route 128 fishing."),
+            ("magikarp", "Every water route via Old Rod."),
+            ("natu", "Safari Zone (Hoenn)."),
+            ("nosepass", "Granite Cave."),
+            ("phanpy", "Safari Zone expansion area (Hoenn)."),
+            ("pinsir", "Safari Zone (Hoenn)."),
+            ("relicanth", "Underwater on Routes 124 and 126."),
+            ("rhyhorn", "Route 111 desert."),
+            ("slakoth", "Petalburg Woods."),
+            ("staryu", "Various water routes via Super Rod at night."),
+            ("surskit", "Route 102."),
+            ("tentacool", "Every sea route."),
+            ("torkoal", "Fiery Path."),
+            ("trapinch", "Route 111 desert."),
+            ("tropius", "Route 119."),
+            ("wailmer", "Most sea routes via Good Rod."),
+        )
+        for game in ("omega-ruby", "alpha-sapphire")
+    ),
 ]
 
 
