@@ -113,14 +113,17 @@ the same string, so this is just a membership check.
 Two modes, both reading Bulbapedia's `api.php?action=parse&prop=wikitext`
 endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
 
-- `--mode sources` — closes the Gen 8/9 encounter gap. Parses
-  `==Game locations==` `{{Availability/EntryN}}` templates for each
-  species. Emissions are filtered to the eight Gen 8/9 game IDs
-  (`GEN_8_9_GAME_IDS`); pre-Gen-8 rows stay PokéAPI-sourced. Method labels
-  are inferred by regex over the area text (`_METHOD_PATTERNS`) — unmatched
-  areas default to `wild-encounter`. Merge is **additive**: rows are
-  keyed on `(form_id, game_id, method, method_details)` and existing
-  entries win on conflict, so a re-run never rewrites PokéAPI-sourced rows.
+- `--mode sources` — authoritative encounter source for all 24 in-scope
+  mainline games (RBY, GSC, XY, ORAS, SM, USUM, LGPE, SwSh, BDSP, PLA,
+  SV, LZA). Parses `==Game locations==` `{{Availability/EntryN}}`
+  templates for each species. Emissions are filtered to
+  `IN_SCOPE_GAME_IDS` (mirror of `pokeapi.py::IN_SCOPE_VERSIONS`);
+  out-of-scope versions (RSE, FRLG, DPPt, HGSS, BW, B2W2) are dropped
+  after parsing. Method labels are inferred by regex over the area
+  text (`_METHOD_PATTERNS`); unmatched areas default to `wild-encounter`.
+  Merge is **additive**: rows are keyed on `(form_id, game_id, method,
+  method_details, …)` and existing entries win on conflict, so a re-run
+  never rewrites PokéAPI-sourced or manually-seeded rows.
 - `--mode evolutions` — refines the `method=evolution` rows PokéAPI
   already emits. Three narrow refinements only; the PokéAPI trigger
   catalog is otherwise authoritative:
@@ -243,11 +246,11 @@ Re-run the script after any fresh scrape to re-apply manual rows.
 - **Event-only forms** — `method=event` rows for Zarude-Dada and
   Magearna-Original (both tagged `event-only` in `categories`).
   Ash-Greninja was pruned in tier 8; see the HOME-deposit section above.
-- **Pre-Gen-8 regional-dex completeness** — Tiers 12–13 manual-seed
-  Gen 1 / 2 / 6 / 7 / LGPE / ORAS encounter rows; tier 14 seeds the
-  189 cosmetic variants. The Bulbapedia `--mode sources` filter
-  (`GEN_8_9_GAME_IDS`) is the known extension point — widening it
-  would let re-scrapes supersede these manual seeds.
+- **Pre-Gen-8 regional-dex completeness** — tier-12/13 manual seeds
+  closed the audit gaps (RBY/GSC/XY/ORAS/SM/USUM/LGPE); tier 14 seeded
+  the 189 cosmetic variants; tier 15 widened `--mode sources` scope so
+  future scrapes auto-populate pre-Gen-8 Bulbapedia data on top of the
+  manual rows (manual rows stay as a safety net per the additive merge).
 
 ## Coverage-audit `HOME_TRANSFER_ONLY_DEX`
 

@@ -1,4 +1,4 @@
-"""Scrape Gen 8/9 source rows from Bulbapedia's per-species Game locations.
+"""Scrape mainline-game source rows from Bulbapedia's per-species Game locations.
 
 Usage:
     uv run python scrapers/bulbapedia.py --mode sources    --max-dex 1025
@@ -44,7 +44,7 @@ POKEAPI_BASE = "https://pokeapi.co/api/v2"
 # Bulbapedia version display names (as they appear in Availability/Entry*
 # `v=`/`v2=` parameters) → HomeStretch game IDs. Pre-Gen-8 entries are
 # included so the parser can tell "known-but-out-of-scope" apart from
-# "unknown" — sources mode filters emissions to GEN_8_9_GAME_IDS below.
+# "unknown" — sources mode filters emissions to IN_SCOPE_GAME_IDS below.
 VERSION_TO_GAME_ID: dict[str, str] = {
     "Sword": "sword",
     "Shield": "shield",
@@ -102,10 +102,27 @@ DLC_TO_GAMES: dict[str, tuple[tuple[str, ...], str]] = {
     ),
 }
 
-# Sources mode emits rows only for these games; everything else is dropped
-# after parsing (PokéAPI already covers those).
-GEN_8_9_GAME_IDS = frozenset(
+# Sources mode emits rows only for in-scope mainline games; DLC labels and
+# out-of-scope versions (RSE, FRLG, DPPt, HGSS, BW, B2W2) are dropped after
+# parsing. Mirrors `IN_SCOPE_VERSIONS` in `pokeapi.py`.
+IN_SCOPE_GAME_IDS = frozenset(
     {
+        "red",
+        "blue",
+        "yellow",
+        "gold",
+        "silver",
+        "crystal",
+        "x",
+        "y",
+        "omega-ruby",
+        "alpha-sapphire",
+        "sun",
+        "moon",
+        "ultra-sun",
+        "ultra-moon",
+        "lets-go-pikachu",
+        "lets-go-eevee",
         "sword",
         "shield",
         "brilliant-diamond",
@@ -514,7 +531,7 @@ def parse_sources_from_wikitext(
 ) -> list[dict[str, Any]]:
     """Emit Source dicts for each base-game location entry on a species page.
 
-    Only rows whose resolved game_id lies in GEN_8_9_GAME_IDS are returned;
+    Only rows whose resolved game_id lies in IN_SCOPE_GAME_IDS are returned;
     pre-Gen-8 games are already covered by PokéAPI.
 
     Availability entries are split on `<br>` so each acquisition path is
@@ -564,7 +581,7 @@ def parse_sources_from_wikitext(
             for v in vs:
                 games, dlc = _resolve_version(v)
                 for gid in games:
-                    if gid not in GEN_8_9_GAME_IDS:
+                    if gid not in IN_SCOPE_GAME_IDS:
                         continue
                     for form_id in resolved_forms:
                         entry: dict[str, Any] = {
@@ -848,7 +865,7 @@ def _scrape_sources(
             continue
         rows = parse_sources_from_wikitext(wikitext, species_id, form_ids)
         all_new.extend(rows)
-        print(f"  #{dex:04d} {species_id}: {len(rows)} Gen 8/9 source(s)")
+        print(f"  #{dex:04d} {species_id}: {len(rows)} scraped source(s)")
 
     merged = merge_by_key(load_existing_sources(), all_new, key_fn=_source_key)
     merged.sort(key=source_sort_key)
