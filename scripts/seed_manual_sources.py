@@ -91,6 +91,58 @@ PURCHASE_ROWS: list[tuple[str, list[str]]] = [
     ("wobbuffet", ["crystal"]),
 ]
 
+# Deterministic location slugs: fossil-revive, breeding, and game-corner
+# purchase rows have a location fully determined by `(game_id, method_details)`.
+# Applied post-merge in `_apply_deterministic_locations()` so existing rows
+# (whose merge key already includes `location`) get the field backfilled
+# without splitting into duplicates. See notes in `utils.py::SOURCE_KEY_FIELDS`.
+FOSSIL_REVIVE_LOCATION: dict[str, str] = {
+    "red": "cinnabar-island",
+    "blue": "cinnabar-island",
+    "yellow": "cinnabar-island",
+    "gold": "pewter-city",
+    "silver": "pewter-city",
+    "crystal": "pewter-city",
+    "x": "ambrette-town",
+    "y": "ambrette-town",
+    "omega-ruby": "rustboro-city",
+    "alpha-sapphire": "rustboro-city",
+    "sun": "alola-route-8",
+    "moon": "alola-route-8",
+    "ultra-sun": "alola-route-8",
+    "ultra-moon": "alola-route-8",
+    "brilliant-diamond": "oreburgh-mining-museum",
+    "shining-pearl": "oreburgh-mining-museum",
+    # legends-za omitted: Amaura/Tyrunt are present but the in-game revival
+    # venue isn't documented with enough confidence to slug yet.
+}
+
+BREEDING_LOCATION: dict[str, str] = {
+    "gold": "johto-route-34",
+    "silver": "johto-route-34",
+    "x": "kalos-route-7",
+    "y": "kalos-route-7",
+    "omega-ruby": "hoenn-route-117",
+    "alpha-sapphire": "hoenn-route-117",
+    "sun": "paniola-ranch",
+    "moon": "paniola-ranch",
+    "brilliant-diamond": "solaceon-town",
+    "shining-pearl": "solaceon-town",
+}
+
+# Keyed on `(game_id, method_details)` since purchase rows may be seeded
+# for other shops (Celadon Department Store, Battle Tower mart) in later
+# tiers without the game-corner key applying.
+PURCHASE_LOCATION: dict[tuple[str, str], str] = {
+    ("red", "game-corner"): "celadon-city",
+    ("blue", "game-corner"): "celadon-city",
+    ("yellow", "game-corner"): "celadon-city",
+    ("gold", "game-corner"): "goldenrod-city",
+    ("silver", "game-corner"): "goldenrod-city",
+    ("crystal", "game-corner"): "goldenrod-city",
+}
+
+
 # Gender-difference pairs: (female_form, default_form). Rows are derived
 # at build time by mirroring every source row for the default with
 # `gender=female` set. Keeps in sync with authoritative scraper output
@@ -2129,6 +2181,34 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
 ]
 
 
+def _apply_deterministic_locations(rows: list[dict]) -> int:
+    """Fill `location` on rows whose slug is determined by game+method.
+
+    Mutates `rows` in place. Runs after merge so rows already in
+    sources.json (which `merge_by_key` preserves verbatim) get their
+    `location` backfilled — adding `location` at row-build time would
+    produce a new row under `SOURCE_KEY_FIELDS`, not update the existing.
+    Returns the number of rows updated.
+    """
+    updated = 0
+    for row in rows:
+        if row.get("location") is not None:
+            continue
+        method = row.get("method")
+        game = row.get("game_id")
+        loc: str | None = None
+        if method == "fossil-revive":
+            loc = FOSSIL_REVIVE_LOCATION.get(game)
+        elif method == "breeding":
+            loc = BREEDING_LOCATION.get(game)
+        elif method == "purchase":
+            loc = PURCHASE_LOCATION.get((game, row.get("method_details")))
+        if loc is not None:
+            row["location"] = loc
+            updated += 1
+    return updated
+
+
 def _build_rows(existing: list[dict]) -> list[dict]:
     rows: list[dict] = []
     for baby, parent, games in BREEDING_ROWS:
@@ -2196,6 +2276,7 @@ def main() -> int:
     adapter.validate_python(new_rows)
 
     merged = merge_by_key(existing, new_rows, source_key)
+    location_fills = _apply_deterministic_locations(merged)
     merged.sort(key=source_sort_key)
 
     # Re-validate the final set and normalize to canonical dict shape.
@@ -2204,7 +2285,10 @@ def main() -> int:
 
     SOURCES_PATH.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     added = len(merged) - len(existing)
-    print(f"seed_manual_sources: {added} new row(s), {len(merged)} total")
+    print(
+        f"seed_manual_sources: {added} new row(s), "
+        f"{location_fills} location(s) filled, {len(merged)} total"
+    )
     return 0
 
 
