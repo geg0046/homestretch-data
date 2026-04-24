@@ -167,19 +167,33 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   **added** for regional forms. Re-runs are idempotent (annotation
   suffixes are not re-appended if already present).
 - `--mode locations` — backfill the `location` field on existing
-  static-encounter rows. Walks species pages, extracts a location slug
-  from each static segment (first wikilink display text, or `{{rt|N|R}}`
-  /`{{FB|R|P}}` shortcuts, with `<small>`-footnote metadata scrubbed),
-  then updates matching rows in `data/sources.json` **in place**. Rows
-  that already have a `location` are left untouched. A 40-character
-  slug length gate drops any extraction that's really condition prose
-  rather than a named place, so the failure mode is "row keeps
-  `location=None`," never "row gets a garbage slug." Island-scan
-  (SM/USUM) rows are explicitly excluded — their location is a
-  (species, day, island) triple that doesn't collapse to a single slug.
-  In-place update (not merge) is required because `location` is part
-  of `SOURCE_KEY_FIELDS`, so additive merge would split the existing
-  row instead of filling it.
+  static-encounter and gift rows. Walks species pages, extracts a
+  location slug from each targeted segment, then updates matching
+  rows in `data/sources.json` **in place**. Rows that already have a
+  `location` are left untouched. A 40-character slug length gate
+  drops any extraction that's really condition prose rather than a
+  named place, so the failure mode is "row keeps `location=None`,"
+  never "row gets a garbage slug." In-place update (not merge) is
+  required because `location` is part of `SOURCE_KEY_FIELDS`, so
+  additive merge would split the existing row instead of filling it.
+  Extraction strategy is method-aware, set by `prefer_preposition` on
+  `extract_area_location`:
+    - **Static-encounter** (``prefer_preposition=False``): first
+      wikilink wins. Static segments open with the place
+      (``[[Cerulean Cave]] ([[...|Only one]])``).
+    - **Gift** (``prefer_preposition=True``): the location follows an
+      ``in`` / ``at`` / ``on`` preposition — ``Received from
+      [[Bill]] in [[Goldenrod City]]`` picks ``goldenrod-city``, not
+      ``bill``. Falls back to first-wikilink for gifts written
+      without a preposition.
+  Both paths scrub the "Only one" event-list wikilink,
+  `<small>`/`<sup>` footnote metadata, `{{tt|...}}` tooltips, and
+  trailing ``after X`` / ``during Y`` condition clauses. Targeted
+  rows are whitelisted by `_LOCATION_TARGET_DETAILS`: static subtypes
+  with a single discrete spot (None / pokeflute / squirt-bottle /
+  devon-scope) and gift subtypes (None / gift-egg). Island-scan
+  (SM/USUM) is excluded because its location is a
+  (species, day, island) triple that doesn't collapse to a slug.
 
 `fetch_wikitext` follows `#redirect` pages once — Bulbapedia canonicalises
 apostrophe variants this way (Sirfetch'd/Sirfetch’d), so the shared cache

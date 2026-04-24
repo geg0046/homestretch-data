@@ -533,7 +533,8 @@
   {
     "form_id": "absol",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "received"
   },
   {
     "form_id": "absol",
@@ -807,7 +808,8 @@
   {
     "form_id": "aerodactyl",
     "game_id": "moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "seafolk-village"
   },
   {
     "form_id": "aerodactyl",
@@ -861,7 +863,8 @@
   {
     "form_id": "aerodactyl",
     "game_id": "sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "seafolk-village"
   },
   {
     "form_id": "aerodactyl",
@@ -884,12 +887,14 @@
   {
     "form_id": "aerodactyl",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "seafolk-village"
   },
   {
     "form_id": "aerodactyl",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "seafolk-village"
   },
   {
     "form_id": "aerodactyl",
@@ -3224,7 +3229,8 @@
   {
     "form_id": "araquanid",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "araquanid",
@@ -7317,7 +7323,8 @@
   {
     "form_id": "beldum",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "mossdeep-city"
   },
   {
     "form_id": "beldum",
@@ -7343,7 +7350,8 @@
   {
     "form_id": "beldum",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "mossdeep-city"
   },
   {
     "form_id": "beldum",
@@ -10525,7 +10533,8 @@
   {
     "form_id": "bulbasaur",
     "game_id": "blue",
-    "method": "gift"
+    "method": "gift",
+    "location": "pallet-town"
   },
   {
     "form_id": "bulbasaur",
@@ -10557,7 +10566,8 @@
   {
     "form_id": "bulbasaur",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "vert-district"
   },
   {
     "form_id": "bulbasaur",
@@ -10595,7 +10605,8 @@
   {
     "form_id": "bulbasaur",
     "game_id": "red",
-    "method": "gift"
+    "method": "gift",
+    "location": "pallet-town"
   },
   {
     "form_id": "bulbasaur",
@@ -10694,17 +10705,20 @@
   {
     "form_id": "bulbasaur",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "lumiose-city"
   },
   {
     "form_id": "bulbasaur",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "lumiose-city"
   },
   {
     "form_id": "bulbasaur",
     "game_id": "yellow",
-    "method": "gift"
+    "method": "gift",
+    "location": "cerulean-city"
   },
   {
     "form_id": "buneary",
@@ -11447,7 +11461,8 @@
   {
     "form_id": "camerupt",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "battle-resort"
   },
   {
     "form_id": "camerupt",
@@ -11474,7 +11489,8 @@
   {
     "form_id": "camerupt",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "battle-resort"
   },
   {
     "form_id": "camerupt",
@@ -13613,7 +13629,8 @@
   {
     "form_id": "charmander",
     "game_id": "blue",
-    "method": "gift"
+    "method": "gift",
+    "location": "pallet-town"
   },
   {
     "form_id": "charmander",
@@ -13645,7 +13662,8 @@
   {
     "form_id": "charmander",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "vert-district"
   },
   {
     "form_id": "charmander",
@@ -13683,7 +13701,8 @@
   {
     "form_id": "charmander",
     "game_id": "red",
-    "method": "gift"
+    "method": "gift",
+    "location": "pallet-town"
   },
   {
     "form_id": "charmander",
@@ -13699,7 +13718,8 @@
   {
     "form_id": "charmander",
     "game_id": "shield",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "charmander",
@@ -13726,7 +13746,8 @@
   {
     "form_id": "charmander",
     "game_id": "sword",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "charmander",
@@ -13770,17 +13791,20 @@
   {
     "form_id": "charmander",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "lumiose-city"
   },
   {
     "form_id": "charmander",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "lumiose-city"
   },
   {
     "form_id": "charmander",
     "game_id": "yellow",
-    "method": "gift"
+    "method": "gift",
+    "location": "kanto-route-24"
   },
   {
     "form_id": "charmeleon",
@@ -14271,7 +14295,8 @@
   {
     "form_id": "chespin",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "aquacorde-town"
   },
   {
     "form_id": "chespin",
@@ -14281,7 +14306,8 @@
   {
     "form_id": "chespin",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "aquacorde-town"
   },
   {
     "form_id": "chespin",
@@ -14383,7 +14409,8 @@
   {
     "form_id": "chikorita",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "chikorita",
@@ -14393,17 +14420,20 @@
   {
     "form_id": "chikorita",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "chikorita",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "chikorita",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "vert-sector-8"
   },
   {
     "form_id": "chikorita",
@@ -14424,7 +14454,8 @@
   {
     "form_id": "chikorita",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "chikorita",
@@ -14445,7 +14476,8 @@
   {
     "form_id": "chikorita",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "chikorita",
@@ -14484,12 +14516,14 @@
   {
     "form_id": "chimchar",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "chimchar",
     "game_id": "brilliant-diamond",
-    "method": "gift"
+    "method": "gift",
+    "location": "lake-verity"
   },
   {
     "form_id": "chimchar",
@@ -14505,13 +14539,15 @@
   {
     "form_id": "chimchar",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "chimchar",
     "game_id": "scarlet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "reveler-s-road"
   },
   {
     "form_id": "chimchar",
@@ -14527,7 +14563,8 @@
   {
     "form_id": "chimchar",
     "game_id": "shining-pearl",
-    "method": "gift"
+    "method": "gift",
+    "location": "lake-verity"
   },
   {
     "form_id": "chimchar",
@@ -14548,7 +14585,8 @@
     "form_id": "chimchar",
     "game_id": "violet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "reveler-s-road"
   },
   {
     "form_id": "chimchar",
@@ -18137,7 +18175,8 @@
     "form_id": "cosmog",
     "game_id": "shield",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "freezington"
   },
   {
     "form_id": "cosmog",
@@ -18159,7 +18198,8 @@
     "form_id": "cosmog",
     "game_id": "sword",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "freezington"
   },
   {
     "form_id": "cosmog",
@@ -20141,7 +20181,8 @@
   {
     "form_id": "cyndaquil",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "cyndaquil",
@@ -20151,17 +20192,20 @@
   {
     "form_id": "cyndaquil",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "cyndaquil",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "cyndaquil",
     "game_id": "legends-arceus",
-    "method": "gift"
+    "method": "gift",
+    "location": "jubilife-village"
   },
   {
     "form_id": "cyndaquil",
@@ -20183,7 +20227,8 @@
   {
     "form_id": "cyndaquil",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "cyndaquil",
@@ -20204,7 +20249,8 @@
   {
     "form_id": "cyndaquil",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "cyndaquil",
@@ -24239,7 +24285,8 @@
   {
     "form_id": "dratini",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "dragon-s-den"
   },
   {
     "form_id": "dratini",
@@ -27208,12 +27255,14 @@
   {
     "form_id": "eevee",
     "game_id": "blue",
-    "method": "gift"
+    "method": "gift",
+    "location": "celadon-mansion"
   },
   {
     "form_id": "eevee",
     "game_id": "brilliant-diamond",
-    "method": "gift"
+    "method": "gift",
+    "location": "hearthome-city"
   },
   {
     "form_id": "eevee",
@@ -27223,12 +27272,14 @@
   {
     "form_id": "eevee",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "goldenrod-city"
   },
   {
     "form_id": "eevee",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "goldenrod-city"
   },
   {
     "form_id": "eevee",
@@ -27273,7 +27324,8 @@
   {
     "form_id": "eevee",
     "game_id": "moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "paniola-ranch"
   },
   {
     "form_id": "eevee",
@@ -27294,7 +27346,8 @@
   {
     "form_id": "eevee",
     "game_id": "red",
-    "method": "gift"
+    "method": "gift",
+    "location": "celadon-mansion"
   },
   {
     "form_id": "eevee",
@@ -27316,7 +27369,8 @@
   {
     "form_id": "eevee",
     "game_id": "shield",
-    "method": "gift"
+    "method": "gift",
+    "location": "meetup-spot"
   },
   {
     "form_id": "eevee",
@@ -27345,7 +27399,8 @@
   {
     "form_id": "eevee",
     "game_id": "shining-pearl",
-    "method": "gift"
+    "method": "gift",
+    "location": "hearthome-city"
   },
   {
     "form_id": "eevee",
@@ -27355,7 +27410,8 @@
   {
     "form_id": "eevee",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "goldenrod-city"
   },
   {
     "form_id": "eevee",
@@ -27372,7 +27428,8 @@
   {
     "form_id": "eevee",
     "game_id": "sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "paniola-ranch"
   },
   {
     "form_id": "eevee",
@@ -27388,7 +27445,8 @@
   {
     "form_id": "eevee",
     "game_id": "sword",
-    "method": "gift"
+    "method": "gift",
+    "location": "meetup-spot"
   },
   {
     "form_id": "eevee",
@@ -27417,7 +27475,8 @@
   {
     "form_id": "eevee",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "paniola-ranch"
   },
   {
     "form_id": "eevee",
@@ -27433,7 +27492,8 @@
   {
     "form_id": "eevee",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "paniola-ranch"
   },
   {
     "form_id": "eevee",
@@ -27498,7 +27558,8 @@
   {
     "form_id": "eevee",
     "game_id": "yellow",
-    "method": "gift"
+    "method": "gift",
+    "location": "celadon-mansion"
   },
   {
     "form_id": "eiscue",
@@ -31444,7 +31505,8 @@
   {
     "form_id": "fennekin",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "aquacorde-town"
   },
   {
     "form_id": "fennekin",
@@ -31454,7 +31516,8 @@
   {
     "form_id": "fennekin",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "aquacorde-town"
   },
   {
     "form_id": "fennekin",
@@ -32959,7 +33022,8 @@
   {
     "form_id": "floette",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "taunie"
   },
   {
     "form_id": "floette",
@@ -34028,7 +34092,8 @@
   {
     "form_id": "froakie",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "aquacorde-town"
   },
   {
     "form_id": "froakie",
@@ -34038,7 +34103,8 @@
   {
     "form_id": "froakie",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "aquacorde-town"
   },
   {
     "form_id": "froakie",
@@ -34385,12 +34451,14 @@
   {
     "form_id": "fuecoco",
     "game_id": "scarlet",
-    "method": "gift"
+    "method": "gift",
+    "location": "cabo-poco"
   },
   {
     "form_id": "fuecoco",
     "game_id": "violet",
-    "method": "gift"
+    "method": "gift",
+    "location": "cabo-poco"
   },
   {
     "form_id": "furfrou",
@@ -42138,12 +42206,14 @@
   {
     "form_id": "grookey",
     "game_id": "shield",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "grookey",
     "game_id": "sword",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "grookey",
@@ -42636,7 +42706,8 @@
     "form_id": "growlithe-hisui",
     "game_id": "scarlet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "perrin"
   },
   {
     "form_id": "growlithe-hisui",
@@ -42647,7 +42718,8 @@
     "form_id": "growlithe-hisui",
     "game_id": "violet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "perrin"
   },
   {
     "form_id": "growlithe-hisui",
@@ -43031,7 +43103,8 @@
   {
     "form_id": "gumshoos",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "gumshoos",
@@ -43907,7 +43980,8 @@
   {
     "form_id": "happiny",
     "game_id": "brilliant-diamond",
-    "method": "gift"
+    "method": "gift",
+    "location": "hearthome-city"
   },
   {
     "form_id": "happiny",
@@ -43983,7 +44057,8 @@
   {
     "form_id": "happiny",
     "game_id": "shining-pearl",
-    "method": "gift"
+    "method": "gift",
+    "location": "hearthome-city"
   },
   {
     "form_id": "happiny",
@@ -46023,7 +46098,8 @@
   {
     "form_id": "hitmonchan",
     "game_id": "blue",
-    "method": "gift"
+    "method": "gift",
+    "location": "saffron-city"
   },
   {
     "form_id": "hitmonchan",
@@ -46085,7 +46161,8 @@
   {
     "form_id": "hitmonchan",
     "game_id": "red",
-    "method": "gift"
+    "method": "gift",
+    "location": "saffron-city"
   },
   {
     "form_id": "hitmonchan",
@@ -46204,7 +46281,8 @@
   {
     "form_id": "hitmonchan",
     "game_id": "yellow",
-    "method": "gift"
+    "method": "gift",
+    "location": "saffron-city"
   },
   {
     "form_id": "hitmonlee",
@@ -46216,7 +46294,8 @@
   {
     "form_id": "hitmonlee",
     "game_id": "blue",
-    "method": "gift"
+    "method": "gift",
+    "location": "saffron-city"
   },
   {
     "form_id": "hitmonlee",
@@ -46278,7 +46357,8 @@
   {
     "form_id": "hitmonlee",
     "game_id": "red",
-    "method": "gift"
+    "method": "gift",
+    "location": "saffron-city"
   },
   {
     "form_id": "hitmonlee",
@@ -46397,7 +46477,8 @@
   {
     "form_id": "hitmonlee",
     "game_id": "yellow",
-    "method": "gift"
+    "method": "gift",
+    "location": "saffron-city"
   },
   {
     "form_id": "hitmontop",
@@ -53109,7 +53190,8 @@
   {
     "form_id": "kommo-o",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "kommo-o",
@@ -53852,7 +53934,8 @@
     "form_id": "kubfu",
     "game_id": "shield",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "master-dojo"
   },
   {
     "form_id": "kubfu",
@@ -53863,7 +53946,8 @@
     "form_id": "kubfu",
     "game_id": "sword",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "master-dojo"
   },
   {
     "form_id": "kubfu",
@@ -54699,7 +54783,8 @@
   {
     "form_id": "lapras",
     "game_id": "blue",
-    "method": "gift"
+    "method": "gift",
+    "location": "silph-co"
   },
   {
     "form_id": "lapras",
@@ -54758,7 +54843,8 @@
   {
     "form_id": "lapras",
     "game_id": "red",
-    "method": "gift"
+    "method": "gift",
+    "location": "silph-co"
   },
   {
     "form_id": "lapras",
@@ -54929,7 +55015,8 @@
   {
     "form_id": "lapras",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "kalos-route-12"
   },
   {
     "form_id": "lapras",
@@ -54951,7 +55038,8 @@
   {
     "form_id": "lapras",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "kalos-route-12"
   },
   {
     "form_id": "lapras",
@@ -54973,7 +55061,8 @@
   {
     "form_id": "lapras",
     "game_id": "yellow",
-    "method": "gift"
+    "method": "gift",
+    "location": "silph-co"
   },
   {
     "form_id": "larvesta",
@@ -56984,7 +57073,8 @@
   {
     "form_id": "litten",
     "game_id": "moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "iki-town"
   },
   {
     "form_id": "litten",
@@ -57011,7 +57101,8 @@
   {
     "form_id": "litten",
     "game_id": "sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "iki-town"
   },
   {
     "form_id": "litten",
@@ -57027,12 +57118,14 @@
   {
     "form_id": "litten",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "route-1"
   },
   {
     "form_id": "litten",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "route-1"
   },
   {
     "form_id": "litten",
@@ -57969,7 +58062,8 @@
   {
     "form_id": "lucario",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "tower-of-mastery"
   },
   {
     "form_id": "lucario",
@@ -57982,7 +58076,8 @@
   {
     "form_id": "lucario",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "tower-of-mastery"
   },
   {
     "form_id": "ludicolo",
@@ -58586,7 +58681,8 @@
   {
     "form_id": "lurantis",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "lurantis",
@@ -65762,7 +65858,8 @@
   {
     "form_id": "meowth-galar",
     "game_id": "scarlet",
-    "method": "gift"
+    "method": "gift",
+    "location": "salvatore"
   },
   {
     "form_id": "meowth-galar",
@@ -65803,7 +65900,8 @@
   {
     "form_id": "meowth-galar",
     "game_id": "violet",
-    "method": "gift"
+    "method": "gift",
+    "location": "salvatore"
   },
   {
     "form_id": "mesprit",
@@ -67596,7 +67694,8 @@
   {
     "form_id": "mimikyu",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "mimikyu",
@@ -67612,7 +67711,8 @@
   {
     "form_id": "mimikyu",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "mimikyu",
@@ -69423,7 +69523,8 @@
   {
     "form_id": "mudkip",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "mudkip",
@@ -69433,7 +69534,8 @@
   {
     "form_id": "mudkip",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "mudkip",
@@ -69986,7 +70088,8 @@
     "form_id": "munchlax",
     "game_id": "scarlet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "ogre-oustin"
   },
   {
     "form_id": "munchlax",
@@ -70096,7 +70199,8 @@
     "form_id": "munchlax",
     "game_id": "violet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "ogre-oustin"
   },
   {
     "form_id": "munchlax",
@@ -75006,12 +75110,14 @@
   {
     "form_id": "oshawott",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "oshawott",
     "game_id": "legends-arceus",
-    "method": "gift"
+    "method": "gift",
+    "location": "jubilife-village"
   },
   {
     "form_id": "oshawott",
@@ -75028,7 +75134,8 @@
   {
     "form_id": "oshawott",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "oshawott",
@@ -78443,7 +78550,8 @@
   {
     "form_id": "pikachu",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "verdanturf-town"
   },
   {
     "form_id": "pikachu",
@@ -78624,7 +78732,8 @@
   {
     "form_id": "pikachu",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "verdanturf-town"
   },
   {
     "form_id": "pikachu",
@@ -79680,12 +79789,14 @@
   {
     "form_id": "piplup",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "piplup",
     "game_id": "brilliant-diamond",
-    "method": "gift"
+    "method": "gift",
+    "location": "lake-verity"
   },
   {
     "form_id": "piplup",
@@ -79701,13 +79812,15 @@
   {
     "form_id": "piplup",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "piplup",
     "game_id": "scarlet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "reveler-s-road"
   },
   {
     "form_id": "piplup",
@@ -79723,7 +79836,8 @@
   {
     "form_id": "piplup",
     "game_id": "shining-pearl",
-    "method": "gift"
+    "method": "gift",
+    "location": "lake-verity"
   },
   {
     "form_id": "piplup",
@@ -79744,7 +79858,8 @@
     "form_id": "piplup",
     "game_id": "violet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "reveler-s-road"
   },
   {
     "form_id": "piplup",
@@ -79837,7 +79952,8 @@
     "form_id": "poipole",
     "game_id": "shield",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "max-lair"
   },
   {
     "form_id": "poipole",
@@ -79848,7 +79964,8 @@
     "form_id": "poipole",
     "game_id": "sword",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "max-lair"
   },
   {
     "form_id": "poipole",
@@ -79858,12 +79975,14 @@
   {
     "form_id": "poipole",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "megalo-tower"
   },
   {
     "form_id": "poipole",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "megalo-tower"
   },
   {
     "form_id": "politoed",
@@ -81454,7 +81573,8 @@
   {
     "form_id": "popplio",
     "game_id": "moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "iki-town"
   },
   {
     "form_id": "popplio",
@@ -81481,7 +81601,8 @@
   {
     "form_id": "popplio",
     "game_id": "sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "iki-town"
   },
   {
     "form_id": "popplio",
@@ -81497,12 +81618,14 @@
   {
     "form_id": "popplio",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "route-1"
   },
   {
     "form_id": "popplio",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "route-1"
   },
   {
     "form_id": "popplio",
@@ -81618,7 +81741,8 @@
   {
     "form_id": "porygon",
     "game_id": "moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "alola-route-15"
   },
   {
     "form_id": "porygon",
@@ -81670,7 +81794,8 @@
     "form_id": "porygon",
     "game_id": "shield",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "master-dojo"
   },
   {
     "form_id": "porygon",
@@ -81708,13 +81833,15 @@
   {
     "form_id": "porygon",
     "game_id": "sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "alola-route-15"
   },
   {
     "form_id": "porygon",
     "game_id": "sword",
     "method": "gift",
-    "requires_dlc": "expansion-pass"
+    "requires_dlc": "expansion-pass",
+    "location": "master-dojo"
   },
   {
     "form_id": "porygon",
@@ -81730,12 +81857,14 @@
   {
     "form_id": "porygon",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "alola-route-15"
   },
   {
     "form_id": "porygon",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "alola-route-15"
   },
   {
     "form_id": "porygon",
@@ -83836,12 +83965,14 @@
   {
     "form_id": "quaxly",
     "game_id": "scarlet",
-    "method": "gift"
+    "method": "gift",
+    "location": "cabo-poco"
   },
   {
     "form_id": "quaxly",
     "game_id": "violet",
-    "method": "gift"
+    "method": "gift",
+    "location": "cabo-poco"
   },
   {
     "form_id": "quaxwell",
@@ -87382,7 +87513,8 @@
   {
     "form_id": "ribombee",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "ribombee",
@@ -87468,7 +87600,8 @@
   {
     "form_id": "riolu",
     "game_id": "brilliant-diamond",
-    "method": "gift"
+    "method": "gift",
+    "location": "iron-island"
   },
   {
     "form_id": "riolu",
@@ -87528,7 +87661,8 @@
   {
     "form_id": "riolu",
     "game_id": "shining-pearl",
-    "method": "gift"
+    "method": "gift",
+    "location": "iron-island"
   },
   {
     "form_id": "riolu",
@@ -88528,7 +88662,8 @@
   {
     "form_id": "rowlet",
     "game_id": "legends-arceus",
-    "method": "gift"
+    "method": "gift",
+    "location": "jubilife-village"
   },
   {
     "form_id": "rowlet",
@@ -88539,7 +88674,8 @@
   {
     "form_id": "rowlet",
     "game_id": "moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "iki-town"
   },
   {
     "form_id": "rowlet",
@@ -88566,7 +88702,8 @@
   {
     "form_id": "rowlet",
     "game_id": "sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "iki-town"
   },
   {
     "form_id": "rowlet",
@@ -88582,12 +88719,14 @@
   {
     "form_id": "rowlet",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "route-1"
   },
   {
     "form_id": "rowlet",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "route-1"
   },
   {
     "form_id": "rowlet",
@@ -89323,7 +89462,8 @@
   {
     "form_id": "salazzle",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "salazzle",
@@ -91185,12 +91325,14 @@
   {
     "form_id": "scorbunny",
     "game_id": "shield",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "scorbunny",
     "game_id": "sword",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "scorbunny",
@@ -93101,7 +93243,8 @@
   {
     "form_id": "sharpedo",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "battle-resort"
   },
   {
     "form_id": "sharpedo",
@@ -93158,7 +93301,8 @@
   {
     "form_id": "sharpedo",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "battle-resort"
   },
   {
     "form_id": "sharpedo",
@@ -94610,7 +94754,8 @@
   {
     "form_id": "shuckle",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "cianwood-city"
   },
   {
     "form_id": "shuckle",
@@ -94626,7 +94771,8 @@
   {
     "form_id": "shuckle",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "cianwood-city"
   },
   {
     "form_id": "shuckle",
@@ -94676,7 +94822,8 @@
   {
     "form_id": "shuckle",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "cianwood-city"
   },
   {
     "form_id": "shuckle",
@@ -98137,7 +98284,8 @@
   {
     "form_id": "snivy",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "snivy",
@@ -98148,7 +98296,8 @@
   {
     "form_id": "snivy",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "snivy",
@@ -99120,12 +99269,14 @@
   {
     "form_id": "sobble",
     "game_id": "shield",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "sobble",
     "game_id": "sword",
-    "method": "gift"
+    "method": "gift",
+    "location": "postwick"
   },
   {
     "form_id": "sobble",
@@ -99403,7 +99554,8 @@
   {
     "form_id": "spearow",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "johto-route-35"
   },
   {
     "form_id": "spearow",
@@ -99419,7 +99571,8 @@
   {
     "form_id": "spearow",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "johto-route-35"
   },
   {
     "form_id": "spearow",
@@ -99479,7 +99632,8 @@
   {
     "form_id": "spearow",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "johto-route-35"
   },
   {
     "form_id": "spearow",
@@ -100433,12 +100587,14 @@
   {
     "form_id": "sprigatito",
     "game_id": "scarlet",
-    "method": "gift"
+    "method": "gift",
+    "location": "cabo-poco"
   },
   {
     "form_id": "sprigatito",
     "game_id": "violet",
-    "method": "gift"
+    "method": "gift",
+    "location": "cabo-poco"
   },
   {
     "form_id": "spritzee",
@@ -100550,7 +100706,8 @@
   {
     "form_id": "squirtle",
     "game_id": "blue",
-    "method": "gift"
+    "method": "gift",
+    "location": "pallet-town"
   },
   {
     "form_id": "squirtle",
@@ -100582,7 +100739,8 @@
   {
     "form_id": "squirtle",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "vert-district"
   },
   {
     "form_id": "squirtle",
@@ -100620,7 +100778,8 @@
   {
     "form_id": "squirtle",
     "game_id": "red",
-    "method": "gift"
+    "method": "gift",
+    "location": "pallet-town"
   },
   {
     "form_id": "squirtle",
@@ -100719,17 +100878,20 @@
   {
     "form_id": "squirtle",
     "game_id": "x",
-    "method": "gift"
+    "method": "gift",
+    "location": "lumiose-city"
   },
   {
     "form_id": "squirtle",
     "game_id": "y",
-    "method": "gift"
+    "method": "gift",
+    "location": "lumiose-city"
   },
   {
     "form_id": "squirtle",
     "game_id": "yellow",
-    "method": "gift"
+    "method": "gift",
+    "location": "vermilion-city"
   },
   {
     "form_id": "stakataka",
@@ -106111,12 +106273,14 @@
   {
     "form_id": "tepig",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "tepig",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "vert-sector-8"
   },
   {
     "form_id": "tepig",
@@ -106132,7 +106296,8 @@
   {
     "form_id": "tepig",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "tepig",
@@ -106931,7 +107096,8 @@
   {
     "form_id": "togedemaru",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "togedemaru",
@@ -107060,7 +107226,8 @@
   {
     "form_id": "togepi",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "lavaridge-town"
   },
   {
     "form_id": "togepi",
@@ -107076,7 +107243,8 @@
   {
     "form_id": "togepi",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "violet-city"
   },
   {
     "form_id": "togepi",
@@ -107087,7 +107255,8 @@
   {
     "form_id": "togepi",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "violet-city"
   },
   {
     "form_id": "togepi",
@@ -107122,7 +107291,8 @@
   {
     "form_id": "togepi",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "lavaridge-town"
   },
   {
     "form_id": "togepi",
@@ -107154,7 +107324,8 @@
   {
     "form_id": "togepi",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "violet-city"
   },
   {
     "form_id": "togepi",
@@ -107317,7 +107488,8 @@
   {
     "form_id": "torchic",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "torchic",
@@ -107327,7 +107499,8 @@
   {
     "form_id": "torchic",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "torchic",
@@ -107734,7 +107907,8 @@
   {
     "form_id": "totodile",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "totodile",
@@ -107744,17 +107918,20 @@
   {
     "form_id": "totodile",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "totodile",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "totodile",
     "game_id": "legends-za",
-    "method": "gift"
+    "method": "gift",
+    "location": "vert-sector-8"
   },
   {
     "form_id": "totodile",
@@ -107775,7 +107952,8 @@
   {
     "form_id": "totodile",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "totodile",
@@ -107796,7 +107974,8 @@
   {
     "form_id": "totodile",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "new-bark-town"
   },
   {
     "form_id": "totodile",
@@ -108049,7 +108228,8 @@
   {
     "form_id": "toxel",
     "game_id": "shield",
-    "method": "gift"
+    "method": "gift",
+    "location": "galar-route-5"
   },
   {
     "form_id": "toxel",
@@ -108065,7 +108245,8 @@
   {
     "form_id": "toxel",
     "game_id": "sword",
-    "method": "gift"
+    "method": "gift",
+    "location": "galar-route-5"
   },
   {
     "form_id": "toxel",
@@ -108563,7 +108744,8 @@
   {
     "form_id": "treecko",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "treecko",
@@ -108573,7 +108755,8 @@
   {
     "form_id": "treecko",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "treecko",
@@ -109314,12 +109497,14 @@
   {
     "form_id": "turtwig",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "turtwig",
     "game_id": "brilliant-diamond",
-    "method": "gift"
+    "method": "gift",
+    "location": "lake-verity"
   },
   {
     "form_id": "turtwig",
@@ -109335,13 +109520,15 @@
   {
     "form_id": "turtwig",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "hoenn-route-101"
   },
   {
     "form_id": "turtwig",
     "game_id": "scarlet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "reveler-s-road"
   },
   {
     "form_id": "turtwig",
@@ -109357,7 +109544,8 @@
   {
     "form_id": "turtwig",
     "game_id": "shining-pearl",
-    "method": "gift"
+    "method": "gift",
+    "location": "lake-verity"
   },
   {
     "form_id": "turtwig",
@@ -109378,7 +109566,8 @@
     "form_id": "turtwig",
     "game_id": "violet",
     "method": "gift",
-    "requires_dlc": "hidden-treasure-of-area-zero"
+    "requires_dlc": "hidden-treasure-of-area-zero",
+    "location": "reveler-s-road"
   },
   {
     "form_id": "turtwig",
@@ -109523,32 +109712,38 @@
   {
     "form_id": "type-null",
     "game_id": "moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "aether-paradise"
   },
   {
     "form_id": "type-null",
     "game_id": "shield",
-    "method": "gift"
+    "method": "gift",
+    "location": "macro-cosmos"
   },
   {
     "form_id": "type-null",
     "game_id": "sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "aether-paradise"
   },
   {
     "form_id": "type-null",
     "game_id": "sword",
-    "method": "gift"
+    "method": "gift",
+    "location": "macro-cosmos"
   },
   {
     "form_id": "type-null",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "ancient-poni-path"
   },
   {
     "form_id": "type-null",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "ancient-poni-path"
   },
   {
     "form_id": "typhlosion",
@@ -109840,7 +110035,8 @@
   {
     "form_id": "tyrogue",
     "game_id": "crystal",
-    "method": "gift"
+    "method": "gift",
+    "location": "mt-mortar"
   },
   {
     "form_id": "tyrogue",
@@ -109856,7 +110052,8 @@
   {
     "form_id": "tyrogue",
     "game_id": "gold",
-    "method": "gift"
+    "method": "gift",
+    "location": "mt-mortar"
   },
   {
     "form_id": "tyrogue",
@@ -109907,7 +110104,8 @@
   {
     "form_id": "tyrogue",
     "game_id": "silver",
-    "method": "gift"
+    "method": "gift",
+    "location": "mt-mortar"
   },
   {
     "form_id": "tyrogue",
@@ -112937,7 +113135,8 @@
   {
     "form_id": "vikavolt",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "heahea-beach"
   },
   {
     "form_id": "vikavolt",
@@ -117823,7 +118022,8 @@
   {
     "form_id": "wynaut",
     "game_id": "alpha-sapphire",
-    "method": "gift"
+    "method": "gift",
+    "location": "lavaridge-town"
   },
   {
     "form_id": "wynaut",
@@ -117839,7 +118039,8 @@
   {
     "form_id": "wynaut",
     "game_id": "omega-ruby",
-    "method": "gift"
+    "method": "gift",
+    "location": "lavaridge-town"
   },
   {
     "form_id": "wynaut",
@@ -120026,7 +120227,8 @@
   {
     "form_id": "zygarde",
     "game_id": "ultra-moon",
-    "method": "gift"
+    "method": "gift",
+    "location": "alola-route-16"
   },
   {
     "form_id": "zygarde",
@@ -120041,7 +120243,8 @@
   {
     "form_id": "zygarde",
     "game_id": "ultra-sun",
-    "method": "gift"
+    "method": "gift",
+    "location": "alola-route-16"
   },
   {
     "form_id": "zygarde",
