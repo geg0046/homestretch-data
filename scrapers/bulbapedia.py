@@ -991,8 +991,11 @@ def _scrape_sources(
 # Static-encounter subtypes that have a single discrete in-game spot.
 # `island-scan` is excluded because its "location" is a
 # (species, day-of-week, island) triple the slug form can't represent.
+# Plain singleton statics have `method_details=None` (the vacuous
+# `only-one` slug is dropped at normalize time); legacy mechanic-specific
+# subtypes stay as named slugs.
 _STATIC_LOCATION_DETAILS: frozenset[str | None] = frozenset(
-    {"only-one", "pokeflute", "squirt-bottle", "devon-scope", None}
+    {"pokeflute", "squirt-bottle", "devon-scope", None}
 )
 
 

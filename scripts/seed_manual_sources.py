@@ -39,7 +39,7 @@ from pathlib import Path
 from pydantic import TypeAdapter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scrapers"))
-from utils import merge_by_key, source_key, source_sort_key
+from utils import SOURCE_KEY_FIELDS, merge_by_key, source_key, source_sort_key
 
 from homestretch_data.models import Source
 
@@ -410,7 +410,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "pecharunt",
         "game_id": "scarlet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk.",
     },
@@ -418,7 +417,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "pecharunt",
         "game_id": "violet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk.",
     },
@@ -447,7 +445,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "gouging-fire",
         "game_id": "scarlet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     },
@@ -455,7 +452,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "raging-bolt",
         "game_id": "scarlet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     },
@@ -463,7 +459,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "iron-boulder",
         "game_id": "violet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     },
@@ -471,7 +466,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "iron-crown",
         "game_id": "violet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     },
@@ -528,7 +522,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "ursaluna-bloodmoon",
         "game_id": "scarlet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC).",
     },
@@ -536,7 +529,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "ursaluna-bloodmoon",
         "game_id": "violet",
         "method": "static-encounter",
-        "method_details": "only-one",
         "requires_dlc": "hidden-treasure-of-area-zero",
         "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC).",
     },
@@ -851,7 +843,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "floette-eternal",
         "game_id": "legends-za",
         "method": "gift",
-        "method_details": "only-one",
         "notes": "Received from Taunie/Urbain upon completing Main Mission 39.",
     },
     # --- Tier 9: Gen 8/9 regional-dex gap closures -----------------------------
@@ -1023,38 +1014,33 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     #
     # BDSP Ramanas Park — post-game legendary slates. Each version catches
     # its counterpart mascot there (Dialga in SP, Palkia in BD) after the
-    # player completes the National Pokédex. Method is static-encounter,
-    # method_details=only-one (single available capture).
+    # player completes the National Pokédex.
     {
         "form_id": "palkia",
         "game_id": "brilliant-diamond",
         "method": "static-encounter",
-        "method_details": "only-one",
         "notes": "Ramanas Park Lustrous Slate after completing the National Pokédex.",
     },
     {
         "form_id": "dialga",
         "game_id": "shining-pearl",
         "method": "static-encounter",
-        "method_details": "only-one",
         "notes": "Ramanas Park Adamant Slate after completing the National Pokédex.",
     },
     # BDSP Manaphy — Phione egg from Ramanas Park's Manaphy Slate hatches
     # into Phione in the normal case, but the unique Manaphy pre-event
     # gift (via serial code / mystery gift) provided a Manaphy egg in both
-    # versions. Encoded as method=gift, method_details=only-one.
+    # versions.
     {
         "form_id": "manaphy",
         "game_id": "brilliant-diamond",
         "method": "gift",
-        "method_details": "only-one",
         "notes": "Manaphy Egg via Mystery Gift (2022 promotion).",
     },
     {
         "form_id": "manaphy",
         "game_id": "shining-pearl",
         "method": "gift",
-        "method_details": "only-one",
         "notes": "Manaphy Egg via Mystery Gift (2022 promotion).",
     },
     # Legends: Z-A — Mystery-Gift-activated static encounters.
@@ -1062,14 +1048,12 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "mewtwo",
         "game_id": "legends-za",
         "method": "static-encounter",
-        "method_details": "only-one",
         "notes": "Magenta District Lysandre Labs; requires Mystery Gift activation.",
     },
     {
         "form_id": "diancie",
         "game_id": "legends-za",
         "method": "static-encounter",
-        "method_details": "only-one",
         "notes": "Magenta Sector 8; requires Mystery Gift activation.",
     },
     # --- Tier 12: pre-Gen-8 regional-dex gap closures --------------------------
@@ -1340,14 +1324,12 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "mew",
         "game_id": "lets-go-pikachu",
         "method": "gift",
-        "method_details": "only-one",
         "notes": "Redeemed from the Poké Ball Plus peripheral (one per save).",
     },
     {
         "form_id": "mew",
         "game_id": "lets-go-eevee",
         "method": "gift",
-        "method_details": "only-one",
         "notes": "Redeemed from the Poké Ball Plus peripheral (one per save).",
     },
     # (K) GSC Kanto-gate content (post-E4 Kanto access) and Gen 2 fossils.
@@ -1359,7 +1341,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "form_id": starter,
             "game_id": game,
             "method": "gift",
-            "method_details": "only-one",
             "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red.",
         }
         for starter in ("bulbasaur", "charmander", "squirtle")
@@ -1371,7 +1352,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "form_id": "mewtwo",
             "game_id": game,
             "method": "static-encounter",
-            "method_details": "only-one",
             "notes": "Cerulean Cave in post-game Kanto.",
         }
         for game in ("gold", "silver", "crystal")
@@ -1382,7 +1362,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "form_id": "articuno",
             "game_id": game,
             "method": "static-encounter",
-            "method_details": "only-one",
             "notes": "Seafoam Islands in post-game Kanto.",
         }
         for game in ("gold", "silver", "crystal")
@@ -1392,7 +1371,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "form_id": "zapdos",
             "game_id": game,
             "method": "static-encounter",
-            "method_details": "only-one",
             "notes": "Power Plant in post-game Kanto.",
         }
         for game in ("gold", "silver", "crystal")
@@ -1403,7 +1381,6 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "form_id": "moltres",
             "game_id": game,
             "method": "static-encounter",
-            "method_details": "only-one",
             "notes": "Mt. Silver in post-game Kanto.",
         }
         for game in ("gold", "silver", "crystal")
@@ -1709,14 +1686,12 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "form_id": "kyogre",
         "game_id": "omega-ruby",
         "method": "static-encounter",
-        "method_details": "only-one",
         "notes": "Mirage Cave encounter after completing the Delta Episode.",
     },
     {
         "form_id": "groudon",
         "game_id": "alpha-sapphire",
         "method": "static-encounter",
-        "method_details": "only-one",
         "notes": "Mirage Cave encounter after completing the Delta Episode.",
     },
     # (P) Fossil revivals — Anorith (Claw Fossil) and Lileep (Root Fossil)
@@ -2181,14 +2156,48 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
 ]
 
 
+def _collapse_unlocated_into_located(rows: list[dict]) -> int:
+    """Drop rows that duplicate a sibling except for a missing `location`.
+
+    Happens when a scraper pass (16b's bulbapedia locations) backfills
+    location onto an existing row while `EXPLICIT_ROWS` keeps emitting
+    the same row without location. The two keys are distinct under
+    `SOURCE_KEY_FIELDS`, so merge_by_key preserves both. This collapse
+    keeps the with-location row and drops the no-location duplicate.
+    Legitimate multi-location groups (e.g. magnezone → blush-mountain
+    vs vast-poni-canyon, two with-location rows) are left intact.
+    """
+    by_soft_key: dict[tuple, list[dict]] = {}
+    for row in rows:
+        soft_key = tuple(row.get(f) for f in SOURCE_KEY_FIELDS if f != "location")
+        by_soft_key.setdefault(soft_key, []).append(row)
+    keep: list[dict] = []
+    dropped = 0
+    for group in by_soft_key.values():
+        if len(group) == 1:
+            keep.append(group[0])
+            continue
+        with_loc = [r for r in group if r.get("location") is not None]
+        without_loc = [r for r in group if r.get("location") is None]
+        if with_loc and without_loc:
+            keep.extend(with_loc)
+            dropped += len(without_loc)
+        else:
+            keep.extend(group)
+    rows[:] = keep
+    return dropped
+
+
 def _apply_deterministic_locations(rows: list[dict]) -> int:
     """Fill `location` on rows whose slug is determined by game+method.
 
-    Mutates `rows` in place. Runs after merge so rows already in
-    sources.json (which `merge_by_key` preserves verbatim) get their
-    `location` backfilled — adding `location` at row-build time would
-    produce a new row under `SOURCE_KEY_FIELDS`, not update the existing.
-    Returns the number of rows updated.
+    Mutates `rows` in place. Must be run on **both** `existing` and
+    `new_rows` before `merge_by_key`: `location` is in
+    `SOURCE_KEY_FIELDS`, so if one side has it set and the other
+    doesn't, the merge treats the pair as distinct rows and both
+    survive. Keeping this as a single pass applied to both sides is
+    what makes the seeder idempotent. Returns the number of rows
+    updated.
     """
     updated = 0
     for row in rows:
@@ -2270,13 +2279,19 @@ def main() -> int:
     if SOURCES_PATH.exists():
         existing = json.loads(SOURCES_PATH.read_text(encoding="utf-8"))
 
+    # Fill `location` on both sides before merge: `location` is in
+    # SOURCE_KEY_FIELDS, so a one-sided fill diverges the merge key and
+    # produces duplicates. Running the pass on both existing and the
+    # newly built rows keeps keys aligned and makes re-runs idempotent.
+    location_fills = _apply_deterministic_locations(existing)
     new_rows = _build_rows(existing)
     adapter = TypeAdapter(list[Source])
     # Validate shape before merging.
     adapter.validate_python(new_rows)
+    location_fills += _apply_deterministic_locations(new_rows)
 
     merged = merge_by_key(existing, new_rows, source_key)
-    location_fills = _apply_deterministic_locations(merged)
+    collapsed = _collapse_unlocated_into_located(merged)
     merged.sort(key=source_sort_key)
 
     # Re-validate the final set and normalize to canonical dict shape.
@@ -2287,7 +2302,9 @@ def main() -> int:
     added = len(merged) - len(existing)
     print(
         f"seed_manual_sources: {added} new row(s), "
-        f"{location_fills} location(s) filled, {len(merged)} total"
+        f"{location_fills} location(s) filled, "
+        f"{collapsed} unlocated duplicate(s) dropped, "
+        f"{len(merged)} total"
     )
     return 0
 

@@ -93,8 +93,12 @@ def _normalize_wild_encounter(cleaned: str) -> str | None:
     return None
 
 
+# Note: `only-one` / `one-time` is intentionally NOT recognized here.
+# Every static-encounter row is by definition a one-time placement; the
+# slug added no discriminating information beyond `method=static-encounter`
+# itself, so it's treated as vacuous (see `_VACUOUS_DETAILS_BY_METHOD`).
+# Plain singleton statics land with `method_details=None`.
 _STATIC_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
-    (re.compile(r"\bonly\s+one\b|\bone-time\b", re.IGNORECASE), "only-one"),
     (re.compile(r"\bpok[ée]\s*flute\b", re.IGNORECASE), "pokeflute"),
     (re.compile(r"\bsquirt\s*bottle\b", re.IGNORECASE), "squirt-bottle"),
     (re.compile(r"\bwailmer\s*pail\b", re.IGNORECASE), "wailmer-pail"),
@@ -153,6 +157,14 @@ def _is_slug_shaped(raw: str) -> bool:
 # --- Public entry point --------------------------------------------------
 
 
+# Slugs that never add information. `only-one` / `one-time` mark singleton
+# obtainability, which every static-encounter / gift / fossil-revive / event
+# row is by definition — wild / fishing / raid are the exceptions and
+# those methods don't produce this marker. Drop the slug so the field only
+# appears when it actually disambiguates something.
+_UNIVERSALLY_VACUOUS_DETAILS: frozenset[str] = frozenset({"only-one", "one-time"})
+
+
 def normalize_method_details(method: Method, raw: str | None) -> str | None:
     """Normalize a scraper-emitted `method_details` string to a slug.
 
@@ -167,6 +179,8 @@ def normalize_method_details(method: Method, raw: str | None) -> str | None:
         return None
     if stripped.lower() == method.value:
         return None  # Rule 7.
+    if stripped.lower() in _UNIVERSALLY_VACUOUS_DETAILS:
+        return None  # Rule-7 generalization.
 
     # Fast path: already slug-shaped; trust it.
     if _is_slug_shaped(stripped):

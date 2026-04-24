@@ -287,6 +287,14 @@ IN_SCOPE_VERSIONS: frozenset[str] = frozenset(
 # pokemon-channel-pal, pokemon-ranger, pokemon-battle-revolution,
 # new-york-pokecenter-wish-eggs) are intentionally unmapped — their versions
 # are out of scope anyway.
+# PokéAPI encounter-method names that add no information beyond the Method
+# enum itself. `only-one` marks singleton obtainability, which every
+# static-encounter / gift / fossil-revive row is by definition. Mirrors
+# `_UNIVERSALLY_VACUOUS_DETAILS` in `scrapers/method_details.py` used by
+# Bulbapedia's parse.
+VACUOUS_ENCOUNTER_METHOD_NAMES: frozenset[str] = frozenset({"only-one"})
+
+
 ENCOUNTER_METHOD_TO_METHOD: dict[str, Method] = {
     "walk": Method.WILD_ENCOUNTER,
     "surf": Method.WILD_ENCOUNTER,
@@ -492,11 +500,15 @@ def build_sources_for_species(
 
     results: list[dict[str, Any]] = []
     for (form_id, game_id, method), method_names in by_key.items():
-        # Rule 7: drop any component that equals the method enum — it's
-        # redundant with `method`. Matters when the collapsed set mixes
-        # a bare method name with a subtype (e.g. {"gift", "gift-egg"}
-        # → method_details="gift-egg", not "gift, gift-egg").
-        components = sorted(n for n in method_names if n != method.value)
+        # Rule 7 (and its vacuous-name generalization): drop any component
+        # that equals the method enum value or is globally vacuous
+        # (see VACUOUS_ENCOUNTER_METHOD_NAMES). Matters for collapsed
+        # subtype sets ({"gift", "gift-egg"} → "gift-egg", not
+        # "gift, gift-egg") and for singleton vacuous markers
+        # ({"only-one"} → no method_details).
+        components = sorted(
+            n for n in method_names if n != method.value and n not in VACUOUS_ENCOUNTER_METHOD_NAMES
+        )
         details_str = ", ".join(components)
         entry: dict[str, Any] = {
             "form_id": form_id,
