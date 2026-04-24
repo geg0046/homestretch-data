@@ -3621,7 +3621,9 @@
     "form_id": "arcanine-hisui",
     "game_id": "legends-arceus",
     "method": "evolution",
-    "from_form": "growlithe-hisui"
+    "method_details": "use-item",
+    "from_form": "growlithe-hisui",
+    "item": "fire-stone"
   },
   {
     "form_id": "arcanine-hisui",
@@ -3633,7 +3635,9 @@
     "form_id": "arcanine-hisui",
     "game_id": "scarlet",
     "method": "evolution",
-    "from_form": "growlithe-hisui"
+    "method_details": "use-item",
+    "from_form": "growlithe-hisui",
+    "item": "fire-stone"
   },
   {
     "form_id": "arcanine-hisui",
@@ -3644,7 +3648,9 @@
     "form_id": "arcanine-hisui",
     "game_id": "violet",
     "method": "evolution",
-    "from_form": "growlithe-hisui"
+    "method_details": "use-item",
+    "from_form": "growlithe-hisui",
+    "item": "fire-stone"
   },
   {
     "form_id": "arcanine-hisui",
@@ -5001,7 +5007,9 @@
   {
     "form_id": "avalugg-hisui",
     "game_id": "legends-arceus",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "bergmite"
   },
   {
     "form_id": "avalugg-hisui",
@@ -5012,7 +5020,9 @@
   {
     "form_id": "avalugg-hisui",
     "game_id": "legends-za",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "bergmite"
   },
   {
     "form_id": "avalugg-hisui",
@@ -9717,7 +9727,9 @@
   {
     "form_id": "braviary-hisui",
     "game_id": "legends-arceus",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "rufflet"
   },
   {
     "form_id": "braviary-hisui",
@@ -20547,7 +20559,9 @@
   {
     "form_id": "decidueye-hisui",
     "game_id": "legends-arceus",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "dartrix"
   },
   {
     "form_id": "decidueye-hisui",
@@ -25806,6 +25820,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -25823,6 +25838,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "scarlet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -25847,6 +25863,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "shield",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -25864,6 +25881,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -25881,6 +25899,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "sword",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -25898,6 +25917,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -25915,6 +25935,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -25932,6 +25953,7 @@
     "form_id": "dugtrio-alola",
     "game_id": "violet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "diglett-alola"
   },
   {
@@ -28667,7 +28689,9 @@
     "form_id": "electrode-hisui",
     "game_id": "legends-arceus",
     "method": "evolution",
-    "from_form": "voltorb-hisui"
+    "method_details": "use-item",
+    "from_form": "voltorb-hisui",
+    "item": "leaf-stone"
   },
   {
     "form_id": "electrode-hisui",
@@ -28679,7 +28703,9 @@
     "form_id": "electrode-hisui",
     "game_id": "scarlet",
     "method": "evolution",
-    "from_form": "voltorb-hisui"
+    "method_details": "use-item",
+    "from_form": "voltorb-hisui",
+    "item": "leaf-stone"
   },
   {
     "form_id": "electrode-hisui",
@@ -28690,7 +28716,9 @@
     "form_id": "electrode-hisui",
     "game_id": "violet",
     "method": "evolution",
-    "from_form": "voltorb-hisui"
+    "method_details": "use-item",
+    "from_form": "voltorb-hisui",
+    "item": "leaf-stone"
   },
   {
     "form_id": "electrode-hisui",
@@ -30385,7 +30413,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "lets-go-eevee",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30396,7 +30427,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "lets-go-pikachu",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30407,7 +30441,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "moon",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30428,7 +30465,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "scarlet",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30446,7 +30486,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "shield",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30463,7 +30506,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "sun",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30484,7 +30530,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "sword",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30501,7 +30550,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "ultra-moon",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30512,7 +30564,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "ultra-sun",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30523,7 +30578,10 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "violet",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "leaf-stone",
+    "from_form": "exeggcute"
   },
   {
     "form_id": "exeggutor-alola",
@@ -39437,6 +39495,7 @@
     "form_id": "golem-alola",
     "game_id": "moon",
     "method": "evolution",
+    "method_details": "trade",
     "from_form": "graveler-alola"
   },
   {
@@ -39448,6 +39507,7 @@
     "form_id": "golem-alola",
     "game_id": "scarlet",
     "method": "evolution",
+    "method_details": "trade",
     "from_form": "graveler-alola"
   },
   {
@@ -39461,6 +39521,7 @@
     "form_id": "golem-alola",
     "game_id": "sun",
     "method": "evolution",
+    "method_details": "trade",
     "from_form": "graveler-alola"
   },
   {
@@ -39472,18 +39533,21 @@
     "form_id": "golem-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
+    "method_details": "trade",
     "from_form": "graveler-alola"
   },
   {
     "form_id": "golem-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
+    "method_details": "trade",
     "from_form": "graveler-alola"
   },
   {
     "form_id": "golem-alola",
     "game_id": "violet",
     "method": "evolution",
+    "method_details": "trade",
     "from_form": "graveler-alola"
   },
   {
@@ -41325,6 +41389,7 @@
     "form_id": "graveler-alola",
     "game_id": "moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "geodude-alola"
   },
   {
@@ -41347,6 +41412,7 @@
     "form_id": "graveler-alola",
     "game_id": "scarlet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "geodude-alola"
   },
   {
@@ -41359,6 +41425,7 @@
     "form_id": "graveler-alola",
     "game_id": "sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "geodude-alola"
   },
   {
@@ -41381,6 +41448,7 @@
     "form_id": "graveler-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "geodude-alola"
   },
   {
@@ -41398,6 +41466,7 @@
     "form_id": "graveler-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "geodude-alola"
   },
   {
@@ -41415,6 +41484,7 @@
     "form_id": "graveler-alola",
     "game_id": "violet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "geodude-alola"
   },
   {
@@ -56559,7 +56629,10 @@
   {
     "form_id": "lilligant-hisui",
     "game_id": "legends-arceus",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "sun-stone",
+    "from_form": "petilil"
   },
   {
     "form_id": "lilligant-hisui",
@@ -56570,7 +56643,10 @@
   {
     "form_id": "lilligant-hisui",
     "game_id": "scarlet",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "sun-stone",
+    "from_form": "petilil"
   },
   {
     "form_id": "lilligant-hisui",
@@ -56580,7 +56656,10 @@
   {
     "form_id": "lilligant-hisui",
     "game_id": "violet",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "sun-stone",
+    "from_form": "petilil"
   },
   {
     "form_id": "lilligant-hisui",
@@ -56771,6 +56850,7 @@
     "form_id": "linoone-galar",
     "game_id": "shield",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "zigzagoon-galar"
   },
   {
@@ -56801,6 +56881,7 @@
     "form_id": "linoone-galar",
     "game_id": "sword",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "zigzagoon-galar"
   },
   {
@@ -64266,7 +64347,9 @@
   {
     "form_id": "marowak-alola",
     "game_id": "lets-go-eevee",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-alola",
@@ -64277,7 +64360,9 @@
   {
     "form_id": "marowak-alola",
     "game_id": "lets-go-pikachu",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-alola",
@@ -64288,12 +64373,16 @@
   {
     "form_id": "marowak-alola",
     "game_id": "moon",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-alola",
     "game_id": "shield",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-alola",
@@ -64310,12 +64399,16 @@
   {
     "form_id": "marowak-alola",
     "game_id": "sun",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-alola",
     "game_id": "sword",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-alola",
@@ -64332,12 +64425,16 @@
   {
     "form_id": "marowak-alola",
     "game_id": "ultra-moon",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-alola",
     "game_id": "ultra-sun",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "cubone"
   },
   {
     "form_id": "marowak-totem",
@@ -69154,7 +69251,9 @@
   {
     "form_id": "mr-mime-galar",
     "game_id": "shield",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "mime-jr"
   },
   {
     "form_id": "mr-mime-galar",
@@ -69183,7 +69282,9 @@
   {
     "form_id": "mr-mime-galar",
     "game_id": "sword",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "mime-jr"
   },
   {
     "form_id": "mr-mime-galar",
@@ -69813,12 +69914,14 @@
     "form_id": "muk-alola",
     "game_id": "moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "grimer-alola"
   },
   {
     "form_id": "muk-alola",
     "game_id": "scarlet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "grimer-alola"
   },
   {
@@ -69843,24 +69946,28 @@
     "form_id": "muk-alola",
     "game_id": "sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "grimer-alola"
   },
   {
     "form_id": "muk-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "grimer-alola"
   },
   {
     "form_id": "muk-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "grimer-alola"
   },
   {
     "form_id": "muk-alola",
     "game_id": "violet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "grimer-alola"
   },
   {
@@ -72334,7 +72441,9 @@
     "form_id": "ninetales-alola",
     "game_id": "moon",
     "method": "evolution",
-    "from_form": "vulpix-alola"
+    "method_details": "use-item",
+    "from_form": "vulpix-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "ninetales-alola",
@@ -72347,7 +72456,9 @@
     "form_id": "ninetales-alola",
     "game_id": "shield",
     "method": "evolution",
-    "from_form": "vulpix-alola"
+    "method_details": "use-item",
+    "from_form": "vulpix-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "ninetales-alola",
@@ -72358,13 +72469,17 @@
     "form_id": "ninetales-alola",
     "game_id": "sun",
     "method": "evolution",
-    "from_form": "vulpix-alola"
+    "method_details": "use-item",
+    "from_form": "vulpix-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "ninetales-alola",
     "game_id": "sword",
     "method": "evolution",
-    "from_form": "vulpix-alola"
+    "method_details": "use-item",
+    "from_form": "vulpix-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "ninetales-alola",
@@ -72375,13 +72490,17 @@
     "form_id": "ninetales-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
-    "from_form": "vulpix-alola"
+    "method_details": "use-item",
+    "from_form": "vulpix-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "ninetales-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
-    "from_form": "vulpix-alola"
+    "method_details": "use-item",
+    "from_form": "vulpix-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "ninetales-alola",
@@ -77055,12 +77174,14 @@
     "form_id": "persian-alola",
     "game_id": "moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
     "form_id": "persian-alola",
     "game_id": "scarlet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
@@ -77072,6 +77193,7 @@
     "form_id": "persian-alola",
     "game_id": "shield",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
@@ -77084,12 +77206,14 @@
     "form_id": "persian-alola",
     "game_id": "sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
     "form_id": "persian-alola",
     "game_id": "sword",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
@@ -77102,6 +77226,7 @@
     "form_id": "persian-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
@@ -77119,6 +77244,7 @@
     "form_id": "persian-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
@@ -77136,6 +77262,7 @@
     "form_id": "persian-alola",
     "game_id": "violet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "meowth-alola"
   },
   {
@@ -84398,7 +84525,10 @@
   {
     "form_id": "raichu-alola",
     "game_id": "legends-za",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
@@ -84408,7 +84538,10 @@
   {
     "form_id": "raichu-alola",
     "game_id": "lets-go-eevee",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
@@ -84419,7 +84552,10 @@
   {
     "form_id": "raichu-alola",
     "game_id": "lets-go-pikachu",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
@@ -84430,12 +84566,18 @@
   {
     "form_id": "raichu-alola",
     "game_id": "moon",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
     "game_id": "scarlet",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
@@ -84445,7 +84587,10 @@
   {
     "form_id": "raichu-alola",
     "game_id": "shield",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
@@ -84461,12 +84606,18 @@
   {
     "form_id": "raichu-alola",
     "game_id": "sun",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
     "game_id": "sword",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
@@ -84482,17 +84633,26 @@
   {
     "form_id": "raichu-alola",
     "game_id": "ultra-moon",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
     "game_id": "ultra-sun",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
     "game_id": "violet",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "use-item",
+    "item": "thunder-stone",
+    "from_form": "pikachu"
   },
   {
     "form_id": "raichu-alola",
@@ -85043,6 +85203,7 @@
     "form_id": "rapidash-galar",
     "game_id": "shield",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "ponyta-galar"
   },
   {
@@ -85055,6 +85216,7 @@
     "form_id": "rapidash-galar",
     "game_id": "sword",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "ponyta-galar"
   },
   {
@@ -85275,6 +85437,7 @@
     "form_id": "raticate-alola",
     "game_id": "moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "rattata-alola"
   },
   {
@@ -85287,6 +85450,7 @@
     "form_id": "raticate-alola",
     "game_id": "sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "rattata-alola"
   },
   {
@@ -85299,6 +85463,7 @@
     "form_id": "raticate-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "rattata-alola"
   },
   {
@@ -85311,6 +85476,7 @@
     "form_id": "raticate-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "rattata-alola"
   },
   {
@@ -89331,7 +89497,9 @@
   {
     "form_id": "samurott-hisui",
     "game_id": "legends-arceus",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "dewott"
   },
   {
     "form_id": "samurott-hisui",
@@ -90254,7 +90422,9 @@
     "form_id": "sandslash-alola",
     "game_id": "moon",
     "method": "evolution",
-    "from_form": "sandshrew-alola"
+    "method_details": "use-item",
+    "from_form": "sandshrew-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "sandslash-alola",
@@ -90267,7 +90437,9 @@
     "form_id": "sandslash-alola",
     "game_id": "shield",
     "method": "evolution",
-    "from_form": "sandshrew-alola"
+    "method_details": "use-item",
+    "from_form": "sandshrew-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "sandslash-alola",
@@ -90279,13 +90451,17 @@
     "form_id": "sandslash-alola",
     "game_id": "sun",
     "method": "evolution",
-    "from_form": "sandshrew-alola"
+    "method_details": "use-item",
+    "from_form": "sandshrew-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "sandslash-alola",
     "game_id": "sword",
     "method": "evolution",
-    "from_form": "sandshrew-alola"
+    "method_details": "use-item",
+    "from_form": "sandshrew-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "sandslash-alola",
@@ -90297,13 +90473,17 @@
     "form_id": "sandslash-alola",
     "game_id": "ultra-moon",
     "method": "evolution",
-    "from_form": "sandshrew-alola"
+    "method_details": "use-item",
+    "from_form": "sandshrew-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "sandslash-alola",
     "game_id": "ultra-sun",
     "method": "evolution",
-    "from_form": "sandshrew-alola"
+    "method_details": "use-item",
+    "from_form": "sandshrew-alola",
+    "item": "ice-stone"
   },
   {
     "form_id": "sandslash-alola",
@@ -96702,7 +96882,9 @@
     "form_id": "slowbro-galar",
     "game_id": "scarlet",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-cuff"
   },
   {
     "form_id": "slowbro-galar",
@@ -96720,19 +96902,25 @@
     "form_id": "slowbro-galar",
     "game_id": "shield",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-cuff"
   },
   {
     "form_id": "slowbro-galar",
     "game_id": "sword",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-cuff"
   },
   {
     "form_id": "slowbro-galar",
     "game_id": "violet",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-cuff"
   },
   {
     "form_id": "slowbro-galar",
@@ -96897,7 +97085,9 @@
     "form_id": "slowking-galar",
     "game_id": "scarlet",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-wreath"
   },
   {
     "form_id": "slowking-galar",
@@ -96915,7 +97105,9 @@
     "form_id": "slowking-galar",
     "game_id": "shield",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-wreath"
   },
   {
     "form_id": "slowking-galar",
@@ -96926,7 +97118,9 @@
     "form_id": "slowking-galar",
     "game_id": "sword",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-wreath"
   },
   {
     "form_id": "slowking-galar",
@@ -96937,7 +97131,9 @@
     "form_id": "slowking-galar",
     "game_id": "violet",
     "method": "evolution",
-    "from_form": "slowpoke-galar"
+    "method_details": "use-item",
+    "from_form": "slowpoke-galar",
+    "item": "galarica-wreath"
   },
   {
     "form_id": "slowking-galar",
@@ -109520,7 +109716,9 @@
   {
     "form_id": "typhlosion-hisui",
     "game_id": "legends-arceus",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "quilava"
   },
   {
     "form_id": "typhlosion-hisui",
@@ -115642,7 +115840,9 @@
   {
     "form_id": "weezing-galar",
     "game_id": "shield",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "koffing"
   },
   {
     "form_id": "weezing-galar",
@@ -115671,7 +115871,9 @@
   {
     "form_id": "weezing-galar",
     "game_id": "sword",
-    "method": "evolution"
+    "method": "evolution",
+    "method_details": "level-up",
+    "from_form": "koffing"
   },
   {
     "form_id": "weezing-galar",
@@ -119303,6 +119505,7 @@
     "form_id": "zoroark-hisui",
     "game_id": "legends-arceus",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "zorua-hisui"
   },
   {
@@ -119320,6 +119523,7 @@
     "form_id": "zoroark-hisui",
     "game_id": "scarlet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "zorua-hisui"
   },
   {
@@ -119331,6 +119535,7 @@
     "form_id": "zoroark-hisui",
     "game_id": "violet",
     "method": "evolution",
+    "method_details": "level-up",
     "from_form": "zorua-hisui"
   },
   {
