@@ -157,6 +157,20 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   existing rows may be **rewritten or removed**, and new rows may be
   **added** for regional forms. Re-runs are idempotent (annotation
   suffixes are not re-appended if already present).
+- `--mode locations` — backfill the `location` field on existing
+  static-encounter rows. Walks species pages, extracts a location slug
+  from each static segment (first wikilink display text, or `{{rt|N|R}}`
+  /`{{FB|R|P}}` shortcuts, with `<small>`-footnote metadata scrubbed),
+  then updates matching rows in `data/sources.json` **in place**. Rows
+  that already have a `location` are left untouched. A 40-character
+  slug length gate drops any extraction that's really condition prose
+  rather than a named place, so the failure mode is "row keeps
+  `location=None`," never "row gets a garbage slug." Island-scan
+  (SM/USUM) rows are explicitly excluded — their location is a
+  (species, day, island) triple that doesn't collapse to a single slug.
+  In-place update (not merge) is required because `location` is part
+  of `SOURCE_KEY_FIELDS`, so additive merge would split the existing
+  row instead of filling it.
 
 `fetch_wikitext` follows `#redirect` pages once — Bulbapedia canonicalises
 apostrophe variants this way (Sirfetch'd/Sirfetch’d), so the shared cache
