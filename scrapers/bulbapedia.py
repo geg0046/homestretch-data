@@ -1092,9 +1092,7 @@ def _iter_location_candidates_from_wikitext(
             details = normalize_method_details(inferred, details_text)
             if details not in target_details:
                 continue
-            location = extract_area_location(
-                segment, prefer_preposition=(inferred is Method.GIFT)
-            )
+            location = extract_area_location(segment, prefer_preposition=(inferred is Method.GIFT))
             if location is None:
                 continue
             resolved_forms = resolve_form_ids_from_segment(segment, species_id, species_form_ids)
