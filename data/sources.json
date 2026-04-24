@@ -3288,13 +3288,15 @@
     "form_id": "araquanid-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "araquanid-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "arbok",
@@ -21249,6 +21251,7 @@
     "game_id": "alpha-sapphire",
     "method": "gift",
     "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "location": "fallarbor-town",
     "from_form": "deoxys"
   },
   {
@@ -21256,6 +21259,7 @@
     "game_id": "omega-ruby",
     "method": "gift",
     "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "location": "fallarbor-town",
     "from_form": "deoxys"
   },
   {
@@ -21263,6 +21267,7 @@
     "game_id": "alpha-sapphire",
     "method": "gift",
     "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "location": "fallarbor-town",
     "from_form": "deoxys"
   },
   {
@@ -21270,6 +21275,7 @@
     "game_id": "omega-ruby",
     "method": "gift",
     "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "location": "fallarbor-town",
     "from_form": "deoxys"
   },
   {
@@ -21277,6 +21283,7 @@
     "game_id": "alpha-sapphire",
     "method": "gift",
     "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "location": "fallarbor-town",
     "from_form": "deoxys"
   },
   {
@@ -21284,6 +21291,7 @@
     "game_id": "omega-ruby",
     "method": "gift",
     "notes": "Form cycled by interacting with the meteorite at Professor Cozmo's house in Fallarbor Town.",
+    "location": "fallarbor-town",
     "from_form": "deoxys"
   },
   {
@@ -29342,6 +29350,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
     "item": "reveal-glass",
+    "location": "ancient-retreat",
     "from_form": "enamorus"
   },
   {
@@ -43139,13 +43148,15 @@
     "form_id": "gumshoos-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "gumshoos-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "gurdurr",
@@ -53243,13 +53254,15 @@
     "form_id": "kommo-o-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "kommo-o-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "koraidon",
@@ -54486,6 +54499,7 @@
     "method": "gift",
     "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
     "item": "reveal-glass",
+    "location": "mauville-city",
     "from_form": "landorus"
   },
   {
@@ -54494,6 +54508,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
     "item": "reveal-glass",
+    "location": "ancient-retreat",
     "from_form": "landorus"
   },
   {
@@ -54502,6 +54517,7 @@
     "method": "gift",
     "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
     "item": "reveal-glass",
+    "location": "mauville-city",
     "from_form": "landorus"
   },
   {
@@ -54526,6 +54542,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
     "item": "reveal-glass",
+    "location": "dimensional-research-lab",
     "from_form": "landorus"
   },
   {
@@ -54534,6 +54551,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
     "item": "reveal-glass",
+    "location": "dimensional-research-lab",
     "from_form": "landorus"
   },
   {
@@ -58712,13 +58730,15 @@
     "form_id": "lurantis-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "lurantis-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "luvdisc",
@@ -64503,13 +64523,15 @@
     "form_id": "marowak-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "marowak-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "marshadow",
@@ -67746,13 +67768,15 @@
     "form_id": "mimikyu-totem-disguised",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "mimikyu-totem-disguised",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "minccino",
@@ -85569,13 +85593,15 @@
     "form_id": "raticate-totem-alola",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "raticate-totem-alola",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "rattata",
@@ -87555,13 +87581,15 @@
     "form_id": "ribombee-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "ribombee-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "rillaboom",
@@ -89510,13 +89538,15 @@
     "form_id": "salazzle-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "salazzle-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "samurott",
@@ -93501,6 +93531,7 @@
     "method": "gift",
     "notes": "Gracidea received from Medi at Fieldlands Camp during Request 92.",
     "item": "gracidea",
+    "location": "obsidian-fieldlands",
     "from_form": "shaymin"
   },
   {
@@ -106592,6 +106623,7 @@
     "method": "gift",
     "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
     "item": "reveal-glass",
+    "location": "mauville-city",
     "from_form": "thundurus"
   },
   {
@@ -106600,6 +106632,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
     "item": "reveal-glass",
+    "location": "ancient-retreat",
     "from_form": "thundurus"
   },
   {
@@ -106608,6 +106641,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
     "item": "reveal-glass",
+    "location": "dimensional-research-lab",
     "from_form": "thundurus"
   },
   {
@@ -107125,13 +107159,15 @@
     "form_id": "togedemaru-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "togedemaru-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "togekiss",
@@ -107784,6 +107820,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Cogita at Ancient Retreat after completing the Forces of Nature Pokédex entries.",
     "item": "reveal-glass",
+    "location": "ancient-retreat",
     "from_form": "tornadus"
   },
   {
@@ -107792,6 +107829,7 @@
     "method": "gift",
     "notes": "Reveal Glass from the mirror shop on Mauville City 1F.",
     "item": "reveal-glass",
+    "location": "mauville-city",
     "from_form": "tornadus"
   },
   {
@@ -107800,6 +107838,7 @@
     "method": "gift",
     "notes": "Reveal Glass from Professor Burnet at the Dimensional Research Lab.",
     "item": "reveal-glass",
+    "location": "dimensional-research-lab",
     "from_form": "tornadus"
   },
   {
@@ -113178,13 +113217,15 @@
     "form_id": "vikavolt-totem",
     "game_id": "ultra-moon",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "vikavolt-totem",
     "game_id": "ultra-sun",
     "method": "gift",
-    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
+    "notes": "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers.",
+    "location": "heahea-beach"
   },
   {
     "form_id": "vileplume",
