@@ -115,15 +115,20 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
 
 - `--mode sources` — authoritative encounter source for all 24 in-scope
   mainline games (RBY, GSC, XY, ORAS, SM, USUM, LGPE, SwSh, BDSP, PLA,
-  SV, LZA). Parses `==Game locations==` `{{Availability/EntryN}}`
-  templates for each species. Emissions are filtered to
-  `IN_SCOPE_GAME_IDS` (mirror of `pokeapi.py::IN_SCOPE_VERSIONS`);
-  out-of-scope versions (RSE, FRLG, DPPt, HGSS, BW, B2W2) are dropped
-  after parsing. Method labels are inferred by regex over the area
-  text (`_METHOD_PATTERNS`); unmatched areas default to `wild-encounter`.
-  Merge is **additive**: rows are keyed on `(form_id, game_id, method,
-  method_details, …)` and existing entries win on conflict, so a re-run
-  never rewrites PokéAPI-sourced or manually-seeded rows.
+  SV, LZA). Parses `==Game locations==` `{{Availability/EntryN}}` and
+  `{{Availability/EntryN/None}}` templates for each species. Emissions
+  are filtered to `IN_SCOPE_GAME_IDS` (mirror of
+  `pokeapi.py::IN_SCOPE_VERSIONS`); out-of-scope versions (RSE, FRLG,
+  DPPt, HGSS, BW, B2W2) are dropped after parsing. Method labels are
+  inferred by regex over the area text (`_METHOD_PATTERNS`). For regular
+  entries, unmatched areas default to `wild-encounter`; for `/None`
+  entries (semantically "no native wild encounter") only explicit
+  matches are emitted — covers post-patch trade additions
+  (`[[Trade]]<sup>Version 2.0.1+</sup>`) and raid search paths while
+  suppressing false wild-encounter fallbacks. Merge is **additive**:
+  rows are keyed on `(form_id, game_id, method, method_details, …)` and
+  existing entries win on conflict, so a re-run never rewrites
+  PokéAPI-sourced or manually-seeded rows.
 - `--mode evolutions` — refines the `method=evolution` rows PokéAPI
   already emits. Three narrow refinements only; the PokéAPI trigger
   catalog is otherwise authoritative:
@@ -252,16 +257,18 @@ Re-run the script after any fresh scrape to re-apply manual rows.
   future scrapes auto-populate pre-Gen-8 Bulbapedia data on top of the
   manual rows (manual rows stay as a safety net per the additive merge).
 
-## Coverage-audit `HOME_TRANSFER_ONLY_DEX`
+## Regional-dex audit: expected set
 
-`scripts/coverage_audit.py` holds a `HOME_TRANSFER_ONLY_DEX` dict keyed
-by `game_id` listing species that PokéAPI's aggregated regional dex
-includes for that game but which have no legitimate in-game
-acquisition — registered only via HOME transfer. Entries are subtracted
-from the "expected" set before the regional-dex audit counts missing
-species, so the audit reports genuine in-game gaps rather than dex
-metadata artefacts. Populate it only when Bulbapedia confirms a species
-has no wild / raid / trade / event / gift path in the named game.
+`scripts/coverage_audit.py` uses PokéAPI's `/api/v2/pokedex/<name>/`
+endpoint verbatim as the "expected species" denominator per game.
+There is no manual override: every species Bulbapedia confirms has an
+in-game path (wild, raid, trade, event, gift, or a version-exclusive
+cross-trade from the paired cartridge) must have a matching source row
+in `data/sources.json`. `--mode sources` parses `Entry*/None` templates
+for trade/raid areas, so version-exclusive trades added in post-launch
+patches (e.g. Vulpix in SV 2.0.1+) produce a `method=trade` row
+automatically; species truly HOME-only (no cross-version path at all)
+do not exist in any current in-scope game, so no override is needed.
 
 ## Game scope
 

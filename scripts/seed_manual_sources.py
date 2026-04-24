@@ -1214,6 +1214,7 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "petilil",
             "pheromosa",
             "sandshrew",
+            "skrelp",
             "stakataka",
             "vullaby",
         )
@@ -1228,6 +1229,7 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         for sp in (
             "blacephalon",
             "buzzwole",
+            "clauncher",
             "cottonee",
             "golett",
             "houndour",

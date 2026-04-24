@@ -87,17 +87,30 @@ VERSION_TO_GAME_ID: dict[str, str] = {
 }
 
 # DLC / expansion labels that appear as `v=` values. Each maps to the base
-# game IDs it applies to plus a DLC slug recorded in `requires_dlc`. The
-# first DLC for SwSh (Isle of Armor / Crown Tundra) predates our schema's
-# requires_dlc convention but is captured here for completeness.
+# game IDs it applies to plus a DLC slug recorded in `requires_dlc`.
+# Bulbapedia is inconsistent about whether DLC labels carry a version
+# suffix/prefix: most pages use the generic form (e.g. `v=Expansion Pass`
+# applying to both SwSh), but newer Gen 9 additions frequently use the
+# per-version form (`v=The Hidden Treasure of Area Zero (Scarlet)`,
+# `v=Sword Expansion Pass`). Both shapes must be listed explicitly.
 DLC_TO_GAMES: dict[str, tuple[tuple[str, ...], str]] = {
     "Expansion Pass": (("sword", "shield"), "expansion-pass"),
+    "Sword Expansion Pass": (("sword",), "expansion-pass"),
+    "Shield Expansion Pass": (("shield",), "expansion-pass"),
     "The Isle of Armor": (("sword", "shield"), "isle-of-armor"),
     "The Crown Tundra": (("sword", "shield"), "crown-tundra"),
     "The Teal Mask": (("scarlet", "violet"), "teal-mask"),
     "The Indigo Disk": (("scarlet", "violet"), "indigo-disk"),
     "The Hidden Treasure of Area Zero": (
         ("scarlet", "violet"),
+        "hidden-treasure-of-area-zero",
+    ),
+    "The Hidden Treasure of Area Zero (Scarlet)": (
+        ("scarlet",),
+        "hidden-treasure-of-area-zero",
+    ),
+    "The Hidden Treasure of Area Zero (Violet)": (
+        ("violet",),
         "hidden-treasure-of-area-zero",
     ),
 }
@@ -389,18 +402,24 @@ _METHOD_PATTERNS: tuple[tuple[re.Pattern[str], Method], ...] = (
 )
 
 
-def _infer_method(area: str) -> tuple[Method, str]:
-    """Pick a Method for an Availability/Entry area. Default: wild-encounter."""
+def _infer_method(area: str) -> tuple[Method | None, str]:
+    """Pick a Method for an Availability/Entry area.
+
+    Returns `(None, flat)` when no pattern matches; the caller decides
+    whether to fall back to wild-encounter (true for natively-available
+    entries) or skip (true for `/None`-marked entries, which are not
+    native wild encounters by semantic convention).
+    """
     flat = _flatten_wikitext(area)
     for pat, method in _METHOD_PATTERNS:
         if pat.search(flat):
             return (method, flat)
-    return (Method.WILD_ENCOUNTER, flat)
+    return (None, flat)
 
 
 def _is_skippable_area(area: str) -> bool:
     flat = _flatten_wikitext(area).strip().lower()
-    if flat in {"", "unobtainable", "none", "trade"}:
+    if flat in {"", "unobtainable", "none"}:
         return True
     if flat.startswith("unobtainable"):
         return True
@@ -548,10 +567,18 @@ def parse_sources_from_wikitext(
     rows: list[dict[str, Any]] = []
     for tmpl in _iter_availability_templates(section):
         name = tmpl["_name"]
-        if "/None" in name or "/NA" in name or "/Header" in name or "/Footer" in name:
+        if "/NA" in name or "/Header" in name or "/Footer" in name:
             continue
         if "Entry" not in name:
             continue
+        # `Entry*/None` templates mark a game where the species has no native
+        # wild encounter, but their `area` field still frequently carries
+        # non-wild acquisition paths — trade (version-exclusives or
+        # post-patch additions like "[[Trade]]<sup>Version 2.0.1+</sup>"),
+        # raid search, etc. Parse the area and only emit rows for segments
+        # whose method is explicitly recognised (not the wild-encounter
+        # default), so `/None` never produces a spurious wild-encounter row.
+        is_none = "/None" in name
         area = tmpl.get("area", "")
         if _is_skippable_area(area):
             continue
@@ -574,7 +601,13 @@ def parse_sources_from_wikitext(
         for segment in segments:
             if _is_skippable_area(segment):
                 continue
-            method, details_text = _infer_method(segment)
+            inferred, details_text = _infer_method(segment)
+            if inferred is None:
+                if is_none:
+                    continue
+                method = Method.WILD_ENCOUNTER
+            else:
+                method = inferred
             resolved_forms = resolve_form_ids_from_segment(segment, species_id, species_form_ids)
             if not resolved_forms:
                 continue
