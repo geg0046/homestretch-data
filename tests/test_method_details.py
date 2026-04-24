@@ -86,7 +86,11 @@ def test_raid_no_signal_returns_none() -> None:
 
 
 def test_static_encounter_recognizes_items() -> None:
-    assert normalize_method_details(Method.STATIC_ENCOUNTER, "Only one can be caught") == "only-one"
+    # `only-one` is treated as vacuous (every static is one-time by
+    # definition) — same generalization as rule 7. Drops to None whether
+    # the input arrives as prose or as a pre-slugified value.
+    assert normalize_method_details(Method.STATIC_ENCOUNTER, "Only one can be caught") is None
+    assert normalize_method_details(Method.STATIC_ENCOUNTER, "only-one") is None
     assert normalize_method_details(Method.STATIC_ENCOUNTER, "Use the Poké Flute") == "pokeflute"
     assert normalize_method_details(Method.STATIC_ENCOUNTER, "Roaming around Kanto") == "roaming"
 

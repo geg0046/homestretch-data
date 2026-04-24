@@ -150,8 +150,7 @@
   {
     "form_id": "abomasnow",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "abomasnow",
@@ -161,8 +160,7 @@
   {
     "form_id": "abomasnow",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "abomasnow",
@@ -2208,8 +2206,7 @@
   {
     "form_id": "altaria",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "altaria",
@@ -2219,8 +2216,7 @@
   {
     "form_id": "altaria",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "altaria",
@@ -3716,14 +3712,12 @@
     "form_id": "arceus",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "hall-of-origin"
   },
   {
     "form_id": "arceus",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "coronet-highlands"
   },
   {
@@ -3740,7 +3734,6 @@
     "form_id": "arceus",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "hall-of-origin"
   },
   {
@@ -4573,7 +4566,6 @@
     "form_id": "articuno",
     "game_id": "blue",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "seafoam-islands"
   },
   {
@@ -4590,7 +4582,6 @@
     "form_id": "articuno",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Seafoam Islands in post-game Kanto."
   },
   {
@@ -4602,14 +4593,12 @@
     "form_id": "articuno",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Seafoam Islands in post-game Kanto."
   },
   {
     "form_id": "articuno",
     "game_id": "lets-go-eevee",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "articuno",
@@ -4620,8 +4609,7 @@
   {
     "form_id": "articuno",
     "game_id": "lets-go-pikachu",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "articuno",
@@ -4643,14 +4631,12 @@
     "form_id": "articuno",
     "game_id": "red",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "seafoam-islands"
   },
   {
     "form_id": "articuno",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "glaseado-mountain"
   },
@@ -4663,7 +4649,6 @@
     "form_id": "articuno",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -4676,7 +4661,6 @@
     "form_id": "articuno",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -4688,7 +4672,6 @@
     "form_id": "articuno",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Seafoam Islands in post-game Kanto."
   },
   {
@@ -4700,7 +4683,6 @@
     "form_id": "articuno",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -4713,21 +4695,18 @@
     "form_id": "articuno",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "articuno",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "articuno",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "glaseado-mountain"
   },
@@ -4740,28 +4719,24 @@
     "form_id": "articuno",
     "game_id": "x",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-spirit-s-den"
   },
   {
     "form_id": "articuno",
     "game_id": "y",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-spirit-s-den"
   },
   {
     "form_id": "articuno",
     "game_id": "yellow",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "seafoam-islands"
   },
   {
     "form_id": "articuno-galar",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-tundra"
   },
@@ -4769,7 +4744,6 @@
     "form_id": "articuno-galar",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-tundra"
   },
@@ -4849,8 +4823,7 @@
   {
     "form_id": "audino",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "audino",
@@ -4860,8 +4833,7 @@
   {
     "form_id": "audino",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "audino",
@@ -5255,35 +5227,30 @@
     "form_id": "azelf",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "nameless-cavern"
   },
   {
     "form_id": "azelf",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "valor-cavern"
   },
   {
     "form_id": "azelf",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "crimson-mirelands"
   },
   {
     "form_id": "azelf",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "nameless-cavern"
   },
   {
     "form_id": "azelf",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -5296,14 +5263,12 @@
     "form_id": "azelf",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "valor-cavern"
   },
   {
     "form_id": "azelf",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -5316,14 +5281,12 @@
     "form_id": "azelf",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "azelf",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -6057,8 +6020,7 @@
   {
     "form_id": "barbaracle",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "barbaracle",
@@ -6068,8 +6030,7 @@
   {
     "form_id": "barbaracle",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "barbaracle",
@@ -8044,8 +8005,7 @@
   {
     "form_id": "bewear",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "bewear",
@@ -8067,8 +8027,7 @@
   {
     "form_id": "bewear",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "bewear",
@@ -8466,7 +8425,6 @@
     "form_id": "blacephalon",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -8479,7 +8437,6 @@
     "form_id": "blacephalon",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -8497,8 +8454,7 @@
   {
     "form_id": "blacephalon",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "blacephalon",
@@ -9244,7 +9200,6 @@
     "form_id": "bombirdier",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-one"
   },
   {
@@ -9268,7 +9223,6 @@
     "form_id": "bombirdier",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-one"
   },
   {
@@ -10587,7 +10541,6 @@
     "form_id": "bulbasaur",
     "game_id": "crystal",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -10599,7 +10552,6 @@
     "form_id": "bulbasaur",
     "game_id": "gold",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -10665,7 +10617,6 @@
     "form_id": "bulbasaur",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "master-dojo"
   },
@@ -10688,7 +10639,6 @@
     "form_id": "bulbasaur",
     "game_id": "silver",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -10700,7 +10650,6 @@
     "form_id": "bulbasaur",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "master-dojo"
   },
@@ -10850,7 +10799,6 @@
     "form_id": "bunnelby",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "rouge-district"
   },
   {
@@ -11280,7 +11228,6 @@
     "form_id": "buzzwole",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -11292,8 +11239,7 @@
   {
     "form_id": "buzzwole",
     "game_id": "sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "buzzwole",
@@ -11310,7 +11256,6 @@
     "form_id": "buzzwole",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -11328,8 +11273,7 @@
   {
     "form_id": "buzzwole",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "buzzwole",
@@ -11474,7 +11418,6 @@
     "form_id": "calyrex",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-shrine"
   },
@@ -11487,7 +11430,6 @@
     "form_id": "calyrex",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-shrine"
   },
@@ -12219,7 +12161,6 @@
     "form_id": "castform",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "weather-institute"
   },
   {
@@ -12247,7 +12188,6 @@
     "form_id": "castform",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "weather-institute"
   },
   {
@@ -12473,8 +12413,7 @@
   {
     "form_id": "celebi",
     "game_id": "crystal",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "celebi",
@@ -12550,8 +12489,7 @@
   {
     "form_id": "celesteela",
     "game_id": "moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "celesteela",
@@ -12568,7 +12506,6 @@
     "form_id": "celesteela",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -12587,7 +12524,6 @@
     "form_id": "celesteela",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -12599,8 +12535,7 @@
   {
     "form_id": "celesteela",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "celesteela",
@@ -13694,7 +13629,6 @@
     "form_id": "charmander",
     "game_id": "crystal",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -13706,7 +13640,6 @@
     "form_id": "charmander",
     "game_id": "gold",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -13788,7 +13721,6 @@
     "form_id": "charmander",
     "game_id": "silver",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -14295,7 +14227,6 @@
     "form_id": "chespin",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "rouge-district"
   },
   {
@@ -14429,28 +14360,24 @@
     "form_id": "chi-yu",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-two"
   },
   {
     "form_id": "chi-yu",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-two"
   },
   {
     "form_id": "chien-pao",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-one"
   },
   {
     "form_id": "chien-pao",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-one"
   },
   {
@@ -14573,7 +14500,6 @@
     "form_id": "chimchar",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
@@ -16881,7 +16807,6 @@
     "form_id": "cobalion",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "pathless-plain"
   },
   {
@@ -16893,14 +16818,12 @@
     "form_id": "cobalion",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "pathless-plain"
   },
   {
     "form_id": "cobalion",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-province-area-two"
   },
@@ -16913,7 +16836,6 @@
     "form_id": "cobalion",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "frigid-sea"
   },
@@ -16926,7 +16848,6 @@
     "form_id": "cobalion",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "frigid-sea"
   },
@@ -16939,21 +16860,18 @@
     "form_id": "cobalion",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "cobalion",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "cobalion",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-province-area-two"
   },
@@ -18213,7 +18131,6 @@
     "form_id": "cosmog",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "lake-of-the-moone"
   },
   {
@@ -18236,7 +18153,6 @@
     "form_id": "cosmog",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "lake-of-the-sunne"
   },
   {
@@ -18259,7 +18175,6 @@
     "form_id": "cosmog",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "lake-of-the-moone"
   },
   {
@@ -18271,7 +18186,6 @@
     "form_id": "cosmog",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "lake-of-the-sunne"
   },
   {
@@ -19068,35 +18982,30 @@
     "form_id": "cresselia",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "crescent-isle"
   },
   {
     "form_id": "cresselia",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sinnoh"
   },
   {
     "form_id": "cresselia",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "coronet-highlands"
   },
   {
     "form_id": "cresselia",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "crescent-isle"
   },
   {
     "form_id": "cresselia",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -19109,14 +19018,12 @@
     "form_id": "cresselia",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sinnoh"
   },
   {
     "form_id": "cresselia",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -19129,14 +19036,12 @@
     "form_id": "cresselia",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "cresselia",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -19586,8 +19491,7 @@
   {
     "form_id": "crustle",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "crustle",
@@ -19597,8 +19501,7 @@
   {
     "form_id": "crustle",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "crustle",
@@ -20385,14 +20288,12 @@
     "form_id": "darkrai",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "newmoon-island"
   },
   {
     "form_id": "darkrai",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "coronet-highlands"
   },
   {
@@ -20419,7 +20320,6 @@
     "form_id": "darkrai",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "newmoon-island"
   },
   {
@@ -21280,14 +21180,12 @@
     "form_id": "deoxys",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sky-pillar"
   },
   {
     "form_id": "deoxys",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sky-pillar"
   },
   {
@@ -21807,21 +21705,18 @@
     "form_id": "dialga",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
     "form_id": "dialga",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "spear-pillar"
   },
   {
     "form_id": "dialga",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "coronet-highlands"
   },
   {
@@ -21839,14 +21734,12 @@
     "form_id": "dialga",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Ramanas Park Adamant Slate after completing the National Pokédex."
   },
   {
     "form_id": "dialga",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -21859,7 +21752,6 @@
     "form_id": "dialga",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -21889,7 +21781,6 @@
     "form_id": "diancie",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Magenta Sector 8; requires Mystery Gift activation."
   },
   {
@@ -21918,7 +21809,6 @@
     "form_id": "diggersby",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "vernal-avenue"
   },
   {
@@ -22487,8 +22377,7 @@
   {
     "form_id": "ditto",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "ditto",
@@ -22504,8 +22393,7 @@
   {
     "form_id": "ditto",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "ditto",
@@ -24252,8 +24140,7 @@
   {
     "form_id": "drapion",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "drapion",
@@ -24263,8 +24150,7 @@
   {
     "form_id": "drapion",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "drapion",
@@ -25051,8 +24937,7 @@
   {
     "form_id": "drifloon",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "drifloon",
@@ -25068,8 +24953,7 @@
   {
     "form_id": "drifloon",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "drifloon",
@@ -28466,8 +28350,7 @@
   {
     "form_id": "electrode",
     "game_id": "alpha-sapphire",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28490,8 +28373,7 @@
   {
     "form_id": "electrode",
     "game_id": "blue",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28531,8 +28413,7 @@
   {
     "form_id": "electrode",
     "game_id": "crystal",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28555,8 +28436,7 @@
   {
     "form_id": "electrode",
     "game_id": "gold",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28592,8 +28472,7 @@
   {
     "form_id": "electrode",
     "game_id": "lets-go-eevee",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28617,8 +28496,7 @@
   {
     "form_id": "electrode",
     "game_id": "lets-go-pikachu",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28642,8 +28520,7 @@
   {
     "form_id": "electrode",
     "game_id": "omega-ruby",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28666,8 +28543,7 @@
   {
     "form_id": "electrode",
     "game_id": "red",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28731,8 +28607,7 @@
   {
     "form_id": "electrode",
     "game_id": "silver",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28742,14 +28617,12 @@
   {
     "form_id": "electrode",
     "game_id": "sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28759,8 +28632,7 @@
   {
     "form_id": "electrode",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -28855,8 +28727,7 @@
   {
     "form_id": "electrode",
     "game_id": "yellow",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "electrode",
@@ -29233,7 +29104,6 @@
     "form_id": "emolga",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "jaune-district"
   },
   {
@@ -29403,7 +29273,6 @@
     "form_id": "enamorus",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "crimson-mirelands"
   },
   {
@@ -29418,21 +29287,18 @@
     "form_id": "entei",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "trackless-forest"
   },
   {
     "form_id": "entei",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
     "form_id": "entei",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -29445,7 +29311,6 @@
     "form_id": "entei",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -29458,14 +29323,12 @@
     "form_id": "entei",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "trackless-forest"
   },
   {
     "form_id": "entei",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "east-province-area-three"
   },
@@ -29478,7 +29341,6 @@
     "form_id": "entei",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -29491,7 +29353,6 @@
     "form_id": "entei",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -29510,7 +29371,6 @@
     "form_id": "entei",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -29523,7 +29383,6 @@
     "form_id": "entei",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -29536,7 +29395,6 @@
     "form_id": "entei",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "east-province-area-three"
   },
@@ -29990,14 +29848,12 @@
     "form_id": "eternatus",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tower-summit"
   },
   {
     "form_id": "eternatus",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tower-summit"
   },
   {
@@ -30626,8 +30482,7 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "exeggutor-alola",
@@ -30683,8 +30538,7 @@
   {
     "form_id": "exeggutor-alola",
     "game_id": "sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "exeggutor-alola",
@@ -31545,7 +31399,6 @@
     "form_id": "fennekin",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "magenta-district"
   },
   {
@@ -31798,7 +31651,6 @@
     "form_id": "fezandipiti",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "oni-mountain"
   },
@@ -31811,7 +31663,6 @@
     "form_id": "fezandipiti",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "oni-mountain"
   },
@@ -33014,8 +32865,7 @@
   {
     "form_id": "floatzel",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "floatzel",
@@ -33025,8 +32875,7 @@
   {
     "form_id": "floatzel",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "floatzel",
@@ -33245,7 +33094,6 @@
     "form_id": "floette-eternal",
     "game_id": "legends-za",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Received from Taunie/Urbain upon completing Main Mission 39."
   },
   {
@@ -34013,8 +33861,7 @@
   {
     "form_id": "frillish",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "frillish",
@@ -34030,8 +33877,7 @@
   {
     "form_id": "frillish",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "frillish",
@@ -34100,7 +33946,6 @@
     "form_id": "frillish-female",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "gender": "female"
   },
   {
@@ -34120,7 +33965,6 @@
     "form_id": "frillish-female",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "gender": "female"
   },
   {
@@ -34140,7 +33984,6 @@
     "form_id": "froakie",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "rouge-district"
   },
   {
@@ -35058,7 +34901,6 @@
     "form_id": "gallade",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "bleu-district"
   },
   {
@@ -35338,7 +35180,6 @@
     "form_id": "garbodor",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "vert-district"
   },
   {
@@ -35900,7 +35741,6 @@
     "form_id": "gastly",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "bleu-district"
   },
   {
@@ -36026,8 +35866,7 @@
   {
     "form_id": "gastly",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "gastly",
@@ -36043,8 +35882,7 @@
   {
     "form_id": "gastly",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "gastly",
@@ -36670,8 +36508,7 @@
   {
     "form_id": "geodude",
     "game_id": "crystal",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "geodude",
@@ -36687,8 +36524,7 @@
   {
     "form_id": "geodude",
     "game_id": "gold",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "geodude",
@@ -36777,8 +36613,7 @@
   {
     "form_id": "geodude",
     "game_id": "silver",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "geodude",
@@ -37328,35 +37163,30 @@
     "form_id": "giratina",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
     "form_id": "giratina",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "turnback-cave"
   },
   {
     "form_id": "giratina",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cobalt-coastlands"
   },
   {
     "form_id": "giratina",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
     "form_id": "giratina",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -37369,14 +37199,12 @@
     "form_id": "giratina",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "turnback-cave"
   },
   {
     "form_id": "giratina",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -37389,14 +37217,12 @@
     "form_id": "giratina",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "giratina",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -37621,7 +37447,6 @@
     "form_id": "glalie",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "alabaster-icelands"
   },
   {
@@ -37693,7 +37518,6 @@
     "form_id": "glalie",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "giant-s-cap"
   },
   {
@@ -37758,7 +37582,6 @@
     "form_id": "glalie",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "giant-s-cap"
   },
   {
@@ -37866,7 +37689,6 @@
     "form_id": "glastrier",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "glaseado-mountain"
   },
@@ -37879,7 +37701,6 @@
     "form_id": "glastrier",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-shrine"
   },
@@ -37892,7 +37713,6 @@
     "form_id": "glastrier",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-shrine"
   },
@@ -37905,7 +37725,6 @@
     "form_id": "glastrier",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "glaseado-mountain"
   },
@@ -40205,7 +40024,6 @@
     "form_id": "goodra-hisui",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
@@ -40814,7 +40632,6 @@
     "form_id": "gouging-fire",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     "location": "area-zero"
@@ -41673,7 +41490,6 @@
     "form_id": "great-tusk",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "asado-desert"
   },
   {
@@ -42418,7 +42234,6 @@
     "form_id": "groudon",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Mirage Cave encounter after completing the Delta Episode."
   },
   {
@@ -42431,7 +42246,6 @@
     "form_id": "groudon",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -42448,14 +42262,12 @@
     "form_id": "groudon",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cave-of-origin"
   },
   {
     "form_id": "groudon",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "alfornada-cavern"
   },
@@ -42473,7 +42285,6 @@
     "form_id": "groudon",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -42485,7 +42296,6 @@
     "form_id": "groudon",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -42503,14 +42313,12 @@
     "form_id": "groudon",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "groudon",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "alfornada-cavern"
   },
@@ -42995,8 +42803,7 @@
   {
     "form_id": "grumpig",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "grumpig",
@@ -43006,8 +42813,7 @@
   {
     "form_id": "grumpig",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "grumpig",
@@ -43414,7 +43220,6 @@
     "form_id": "guzzlord",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "resolution-cave"
   },
   {
@@ -43427,7 +43232,6 @@
     "form_id": "guzzlord",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -43440,7 +43244,6 @@
     "form_id": "guzzlord",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "resolution-cave"
   },
   {
@@ -43453,7 +43256,6 @@
     "form_id": "guzzlord",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -43465,8 +43267,7 @@
   {
     "form_id": "guzzlord",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "guzzlord",
@@ -43476,8 +43277,7 @@
   {
     "form_id": "guzzlord",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "guzzlord",
@@ -43535,8 +43335,7 @@
   {
     "form_id": "gyarados",
     "game_id": "crystal",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "gyarados",
@@ -43559,8 +43358,7 @@
   {
     "form_id": "gyarados",
     "game_id": "gold",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "gyarados",
@@ -43754,8 +43552,7 @@
   {
     "form_id": "gyarados",
     "game_id": "silver",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "gyarados",
@@ -45443,21 +45240,18 @@
     "form_id": "heatran",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "scorched-slab"
   },
   {
     "form_id": "heatran",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "stark-mountain"
   },
   {
     "form_id": "heatran",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cobalt-coastlands"
   },
   {
@@ -45469,14 +45263,12 @@
     "form_id": "heatran",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "scorched-slab"
   },
   {
     "form_id": "heatran",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -45489,14 +45281,12 @@
     "form_id": "heatran",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "stark-mountain"
   },
   {
     "form_id": "heatran",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -45509,7 +45299,6 @@
     "form_id": "heatran",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -45575,8 +45364,7 @@
   {
     "form_id": "heliolisk",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "heliolisk",
@@ -45586,8 +45374,7 @@
   {
     "form_id": "heliolisk",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "heliolisk",
@@ -46180,8 +45967,7 @@
   {
     "form_id": "hippowdon",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "hippowdon",
@@ -46191,8 +45977,7 @@
   {
     "form_id": "hippowdon",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "hippowdon",
@@ -46757,21 +46542,18 @@
     "form_id": "ho-oh",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
     "form_id": "ho-oh",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tin-tower"
   },
   {
     "form_id": "ho-oh",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tin-tower"
   },
   {
@@ -46784,14 +46566,12 @@
     "form_id": "ho-oh",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-mauville"
   },
   {
     "form_id": "ho-oh",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-four"
   },
@@ -46809,7 +46589,6 @@
     "form_id": "ho-oh",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tin-tower"
   },
   {
@@ -46822,7 +46601,6 @@
     "form_id": "ho-oh",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -46841,14 +46619,12 @@
     "form_id": "ho-oh",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "ho-oh",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-four"
   },
@@ -48284,8 +48060,7 @@
   {
     "form_id": "hypno",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "hypno",
@@ -48307,8 +48082,7 @@
   {
     "form_id": "hypno",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "hypno",
@@ -49169,7 +48943,6 @@
     "form_id": "iron-boulder",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     "location": "area-zero"
@@ -49206,7 +48979,6 @@
     "form_id": "iron-crown",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     "location": "area-zero"
@@ -49283,7 +49055,6 @@
     "form_id": "iron-treads",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "asado-desert"
   },
   {
@@ -50059,7 +49830,6 @@
     "form_id": "jirachi",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "floaroma-town"
   },
   {
@@ -50083,7 +49853,6 @@
     "form_id": "jirachi",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "floaroma-town"
   },
   {
@@ -51805,7 +51574,6 @@
     "form_id": "kartana",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -51817,8 +51585,7 @@
   {
     "form_id": "kartana",
     "game_id": "sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "kartana",
@@ -51835,7 +51602,6 @@
     "form_id": "kartana",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -51853,8 +51619,7 @@
   {
     "form_id": "kartana",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "kartana",
@@ -51973,7 +51738,6 @@
     "form_id": "keldeo",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "ballimere-lake"
   },
@@ -51986,7 +51750,6 @@
     "form_id": "keldeo",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "ballimere-lake"
   },
@@ -52691,7 +52454,6 @@
     "form_id": "klawf",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-three"
   },
   {
@@ -52709,7 +52471,6 @@
     "form_id": "klawf",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-three"
   },
   {
@@ -53056,8 +52817,7 @@
   {
     "form_id": "koffing",
     "game_id": "crystal",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "koffing",
@@ -53073,8 +52833,7 @@
   {
     "form_id": "koffing",
     "game_id": "gold",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "koffing",
@@ -53152,8 +52911,7 @@
   {
     "form_id": "koffing",
     "game_id": "silver",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "koffing",
@@ -53415,7 +53173,6 @@
     "form_id": "koraidon",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "poco-path"
   },
   {
@@ -53747,7 +53504,6 @@
     "form_id": "kricketune",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
@@ -54084,7 +53840,6 @@
     "form_id": "kubfu",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-province-area-two"
   },
@@ -54119,7 +53874,6 @@
     "form_id": "kubfu",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-province-area-two"
   },
@@ -54132,14 +53886,12 @@
     "form_id": "kyogre",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cave-of-origin"
   },
   {
     "form_id": "kyogre",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -54162,14 +53914,12 @@
     "form_id": "kyogre",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Mirage Cave encounter after completing the Delta Episode."
   },
   {
     "form_id": "kyogre",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "casseroya-lake"
   },
@@ -54182,7 +53932,6 @@
     "form_id": "kyogre",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -54195,7 +53944,6 @@
     "form_id": "kyogre",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -54212,7 +53960,6 @@
     "form_id": "kyogre",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -54224,7 +53971,6 @@
     "form_id": "kyogre",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "casseroya-lake"
   },
@@ -54249,21 +53995,18 @@
     "form_id": "kyurem",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "gnarled-den"
   },
   {
     "form_id": "kyurem",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "gnarled-den"
   },
   {
     "form_id": "kyurem",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "dalizapa-passage"
   },
@@ -54276,7 +54019,6 @@
     "form_id": "kyurem",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -54289,7 +54031,6 @@
     "form_id": "kyurem",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -54302,21 +54043,18 @@
     "form_id": "kyurem",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "kyurem",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "kyurem",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "dalizapa-passage"
   },
@@ -54608,28 +54346,24 @@
     "form_id": "landorus",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
     "form_id": "landorus",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
     "form_id": "landorus",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
     "form_id": "landorus",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -54642,7 +54376,6 @@
     "form_id": "landorus",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -54655,14 +54388,12 @@
     "form_id": "landorus",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "landorus",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -54979,8 +54710,7 @@
   {
     "form_id": "lapras",
     "game_id": "crystal",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "lapras",
@@ -54990,8 +54720,7 @@
   {
     "form_id": "lapras",
     "game_id": "gold",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "lapras",
@@ -55094,8 +54823,7 @@
   {
     "form_id": "lapras",
     "game_id": "silver",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "lapras",
@@ -55520,14 +55248,12 @@
     "form_id": "latias",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "southern-island"
   },
   {
     "form_id": "latias",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -55544,14 +55270,12 @@
     "form_id": "latias",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "southern-island"
   },
   {
     "form_id": "latias",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-four"
   },
@@ -55564,7 +55288,6 @@
     "form_id": "latias",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -55577,7 +55300,6 @@
     "form_id": "latias",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -55594,7 +55316,6 @@
     "form_id": "latias",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -55606,7 +55327,6 @@
     "form_id": "latias",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-four"
   },
@@ -55619,14 +55339,12 @@
     "form_id": "latios",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "southern-island"
   },
   {
     "form_id": "latios",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -55648,14 +55366,12 @@
     "form_id": "latios",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "southern-island"
   },
   {
     "form_id": "latios",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-province-area-two"
   },
@@ -55673,7 +55389,6 @@
     "form_id": "latios",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -55685,7 +55400,6 @@
     "form_id": "latios",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -55703,14 +55417,12 @@
     "form_id": "latios",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "latios",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-province-area-two"
   },
@@ -57592,8 +57304,7 @@
   {
     "form_id": "lombre",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "lombre",
@@ -57603,8 +57314,7 @@
   {
     "form_id": "lombre",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "lombre",
@@ -58062,7 +57772,6 @@
     "form_id": "lucario",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "room-202"
   },
   {
@@ -58375,21 +58084,18 @@
     "form_id": "lugia",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-mauville"
   },
   {
     "form_id": "lugia",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "whirl-islands"
   },
   {
     "form_id": "lugia",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "whirl-islands"
   },
   {
@@ -58408,7 +58114,6 @@
     "form_id": "lugia",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-paldean-sea"
   },
@@ -58421,7 +58126,6 @@
     "form_id": "lugia",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -58434,14 +58138,12 @@
     "form_id": "lugia",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
     "form_id": "lugia",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "whirl-islands"
   },
   {
@@ -58459,7 +58161,6 @@
     "form_id": "lugia",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -58472,7 +58173,6 @@
     "form_id": "lugia",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "north-paldean-sea"
   },
@@ -58667,14 +58367,12 @@
     "form_id": "lunala",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "altar-of-the-moone"
   },
   {
     "form_id": "lunala",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "casseroya-lake"
   },
@@ -58687,7 +58385,6 @@
     "form_id": "lunala",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -58722,7 +58419,6 @@
     "form_id": "lunala",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "mahalo-trail"
   },
   {
@@ -58735,7 +58431,6 @@
     "form_id": "lunala",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "casseroya-lake"
   },
@@ -60781,8 +60476,7 @@
   {
     "form_id": "magcargo",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "magcargo",
@@ -60792,8 +60486,7 @@
   {
     "form_id": "magcargo",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "magcargo",
@@ -60882,8 +60575,7 @@
   {
     "form_id": "magearna",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "magearna",
@@ -60893,8 +60585,7 @@
   {
     "form_id": "magearna",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "magearna",
@@ -62966,14 +62657,12 @@
     "form_id": "manaphy",
     "game_id": "brilliant-diamond",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Manaphy Egg via Mystery Gift (2022 promotion)."
   },
   {
     "form_id": "manaphy",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cobalt-coastlands"
   },
   {
@@ -62995,7 +62684,6 @@
     "form_id": "manaphy",
     "game_id": "shining-pearl",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Manaphy Egg via Mystery Gift (2022 promotion)."
   },
   {
@@ -65106,7 +64794,6 @@
     "form_id": "mawile",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "magenta-district"
   },
   {
@@ -65284,8 +64971,7 @@
   {
     "form_id": "medicham",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "medicham",
@@ -65295,8 +64981,7 @@
   {
     "form_id": "medicham",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "medicham",
@@ -65524,7 +65209,6 @@
     "form_id": "meloetta",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "coastal-biome"
   },
@@ -65547,7 +65231,6 @@
     "form_id": "meloetta",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "coastal-biome"
   },
@@ -66126,35 +65809,30 @@
     "form_id": "mesprit",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "nameless-cavern"
   },
   {
     "form_id": "mesprit",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sinnoh"
   },
   {
     "form_id": "mesprit",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
     "form_id": "mesprit",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "nameless-cavern"
   },
   {
     "form_id": "mesprit",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -66167,14 +65845,12 @@
     "form_id": "mesprit",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sinnoh"
   },
   {
     "form_id": "mesprit",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -66187,14 +65863,12 @@
     "form_id": "mesprit",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "mesprit",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -66763,7 +66437,6 @@
     "form_id": "mew",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "floaroma-town"
   },
   {
@@ -66782,14 +66455,12 @@
     "form_id": "mew",
     "game_id": "lets-go-eevee",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Redeemed from the Poké Ball Plus peripheral (one per save)."
   },
   {
     "form_id": "mew",
     "game_id": "lets-go-pikachu",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Redeemed from the Poké Ball Plus peripheral (one per save)."
   },
   {
@@ -66817,7 +66488,6 @@
     "form_id": "mew",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "floaroma-town"
   },
   {
@@ -66866,14 +66536,12 @@
     "form_id": "mewtwo",
     "game_id": "blue",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cerulean-cave"
   },
   {
     "form_id": "mewtwo",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -66885,7 +66553,6 @@
     "form_id": "mewtwo",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Cerulean Cave in post-game Kanto."
   },
   {
@@ -66897,7 +66564,6 @@
     "form_id": "mewtwo",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Cerulean Cave in post-game Kanto."
   },
   {
@@ -66909,33 +66575,28 @@
     "form_id": "mewtwo",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Magenta District Lysandre Labs; requires Mystery Gift activation."
   },
   {
     "form_id": "mewtwo",
     "game_id": "lets-go-eevee",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "mewtwo",
     "game_id": "lets-go-pikachu",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "mewtwo",
     "game_id": "red",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cerulean-cave"
   },
   {
     "form_id": "mewtwo",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -66943,7 +66604,6 @@
     "form_id": "mewtwo",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -66955,14 +66615,12 @@
     "form_id": "mewtwo",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Cerulean Cave in post-game Kanto."
   },
   {
     "form_id": "mewtwo",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -66970,35 +66628,30 @@
     "form_id": "mewtwo",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "mewtwo",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "mewtwo",
     "game_id": "x",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "unknown-dungeon"
   },
   {
     "form_id": "mewtwo",
     "game_id": "y",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "unknown-dungeon"
   },
   {
     "form_id": "mewtwo",
     "game_id": "yellow",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cerulean-cave"
   },
   {
@@ -68339,7 +67992,6 @@
     "form_id": "miraidon",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "poco-path"
   },
   {
@@ -68584,7 +68236,6 @@
     "form_id": "moltres",
     "game_id": "blue",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "victory-road"
   },
   {
@@ -68601,7 +68252,6 @@
     "form_id": "moltres",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Mt. Silver in post-game Kanto."
   },
   {
@@ -68613,14 +68263,12 @@
     "form_id": "moltres",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Mt. Silver in post-game Kanto."
   },
   {
     "form_id": "moltres",
     "game_id": "lets-go-eevee",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "moltres",
@@ -68631,8 +68279,7 @@
   {
     "form_id": "moltres",
     "game_id": "lets-go-pikachu",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "moltres",
@@ -68654,14 +68301,12 @@
     "form_id": "moltres",
     "game_id": "red",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "victory-road"
   },
   {
     "form_id": "moltres",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "asado-desert"
   },
@@ -68674,7 +68319,6 @@
     "form_id": "moltres",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -68687,7 +68331,6 @@
     "form_id": "moltres",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -68699,7 +68342,6 @@
     "form_id": "moltres",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Mt. Silver in post-game Kanto."
   },
   {
@@ -68711,7 +68353,6 @@
     "form_id": "moltres",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -68724,21 +68365,18 @@
     "form_id": "moltres",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "moltres",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "moltres",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "asado-desert"
   },
@@ -68751,28 +68389,24 @@
     "form_id": "moltres",
     "game_id": "x",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-spirit-s-den"
   },
   {
     "form_id": "moltres",
     "game_id": "y",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-spirit-s-den"
   },
   {
     "form_id": "moltres",
     "game_id": "yellow",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "victory-road"
   },
   {
     "form_id": "moltres-galar",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "isle-of-armor"
   },
@@ -68780,7 +68414,6 @@
     "form_id": "moltres-galar",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "isle-of-armor"
   },
@@ -70511,7 +70144,6 @@
     "form_id": "munkidori",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "wistful-fields"
   },
@@ -70524,7 +70156,6 @@
     "form_id": "munkidori",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "wistful-fields"
   },
@@ -71035,7 +70666,6 @@
     "form_id": "necrozma",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ten-carat-hill"
   },
   {
@@ -71048,7 +70678,6 @@
     "form_id": "necrozma",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "socarrat-trail"
   },
@@ -71061,7 +70690,6 @@
     "form_id": "necrozma",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -71074,7 +70702,6 @@
     "form_id": "necrozma",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ten-carat-hill"
   },
   {
@@ -71087,7 +70714,6 @@
     "form_id": "necrozma",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -71100,21 +70726,18 @@
     "form_id": "necrozma",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "mount-lanakila"
   },
   {
     "form_id": "necrozma",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "mount-lanakila"
   },
   {
     "form_id": "necrozma",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "socarrat-trail"
   },
@@ -72276,7 +71899,6 @@
     "form_id": "nihilego",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "diglett-s-tunnel"
   },
   {
@@ -72289,7 +71911,6 @@
     "form_id": "nihilego",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -72302,7 +71923,6 @@
     "form_id": "nihilego",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "diglett-s-tunnel"
   },
   {
@@ -72315,7 +71935,6 @@
     "form_id": "nihilego",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -72327,8 +71946,7 @@
   {
     "form_id": "nihilego",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "nihilego",
@@ -72338,8 +71956,7 @@
   {
     "form_id": "nihilego",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "nihilego",
@@ -73763,8 +73380,7 @@
   {
     "form_id": "nuzleaf",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "nuzleaf",
@@ -73774,8 +73390,7 @@
   {
     "form_id": "nuzleaf",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "nuzleaf",
@@ -73875,7 +73490,6 @@
     "form_id": "obstagoon",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "bridge-field"
   },
   {
@@ -73914,7 +73528,6 @@
     "form_id": "obstagoon",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "bridge-field"
   },
   {
@@ -74368,7 +73981,6 @@
     "form_id": "ogerpon",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "dreaded-den"
   },
@@ -74381,7 +73993,6 @@
     "form_id": "ogerpon",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "dreaded-den"
   },
@@ -74468,7 +74079,6 @@
     "form_id": "okidogi",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "paradise-barrens"
   },
@@ -74481,7 +74091,6 @@
     "form_id": "okidogi",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "paradise-barrens"
   },
@@ -75358,7 +74967,6 @@
     "form_id": "orthworm",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-three"
   },
   {
@@ -75382,7 +74990,6 @@
     "form_id": "orthworm",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-three"
   },
   {
@@ -75477,7 +75084,6 @@
     "form_id": "overqwil",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "crimson-mirelands"
   },
   {
@@ -75663,28 +75269,24 @@
     "form_id": "palkia",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Ramanas Park Lustrous Slate after completing the National Pokédex."
   },
   {
     "form_id": "palkia",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "coronet-highlands"
   },
   {
     "form_id": "palkia",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
     "form_id": "palkia",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -75697,7 +75299,6 @@
     "form_id": "palkia",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "spear-pillar"
   },
   {
@@ -75709,7 +75310,6 @@
     "form_id": "palkia",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -76007,7 +75607,6 @@
     "form_id": "pangoro",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "magenta-district"
   },
   {
@@ -76886,7 +76485,6 @@
     "form_id": "pecharunt",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk.",
     "location": "loyalty-plaza"
@@ -76900,7 +76498,6 @@
     "form_id": "pecharunt",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Caught during the Mochi Mayhem epilogue after completing Indigo Disk.",
     "location": "loyalty-plaza"
@@ -78062,8 +77659,7 @@
   {
     "form_id": "pheromosa",
     "game_id": "moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "pheromosa",
@@ -78080,7 +77676,6 @@
     "form_id": "pheromosa",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -78099,7 +77694,6 @@
     "form_id": "pheromosa",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -78111,8 +77705,7 @@
   {
     "form_id": "pheromosa",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "pheromosa",
@@ -79105,7 +78698,6 @@
     "form_id": "pikachu",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "meetup-spot"
   },
   {
@@ -79191,7 +78783,6 @@
     "form_id": "pikachu",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "meetup-spot"
   },
   {
@@ -79221,7 +78812,6 @@
     "form_id": "pikachu",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "heahea-city"
   },
   {
@@ -79251,7 +78841,6 @@
     "form_id": "pikachu",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "heahea-city"
   },
   {
@@ -80009,8 +79598,7 @@
   {
     "form_id": "pinsir",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "pinsir",
@@ -80031,8 +79619,7 @@
   {
     "form_id": "pinsir",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "pinsir",
@@ -81631,7 +81218,6 @@
     "form_id": "ponyta",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
@@ -84165,8 +83751,7 @@
   {
     "form_id": "quagsire",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "quagsire",
@@ -84176,8 +83761,7 @@
   {
     "form_id": "quagsire",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "quagsire",
@@ -84623,7 +84207,6 @@
     "form_id": "raging-bolt",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Area Zero Underdepths encounter after completing the Indigo Disk DLC.",
     "location": "area-zero"
@@ -85035,21 +84618,18 @@
     "form_id": "raikou",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "trackless-forest"
   },
   {
     "form_id": "raikou",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
     "form_id": "raikou",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -85062,7 +84642,6 @@
     "form_id": "raikou",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -85081,14 +84660,12 @@
     "form_id": "raikou",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "trackless-forest"
   },
   {
     "form_id": "raikou",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "west-province-area-one"
   },
@@ -85101,7 +84678,6 @@
     "form_id": "raikou",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -85114,7 +84690,6 @@
     "form_id": "raikou",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -85127,7 +84702,6 @@
     "form_id": "raikou",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -85146,14 +84720,12 @@
     "form_id": "raikou",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "raikou",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "west-province-area-one"
   },
@@ -85974,14 +85546,12 @@
     "form_id": "rayquaza",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sky-pillar"
   },
   {
     "form_id": "rayquaza",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -85998,14 +85568,12 @@
     "form_id": "rayquaza",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sky-pillar"
   },
   {
     "form_id": "rayquaza",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "great-crater-of-paldea"
   },
@@ -86018,7 +85586,6 @@
     "form_id": "rayquaza",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -86031,7 +85598,6 @@
     "form_id": "rayquaza",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -86043,7 +85609,6 @@
     "form_id": "rayquaza",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -86056,21 +85621,18 @@
     "form_id": "rayquaza",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "rayquaza",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "rayquaza",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "great-crater-of-paldea"
   },
@@ -86095,14 +85657,12 @@
     "form_id": "regice",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "island-cave"
   },
   {
     "form_id": "regice",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -86114,14 +85674,12 @@
     "form_id": "regice",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "island-cave"
   },
   {
     "form_id": "regice",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "iceberg-ruins"
   },
@@ -86134,7 +85692,6 @@
     "form_id": "regice",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -86146,7 +85703,6 @@
     "form_id": "regice",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "iceberg-ruins"
   },
@@ -86159,21 +85715,18 @@
     "form_id": "regice",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "regice",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "regidrago",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "split-decision-ruins"
   },
@@ -86186,7 +85739,6 @@
     "form_id": "regidrago",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "split-decision-ruins"
   },
@@ -86199,7 +85751,6 @@
     "form_id": "regieleki",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "split-decision-ruins"
   },
@@ -86212,7 +85763,6 @@
     "form_id": "regieleki",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "split-decision-ruins"
   },
@@ -86225,28 +85775,24 @@
     "form_id": "regigigas",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "island-cave"
   },
   {
     "form_id": "regigigas",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "snowpoint-temple"
   },
   {
     "form_id": "regigigas",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "alabaster-icelands"
   },
   {
     "form_id": "regigigas",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "island-cave"
   },
   {
@@ -86265,7 +85811,6 @@
     "form_id": "regigigas",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "snowpoint-temple"
   },
   {
@@ -86284,21 +85829,18 @@
     "form_id": "regigigas",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "regirock",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "desert-ruins"
   },
   {
     "form_id": "regirock",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -86310,14 +85852,12 @@
     "form_id": "regirock",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "desert-ruins"
   },
   {
     "form_id": "regirock",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "rock-peak-ruins"
   },
@@ -86330,7 +85870,6 @@
     "form_id": "regirock",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -86342,7 +85881,6 @@
     "form_id": "regirock",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "rock-peak-ruins"
   },
@@ -86355,28 +85893,24 @@
     "form_id": "regirock",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "regirock",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "registeel",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ancient-tomb"
   },
   {
     "form_id": "registeel",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -86388,14 +85922,12 @@
     "form_id": "registeel",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ancient-tomb"
   },
   {
     "form_id": "registeel",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "iron-ruins"
   },
@@ -86408,7 +85940,6 @@
     "form_id": "registeel",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -86420,7 +85951,6 @@
     "form_id": "registeel",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "iron-ruins"
   },
@@ -86433,14 +85963,12 @@
     "form_id": "registeel",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "registeel",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -86794,14 +86322,12 @@
     "form_id": "reshiram",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "fabled-cave"
   },
   {
     "form_id": "reshiram",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "east-province-area-one"
   },
@@ -86819,7 +86345,6 @@
     "form_id": "reshiram",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -86832,14 +86357,12 @@
     "form_id": "reshiram",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "reshiram",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "east-province-area-one"
   },
@@ -88772,7 +88295,6 @@
     "form_id": "rotom",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "old-chateau"
   },
   {
@@ -88823,7 +88345,6 @@
     "form_id": "rotom",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "old-chateau"
   },
   {
@@ -89278,7 +88799,6 @@
     "form_id": "sableye",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "rouge-district"
   },
   {
@@ -90977,8 +90497,7 @@
   {
     "form_id": "sandygast",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "sandygast",
@@ -93783,14 +93302,12 @@
     "form_id": "shaymin",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "flower-paradise"
   },
   {
     "form_id": "shaymin",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
@@ -93807,7 +93324,6 @@
     "form_id": "shaymin",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "flower-paradise"
   },
   {
@@ -95371,8 +94887,7 @@
   {
     "form_id": "sigilyph",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "sigilyph",
@@ -95382,8 +94897,7 @@
   {
     "form_id": "sigilyph",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "sigilyph",
@@ -97873,7 +97387,6 @@
     "form_id": "slowpoke-galar",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "wedgehurst-station"
   },
   {
@@ -97893,7 +97406,6 @@
     "form_id": "slowpoke-galar",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "wedgehurst-station"
   },
   {
@@ -98773,7 +98285,6 @@
     "form_id": "snorlax",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "vermilion-city"
   },
   {
@@ -98793,7 +98304,6 @@
     "form_id": "snorlax",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "vermilion-city"
   },
   {
@@ -98984,7 +98494,6 @@
     "form_id": "snorlax",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "vermilion-city"
   },
   {
@@ -99107,7 +98616,6 @@
     "form_id": "snorlax",
     "game_id": "x",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "kalos-route-7"
   },
   {
@@ -99121,7 +98629,6 @@
     "form_id": "snorlax",
     "game_id": "y",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "kalos-route-7"
   },
   {
@@ -99641,7 +99148,6 @@
     "form_id": "solgaleo",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "solgaleo-treat"
   },
@@ -99665,14 +99171,12 @@
     "form_id": "solgaleo",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "altar-of-the-sunne"
   },
   {
     "form_id": "solgaleo",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -99702,14 +99206,12 @@
     "form_id": "solgaleo",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "mahalo-trail"
   },
   {
     "form_id": "solgaleo",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "solgaleo-treat"
   },
@@ -100065,7 +99567,6 @@
     "form_id": "spectrier",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "glaseado-mountain"
   },
@@ -100078,7 +99579,6 @@
     "form_id": "spectrier",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-shrine"
   },
@@ -100091,7 +99591,6 @@
     "form_id": "spectrier",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "crown-shrine"
   },
@@ -100104,7 +99603,6 @@
     "form_id": "spectrier",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "glaseado-mountain"
   },
@@ -100123,7 +99621,6 @@
     "form_id": "spewpa",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "rouge-district"
   },
   {
@@ -100739,8 +100236,7 @@
   {
     "form_id": "spiritomb",
     "game_id": "alpha-sapphire",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "spiritomb",
@@ -100761,8 +100257,7 @@
   {
     "form_id": "spiritomb",
     "game_id": "omega-ruby",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "spiritomb",
@@ -100778,7 +100273,6 @@
     "form_id": "spiritomb",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "ballimere-lake"
   },
@@ -100796,7 +100290,6 @@
     "form_id": "spiritomb",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "ballimere-lake"
   },
@@ -101073,7 +100566,6 @@
     "form_id": "squirtle",
     "game_id": "crystal",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -101085,7 +100577,6 @@
     "form_id": "squirtle",
     "game_id": "gold",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -101151,7 +100642,6 @@
     "form_id": "squirtle",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "master-dojo"
   },
@@ -101174,7 +100664,6 @@
     "form_id": "squirtle",
     "game_id": "silver",
     "method": "gift",
-    "method_details": "only-one",
     "notes": "Prof. Oak's starter gift in Pallet Town after defeating Red."
   },
   {
@@ -101186,7 +100675,6 @@
     "form_id": "squirtle",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "master-dojo"
   },
@@ -101247,7 +100735,6 @@
     "form_id": "stakataka",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -101260,7 +100747,6 @@
     "form_id": "stakataka",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -101272,8 +100758,7 @@
   {
     "form_id": "stakataka",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "stakataka",
@@ -102274,7 +101759,6 @@
     "form_id": "steelix",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "rouge-district"
   },
   {
@@ -102769,8 +102253,7 @@
   {
     "form_id": "stunfisk",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "stunfisk",
@@ -102780,8 +102263,7 @@
   {
     "form_id": "stunfisk",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "stunfisk",
@@ -102814,7 +102296,6 @@
     "form_id": "stunfisk-galar",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "wild-zone-11"
   },
   {
@@ -102953,7 +102434,6 @@
     "form_id": "sudowoodo",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto-route-36"
   },
   {
@@ -102973,7 +102453,6 @@
     "form_id": "sudowoodo",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto-route-36"
   },
   {
@@ -103096,7 +102575,6 @@
     "form_id": "sudowoodo",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto-route-36"
   },
   {
@@ -103254,28 +102732,24 @@
     "form_id": "suicune",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "trackless-forest"
   },
   {
     "form_id": "suicune",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
     "form_id": "suicune",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tin-tower"
   },
   {
     "form_id": "suicune",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -103293,14 +102767,12 @@
     "form_id": "suicune",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "trackless-forest"
   },
   {
     "form_id": "suicune",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "casseroya-lake"
   },
@@ -103313,7 +102785,6 @@
     "form_id": "suicune",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -103326,7 +102797,6 @@
     "form_id": "suicune",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "johto"
   },
   {
@@ -103344,7 +102814,6 @@
     "form_id": "suicune",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -103357,21 +102826,18 @@
     "form_id": "suicune",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "suicune",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "suicune",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "casseroya-lake"
   },
@@ -104045,8 +103511,7 @@
   {
     "form_id": "swanna",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "swanna",
@@ -104056,8 +103521,7 @@
   {
     "form_id": "swanna",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "swanna",
@@ -104157,8 +103621,7 @@
   {
     "form_id": "swellow",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "swellow",
@@ -104168,8 +103631,7 @@
   {
     "form_id": "swellow",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "swellow",
@@ -105308,14 +104770,12 @@
     "form_id": "tapu-bulu",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-abundance"
   },
   {
     "form_id": "tapu-bulu",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105328,14 +104788,12 @@
     "form_id": "tapu-bulu",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-abundance"
   },
   {
     "form_id": "tapu-bulu",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105348,28 +104806,24 @@
     "form_id": "tapu-bulu",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-abundance"
   },
   {
     "form_id": "tapu-bulu",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-abundance"
   },
   {
     "form_id": "tapu-fini",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-hope"
   },
   {
     "form_id": "tapu-fini",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105382,14 +104836,12 @@
     "form_id": "tapu-fini",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-hope"
   },
   {
     "form_id": "tapu-fini",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105402,28 +104854,24 @@
     "form_id": "tapu-fini",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-hope"
   },
   {
     "form_id": "tapu-fini",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-hope"
   },
   {
     "form_id": "tapu-koko",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-conflict"
   },
   {
     "form_id": "tapu-koko",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105436,14 +104884,12 @@
     "form_id": "tapu-koko",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-conflict"
   },
   {
     "form_id": "tapu-koko",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105456,28 +104902,24 @@
     "form_id": "tapu-koko",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-conflict"
   },
   {
     "form_id": "tapu-koko",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-conflict"
   },
   {
     "form_id": "tapu-lele",
     "game_id": "moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-life"
   },
   {
     "form_id": "tapu-lele",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105490,14 +104932,12 @@
     "form_id": "tapu-lele",
     "game_id": "sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-life"
   },
   {
     "form_id": "tapu-lele",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -105510,14 +104950,12 @@
     "form_id": "tapu-lele",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-life"
   },
   {
     "form_id": "tapu-lele",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ruins-of-life"
   },
   {
@@ -105557,7 +104995,6 @@
     "form_id": "tatsugiri",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "casseroya-lake"
   },
   {
@@ -105575,7 +105012,6 @@
     "form_id": "tatsugiri",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "casseroya-lake"
   },
   {
@@ -106740,7 +106176,6 @@
     "form_id": "terapagos",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "area-zero-underdepths"
   },
@@ -106753,7 +106188,6 @@
     "form_id": "terapagos",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "area-zero-underdepths"
   },
@@ -106766,7 +106200,6 @@
     "form_id": "terrakion",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "pathless-plain"
   },
   {
@@ -106778,14 +106211,12 @@
     "form_id": "terrakion",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "pathless-plain"
   },
   {
     "form_id": "terrakion",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "west-province-area-one"
   },
@@ -106798,7 +106229,6 @@
     "form_id": "terrakion",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "lakeside-cave"
   },
@@ -106811,7 +106241,6 @@
     "form_id": "terrakion",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "lakeside-cave"
   },
@@ -106824,21 +106253,18 @@
     "form_id": "terrakion",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "terrakion",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "terrakion",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "west-province-area-one"
   },
@@ -106964,21 +106390,18 @@
     "form_id": "thundurus",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
     "form_id": "thundurus",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "cobalt-coastlands"
   },
   {
     "form_id": "thundurus",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -106996,7 +106419,6 @@
     "form_id": "thundurus",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -107167,14 +106589,12 @@
     "form_id": "ting-lu",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "socarrat-trail"
   },
   {
     "form_id": "ting-lu",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "socarrat-trail"
   },
   {
@@ -108154,14 +107574,12 @@
     "form_id": "tornadus",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "alabaster-icelands"
   },
   {
     "form_id": "tornadus",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "soaring-in-the-sky"
   },
   {
@@ -108173,7 +107591,6 @@
     "form_id": "tornadus",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -108186,7 +107603,6 @@
     "form_id": "tornadus",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -111262,7 +110678,6 @@
     "form_id": "ursaluna",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "timeless-woods"
   },
@@ -111275,7 +110690,6 @@
     "form_id": "ursaluna",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "timeless-woods"
   },
@@ -111288,7 +110702,6 @@
     "form_id": "ursaluna-bloodmoon",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC)."
   },
@@ -111296,7 +110709,6 @@
     "form_id": "ursaluna-bloodmoon",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "notes": "Perrin quest encounter in Kitakami (Teal Mask DLC)."
   },
@@ -111489,35 +110901,30 @@
     "form_id": "uxie",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "nameless-cavern"
   },
   {
     "form_id": "uxie",
     "game_id": "brilliant-diamond",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "acuity-cavern"
   },
   {
     "form_id": "uxie",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "alabaster-icelands"
   },
   {
     "form_id": "uxie",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "nameless-cavern"
   },
   {
     "form_id": "uxie",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -111530,14 +110937,12 @@
     "form_id": "uxie",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "acuity-cavern"
   },
   {
     "form_id": "uxie",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -111550,14 +110955,12 @@
     "form_id": "uxie",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "uxie",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -112839,7 +112242,6 @@
     "form_id": "vespiquen",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "obsidian-fieldlands"
   },
   {
@@ -113777,7 +113179,6 @@
     "form_id": "virizion",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "pathless-plain"
   },
   {
@@ -113789,14 +113190,12 @@
     "form_id": "virizion",
     "game_id": "omega-ruby",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "pathless-plain"
   },
   {
     "form_id": "virizion",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "tagtree-thicket"
   },
@@ -113809,7 +113208,6 @@
     "form_id": "virizion",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "giant-s-bed"
   },
@@ -113822,7 +113220,6 @@
     "form_id": "virizion",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "giant-s-bed"
   },
@@ -113835,21 +113232,18 @@
     "form_id": "virizion",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "virizion",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "virizion",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "tagtree-thicket"
   },
@@ -114287,8 +113681,7 @@
   {
     "form_id": "voltorb",
     "game_id": "alpha-sapphire",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114304,8 +113697,7 @@
   {
     "form_id": "voltorb",
     "game_id": "blue",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114326,8 +113718,7 @@
   {
     "form_id": "voltorb",
     "game_id": "crystal",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114354,8 +113745,7 @@
   {
     "form_id": "voltorb",
     "game_id": "gold",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114394,8 +113784,7 @@
   {
     "form_id": "voltorb",
     "game_id": "omega-ruby",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114411,8 +113800,7 @@
   {
     "form_id": "voltorb",
     "game_id": "red",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114444,8 +113832,7 @@
   {
     "form_id": "voltorb",
     "game_id": "silver",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114472,8 +113859,7 @@
   {
     "form_id": "voltorb",
     "game_id": "sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114525,8 +113911,7 @@
   {
     "form_id": "voltorb",
     "game_id": "yellow",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "voltorb",
@@ -114913,7 +114298,6 @@
     "form_id": "vulpix-alola",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "whiteout-valley"
   },
   {
@@ -115566,7 +114950,6 @@
     "form_id": "watchog",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "autumnal-avenue"
   },
   {
@@ -115876,7 +115259,6 @@
     "form_id": "weedle",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "magenta-district"
   },
   {
@@ -117319,8 +116701,7 @@
   {
     "form_id": "wimpod",
     "game_id": "moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "wimpod",
@@ -117347,8 +116728,7 @@
   {
     "form_id": "wimpod",
     "game_id": "sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "wimpod",
@@ -117375,8 +116755,7 @@
   {
     "form_id": "wimpod",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "wimpod",
@@ -117386,8 +116765,7 @@
   {
     "form_id": "wimpod",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "wimpod",
@@ -117750,14 +117128,12 @@
     "form_id": "wo-chien",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-one"
   },
   {
     "form_id": "wo-chien",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "area-one"
   },
   {
@@ -118689,7 +118065,6 @@
     "form_id": "xerneas",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "jaune-district"
   },
   {
@@ -118718,7 +118093,6 @@
     "form_id": "xerneas",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -118737,14 +118111,12 @@
     "form_id": "xerneas",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "xerneas",
     "game_id": "x",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "team-flare-secret-hq"
   },
   {
@@ -118756,14 +118128,12 @@
   {
     "form_id": "xerneas",
     "game_id": "y",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "xurkitree",
     "game_id": "moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "xurkitree",
@@ -118780,7 +118150,6 @@
     "form_id": "xurkitree",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -118792,8 +118161,7 @@
   {
     "form_id": "xurkitree",
     "game_id": "sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "xurkitree",
@@ -118810,7 +118178,6 @@
     "form_id": "xurkitree",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -118822,8 +118189,7 @@
   {
     "form_id": "xurkitree",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "xurkitree",
@@ -118833,8 +118199,7 @@
   {
     "form_id": "xurkitree",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "xurkitree",
@@ -119119,8 +118484,7 @@
   {
     "form_id": "yanmega",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "yanmega",
@@ -119130,8 +118494,7 @@
   {
     "form_id": "yanmega",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "yanmega",
@@ -119247,7 +118610,6 @@
     "form_id": "yveltal",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "rouge-district"
   },
   {
@@ -119265,7 +118627,6 @@
     "form_id": "yveltal",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -119289,7 +118650,6 @@
     "form_id": "yveltal",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
@@ -119307,14 +118667,12 @@
   {
     "form_id": "yveltal",
     "game_id": "x",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "yveltal",
     "game_id": "y",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "team-flare-secret-hq"
   },
   {
@@ -119333,14 +118691,12 @@
     "form_id": "zacian",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tower-summit"
   },
   {
     "form_id": "zamazenta",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "tower-summit"
   },
   {
@@ -119437,7 +118793,6 @@
     "form_id": "zapdos",
     "game_id": "blue",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "kanto-power-plant"
   },
   {
@@ -119454,7 +118809,6 @@
     "form_id": "zapdos",
     "game_id": "crystal",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Power Plant in post-game Kanto."
   },
   {
@@ -119466,14 +118820,12 @@
     "form_id": "zapdos",
     "game_id": "gold",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Power Plant in post-game Kanto."
   },
   {
     "form_id": "zapdos",
     "game_id": "lets-go-eevee",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "zapdos",
@@ -119484,8 +118836,7 @@
   {
     "form_id": "zapdos",
     "game_id": "lets-go-pikachu",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "zapdos",
@@ -119502,14 +118853,12 @@
     "form_id": "zapdos",
     "game_id": "red",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "kanto-power-plant"
   },
   {
     "form_id": "zapdos",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-one"
   },
@@ -119522,7 +118871,6 @@
     "form_id": "zapdos",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -119535,7 +118883,6 @@
     "form_id": "zapdos",
     "game_id": "shining-pearl",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ramanas-park"
   },
   {
@@ -119547,7 +118894,6 @@
     "form_id": "zapdos",
     "game_id": "silver",
     "method": "static-encounter",
-    "method_details": "only-one",
     "notes": "Power Plant in post-game Kanto."
   },
   {
@@ -119559,7 +118905,6 @@
     "form_id": "zapdos",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -119572,21 +118917,18 @@
     "form_id": "zapdos",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "zapdos",
     "game_id": "ultra-sun",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "zapdos",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-one"
   },
@@ -119599,28 +118941,24 @@
     "form_id": "zapdos",
     "game_id": "x",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-spirit-s-den"
   },
   {
     "form_id": "zapdos",
     "game_id": "y",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "sea-spirit-s-den"
   },
   {
     "form_id": "zapdos",
     "game_id": "yellow",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "kanto-power-plant"
   },
   {
     "form_id": "zapdos-galar",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "wild-area"
   },
@@ -119628,7 +118966,6 @@
     "form_id": "zapdos-galar",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "wild-area"
   },
@@ -119762,14 +119099,12 @@
     "form_id": "zekrom",
     "game_id": "alpha-sapphire",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "fabled-cave"
   },
   {
     "form_id": "zekrom",
     "game_id": "scarlet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-five"
   },
@@ -119782,7 +119117,6 @@
     "form_id": "zekrom",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -119800,14 +119134,12 @@
     "form_id": "zekrom",
     "game_id": "ultra-moon",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "ultra-space-wilds"
   },
   {
     "form_id": "zekrom",
     "game_id": "violet",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "hidden-treasure-of-area-zero",
     "location": "south-province-area-five"
   },
@@ -120095,7 +119427,6 @@
     "form_id": "zoroark-hisui",
     "game_id": "legends-arceus",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "alabaster-icelands"
   },
   {
@@ -120640,7 +119971,6 @@
     "form_id": "zygarde",
     "game_id": "legends-za",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "centrico-plaza"
   },
   {
@@ -120663,7 +119993,6 @@
     "form_id": "zygarde",
     "game_id": "shield",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -120686,7 +120015,6 @@
     "form_id": "zygarde",
     "game_id": "sword",
     "method": "static-encounter",
-    "method_details": "only-one",
     "requires_dlc": "expansion-pass",
     "location": "max-lair"
   },
@@ -120703,8 +120031,7 @@
   {
     "form_id": "zygarde",
     "game_id": "ultra-moon",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "zygarde",
@@ -120719,8 +120046,7 @@
   {
     "form_id": "zygarde",
     "game_id": "ultra-sun",
-    "method": "static-encounter",
-    "method_details": "only-one"
+    "method": "static-encounter"
   },
   {
     "form_id": "zygarde",
@@ -120731,14 +120057,12 @@
     "form_id": "zygarde",
     "game_id": "x",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "terminus-cave"
   },
   {
     "form_id": "zygarde",
     "game_id": "y",
     "method": "static-encounter",
-    "method_details": "only-one",
     "location": "terminus-cave"
   },
   {

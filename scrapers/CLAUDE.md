@@ -89,6 +89,15 @@ a warning and are skipped**, not silently miscategorised. If a full scrape
 emits warnings, either extend the map or confirm the omissions are
 intentional (spin-off-only methods from out-of-scope versions).
 
+`VACUOUS_ENCOUNTER_METHOD_NAMES` (mirror of `_UNIVERSALLY_VACUOUS_DETAILS`
+in `method_details.py`) is a rule-7 generalization: slugs that duplicate
+the method semantics are dropped at collapse time. Currently `only-one` —
+every static-encounter / gift / fossil-revive row is a singleton by
+definition, so the slug adds no discriminator beyond the method itself.
+Mechanic-specific subtypes (`pokeflute`, `island-scan`, `devon-scope`,
+`squirt-bottle`) do constrain *how* you trigger the encounter and stay
+as `method_details`.
+
 `IN_SCOPE_VERSIONS` filters encounters to the set of PokéAPI version names
 that match game IDs in `data/games.json`. Game IDs and version names are
 the same string, so this is just a membership check.
