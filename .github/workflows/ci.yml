@@ -47,4 +47,11 @@ jobs:
           fi
 
       - name: pip-audit (CVE scan)
-        run: uv run pip-audit --skip-editable
+        # CVE-2026-3219 / GHSA-58qw-9mgm-455v — pip mishandles archives
+        # that identify as both tar and ZIP. All released pip versions
+        # are affected; the upstream fix (pypa/pip#13870) merged on
+        # 2026-04-19 but no pip release has been cut yet. Not reachable
+        # in our CI (we install from pinned uv.lock, not untrusted tarballs).
+        # Remove this flag once Dependabot opens a PR bumping pip past
+        # the first fixed release.
+        run: uv run pip-audit --skip-editable --ignore-vuln CVE-2026-3219
