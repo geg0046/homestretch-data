@@ -3,6 +3,7 @@
 Usage:
     uv run python scrapers/bulbapedia.py --mode sources    --max-dex 1025
     uv run python scrapers/bulbapedia.py --mode evolutions --max-dex 1025
+    uv run python scrapers/bulbapedia.py --mode locations  --max-dex 1025
 
 Fetches wikitext via the MediaWiki `api.php` endpoint (no HTML scraping).
 Respects a 1 req/sec rate limit, caches responses under .cache/bulbapedia/,
@@ -415,6 +416,82 @@ def _infer_method(area: str) -> tuple[Method | None, str]:
         if pat.search(flat):
             return (method, flat)
     return (None, flat)
+
+
+# The "only one" / "one-time" condition on Bulbapedia is a wikilink to a
+# list page, not an italic parenthetical — e.g.
+#   [[List of in-game event Pokémon in Generation I#Mewtwo|Only one]]
+# Any wikilink whose target begins with this phrase is the method marker,
+# not a location, and must be scrubbed before the first-wikilink extraction.
+_EVENT_LIST_WIKILINK_RE = re.compile(r"\[\[\s*List of in-game event Pok[^\]|]*(?:\|[^\]]*)?\]\]")
+# Parse a wikilink: group(1) = target, group(2) = optional display text.
+_WIKILINK_PARTS_RE = re.compile(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]")
+# <small>/<sup>/HTML comments carry requires-this-item footnotes; not location.
+_INLINE_METADATA_RE = re.compile(
+    r"<small>.*?</small>|<sup>.*?</sup>|<!--.*?-->",
+    re.DOTALL | re.IGNORECASE,
+)
+# Two specific MediaWiki shortcuts Bulbapedia uses a lot that the generic
+# `_flatten_wikitext` shorthand regex doesn't reach (they're 2-arg):
+#   {{rt|N|Region}}  -> "Region Route N"   (route-number shortcut)
+#   {{rtn|N|Region}} -> "Region Route N"   (same, for sortable tables)
+#   {{FB|Region|Place}} -> "Region Place"  (flag-button inline link, Gen 1)
+_ROUTE_TEMPLATE_RE = re.compile(r"\{\{rtn?\|(\d+)\|([A-Za-z]+)\}\}", re.IGNORECASE)
+_FB_TEMPLATE_RE = re.compile(r"\{\{FB\|([^|}]+)\|([^|}]+)\}\}", re.IGNORECASE)
+_SLUG_ALLOWED_RE = re.compile(r"[^a-z0-9]+")
+_SLUG_MAX_LEN = 40  # clip garbage; named landmarks fit well under this.
+
+
+def extract_static_location(segment: str) -> str | None:
+    """Derive a location slug from a static-encounter area segment.
+
+    Strategy: drop the "Only one" marker wikilink and `<small>` footnote
+    metadata, then take the first remaining wikilink's display text (or
+    the `{{rt|N|region}}` route-shortcut if no wikilink matches). Slugify
+    via stdlib normalization and return None when the result is empty or
+    longer than `_SLUG_MAX_LEN` (a cheap quality gate against segments
+    that are really condition prose rather than a place).
+
+    Examples:
+        ``[[Cerulean Cave]] ([[...|Only one]])`` → ``cerulean-cave``
+        ``[[Max Lair]] ([[Dynamax Adventure]]) ([[...|Only one]])`` → ``max-lair``
+        ``{{rt|7|Kalos}} ([[...|Only one]])`` → ``kalos-route-7``
+        ``[[Seafoam Islands|Seafoam Islands B4F]] ([[...|Only one]])``
+          → ``seafoam-islands-b4f``
+    """
+    cleaned = _EVENT_LIST_WIKILINK_RE.sub("", segment)
+    cleaned = _INLINE_METADATA_RE.sub("", cleaned)
+
+    display: str | None = None
+    m = _WIKILINK_PARTS_RE.search(cleaned)
+    if m:
+        display = (m.group(2) or m.group(1)).strip()
+    else:
+        rt = _ROUTE_TEMPLATE_RE.search(cleaned)
+        if rt:
+            display = f"{rt.group(2)} route {rt.group(1)}"
+        else:
+            fb = _FB_TEMPLATE_RE.search(cleaned)
+            if fb:
+                display = f"{fb.group(1)} {fb.group(2)}"
+            else:
+                # Fallback: region-shortcut templates like
+                # {{kal|Unknown Dungeon}} that aren't wikilinks. Flatten
+                # the segment and take the head before the first paren
+                # (the trailing paren always wraps a condition marker).
+                flat_head = _flatten_wikitext(cleaned).split("(")[0].strip(" ,.:;")
+                if flat_head:
+                    display = flat_head
+    if not display:
+        return None
+
+    import unicodedata
+
+    ascii_form = unicodedata.normalize("NFKD", display).encode("ascii", "ignore").decode("ascii")
+    slug = _SLUG_ALLOWED_RE.sub("-", ascii_form.lower()).strip("-")
+    if not slug or len(slug) < 2 or len(slug) > _SLUG_MAX_LEN:
+        return None
+    return slug
 
 
 def _is_skippable_area(area: str) -> bool:
@@ -911,6 +988,152 @@ def _scrape_sources(
     return 0
 
 
+# Static-encounter subtypes that have a single discrete in-game spot.
+# `island-scan` is excluded because its "location" is a
+# (species, day-of-week, island) triple the slug form can't represent.
+_STATIC_LOCATION_DETAILS: frozenset[str | None] = frozenset(
+    {"only-one", "pokeflute", "squirt-bottle", "devon-scope", None}
+)
+
+
+def _iter_static_locations_from_wikitext(
+    wikitext: str,
+    species_id: str,
+    species_form_ids: set[str],
+) -> list[tuple[str, str, str | None, str]]:
+    """Return (form_id, game_id, method_details, location_slug) tuples.
+
+    Mirrors `parse_sources_from_wikitext`'s segment walk but keeps only
+    static-encounter rows (minus island-scan) that yield a parseable
+    location. Used by `--mode locations` to build a lookup applied to
+    existing sources.json rows in place.
+    """
+    section = _extract_main_games_section(wikitext)
+    if not section:
+        return []
+
+    results: list[tuple[str, str, str | None, str]] = []
+    for tmpl in _iter_availability_templates(section):
+        name = tmpl["_name"]
+        if "/NA" in name or "/Header" in name or "/Footer" in name:
+            continue
+        if "Entry" not in name:
+            continue
+        area = tmpl.get("area", "")
+        if _is_skippable_area(area):
+            continue
+
+        vs: list[str] = []
+        if "Entry1" in name:
+            v = tmpl.get("v")
+            if v:
+                vs.append(v)
+        elif "Entry2" in name:
+            for key in ("v", "v2"):
+                v = tmpl.get(key)
+                if v:
+                    vs.append(v)
+
+        for segment in split_area_segments(area) or [area]:
+            if _is_skippable_area(segment):
+                continue
+            inferred, details_text = _infer_method(segment)
+            if inferred is not Method.STATIC_ENCOUNTER:
+                continue
+            details = normalize_method_details(Method.STATIC_ENCOUNTER, details_text)
+            if details not in _STATIC_LOCATION_DETAILS:
+                continue
+            location = extract_static_location(segment)
+            if location is None:
+                continue
+            resolved_forms = resolve_form_ids_from_segment(segment, species_id, species_form_ids)
+            if not resolved_forms:
+                continue
+            for v in vs:
+                games, _dlc = _resolve_version(v)
+                for gid in games:
+                    if gid not in IN_SCOPE_GAME_IDS:
+                        continue
+                    for form_id in resolved_forms:
+                        results.append((form_id, gid, details, location))
+    return results
+
+
+def _scrape_locations(
+    bulba: RateLimitedClient,
+    pokeapi: RateLimitedClient,
+    min_dex: int,
+    max_dex: int,
+) -> int:
+    """Backfill `location` on existing static-encounter rows in sources.json.
+
+    Walks species pages like `--mode sources`, parses each static-encounter
+    segment through `extract_static_location`, and applies the resulting
+    slug to rows whose `(form_id, game_id, method, method_details)` matches
+    and whose `location` is currently None. Rows that already have a
+    location are left untouched.
+
+    This is an update-in-place pass rather than a merge: `location` is part
+    of `SOURCE_KEY_FIELDS`, so emitting it from `--mode sources` would
+    produce a duplicate row under the existing additive merge instead of
+    filling the existing one.
+    """
+    species_forms = load_species_id_to_forms()
+    # First-wins when multiple species pages propose a slug for the same
+    # (form_id, game_id, details) — most collisions happen when a regional
+    # form is annotated under multiple species pages and the scraper walks
+    # both; the first slug is as good as the second.
+    location_map: dict[tuple[str, str, str | None], str] = {}
+
+    for dex in range(min_dex, max_dex + 1):
+        species = pokeapi.get_json(f"{POKEAPI_BASE}/pokemon-species/{dex}/")
+        species_id = species["name"]
+        english = _english_name(species)
+        if english is None:
+            continue
+        page_title = _species_page_title(english)
+        wikitext = fetch_wikitext(bulba, page_title)
+        if wikitext is None:
+            continue
+        form_ids = set(species_forms.get(species_id, ()))
+        if species_id not in form_ids:
+            continue
+        for form_id, gid, details, slug in _iter_static_locations_from_wikitext(
+            wikitext, species_id, form_ids
+        ):
+            location_map.setdefault((form_id, gid, details), slug)
+        if dex % 200 == 0:
+            print(f"  ...scanned through #{dex:04d}; {len(location_map)} locations so far")
+
+    existing = load_existing_sources()
+    filled = 0
+    skipped_no_match = 0
+    for row in existing:
+        if row.get("method") != Method.STATIC_ENCOUNTER.value:
+            continue
+        if row.get("location") is not None:
+            continue
+        key = (row["form_id"], row["game_id"], row.get("method_details"))
+        slug = location_map.get(key)
+        if slug is None:
+            skipped_no_match += 1
+            continue
+        row["location"] = slug
+        filled += 1
+
+    existing.sort(key=source_sort_key)
+    TypeAdapter(list[Source]).validate_python(existing)
+    SOURCES_PATH.write_text(
+        json.dumps(existing, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    print(
+        f"locations: filled {filled} static-encounter row(s); "
+        f"{skipped_no_match} row(s) had no matching segment."
+    )
+    return 0
+
+
 def _regional_form_name(form_id: str) -> str | None:
     """Return "galar"/"alola"/"hisui"/"paldea" if form_id ends in that suffix."""
     for form_name in _REGIONAL_SUFFIX_MAP.values():
@@ -1105,7 +1328,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--mode",
-        choices=("sources", "evolutions"),
+        choices=("sources", "evolutions", "locations"),
         default="sources",
         help="What to scrape (default: sources)",
     )
@@ -1135,6 +1358,8 @@ def main() -> int:
         pokeapi = RateLimitedClient(pokeapi_raw, MIN_REQUEST_INTERVAL, POKEAPI_CACHE_DIR)
         if args.mode == "sources":
             return _scrape_sources(bulba, pokeapi, args.min_dex, args.max_dex)
+        if args.mode == "locations":
+            return _scrape_locations(bulba, pokeapi, args.min_dex, args.max_dex)
         return _scrape_evolutions(bulba, pokeapi, args.min_dex, args.max_dex)
 
 
