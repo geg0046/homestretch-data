@@ -64,8 +64,10 @@ class Source(BaseModel):
     rare cases."""
 
     location: str | None = None
-    """Evolution location slug (e.g. `mount-lanakila`, `shalour-city`,
-    `sinnoh-route-217`). PokéAPI's location.name."""
+    """Acquisition location slug (e.g. `mount-lanakila`, `ambrette-town`,
+    `sinnoh-route-217`). Populated for evolution rows (PokéAPI's
+    `location.name`) and for non-wild rows whose spot is determined by
+    game + method (fossil-revive, breeding, game-corner purchase)."""
 
     known_move: str | None = None
     """Move slug that must be known. PokéAPI's known_move.name."""
