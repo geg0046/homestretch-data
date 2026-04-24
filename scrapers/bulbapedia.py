@@ -536,6 +536,144 @@ def extract_static_location(segment: str) -> str | None:
     return extract_area_location(segment, prefer_preposition=False)
 
 
+# Generic common-noun and mechanic-name slugs that show up as bare wikilinks
+# in availability prose ("[[Route]]s {{rtn|201|Sinnoh}}, ..." prefixes a list
+# with a generic-noun link to the [[Route]] page). They name a category, not
+# a specific place, so wild-encounter extraction skips them and continues
+# scanning the segment for the actual locations.
+_GENERIC_LOCATION_SLUGS: frozenset[str] = frozenset(
+    {
+        # Common-noun place categories
+        "route",
+        "routes",
+        "cave",
+        "forest",
+        "city",
+        "town",
+        "lake",
+        "sea",
+        "mountain",
+        "depths",
+        "type",
+        # Mechanic / non-place wikilinks
+        "trade",
+        "breed",
+        "breeding",
+        "pokemon-breeding",
+        "swarm",
+        "evolution",
+        "evolve",
+        "wanderer",
+        "mass-outbreak",
+        "national-pokedex",
+        "sos-battle",
+        # Cross-game services that are never an in-game location
+        "home",
+        "pokemon-home",
+        "pokemon-bank",
+        # Region names — used as wikilink targets on multi-region tables
+        "hoenn",
+        "hisui",
+        "kanto",
+        "johto",
+        "sinnoh",
+        "unova",
+        "kalos",
+        "alola",
+        "galar",
+        "paldea",
+        # Pokémon types — appear as `[[Fire (type)|Fire]]`-style links in
+        # Friend Safari and elemental-encounter prose; the display text
+        # collapses to the bare type name.
+        "normal",
+        "fire",
+        "water",
+        "electric",
+        "grass",
+        "ice",
+        "fighting",
+        "poison",
+        "ground",
+        "flying",
+        "psychic",
+        "bug",
+        "rock",
+        "ghost",
+        "dragon",
+        "dark",
+        "steel",
+        "fairy",
+    }
+)
+
+
+def _slug_from_text(text: str) -> str | None:
+    """Slugify free-form display text to a slug, or None if it'd be junk."""
+    import unicodedata
+
+    if not text:
+        return None
+    ascii_form = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
+    slug = _SLUG_ALLOWED_RE.sub("-", ascii_form.lower()).strip("-")
+    if not slug or len(slug) < 2 or len(slug) > _SLUG_MAX_LEN:
+        return None
+    return slug
+
+
+def extract_area_locations(segment: str) -> list[str]:
+    """Extract every non-generic location slug from a wild-encounter segment.
+
+    Wild-encounter Availability segments commonly enumerate many places in
+    one ``area=...`` field (``[[Route]]s {{rtn|201|Sinnoh}}, {{rtn|202|
+    Sinnoh}}, [[Lake Verity]]``). This walks all `[[wikilinks]]`, `{{rt|}}`
+    /`{{rtn|}}` route templates, and `{{FB|}}` flag-button templates,
+    yielding one slug per distinct named place.
+
+    Skips:
+      - generic common-noun wikilinks (`_GENERIC_LOCATION_SLUGS`) that
+        prefix a list (`[[Route]]s ...`) but don't name a specific place;
+      - segments where the wikilink display text slugs to a generic but
+        the underlying target is specific — those use the target instead
+        (`[[Sinnoh Route 201|Route]]` → ``sinnoh-route-201``).
+
+    Same scrubbing pre-pass as ``extract_area_location``: event-list
+    wikilinks, ``<small>``/``<sup>`` metadata, ``{{tt|}}`` tooltips,
+    and trailing condition clauses.
+    """
+    cleaned = _EVENT_LIST_WIKILINK_RE.sub("", segment)
+    cleaned = _INLINE_METADATA_RE.sub("", cleaned)
+    cleaned = _TT_TEMPLATE_RE.sub("", cleaned)
+    cleaned = _TRAILING_CONDITION_RE.sub("", cleaned)
+
+    slugs: list[str] = []
+    seen: set[str] = set()
+
+    def push(slug: str | None) -> None:
+        if slug and slug not in _GENERIC_LOCATION_SLUGS and slug not in seen:
+            slugs.append(slug)
+            seen.add(slug)
+
+    for m in _WIKILINK_PARTS_RE.finditer(cleaned):
+        target = m.group(1).strip()
+        display = (m.group(2) or m.group(1)).strip()
+        # `[[Fire (type)|Fire]]`-style links resolve display "Fire" → generic,
+        # then fall through to target "Fire (type)" → "fire-type" — still not
+        # a location. Drop the whole link when the target carries a
+        # `(type)` / `(move)` / `(ability)` disambiguator.
+        if target.lower().endswith(("(type)", "(move)", "(ability)", "(species)")):
+            continue
+        slug = _slug_from_text(display)
+        if slug in _GENERIC_LOCATION_SLUGS and target != display:
+            slug = _slug_from_text(target)
+        push(slug)
+    for m in _ROUTE_TEMPLATE_RE.finditer(cleaned):
+        push(_slug_from_text(f"{m.group(2)} route {m.group(1)}"))
+    for m in _FB_TEMPLATE_RE.finditer(cleaned):
+        push(_slug_from_text(f"{m.group(1)} {m.group(2)}"))
+
+    return slugs
+
+
 def _is_skippable_area(area: str) -> bool:
     flat = _flatten_wikitext(area).strip().lower()
     if flat in {"", "unobtainable", "none"}:
@@ -1124,6 +1262,15 @@ def _scrape_sources(
 _LOCATION_TARGET_DETAILS: dict[Method, frozenset[str | None]] = {
     Method.STATIC_ENCOUNTER: frozenset({"pokeflute", "squirt-bottle", "devon-scope", None}),
     Method.GIFT: frozenset({None, "gift-egg"}),
+    # Wild-encounter scope is restricted to plain wild segments — those
+    # whose area text carries no encounter-mode signal (so
+    # `_normalize_wild_encounter` returns None). PokéAPI-emitted rows
+    # with `method_details` like ``walk`` / ``surf`` / ``mass-outbreak``
+    # encode the encounter mechanic and are out of scope here: the
+    # Bulbapedia segment that locates them often surfaces with a
+    # different mechanic slug (or none), and joining them across
+    # mechanics would attach surf-route locations to walk-grass rows.
+    Method.WILD_ENCOUNTER: frozenset({None}),
 }
 
 
@@ -1172,14 +1319,28 @@ def _iter_location_candidates_from_wikitext(
             if _is_skippable_area(segment):
                 continue
             inferred, details_text = _infer_method(segment)
+            if inferred is None:
+                # Regular Entry templates default to wild-encounter; /None
+                # entries semantically mean "no native wild encounter" and
+                # never default-classify, so unmatched /None segments are
+                # skipped (matching parse_sources_from_wikitext semantics).
+                if "None" in name:
+                    continue
+                inferred = Method.WILD_ENCOUNTER
             target_details = _LOCATION_TARGET_DETAILS.get(inferred)
             if target_details is None:
                 continue
             details = normalize_method_details(inferred, details_text)
             if details not in target_details:
                 continue
-            location = extract_area_location(segment, prefer_preposition=(inferred is Method.GIFT))
-            if location is None:
+            if inferred is Method.WILD_ENCOUNTER:
+                locations = extract_area_locations(segment)
+            else:
+                single = extract_area_location(
+                    segment, prefer_preposition=(inferred is Method.GIFT)
+                )
+                locations = [single] if single is not None else []
+            if not locations:
                 continue
             resolved_forms = resolve_form_ids_from_segment(segment, species_id, species_form_ids)
             if not resolved_forms:
@@ -1190,7 +1351,8 @@ def _iter_location_candidates_from_wikitext(
                     if gid not in IN_SCOPE_GAME_IDS:
                         continue
                     for form_id in resolved_forms:
-                        results.append((form_id, gid, inferred.value, details, location))
+                        for location in locations:
+                            results.append((form_id, gid, inferred.value, details, location))
     return results
 
 
@@ -1200,26 +1362,34 @@ def _scrape_locations(
     min_dex: int,
     max_dex: int,
 ) -> int:
-    """Backfill `location` on existing static-encounter and gift rows.
+    """Backfill `location` on existing static / gift / wild-encounter rows.
 
     Walks species pages like `--mode sources`, parses each targeted
     segment (see `_LOCATION_TARGET_DETAILS`), extracts a location slug
-    via `extract_area_location`, and applies the resulting slug to rows
-    whose `(form_id, game_id, method, method_details)` matches and whose
-    `location` is currently None. Rows that already have a location are
-    left untouched.
+    via `extract_area_location`, and applies the resulting slug(s) to
+    rows whose `(form_id, game_id, method, method_details)` matches
+    and whose `location` is currently None.
 
-    This is an update-in-place pass rather than a merge: `location` is
-    part of `SOURCE_KEY_FIELDS`, so emitting it from `--mode sources`
-    would produce a duplicate row under the existing additive merge
-    instead of filling the existing one.
+    Static-encounter and gift rows are filled **in place**: each
+    matching row receives the first slug Bulbapedia produces. These
+    methods are singletons by mechanic (one cave, one NPC).
+
+    Wild-encounter rows are **row-split** when Bulbapedia produces
+    multiple location slugs for the same (form_id, game_id, method,
+    method_details) key. The original null-location row is replaced
+    by N clones, each carrying a distinct `location` slug. `location`
+    participates in `SOURCE_KEY_FIELDS`, so the post-split row set
+    remains uniquely keyed.
+
+    Rows that already have a location are left untouched (idempotent
+    on re-run).
     """
     species_forms = load_species_id_to_forms()
-    # First-wins when multiple species pages propose a slug for the same
-    # (form_id, game_id, method, details) — most collisions happen when a
-    # regional form is annotated under multiple species pages and the
-    # scraper walks both; the first slug is as good as the second.
-    location_map: dict[tuple[str, str, str, str | None], str] = {}
+    # Slugs accumulate per key. Static/gift consumers take the first
+    # slug; wild consumers take all unique slugs and clone the row N
+    # times. De-dup on append so multiple species pages annotating the
+    # same regional form don't inflate the wild row count.
+    location_map: dict[tuple[str, str, str, str | None], list[str]] = {}
 
     for dex in range(min_dex, max_dex + 1):
         species = pokeapi.get_json(f"{POKEAPI_BASE}/pokemon-species/{dex}/")
@@ -1237,38 +1407,52 @@ def _scrape_locations(
         for form_id, gid, method, details, slug in _iter_location_candidates_from_wikitext(
             wikitext, species_id, form_ids
         ):
-            location_map.setdefault((form_id, gid, method, details), slug)
+            slugs = location_map.setdefault((form_id, gid, method, details), [])
+            if slug not in slugs:
+                slugs.append(slug)
         if dex % 200 == 0:
-            print(f"  ...scanned through #{dex:04d}; {len(location_map)} locations so far")
+            print(f"  ...scanned through #{dex:04d}; {len(location_map)} keys so far")
 
     targeted_methods = frozenset(m.value for m in _LOCATION_TARGET_DETAILS)
     existing = load_existing_sources()
+    out: list[dict[str, Any]] = []
     filled_by_method: dict[str, int] = {}
+    split_count = 0
     skipped_no_match = 0
     for row in existing:
         method = row.get("method")
-        if method not in targeted_methods:
-            continue
-        if row.get("location") is not None:
+        if method not in targeted_methods or row.get("location") is not None:
+            out.append(row)
             continue
         key = (row["form_id"], row["game_id"], method, row.get("method_details"))
-        slug = location_map.get(key)
-        if slug is None:
+        slugs = location_map.get(key)
+        if not slugs:
             skipped_no_match += 1
+            out.append(row)
             continue
-        row["location"] = slug
-        filled_by_method[method] = filled_by_method.get(method, 0) + 1
+        if method == Method.WILD_ENCOUNTER.value and len(slugs) > 1:
+            for slug in slugs:
+                clone = dict(row)
+                clone["location"] = slug
+                out.append(clone)
+            split_count += 1
+            filled_by_method[method] = filled_by_method.get(method, 0) + len(slugs)
+        else:
+            row["location"] = slugs[0]
+            out.append(row)
+            filled_by_method[method] = filled_by_method.get(method, 0) + 1
 
-    existing.sort(key=source_sort_key)
-    TypeAdapter(list[Source]).validate_python(existing)
+    out.sort(key=source_sort_key)
+    TypeAdapter(list[Source]).validate_python(out)
     SOURCES_PATH.write_text(
-        json.dumps(existing, indent=2, ensure_ascii=False) + "\n",
+        json.dumps(out, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
     total = sum(filled_by_method.values())
     breakdown = ", ".join(f"{n} {m}" for m, n in sorted(filled_by_method.items())) or "none"
     print(
         f"locations: filled {total} row(s) ({breakdown}); "
+        f"{split_count} wild row(s) row-split into multiple locations; "
         f"{skipped_no_match} row(s) had no matching segment."
     )
     return 0
