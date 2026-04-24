@@ -8,7 +8,12 @@ relies on."""
 
 from __future__ import annotations
 
-from bulbapedia import resolve_form_ids_from_segment, split_area_segments
+from bulbapedia import (
+    extract_area_location,
+    extract_area_locations,
+    resolve_form_ids_from_segment,
+    split_area_segments,
+)
 
 
 def test_split_area_segments_handles_br_variants() -> None:
@@ -127,3 +132,130 @@ def test_regional_form_with_extra_mode_suffix_resolves_uniquely() -> None:
     assert resolve_form_ids_from_segment(segment, "darmanitan", forms) == [
         "darmanitan-galar-standard"
     ]
+
+
+# --- extract_area_location ------------------------------------------------
+
+
+def test_extract_static_first_wikilink() -> None:
+    # Static segments open with the place; first-wikilink path is canonical.
+    assert (
+        extract_area_location(
+            "[[Cerulean Cave]] ([[List of in-game event Pokémon|Only one]])",
+            prefer_preposition=False,
+        )
+        == "cerulean-cave"
+    )
+
+
+def test_extract_wild_route_template() -> None:
+    # Wild Availability segments are typically just an area template.
+    assert extract_area_location("{{rt|13|Kalos}}", prefer_preposition=False) == "kalos-route-13"
+
+
+def test_extract_wild_first_wikilink() -> None:
+    assert (
+        extract_area_location("[[Petalburg Woods]]", prefer_preposition=False) == "petalburg-woods"
+    )
+
+
+def test_extract_gift_prefers_preposition_link() -> None:
+    # NPC name comes first; the place follows "in" — preposition path picks
+    # the place, not the NPC.
+    assert (
+        extract_area_location(
+            "Received from [[Bill]] in [[Goldenrod City]]", prefer_preposition=True
+        )
+        == "goldenrod-city"
+    )
+
+
+def test_extract_gift_falls_back_to_first_wikilink_without_preposition() -> None:
+    assert (
+        extract_area_location("[[Goldenrod City]] gift", prefer_preposition=True)
+        == "goldenrod-city"
+    )
+
+
+def test_extract_strips_inline_metadata() -> None:
+    # <small>/<sup> footnotes are stripped before location extraction.
+    segment = "[[Route 5]]<small>(after E4)</small><sup>[1]</sup>"
+    assert extract_area_location(segment, prefer_preposition=False) == "route-5"
+
+
+def test_extract_drops_trailing_condition_clause() -> None:
+    # "after X" / "during Y" trail the location and must not bleed in.
+    assert (
+        extract_area_location(
+            "[[Lake Verity]] after defeating the Elite Four", prefer_preposition=False
+        )
+        == "lake-verity"
+    )
+
+
+def test_extract_returns_none_for_empty_segment() -> None:
+    assert extract_area_location("", prefer_preposition=False) is None
+    assert extract_area_location("   ", prefer_preposition=False) is None
+
+
+def test_extract_returns_none_for_overlong_prose() -> None:
+    # The 40-char gate prevents condition prose from leaking as a slug.
+    long_prose = "very long prose with no wikilink that exceeds the slug length cap entirely"
+    assert extract_area_location(long_prose, prefer_preposition=False) is None
+
+
+def test_extract_unicode_normalized_to_ascii() -> None:
+    # Pokémon-style accents should be NFKD-stripped to ASCII before slugging.
+    assert (
+        extract_area_location("[[Pokémon Mansion]]", prefer_preposition=False) == "pokemon-mansion"
+    )
+
+
+def test_extract_fb_template_two_arg() -> None:
+    assert (
+        extract_area_location("{{FB|Kanto|Route 1}}", prefer_preposition=False) == "kanto-route-1"
+    )
+
+
+# --- extract_area_locations (multi, wild-encounter) -----------------------
+
+
+def test_extract_locations_walks_routes_and_named_places() -> None:
+    # Bidoof-style Sinnoh segment: leading [[Route]] generic-noun link,
+    # then a comma-joined list of route templates and proper-noun places.
+    segment = "[[Route]]s {{rtn|201|Sinnoh}}, {{rtn|202|Sinnoh}}, [[Lake Verity]], [[Great Marsh]]"
+    assert extract_area_locations(segment) == [
+        "lake-verity",
+        "great-marsh",
+        "sinnoh-route-201",
+        "sinnoh-route-202",
+    ]
+
+
+def test_extract_locations_skips_generic_noun_first_link() -> None:
+    # Bare [[Route]] alone yields nothing — it's a category, not a place.
+    assert extract_area_locations("[[Route]]") == []
+
+
+def test_extract_locations_falls_back_to_target_when_display_is_generic() -> None:
+    # `[[Sinnoh Route 201|Route]]` — display "Route" is generic; use the
+    # underlying target slug instead.
+    assert extract_area_locations("[[Sinnoh Route 201|Route]]") == ["sinnoh-route-201"]
+
+
+def test_extract_locations_skips_pokemon_type_links() -> None:
+    # Friend Safari prose: `[[Fire (type)|Fire]]`-style links collapse to
+    # the bare type name and must not show up as locations.
+    segment = "[[Friend Safari]] ([[Fire (type)|Fire]])"
+    assert extract_area_locations(segment) == ["friend-safari"]
+
+
+def test_extract_locations_dedupes_repeated_slugs() -> None:
+    # Same location named twice yields one slug, in first-seen order.
+    segment = "[[Lake Verity]] and again [[Lake Verity]]"
+    assert extract_area_locations(segment) == ["lake-verity"]
+
+
+def test_extract_locations_empty_segment() -> None:
+    assert extract_area_locations("") == []
+    assert extract_area_locations("just prose, no wikilinks") == []

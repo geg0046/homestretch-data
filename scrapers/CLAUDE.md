@@ -182,16 +182,15 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   **added** for regional forms. Re-runs are idempotent (annotation
   suffixes are not re-appended if already present).
 - `--mode locations` — backfill the `location` field on existing
-  static-encounter and gift rows. Walks species pages, extracts a
-  location slug from each targeted segment, then updates matching
-  rows in `data/sources.json` **in place**. Rows that already have a
-  `location` are left untouched. A 40-character slug length gate
-  drops any extraction that's really condition prose rather than a
-  named place, so the failure mode is "row keeps `location=None`,"
-  never "row gets a garbage slug." In-place update (not merge) is
-  required because `location` is part of `SOURCE_KEY_FIELDS`, so
-  additive merge would split the existing row instead of filling it.
-  Extraction strategy is method-aware, set by `prefer_preposition` on
+  static-encounter, gift, and wild-encounter rows. Walks species
+  pages, extracts a location slug from each targeted segment, then
+  applies the resulting slug(s) to matching rows in
+  `data/sources.json`. Rows that already have a `location` are left
+  untouched (re-runs are idempotent). A 40-character slug length
+  gate drops any extraction that's really condition prose rather
+  than a named place, so the failure mode is "row keeps
+  `location=None`," never "row gets a garbage slug." Extraction
+  strategy is method-aware, set by `prefer_preposition` on
   `extract_area_location`:
     - **Static-encounter** (``prefer_preposition=False``): first
       wikilink wins. Static segments open with the place
@@ -201,14 +200,49 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
       [[Bill]] in [[Goldenrod City]]`` picks ``goldenrod-city``, not
       ``bill``. Falls back to first-wikilink for gifts written
       without a preposition.
-  Both paths scrub the "Only one" event-list wikilink,
+    - **Wild-encounter**: uses the multi-location extractor
+      `extract_area_locations()` (plural), which walks **every**
+      wikilink and `{{rt|}}` / `{{rtn|}}` / `{{FB|}}` template in
+      the segment. A single Availability ``area=`` typically
+      enumerates many places (``[[Route]]s {{rtn|201|Sinnoh}},
+      {{rtn|202|Sinnoh}}, [[Lake Verity]]``), so emitting only the
+      first link drops most of the data. `_GENERIC_LOCATION_SLUGS`
+      filters out common-noun first wikilinks (`[[Route]]`,
+      `[[Cave]]`, region names, Pokémon types, mechanic names like
+      `[[National Pokédex]]` / `[[SOS Battle]]` /
+      `[[Pokémon Breeding|Breed]]`). Wikilinks with a `(type)` /
+      `(move)` / `(ability)` / `(species)` disambiguator suffix are
+      dropped whole — `[[Fire (type)|Fire]]`-style links describe
+      element coverage, not location.
+  All three paths scrub the "Only one" event-list wikilink,
   `<small>`/`<sup>` footnote metadata, `{{tt|...}}` tooltips, and
-  trailing ``after X`` / ``during Y`` condition clauses. Targeted
-  rows are whitelisted by `_LOCATION_TARGET_DETAILS`: static subtypes
-  with a single discrete spot (None / pokeflute / squirt-bottle /
-  devon-scope) and gift subtypes (None / gift-egg). Island-scan
-  (SM/USUM) is excluded because its location is a
-  (species, day, island) triple that doesn't collapse to a slug.
+  trailing ``after X`` / ``during Y`` condition clauses.
+
+  **Update strategy diverges by method.** Static and gift are
+  filled **in place** — these mechanics are singletons (one cave,
+  one NPC), so the first slug is the location. Wild-encounter
+  rows are **row-split**: when Bulbapedia produces N distinct
+  location slugs for the same `(form_id, game_id, method,
+  method_details)` key, the original null-location row is replaced
+  by N clones, each carrying a distinct `location` slug. `location`
+  participates in `SOURCE_KEY_FIELDS`, so the post-split row set
+  remains uniquely keyed and `validate.py`'s unique-source-key
+  check still passes. Single-slug wild rows fall through to the
+  in-place path.
+
+  Targeted rows are whitelisted by `_LOCATION_TARGET_DETAILS`:
+  static subtypes with a single discrete spot (None / pokeflute /
+  squirt-bottle / devon-scope), gift subtypes (None / gift-egg),
+  and wild-encounter rows where `method_details` is None. Wild
+  rows with a non-null `method_details` (PokéAPI-emitted
+  encounter-mode slugs like `walk` / `surf` / `mass-outbreak` /
+  `horde`) are out of scope: Bulbapedia's segment text doesn't
+  reliably carry the same encounter-mode signal, so cross-mode
+  joins would attach surf-route slugs to walk-grass rows. A
+  later tier can revisit those by adding mode-aware segment
+  classification. Island-scan (SM/USUM) is excluded because its
+  location is a (species, day, island) triple that doesn't
+  collapse to a slug.
 
 `fetch_wikitext` follows `#redirect` pages once — Bulbapedia canonicalises
 apostrophe variants this way (Sirfetch'd/Sirfetch’d), so the shared cache
