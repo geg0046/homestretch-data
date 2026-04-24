@@ -2388,41 +2388,21 @@
   },
   {
     "form_id": "amaura",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "amaura",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
   },
   {
     "form_id": "amaura",
-    "game_id": "ultra-sun",
-    "method": "gift"
-  },
-  {
-    "form_id": "amaura",
     "game_id": "x",
     "method": "fossil-revive",
     "location": "ambrette-town"
   },
   {
     "form_id": "amaura",
-    "game_id": "x",
-    "method": "gift"
-  },
-  {
-    "form_id": "amaura",
     "game_id": "y",
     "method": "fossil-revive",
     "location": "ambrette-town"
-  },
-  {
-    "form_id": "amaura",
-    "game_id": "y",
-    "method": "gift"
   },
   {
     "form_id": "ambipom",
@@ -2891,19 +2871,9 @@
   },
   {
     "form_id": "anorith",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "anorith",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "anorith",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "anorith",
@@ -3816,11 +3786,6 @@
   },
   {
     "form_id": "archen",
-    "game_id": "moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "archen",
     "game_id": "omega-ruby",
     "method": "fossil-revive",
     "location": "rustboro-city"
@@ -3845,11 +3810,6 @@
   {
     "form_id": "archen",
     "game_id": "sun",
-    "method": "gift"
-  },
-  {
-    "form_id": "archen",
-    "game_id": "sun",
     "method": "trade"
   },
   {
@@ -3871,19 +3831,9 @@
   },
   {
     "form_id": "archen",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "archen",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "archen",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "archen",
@@ -18695,11 +18645,6 @@
   {
     "form_id": "cranidos",
     "game_id": "moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "cranidos",
-    "game_id": "moon",
     "method": "trade"
   },
   {
@@ -18751,30 +18696,15 @@
   },
   {
     "form_id": "cranidos",
-    "game_id": "sun",
-    "method": "gift"
-  },
-  {
-    "form_id": "cranidos",
     "game_id": "ultra-moon",
     "method": "fossil-revive",
     "location": "alola-route-8"
   },
   {
     "form_id": "cranidos",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "cranidos",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "cranidos",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "cranidos",
@@ -50644,11 +50574,6 @@
   },
   {
     "form_id": "kabuto",
-    "game_id": "blue",
-    "method": "gift"
-  },
-  {
-    "form_id": "kabuto",
     "game_id": "brilliant-diamond",
     "method": "fossil-revive",
     "location": "oreburgh-mining-museum"
@@ -50711,11 +50636,6 @@
     "game_id": "red",
     "method": "fossil-revive",
     "location": "cinnabar-island"
-  },
-  {
-    "form_id": "kabuto",
-    "game_id": "red",
-    "method": "gift"
   },
   {
     "form_id": "kabuto",
@@ -50795,19 +50715,9 @@
   },
   {
     "form_id": "kabuto",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "kabuto",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "kabuto",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "kabuto",
@@ -50831,11 +50741,6 @@
     "game_id": "yellow",
     "method": "fossil-revive",
     "location": "cinnabar-island"
-  },
-  {
-    "form_id": "kabuto",
-    "game_id": "yellow",
-    "method": "gift"
   },
   {
     "form_id": "kabutops",
@@ -56598,19 +56503,9 @@
   },
   {
     "form_id": "lileep",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "lileep",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "lileep",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "lileep",
@@ -74241,11 +74136,6 @@
   },
   {
     "form_id": "omanyte",
-    "game_id": "blue",
-    "method": "gift"
-  },
-  {
-    "form_id": "omanyte",
     "game_id": "brilliant-diamond",
     "method": "fossil-revive",
     "location": "oreburgh-mining-museum"
@@ -74313,11 +74203,6 @@
     "game_id": "red",
     "method": "fossil-revive",
     "location": "cinnabar-island"
-  },
-  {
-    "form_id": "omanyte",
-    "game_id": "red",
-    "method": "gift"
   },
   {
     "form_id": "omanyte",
@@ -74397,19 +74282,9 @@
   },
   {
     "form_id": "omanyte",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "omanyte",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "omanyte",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "omanyte",
@@ -74433,11 +74308,6 @@
     "game_id": "yellow",
     "method": "fossil-revive",
     "location": "cinnabar-island"
-  },
-  {
-    "form_id": "omanyte",
-    "game_id": "yellow",
-    "method": "gift"
   },
   {
     "form_id": "omastar",
@@ -94297,11 +94167,6 @@
   },
   {
     "form_id": "shieldon",
-    "game_id": "moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "shieldon",
     "game_id": "omega-ruby",
     "method": "fossil-revive",
     "location": "rustboro-city"
@@ -94333,11 +94198,6 @@
   {
     "form_id": "shieldon",
     "game_id": "sun",
-    "method": "gift"
-  },
-  {
-    "form_id": "shieldon",
-    "game_id": "sun",
     "method": "trade"
   },
   {
@@ -94348,19 +94208,9 @@
   },
   {
     "form_id": "shieldon",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "shieldon",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "shieldon",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "shieldon",
@@ -106906,11 +106756,6 @@
   {
     "form_id": "tirtouga",
     "game_id": "moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "tirtouga",
-    "game_id": "moon",
     "method": "trade"
   },
   {
@@ -106943,11 +106788,6 @@
   },
   {
     "form_id": "tirtouga",
-    "game_id": "sun",
-    "method": "gift"
-  },
-  {
-    "form_id": "tirtouga",
     "game_id": "sword",
     "method": "trade"
   },
@@ -106965,19 +106805,9 @@
   },
   {
     "form_id": "tirtouga",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "tirtouga",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
-  },
-  {
-    "form_id": "tirtouga",
-    "game_id": "ultra-sun",
-    "method": "gift"
   },
   {
     "form_id": "tirtouga",
@@ -110307,41 +110137,21 @@
   },
   {
     "form_id": "tyrunt",
-    "game_id": "ultra-moon",
-    "method": "gift"
-  },
-  {
-    "form_id": "tyrunt",
     "game_id": "ultra-sun",
     "method": "fossil-revive",
     "location": "alola-route-8"
   },
   {
     "form_id": "tyrunt",
-    "game_id": "ultra-sun",
-    "method": "gift"
-  },
-  {
-    "form_id": "tyrunt",
     "game_id": "x",
     "method": "fossil-revive",
     "location": "ambrette-town"
   },
   {
     "form_id": "tyrunt",
-    "game_id": "x",
-    "method": "gift"
-  },
-  {
-    "form_id": "tyrunt",
     "game_id": "y",
     "method": "fossil-revive",
     "location": "ambrette-town"
-  },
-  {
-    "form_id": "tyrunt",
-    "game_id": "y",
-    "method": "gift"
   },
   {
     "form_id": "umbreon",

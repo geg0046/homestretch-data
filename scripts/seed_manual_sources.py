@@ -2193,6 +2193,47 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
 ]
 
 
+def _drop_crossmethod_fossil_gift_dupes(rows: list[dict]) -> int:
+    """Drop plain `method=gift` rows that shadow a fossil-revive sibling.
+
+    PokéAPI classifies SM/USUM fossil revival (Fossil Restoration Center
+    on Route 8) as `method=gift, chance=100%`. Our schema reserves
+    `method=fossil-revive` for that mechanic — the duplicate gift row
+    carries no extra information (no notes, method_details, item,
+    from_form, or location) and inflates non-wild counts. Drop it.
+
+    Scoped narrowly: only drops a gift row when (a) a fossil-revive
+    sibling exists for the same (form_id, game_id) AND (b) the gift row
+    itself has no discriminating fields. This leaves legitimate gift
+    rows (NPC gifts, form-change item gifts) untouched even if they
+    happen to share a game with a fossil-revive row.
+    """
+    from collections import defaultdict as _defaultdict
+
+    by_fg: dict[tuple[str, str], list[dict]] = _defaultdict(list)
+    for r in rows:
+        by_fg[(r["form_id"], r["game_id"])].append(r)
+
+    discriminators = ("notes", "method_details", "item", "from_form", "location")
+    to_drop_ids: set[int] = set()
+    for group in by_fg.values():
+        if not any(r.get("method") == "fossil-revive" for r in group):
+            continue
+        for r in group:
+            if r.get("method") != "gift":
+                continue
+            if any(r.get(k) for k in discriminators):
+                continue
+            to_drop_ids.add(id(r))
+
+    if not to_drop_ids:
+        return 0
+    kept = [r for r in rows if id(r) not in to_drop_ids]
+    dropped = len(rows) - len(kept)
+    rows[:] = kept
+    return dropped
+
+
 def _collapse_unlocated_into_located(rows: list[dict]) -> int:
     """Drop rows that duplicate a sibling except for a missing `location`.
 
@@ -2332,6 +2373,7 @@ def main() -> int:
 
     merged = merge_by_key(existing, new_rows, source_key)
     collapsed = _collapse_unlocated_into_located(merged)
+    crossmethod_dropped = _drop_crossmethod_fossil_gift_dupes(merged)
     merged.sort(key=source_sort_key)
 
     # Re-validate the final set and normalize to canonical dict shape.
@@ -2344,6 +2386,7 @@ def main() -> int:
         f"seed_manual_sources: {added} new row(s), "
         f"{location_fills} location(s) filled, "
         f"{collapsed} unlocated duplicate(s) dropped, "
+        f"{crossmethod_dropped} fossil/gift duplicate(s) dropped, "
         f"{len(merged)} total"
     )
     return 0
