@@ -165,7 +165,7 @@ def normalize_method_details(method: Method, raw: str | None) -> str | None:
     stripped = raw.strip()
     if not stripped:
         return None
-    if stripped == method.value:
+    if stripped.lower() == method.value:
         return None  # Rule 7.
 
     # Fast path: already slug-shaped; trust it.
