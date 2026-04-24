@@ -142,6 +142,43 @@ PURCHASE_LOCATION: dict[tuple[str, str], str] = {
     ("crystal", "game-corner"): "goldenrod-city",
 }
 
+# Keyed on `(form_id, game_id)` for gift rows whose location is fixed per
+# species-and-game but whose segment prose on Bulbapedia doesn't land in
+# `--mode locations` range (form-change triggers via held items, non-wiki
+# seeded rows, etc.). Bulk-authored directly rather than scattered across
+# `EXPLICIT_ROWS` dicts so the location catalog stays scannable.
+GIFT_LOCATION: dict[tuple[str, str], str] = {
+    # Shaymin-Sky (PLA) — Gracidea from Medi at Fieldlands Camp.
+    ("shaymin-sky", "legends-arceus"): "obsidian-fieldlands",
+    # Reveal Glass therians — Tornadus / Thundurus / Landorus / Enamorus.
+    # ORAS: mirror shop on Mauville City 1F.
+    ("tornadus-therian", "omega-ruby"): "mauville-city",
+    ("tornadus-therian", "alpha-sapphire"): "mauville-city",
+    ("thundurus-therian", "omega-ruby"): "mauville-city",
+    ("thundurus-therian", "alpha-sapphire"): "mauville-city",
+    ("landorus-therian", "omega-ruby"): "mauville-city",
+    ("landorus-therian", "alpha-sapphire"): "mauville-city",
+    # USUM: Professor Burnet at the Dimensional Research Lab.
+    ("tornadus-therian", "ultra-sun"): "dimensional-research-lab",
+    ("tornadus-therian", "ultra-moon"): "dimensional-research-lab",
+    ("thundurus-therian", "ultra-sun"): "dimensional-research-lab",
+    ("thundurus-therian", "ultra-moon"): "dimensional-research-lab",
+    ("landorus-therian", "ultra-sun"): "dimensional-research-lab",
+    ("landorus-therian", "ultra-moon"): "dimensional-research-lab",
+    # PLA: Cogita at Ancient Retreat.
+    ("tornadus-therian", "legends-arceus"): "ancient-retreat",
+    ("thundurus-therian", "legends-arceus"): "ancient-retreat",
+    ("landorus-therian", "legends-arceus"): "ancient-retreat",
+    ("enamorus-therian", "legends-arceus"): "ancient-retreat",
+    # Deoxys forms (ORAS) — meteorite at Professor Cozmo's house.
+    ("deoxys-attack", "omega-ruby"): "fallarbor-town",
+    ("deoxys-attack", "alpha-sapphire"): "fallarbor-town",
+    ("deoxys-defense", "omega-ruby"): "fallarbor-town",
+    ("deoxys-defense", "alpha-sapphire"): "fallarbor-town",
+    ("deoxys-speed", "omega-ruby"): "fallarbor-town",
+    ("deoxys-speed", "alpha-sapphire"): "fallarbor-town",
+}
+
 
 # Gender-difference pairs: (female_form, default_form). Rows are derived
 # at build time by mirroring every source row for the default with
@@ -2212,6 +2249,8 @@ def _apply_deterministic_locations(rows: list[dict]) -> int:
             loc = BREEDING_LOCATION.get(game)
         elif method == "purchase":
             loc = PURCHASE_LOCATION.get((game, row.get("method_details")))
+        elif method == "gift":
+            loc = GIFT_LOCATION.get((row.get("form_id"), game))
         if loc is not None:
             row["location"] = loc
             updated += 1
@@ -2248,6 +2287,7 @@ def _build_rows(existing: list[dict]) -> list[dict]:
                     "form_id": totem_form,
                     "game_id": game,
                     "method": "gift",
+                    "location": "heahea-beach",
                     "notes": (
                         "Received from Samson Oak at Heahea Beach in exchange for Totem Stickers."
                     ),
