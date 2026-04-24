@@ -2234,6 +2234,52 @@ def _drop_crossmethod_fossil_gift_dupes(rows: list[dict]) -> int:
     return dropped
 
 
+def _drop_crossmethod_purchase_gift_dupes(rows: list[dict]) -> int:
+    """Drop plain `method=gift` rows that shadow a Game Corner purchase sibling.
+
+    PokéAPI classifies Gen 1/2 Game Corner prize Pokémon (Abra, Clefairy,
+    Nidorino/Nidorina, Pinsir, Scyther, Porygon, Dratini, and the wider
+    GSC Goldenrod roster — Ekans, Sandshrew, Mr. Mime, Pikachu, Cubone,
+    Larvitar, Wobbuffet, Vulpix, Wigglytuff) as `method=gift` in addition
+    to the coin-counter purchase. Our schema uses
+    `method=purchase, method_details=game-corner` for that mechanic —
+    the duplicate gift row carries no extra information and inflates
+    non-wild counts.
+
+    Scoped narrowly, same shape as `_drop_crossmethod_fossil_gift_dupes`:
+    only drops a gift row when (a) a `purchase` sibling with
+    `method_details=game-corner` exists for the same (form_id, game_id)
+    AND (b) the gift row has no discriminating fields.
+    """
+    from collections import defaultdict as _defaultdict
+
+    by_fg: dict[tuple[str, str], list[dict]] = _defaultdict(list)
+    for r in rows:
+        by_fg[(r["form_id"], r["game_id"])].append(r)
+
+    discriminators = ("notes", "method_details", "item", "from_form", "location")
+    to_drop_ids: set[int] = set()
+    for group in by_fg.values():
+        if not any(
+            r.get("method") == "purchase" and r.get("method_details") == "game-corner"
+            for r in group
+        ):
+            continue
+        for r in group:
+            if r.get("method") != "gift":
+                continue
+            if any(r.get(k) for k in discriminators):
+                continue
+            to_drop_ids.add(id(r))
+
+    if not to_drop_ids:
+        return 0
+    kept = [r for r in rows if id(r) not in to_drop_ids]
+    dropped = len(rows) - len(kept)
+    rows[:] = kept
+    return dropped
+
+
 def _collapse_unlocated_into_located(rows: list[dict]) -> int:
     """Drop rows that duplicate a sibling except for a missing `location`.
 
@@ -2373,7 +2419,8 @@ def main() -> int:
 
     merged = merge_by_key(existing, new_rows, source_key)
     collapsed = _collapse_unlocated_into_located(merged)
-    crossmethod_dropped = _drop_crossmethod_fossil_gift_dupes(merged)
+    fossil_dropped = _drop_crossmethod_fossil_gift_dupes(merged)
+    purchase_dropped = _drop_crossmethod_purchase_gift_dupes(merged)
     merged.sort(key=source_sort_key)
 
     # Re-validate the final set and normalize to canonical dict shape.
@@ -2386,7 +2433,8 @@ def main() -> int:
         f"seed_manual_sources: {added} new row(s), "
         f"{location_fills} location(s) filled, "
         f"{collapsed} unlocated duplicate(s) dropped, "
-        f"{crossmethod_dropped} fossil/gift duplicate(s) dropped, "
+        f"{fossil_dropped} fossil/gift duplicate(s) dropped, "
+        f"{purchase_dropped} purchase/gift duplicate(s) dropped, "
         f"{len(merged)} total"
     )
     return 0

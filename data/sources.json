@@ -233,11 +233,6 @@
   {
     "form_id": "abra",
     "game_id": "blue",
-    "method": "gift"
-  },
-  {
-    "form_id": "abra",
-    "game_id": "blue",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -266,11 +261,6 @@
   {
     "form_id": "abra",
     "game_id": "crystal",
-    "method": "gift"
-  },
-  {
-    "form_id": "abra",
-    "game_id": "crystal",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "goldenrod-city"
@@ -285,11 +275,6 @@
     "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "walk"
-  },
-  {
-    "form_id": "abra",
-    "game_id": "gold",
-    "method": "gift"
   },
   {
     "form_id": "abra",
@@ -352,11 +337,6 @@
   {
     "form_id": "abra",
     "game_id": "red",
-    "method": "gift"
-  },
-  {
-    "form_id": "abra",
-    "game_id": "red",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -399,11 +379,6 @@
     "form_id": "abra",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
-  },
-  {
-    "form_id": "abra",
-    "game_id": "silver",
-    "method": "gift"
   },
   {
     "form_id": "abra",
@@ -495,11 +470,6 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "purple-flowers, walk"
-  },
-  {
-    "form_id": "abra",
-    "game_id": "yellow",
-    "method": "gift"
   },
   {
     "form_id": "abra",
@@ -15748,11 +15718,6 @@
   {
     "form_id": "clefairy",
     "game_id": "blue",
-    "method": "gift"
-  },
-  {
-    "form_id": "clefairy",
-    "game_id": "blue",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -15896,11 +15861,6 @@
     "method": "evolution",
     "method_details": "level-up",
     "min_happiness": 160
-  },
-  {
-    "form_id": "clefairy",
-    "game_id": "red",
-    "method": "gift"
   },
   {
     "form_id": "clefairy",
@@ -19691,11 +19651,6 @@
     "form_id": "cubone",
     "game_id": "brilliant-diamond",
     "method": "wild-encounter"
-  },
-  {
-    "form_id": "cubone",
-    "game_id": "crystal",
-    "method": "gift"
   },
   {
     "form_id": "cubone",
@@ -24189,11 +24144,6 @@
   {
     "form_id": "dratini",
     "game_id": "blue",
-    "method": "gift"
-  },
-  {
-    "form_id": "dratini",
-    "game_id": "blue",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -24237,11 +24187,6 @@
     "game_id": "gold",
     "method": "fishing",
     "method_details": "good-rod, super-rod"
-  },
-  {
-    "form_id": "dratini",
-    "game_id": "gold",
-    "method": "gift"
   },
   {
     "form_id": "dratini",
@@ -24309,11 +24254,6 @@
   {
     "form_id": "dratini",
     "game_id": "red",
-    "method": "gift"
-  },
-  {
-    "form_id": "dratini",
-    "game_id": "red",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -24368,11 +24308,6 @@
     "game_id": "silver",
     "method": "fishing",
     "method_details": "good-rod, super-rod"
-  },
-  {
-    "form_id": "dratini",
-    "game_id": "silver",
-    "method": "gift"
   },
   {
     "form_id": "dratini",
@@ -27579,11 +27514,6 @@
     "game_id": "crystal",
     "method": "wild-encounter",
     "method_details": "headbutt-low, headbutt-normal, walk"
-  },
-  {
-    "form_id": "ekans",
-    "game_id": "gold",
-    "method": "gift"
   },
   {
     "form_id": "ekans",
@@ -55119,11 +55049,6 @@
   {
     "form_id": "larvitar",
     "game_id": "crystal",
-    "method": "gift"
-  },
-  {
-    "form_id": "larvitar",
-    "game_id": "crystal",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "goldenrod-city"
@@ -68958,11 +68883,6 @@
   {
     "form_id": "mr-mime",
     "game_id": "gold",
-    "method": "gift"
-  },
-  {
-    "form_id": "mr-mime",
-    "game_id": "gold",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "goldenrod-city"
@@ -69088,11 +69008,6 @@
     "method": "evolution",
     "method_details": "level-up",
     "known_move": "mimic"
-  },
-  {
-    "form_id": "mr-mime",
-    "game_id": "silver",
-    "method": "gift"
   },
   {
     "form_id": "mr-mime",
@@ -71519,11 +71434,6 @@
   {
     "form_id": "nidorina",
     "game_id": "red",
-    "method": "gift"
-  },
-  {
-    "form_id": "nidorina",
-    "game_id": "red",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -71681,11 +71591,6 @@
     "game_id": "blue",
     "method": "evolution",
     "method_details": "level-up"
-  },
-  {
-    "form_id": "nidorino",
-    "game_id": "blue",
-    "method": "gift"
   },
   {
     "form_id": "nidorino",
@@ -78493,11 +78398,6 @@
   {
     "form_id": "pikachu",
     "game_id": "crystal",
-    "method": "gift"
-  },
-  {
-    "form_id": "pikachu",
-    "game_id": "crystal",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "goldenrod-city"
@@ -79438,11 +79338,6 @@
   {
     "form_id": "pinsir",
     "game_id": "blue",
-    "method": "gift"
-  },
-  {
-    "form_id": "pinsir",
-    "game_id": "blue",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -79656,11 +79551,6 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "walk"
-  },
-  {
-    "form_id": "pinsir",
-    "game_id": "yellow",
-    "method": "gift"
   },
   {
     "form_id": "pinsir",
@@ -81546,11 +81436,6 @@
   {
     "form_id": "porygon",
     "game_id": "blue",
-    "method": "gift"
-  },
-  {
-    "form_id": "porygon",
-    "game_id": "blue",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -81568,11 +81453,6 @@
   {
     "form_id": "porygon",
     "game_id": "crystal",
-    "method": "gift"
-  },
-  {
-    "form_id": "porygon",
-    "game_id": "crystal",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "goldenrod-city"
@@ -81581,11 +81461,6 @@
     "form_id": "porygon",
     "game_id": "crystal",
     "method": "wild-encounter"
-  },
-  {
-    "form_id": "porygon",
-    "game_id": "gold",
-    "method": "gift"
   },
   {
     "form_id": "porygon",
@@ -81652,11 +81527,6 @@
   {
     "form_id": "porygon",
     "game_id": "red",
-    "method": "gift"
-  },
-  {
-    "form_id": "porygon",
-    "game_id": "red",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -81706,11 +81576,6 @@
     "form_id": "porygon",
     "game_id": "shining-pearl",
     "method": "wild-encounter"
-  },
-  {
-    "form_id": "porygon",
-    "game_id": "silver",
-    "method": "gift"
   },
   {
     "form_id": "porygon",
@@ -81777,11 +81642,6 @@
     "game_id": "violet",
     "method": "wild-encounter",
     "requires_dlc": "hidden-treasure-of-area-zero"
-  },
-  {
-    "form_id": "porygon",
-    "game_id": "yellow",
-    "method": "gift"
   },
   {
     "form_id": "porygon",
@@ -89825,11 +89685,6 @@
   {
     "form_id": "sandshrew",
     "game_id": "silver",
-    "method": "gift"
-  },
-  {
-    "form_id": "sandshrew",
-    "game_id": "silver",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "goldenrod-city"
@@ -91604,11 +91459,6 @@
   {
     "form_id": "scyther",
     "game_id": "red",
-    "method": "gift"
-  },
-  {
-    "form_id": "scyther",
-    "game_id": "red",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -91771,11 +91621,6 @@
     "game_id": "y",
     "method": "wild-encounter",
     "method_details": "horde, purple-flowers, red-flowers"
-  },
-  {
-    "form_id": "scyther",
-    "game_id": "yellow",
-    "method": "gift"
   },
   {
     "form_id": "scyther",
@@ -114330,11 +114175,6 @@
   {
     "form_id": "vulpix",
     "game_id": "yellow",
-    "method": "gift"
-  },
-  {
-    "form_id": "vulpix",
-    "game_id": "yellow",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -116707,11 +116547,6 @@
   {
     "form_id": "wigglytuff",
     "game_id": "yellow",
-    "method": "gift"
-  },
-  {
-    "form_id": "wigglytuff",
-    "game_id": "yellow",
     "method": "purchase",
     "method_details": "game-corner",
     "location": "celadon-city"
@@ -117208,11 +117043,6 @@
     "game_id": "crystal",
     "method": "evolution",
     "method_details": "level-up"
-  },
-  {
-    "form_id": "wobbuffet",
-    "game_id": "crystal",
-    "method": "gift"
   },
   {
     "form_id": "wobbuffet",
