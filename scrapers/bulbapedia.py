@@ -438,50 +438,86 @@ _INLINE_METADATA_RE = re.compile(
 #   {{FB|Region|Place}} -> "Region Place"  (flag-button inline link, Gen 1)
 _ROUTE_TEMPLATE_RE = re.compile(r"\{\{rtn?\|(\d+)\|([A-Za-z]+)\}\}", re.IGNORECASE)
 _FB_TEMPLATE_RE = re.compile(r"\{\{FB\|([^|}]+)\|([^|}]+)\}\}", re.IGNORECASE)
+# `{{tt|visible|tooltip}}` footnote template; visible is the display text.
+_TT_TEMPLATE_RE = re.compile(r"\{\{tt\|[^|{}]*\|[^{}]*\}\}", re.IGNORECASE)
+# Preposition-led location phrases in gift prose: "in [[X]]", "at [[Y]]",
+# "on {{rt|N|Region}}". Captures the link or template so the match's last
+# occurrence is almost always the actual place (NPC names come before the
+# "in" / "at" preposition, not after).
+_LOCATION_PREPOSITION_RE = re.compile(
+    r"\b(?:in|at|on)\s+(?:the\s+)?(?P<link>"
+    r"\[\[[^\]]+\]\]"
+    r"|\{\{rtn?\|\d+\|[A-Za-z]+\}\}"
+    r"|\{\{FB\|[^|}]+\|[^|}]+\}\}"
+    r")",
+    re.IGNORECASE,
+)
+# "after X" / "during Y" / "if Z" / "when W" start a condition clause that
+# trails the location; trim everything from there on before searching.
+_TRAILING_CONDITION_RE = re.compile(r"\s+(?:after|during|if|when)\s+.+$", re.IGNORECASE)
 _SLUG_ALLOWED_RE = re.compile(r"[^a-z0-9]+")
 _SLUG_MAX_LEN = 40  # clip garbage; named landmarks fit well under this.
 
 
-def extract_static_location(segment: str) -> str | None:
-    """Derive a location slug from a static-encounter area segment.
+def _resolve_link_display(link: str) -> str | None:
+    """Return the display text of a `[[wikilink]]` or `{{rt/rtn/FB|...}}` snippet."""
+    m = _WIKILINK_PARTS_RE.match(link)
+    if m:
+        return (m.group(2) or m.group(1)).strip()
+    rt = _ROUTE_TEMPLATE_RE.match(link)
+    if rt:
+        return f"{rt.group(2)} route {rt.group(1)}"
+    fb = _FB_TEMPLATE_RE.match(link)
+    if fb:
+        return f"{fb.group(1)} {fb.group(2)}"
+    return None
 
-    Strategy: drop the "Only one" marker wikilink and `<small>` footnote
-    metadata, then take the first remaining wikilink's display text (or
-    the `{{rt|N|region}}` route-shortcut if no wikilink matches). Slugify
-    via stdlib normalization and return None when the result is empty or
-    longer than `_SLUG_MAX_LEN` (a cheap quality gate against segments
-    that are really condition prose rather than a place).
 
-    Examples:
-        ``[[Cerulean Cave]] ([[...|Only one]])`` → ``cerulean-cave``
-        ``[[Max Lair]] ([[Dynamax Adventure]]) ([[...|Only one]])`` → ``max-lair``
-        ``{{rt|7|Kalos}} ([[...|Only one]])`` → ``kalos-route-7``
-        ``[[Seafoam Islands|Seafoam Islands B4F]] ([[...|Only one]])``
-          → ``seafoam-islands-b4f``
+def extract_area_location(segment: str, *, prefer_preposition: bool) -> str | None:
+    """Derive a location slug from a Bulbapedia availability segment.
+
+    - **Static-encounter** (``prefer_preposition=False``): first wikilink
+      wins. The segment typically opens with the place
+      (``[[Cerulean Cave]] ([[...|Only one]])``) and any trailing links
+      are method markers or condition prose.
+    - **Gift** (``prefer_preposition=True``): the place follows an ``in``
+      / ``at`` / ``on`` preposition (``Received from [[Bill]] in
+      [[Goldenrod City]]``). Fall back to first-wikilink if no such
+      match — covers gifts written without a preposition.
+
+    Always scrubs the "Only one" event-list wikilink, `<small>`/`<sup>`
+    footnote metadata, `{{tt|...}}` tooltips, and any trailing
+    ``after X`` / ``during Y`` condition clauses. Returns None when the
+    slug is empty, shorter than 2 characters, or longer than
+    `_SLUG_MAX_LEN` — the row then keeps `location=None` instead of
+    receiving a garbage slug.
     """
     cleaned = _EVENT_LIST_WIKILINK_RE.sub("", segment)
     cleaned = _INLINE_METADATA_RE.sub("", cleaned)
+    cleaned = _TT_TEMPLATE_RE.sub("", cleaned)
+    cleaned = _TRAILING_CONDITION_RE.sub("", cleaned)
 
     display: str | None = None
-    m = _WIKILINK_PARTS_RE.search(cleaned)
-    if m:
-        display = (m.group(2) or m.group(1)).strip()
-    else:
-        rt = _ROUTE_TEMPLATE_RE.search(cleaned)
-        if rt:
-            display = f"{rt.group(2)} route {rt.group(1)}"
+    if prefer_preposition:
+        prep_matches = list(_LOCATION_PREPOSITION_RE.finditer(cleaned))
+        if prep_matches:
+            display = _resolve_link_display(prep_matches[-1].group("link"))
+    if display is None:
+        m = _WIKILINK_PARTS_RE.search(cleaned)
+        if m:
+            display = (m.group(2) or m.group(1)).strip()
         else:
-            fb = _FB_TEMPLATE_RE.search(cleaned)
-            if fb:
-                display = f"{fb.group(1)} {fb.group(2)}"
+            rt = _ROUTE_TEMPLATE_RE.search(cleaned)
+            if rt:
+                display = f"{rt.group(2)} route {rt.group(1)}"
             else:
-                # Fallback: region-shortcut templates like
-                # {{kal|Unknown Dungeon}} that aren't wikilinks. Flatten
-                # the segment and take the head before the first paren
-                # (the trailing paren always wraps a condition marker).
-                flat_head = _flatten_wikitext(cleaned).split("(")[0].strip(" ,.:;")
-                if flat_head:
-                    display = flat_head
+                fb = _FB_TEMPLATE_RE.search(cleaned)
+                if fb:
+                    display = f"{fb.group(1)} {fb.group(2)}"
+                else:
+                    flat_head = _flatten_wikitext(cleaned).split("(")[0].strip(" ,.:;")
+                    if flat_head:
+                        display = flat_head
     if not display:
         return None
 
@@ -492,6 +528,12 @@ def extract_static_location(segment: str) -> str | None:
     if not slug or len(slug) < 2 or len(slug) > _SLUG_MAX_LEN:
         return None
     return slug
+
+
+# Backwards-compat alias for existing callers; static never wants preposition
+# preference.
+def extract_static_location(segment: str) -> str | None:
+    return extract_area_location(segment, prefer_preposition=False)
 
 
 def _is_skippable_area(area: str) -> bool:
@@ -988,34 +1030,37 @@ def _scrape_sources(
     return 0
 
 
-# Static-encounter subtypes that have a single discrete in-game spot.
-# `island-scan` is excluded because its "location" is a
-# (species, day-of-week, island) triple the slug form can't represent.
-# Plain singleton statics have `method_details=None` (the vacuous
-# `only-one` slug is dropped at normalize time); legacy mechanic-specific
-# subtypes stay as named slugs.
-_STATIC_LOCATION_DETAILS: frozenset[str | None] = frozenset(
-    {"pokeflute", "squirt-bottle", "devon-scope", None}
-)
+# Per-method subtype allow-lists for `--mode locations`. `method_details`
+# values not in the set for a method are skipped — either the mechanic
+# implies a multi-valued "location" (island-scan: day x island x species)
+# or the row's a known edge case whose extraction quality we haven't
+# vetted.
+_LOCATION_TARGET_DETAILS: dict[Method, frozenset[str | None]] = {
+    Method.STATIC_ENCOUNTER: frozenset({"pokeflute", "squirt-bottle", "devon-scope", None}),
+    Method.GIFT: frozenset({None, "gift-egg"}),
+}
 
 
-def _iter_static_locations_from_wikitext(
+def _iter_location_candidates_from_wikitext(
     wikitext: str,
     species_id: str,
     species_form_ids: set[str],
-) -> list[tuple[str, str, str | None, str]]:
-    """Return (form_id, game_id, method_details, location_slug) tuples.
+) -> list[tuple[str, str, str, str | None, str]]:
+    """Return (form_id, game_id, method, method_details, location_slug) tuples.
 
     Mirrors `parse_sources_from_wikitext`'s segment walk but keeps only
-    static-encounter rows (minus island-scan) that yield a parseable
-    location. Used by `--mode locations` to build a lookup applied to
-    existing sources.json rows in place.
+    rows whose method is in `_LOCATION_TARGET_DETAILS` and that yield a
+    parseable location. Static-encounter uses first-wikilink extraction;
+    gift uses preposition-led extraction (location follows ``in`` / ``at``
+    / ``on`` in the usual "Received from X in Y" prose). Used by
+    ``--mode locations`` to build a lookup applied to existing
+    sources.json rows in place.
     """
     section = _extract_main_games_section(wikitext)
     if not section:
         return []
 
-    results: list[tuple[str, str, str | None, str]] = []
+    results: list[tuple[str, str, str, str | None, str]] = []
     for tmpl in _iter_availability_templates(section):
         name = tmpl["_name"]
         if "/NA" in name or "/Header" in name or "/Footer" in name:
@@ -1041,12 +1086,13 @@ def _iter_static_locations_from_wikitext(
             if _is_skippable_area(segment):
                 continue
             inferred, details_text = _infer_method(segment)
-            if inferred is not Method.STATIC_ENCOUNTER:
+            target_details = _LOCATION_TARGET_DETAILS.get(inferred)
+            if target_details is None:
                 continue
-            details = normalize_method_details(Method.STATIC_ENCOUNTER, details_text)
-            if details not in _STATIC_LOCATION_DETAILS:
+            details = normalize_method_details(inferred, details_text)
+            if details not in target_details:
                 continue
-            location = extract_static_location(segment)
+            location = extract_area_location(segment, prefer_preposition=(inferred is Method.GIFT))
             if location is None:
                 continue
             resolved_forms = resolve_form_ids_from_segment(segment, species_id, species_form_ids)
@@ -1058,7 +1104,7 @@ def _iter_static_locations_from_wikitext(
                     if gid not in IN_SCOPE_GAME_IDS:
                         continue
                     for form_id in resolved_forms:
-                        results.append((form_id, gid, details, location))
+                        results.append((form_id, gid, inferred.value, details, location))
     return results
 
 
@@ -1068,25 +1114,26 @@ def _scrape_locations(
     min_dex: int,
     max_dex: int,
 ) -> int:
-    """Backfill `location` on existing static-encounter rows in sources.json.
+    """Backfill `location` on existing static-encounter and gift rows.
 
-    Walks species pages like `--mode sources`, parses each static-encounter
-    segment through `extract_static_location`, and applies the resulting
-    slug to rows whose `(form_id, game_id, method, method_details)` matches
-    and whose `location` is currently None. Rows that already have a
-    location are left untouched.
+    Walks species pages like `--mode sources`, parses each targeted
+    segment (see `_LOCATION_TARGET_DETAILS`), extracts a location slug
+    via `extract_area_location`, and applies the resulting slug to rows
+    whose `(form_id, game_id, method, method_details)` matches and whose
+    `location` is currently None. Rows that already have a location are
+    left untouched.
 
-    This is an update-in-place pass rather than a merge: `location` is part
-    of `SOURCE_KEY_FIELDS`, so emitting it from `--mode sources` would
-    produce a duplicate row under the existing additive merge instead of
-    filling the existing one.
+    This is an update-in-place pass rather than a merge: `location` is
+    part of `SOURCE_KEY_FIELDS`, so emitting it from `--mode sources`
+    would produce a duplicate row under the existing additive merge
+    instead of filling the existing one.
     """
     species_forms = load_species_id_to_forms()
     # First-wins when multiple species pages propose a slug for the same
-    # (form_id, game_id, details) — most collisions happen when a regional
-    # form is annotated under multiple species pages and the scraper walks
-    # both; the first slug is as good as the second.
-    location_map: dict[tuple[str, str, str | None], str] = {}
+    # (form_id, game_id, method, details) — most collisions happen when a
+    # regional form is annotated under multiple species pages and the
+    # scraper walks both; the first slug is as good as the second.
+    location_map: dict[tuple[str, str, str, str | None], str] = {}
 
     for dex in range(min_dex, max_dex + 1):
         species = pokeapi.get_json(f"{POKEAPI_BASE}/pokemon-species/{dex}/")
@@ -1101,28 +1148,30 @@ def _scrape_locations(
         form_ids = set(species_forms.get(species_id, ()))
         if species_id not in form_ids:
             continue
-        for form_id, gid, details, slug in _iter_static_locations_from_wikitext(
+        for form_id, gid, method, details, slug in _iter_location_candidates_from_wikitext(
             wikitext, species_id, form_ids
         ):
-            location_map.setdefault((form_id, gid, details), slug)
+            location_map.setdefault((form_id, gid, method, details), slug)
         if dex % 200 == 0:
             print(f"  ...scanned through #{dex:04d}; {len(location_map)} locations so far")
 
+    targeted_methods = frozenset(m.value for m in _LOCATION_TARGET_DETAILS)
     existing = load_existing_sources()
-    filled = 0
+    filled_by_method: dict[str, int] = {}
     skipped_no_match = 0
     for row in existing:
-        if row.get("method") != Method.STATIC_ENCOUNTER.value:
+        method = row.get("method")
+        if method not in targeted_methods:
             continue
         if row.get("location") is not None:
             continue
-        key = (row["form_id"], row["game_id"], row.get("method_details"))
+        key = (row["form_id"], row["game_id"], method, row.get("method_details"))
         slug = location_map.get(key)
         if slug is None:
             skipped_no_match += 1
             continue
         row["location"] = slug
-        filled += 1
+        filled_by_method[method] = filled_by_method.get(method, 0) + 1
 
     existing.sort(key=source_sort_key)
     TypeAdapter(list[Source]).validate_python(existing)
@@ -1130,8 +1179,10 @@ def _scrape_locations(
         json.dumps(existing, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
+    total = sum(filled_by_method.values())
+    breakdown = ", ".join(f"{n} {m}" for m, n in sorted(filled_by_method.items())) or "none"
     print(
-        f"locations: filled {filled} static-encounter row(s); "
+        f"locations: filled {total} row(s) ({breakdown}); "
         f"{skipped_no_match} row(s) had no matching segment."
     )
     return 0
