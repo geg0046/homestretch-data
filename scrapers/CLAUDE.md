@@ -154,13 +154,28 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
      evolution rows in `data/sources.json`. Evolutions mode emits fresh
      rows for these, scoped to the union of `_REGIONAL_GAMES[region]`
      and any games where the form already appears in non-evolution rows.
+     Each synthesized row gets `method_details`, `item` (if applicable),
+     and `from_form` filled from three fallback sources in order:
+     (a) Bulbapedia evobox trigger text run through `_detect_item_slug`
+     / `_classify_trigger`; (b) `_REGIONAL_TRIGGER_OVERRIDES` — a small
+     hand-authored table for forms whose evobox leaves `evoN` empty
+     (most Alolan/Galarian/Hisuian variants do); (c) left unset.
+     `from_form` is captured whenever either side of an evobox edge is
+     regional, so default → regional evolutions (marowak-alola from
+     cubone) also get provenance, not just regional → regional chains.
   3. **Per-game gating via prose + evobox item detection.** Prose phrases
      like "...cannot evolve in [[Pokémon Scarlet and Violet]]..." remove
      matching rows (regex stops at clause boundaries so contrast phrases
      don't over-match). Evobox trigger text naming a specific item from
-     `_ITEM_NAME_TO_SLUG` (Black Augurite, Peat Block, Linking Cord,
-     Auspicious/Malicious Armor) fills the structured `item` field so
-     `use-item` + `item=black-augurite` for Kleavor/LA.
+     `_ITEM_NAME_TO_SLUG` fills the structured `item` field so
+     `use-item` + `item=black-augurite` for Kleavor/LA. The dict covers
+     two populations: (a) Gen 8/9 items PokéAPI lumps under generic
+     `use-item` (Black Augurite, Peat Block, Linking Cord,
+     Auspicious/Malicious Armor, Galarica Cuff/Wreath); (b) common
+     evolution stones (Thunder/Fire/Water/Leaf/Ice/Sun/Moon/Dusk/Dawn/
+     Shiny) needed by Pass 2 synthesis where there's no PokéAPI row
+     to inherit from. Pass 1 refinement only fills items for (a) since
+     PokéAPI already supplies stone names for default-form rows.
   
   Merge semantics for evolutions mode diverge from sources mode:
   existing rows may be **rewritten or removed**, and new rows may be

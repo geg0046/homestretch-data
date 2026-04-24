@@ -825,16 +825,65 @@ _GAME_LINK_TO_GAMES: dict[str, tuple[str, ...]] = {
     "Pokémon Legends: Z-A": ("legends-za",),
 }
 
-# Item names (as they appear flattened from Bulbapedia wikitext) → slug to
-# append when PokéAPI's trigger collapses multiple items into a generic
-# `use-item`. Only items that gate evolutions uniquely on a specific game
-# are worth disambiguating; add entries as cases arise.
+# Item names (as they appear flattened from Bulbapedia wikitext) → slug.
+# Two populations:
+#   (a) Items that PokéAPI collapses into a generic `use-item` without
+#       naming the specific item (Gen 8/9 additions) — needed for Pass 1
+#       refinement of existing PokéAPI rows.
+#   (b) Common evolution stones — needed for Pass 2 synthesis of fresh
+#       rows for regional-variant forms PokéAPI skipped, where there's
+#       no PokéAPI-provided `item` to inherit.
+# Regional-variant evolution trigger overrides. Bulbapedia's per-species
+# evobox templates leave `evoN` empty for most regional-form stages —
+# the trigger info lives in prose our scraper doesn't parse. For these
+# forms, hardcode `method_details` (and `item` when applicable) so
+# Pass-2 emits a complete row and Pass-1 can fill gaps on existing
+# PokéAPI rows. Each entry verified against Bulbapedia + Serebii.
+# Overrides only fill gaps; they never clobber a Bulbapedia-detected
+# value.
+_REGIONAL_TRIGGER_OVERRIDES: dict[str, dict[str, str]] = {
+    # Alolan forms.
+    "raticate-alola": {"method_details": "level-up"},
+    "dugtrio-alola": {"method_details": "level-up"},
+    "persian-alola": {"method_details": "level-up"},
+    "muk-alola": {"method_details": "level-up"},
+    "graveler-alola": {"method_details": "level-up"},
+    "golem-alola": {"method_details": "trade"},
+    "ninetales-alola": {"method_details": "use-item", "item": "ice-stone"},
+    "sandslash-alola": {"method_details": "use-item", "item": "ice-stone"},
+    # Galarian forms.
+    "rapidash-galar": {"method_details": "level-up"},
+    "slowbro-galar": {"method_details": "use-item", "item": "galarica-cuff"},
+    "slowking-galar": {"method_details": "use-item", "item": "galarica-wreath"},
+    # Hisuian forms.
+    "arcanine-hisui": {"method_details": "use-item", "item": "fire-stone"},
+    "electrode-hisui": {"method_details": "use-item", "item": "leaf-stone"},
+    "zoroark-hisui": {"method_details": "level-up"},
+}
+
+
 _ITEM_NAME_TO_SLUG: dict[str, str] = {
+    # (a) Gen 8/9 items PokéAPI emits as generic use-item.
     "Black Augurite": "black-augurite",
     "Peat Block": "peat-block",
     "Linking Cord": "linking-cord",
     "Auspicious Armor": "auspicious-armor",
     "Malicious Armor": "malicious-armor",
+    "Galarica Cuff": "galarica-cuff",
+    "Galarica Wreath": "galarica-wreath",
+    # (b) Evolution stones used by regional-variant rows synthesized in
+    # Pass 2 (e.g. raichu-alola via Thunder Stone, exeggutor-alola via
+    # Leaf Stone, arcanine-hisui via Fire Stone).
+    "Thunder Stone": "thunder-stone",
+    "Fire Stone": "fire-stone",
+    "Water Stone": "water-stone",
+    "Leaf Stone": "leaf-stone",
+    "Ice Stone": "ice-stone",
+    "Sun Stone": "sun-stone",
+    "Moon Stone": "moon-stone",
+    "Dusk Stone": "dusk-stone",
+    "Dawn Stone": "dawn-stone",
+    "Shiny Stone": "shiny-stone",
 }
 
 
@@ -944,9 +993,19 @@ def _evobox_edges(
         cur_n = stage_nums[i]
         nxt_n = stage_nums[i + 1]
         for prev_letter, prev_fid in by_stage[cur_n]:
-            trigger = template.get(f"evo{cur_n}{prev_letter}") or template.get(f"evo{cur_n}", "")
-            trigger_flat = _flatten_wikitext(trigger)
-            for _, next_fid in by_stage[nxt_n]:
+            for next_letter, next_fid in by_stage[nxt_n]:
+                # Trigger field index depends on where the branch splits.
+                # For outgoing branches (pikachu → raichu / raichu-alola)
+                # the template keys on the NEXT letter (evo2a / evo2b).
+                # For incoming branches (pikachu / pikachu-alola → raichu)
+                # it keys on the PREV letter. Try next-letter first, fall
+                # back to prev-letter, then to the shared evoN.
+                trigger = (
+                    (template.get(f"evo{cur_n}{next_letter}") if next_letter else None)
+                    or (template.get(f"evo{cur_n}{prev_letter}") if prev_letter else None)
+                    or template.get(f"evo{cur_n}", "")
+                )
+                trigger_flat = _flatten_wikitext(trigger)
                 edges.append((prev_fid, next_fid, trigger_flat))
     return edges
 
@@ -956,6 +1015,33 @@ def _detect_item_slug(trigger_text: str) -> str | None:
     for name, slug in _ITEM_NAME_TO_SLUG.items():
         if name in trigger_text:
             return slug
+    return None
+
+
+def _classify_trigger(trigger_text: str, item_slug: str | None) -> str | None:
+    """Broad-bucket an evobox trigger into a PokéAPI method_details slug.
+
+    Used when synthesizing fresh evolution rows for regional-variant
+    forms (Pass 2): PokéAPI never emitted a row for these, so we can't
+    inherit a trigger — we have to derive it from the evobox prose.
+    Returns None if the trigger doesn't match any known bucket, in which
+    case Pass 2 leaves `method_details` unset rather than guessing.
+
+    Order matters: item names are checked first because phrases like
+    "Trade holding a Linking Cord" should classify as `use-item`, not
+    `trade`. The default bucket is `level-up` — it covers level-based
+    triggers plus friendship / time-of-day / known-move level-ups, which
+    all share that PokéAPI slug.
+    """
+    if item_slug:
+        return "use-item"
+    # Trade triggers: "Trade", "Trade for X", "Trade holding X" (without
+    # a recognized item). Match at word boundary to avoid "Traded" noise.
+    if re.search(r"\bTrade\b", trigger_text):
+        return "trade"
+    # Level-based phrasing is the broadest bucket.
+    if re.search(r"\b(?:Level|Lv\.?|friendship|happiness|starting)\b", trigger_text, re.I):
+        return "level-up"
     return None
 
 
@@ -1200,12 +1286,16 @@ def _apply_refinement(
     row: dict[str, Any],
     pre_evo: str | None,
     item_slug: str | None,
+    method_details: str | None,
 ) -> dict[str, Any] | None:
     """Return a new row with structured fields populated from a refinement.
 
     - `pre_evo` fills `from_form` (regional pre-evolution provenance).
     - `item_slug` fills `item` (specific stone/item when PokéAPI emitted a
       generic `use-item` trigger).
+    - `method_details` fills `method_details` when the row lacks it —
+      necessary for regional-variant rows that early scraper revisions
+      wrote with no trigger slug.
 
     Returns None if no change — caller keeps the original row. Idempotent:
     existing structured values win over refinements so re-runs don't
@@ -1220,6 +1310,9 @@ def _apply_refinement(
     # filling `item`. Don't clobber a PokéAPI-provided item.
     if item_slug and updated.get("method_details") == "use-item" and updated.get("item") is None:
         updated["item"] = item_slug
+        changed = True
+    if method_details and updated.get("method_details") is None:
+        updated["method_details"] = method_details
         changed = True
     return updated if changed else None
 
@@ -1273,7 +1366,7 @@ def _scrape_evolutions(
             # <species> in game Y").
             refinements.setdefault(
                 species_id,
-                {"pre_evo": None, "item": None, "excluded": set()},
+                {"pre_evo": None, "item": None, "method_details": None, "excluded": set()},
             )["excluded"] |= excluded
 
         for tmpl in _iter_evobox_templates(section):
@@ -1291,12 +1384,39 @@ def _scrape_evolutions(
                     continue
                 entry = refinements.setdefault(
                     next_fid,
-                    {"pre_evo": None, "item": None, "excluded": set()},
+                    {
+                        "pre_evo": None,
+                        "item": None,
+                        "method_details": None,
+                        "excluded": set(),
+                    },
                 )
-                if prev_is_regional and entry["pre_evo"] is None:
+                # For regional-target edges we need `from_form` regardless
+                # of whether the pre-evo is regional (raichu-alola from
+                # pikachu-alola) or default (marowak-alola from cubone):
+                # the provenance is equally useful for app-side grouping.
+                if (next_is_regional or prev_is_regional) and entry["pre_evo"] is None:
                     entry["pre_evo"] = prev_fid
                 if item_slug and entry["item"] is None:
                     entry["item"] = item_slug
+                # Classify the trigger into a method_details slug. Only
+                # used by Pass 2 (fresh rows for regional forms) — Pass 1
+                # inherits method_details from the PokéAPI row.
+                if next_is_regional and entry["method_details"] is None:
+                    entry["method_details"] = _classify_trigger(trigger, item_slug)
+
+    # Apply regional-trigger overrides as gap-fills. Only sets fields the
+    # wikitext scan didn't already populate, so Bulbapedia-derived values
+    # win over the hardcoded list.
+    for form_id, override in _REGIONAL_TRIGGER_OVERRIDES.items():
+        entry = refinements.setdefault(
+            form_id,
+            {"pre_evo": None, "item": None, "method_details": None, "excluded": set()},
+        )
+        if override.get("method_details") and entry["method_details"] is None:
+            entry["method_details"] = override["method_details"]
+        if override.get("item") and entry["item"] is None:
+            entry["item"] = override["item"]
 
     if not refinements:
         print("no evolution refinements detected; sources.json unchanged.")
@@ -1324,7 +1444,7 @@ def _scrape_evolutions(
         if row["game_id"] in ref["excluded"]:
             removed += 1
             continue
-        updated = _apply_refinement(row, ref["pre_evo"], ref["item"])
+        updated = _apply_refinement(row, ref["pre_evo"], ref["item"], ref["method_details"])
         if updated is not None:
             kept.append(updated)
             modified += 1
@@ -1356,8 +1476,14 @@ def _scrape_evolutions(
                 "game_id": game_id,
                 "method": Method.EVOLUTION.value,
             }
+            # Prefer classifier output (covers level-up / trade / use-item);
+            # fall back to "use-item" when only an item slug was detected
+            # (classifier has the item in scope and would have returned
+            # use-item, but stay robust if classification was skipped).
+            method_details = ref["method_details"] or ("use-item" if ref["item"] else None)
+            if method_details:
+                entry["method_details"] = method_details
             if ref["item"]:
-                entry["method_details"] = "use-item"
                 entry["item"] = ref["item"]
             if ref["pre_evo"]:
                 entry["from_form"] = ref["pre_evo"]
