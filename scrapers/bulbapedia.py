@@ -610,6 +610,16 @@ _GENERIC_LOCATION_SLUGS: frozenset[str] = frozenset(
         "old-rod",
         "good-rod",
         "super-rod",
+        # Raid mechanic names — `[[Max Raid Battle]]` / `[[Tera Raid
+        # Battle]]` etc. annotate the raid type, not the location.
+        # `max-lair` is intentionally NOT in this set: it IS the
+        # canonical location for `dynamax-adventure` rows.
+        "max-raid",
+        "max-raid-battle",
+        "tera-raid",
+        "tera-raid-battle",
+        "dynamax-adventure",
+        "pokemon-den",
     }
 )
 
@@ -1296,6 +1306,14 @@ _LOCATION_TARGET_DETAILS: dict[Method, frozenset[str | None]] = {
             "old-rod, good-rod, super-rod",
         }
     ),
+    # Raid scope: SwSh max-raid + gmax + Crown Tundra dynamax-adventure
+    # — Bulbapedia enumerates dens/zones in the `area=` field for these.
+    # `tera-raid` (SV) is intentionally absent: Bulbapedia annotates SV
+    # tera raids only by star tier (`{{DL|List of N★ Tera Raid Battles
+    # (Paldea)|...|N★}}`) with no per-zone enumeration, so there's no
+    # location slug to extract. None is also absent — `_normalize_raid`
+    # always emits a slug for raid-classified segments.
+    Method.RAID: frozenset({"max-raid", "gmax", "dynamax-adventure"}),
 }
 
 
@@ -1403,10 +1421,12 @@ def _iter_location_candidates_from_wikitext(
             details = normalize_method_details(inferred, details_text)
             if details not in target_details:
                 continue
-            if inferred in (Method.WILD_ENCOUNTER, Method.FISHING):
-                # Fishing segments enumerate routes the same way wild
-                # ones do (`[[Routes ...]] ([[Old Rod]])`); the rod
-                # link is filtered by `_GENERIC_LOCATION_SLUGS`.
+            if inferred in (Method.WILD_ENCOUNTER, Method.FISHING, Method.RAID):
+                # Fishing and raid segments enumerate places the same
+                # way wild does (`[[Routes ...]] ([[Old Rod]])` /
+                # `[[Bridge Field/Dens|Bridge Field]], ... ([[Max Raid
+                # Battle]])`). The rod / raid-mechanic link is filtered
+                # by `_GENERIC_LOCATION_SLUGS`.
                 locations = extract_area_locations(segment)
             else:
                 single = extract_area_location(
@@ -1435,7 +1455,7 @@ def _scrape_locations(
     min_dex: int,
     max_dex: int,
 ) -> int:
-    """Backfill `location` on existing static / gift / wild / fishing rows.
+    """Backfill `location` on existing static / gift / wild / fishing / raid rows.
 
     Walks species pages like `--mode sources`, parses each targeted
     segment (see `_LOCATION_TARGET_DETAILS`), extracts a location slug
@@ -1447,11 +1467,12 @@ def _scrape_locations(
     matching row receives the first slug Bulbapedia produces. These
     methods are singletons by mechanic (one cave, one NPC).
 
-    Wild-encounter and fishing rows are **row-split** when Bulbapedia
-    produces multiple location slugs for the matching key. The original
-    null-location row is replaced by N clones, each carrying a distinct
-    `location` slug. `location` participates in `SOURCE_KEY_FIELDS`, so
-    the post-split row set remains uniquely keyed.
+    Wild-encounter, fishing, and raid rows are **row-split** when
+    Bulbapedia produces multiple location slugs for the matching key.
+    The original null-location row is replaced by N clones, each
+    carrying a distinct `location` slug. `location` participates in
+    `SOURCE_KEY_FIELDS`, so the post-split row set remains uniquely
+    keyed.
 
     Fishing uses **rod-set intersection** matching instead of strict
     `method_details` equality. PokéAPI emits one fishing row per rod
@@ -1460,6 +1481,12 @@ def _scrape_locations(
     present at that location. A Bulbapedia segment for `[[Old Rod]]`
     therefore applies to any existing row whose `method_details`
     contains `old-rod`. See `_fishing_slugs_for_row`.
+
+    Raid rows use strict `method_details` matching (`max-raid` / `gmax`
+    / `dynamax-adventure` are distinct mechanics, not overlapping
+    tiers). Tera-raid (`tera-raid`) is intentionally excluded from
+    `_LOCATION_TARGET_DETAILS[Method.RAID]` because Bulbapedia annotates
+    SV tera raids only by star tier, with no per-zone enumeration.
 
     Rows that already have a location are left untouched (idempotent
     on re-run).
@@ -1513,7 +1540,10 @@ def _scrape_locations(
             skipped_no_match += 1
             out.append(row)
             continue
-        if method in (Method.WILD_ENCOUNTER.value, Method.FISHING.value) and len(slugs) > 1:
+        if (
+            method in (Method.WILD_ENCOUNTER.value, Method.FISHING.value, Method.RAID.value)
+            and len(slugs) > 1
+        ):
             for slug in slugs:
                 clone = dict(row)
                 clone["location"] = slug
@@ -1535,7 +1565,7 @@ def _scrape_locations(
     breakdown = ", ".join(f"{n} {m}" for m, n in sorted(filled_by_method.items())) or "none"
     print(
         f"locations: filled {total} row(s) ({breakdown}); "
-        f"{split_count} wild/fishing row(s) row-split into multiple locations; "
+        f"{split_count} wild/fishing/raid row(s) row-split into multiple locations; "
         f"{skipped_no_match} row(s) had no matching segment."
     )
     return 0

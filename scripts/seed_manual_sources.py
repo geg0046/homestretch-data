@@ -2415,6 +2415,11 @@ def _apply_deterministic_locations(rows: list[dict]) -> int:
             loc = GIFT_LOCATION.get((row.get("form_id"), game))
         elif method == "static-encounter":
             loc = STATIC_LOCATION.get((row.get("form_id"), game, row.get("method_details")))
+        elif method == "raid" and row.get("method_details") == "dynamax-adventure":
+            # Dynamax Adventures (SwSh Crown Tundra) all take place in the
+            # Max Lair. Bulbapedia segments for these legendaries don't
+            # always link `[[Max Lair]]` cleanly, so fill deterministically.
+            loc = "max-lair"
         if loc is not None:
             row["location"] = loc
             updated += 1
