@@ -9730,6 +9730,17 @@
     "categories": []
   },
   {
+    "id": "necrozma-ultra",
+    "species_id": "necrozma",
+    "national_dex": 800,
+    "form_name": "ultra",
+    "is_default": false,
+    "generation_introduced": 7,
+    "categories": [
+      "functional"
+    ]
+  },
+  {
     "id": "magearna",
     "species_id": "magearna",
     "national_dex": 801,
