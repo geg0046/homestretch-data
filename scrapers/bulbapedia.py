@@ -603,6 +603,13 @@ _GENERIC_LOCATION_SLUGS: frozenset[str] = frozenset(
         "dark",
         "steel",
         "fairy",
+        # Fishing rods and `[[fishing]]` — Bulbapedia annotates fishing
+        # segments with parenthesized rod links (`[[Cerulean City]]
+        # ([[Old Rod]])`); the rod is the *method*, not the location.
+        "fishing",
+        "old-rod",
+        "good-rod",
+        "super-rod",
     }
 )
 
@@ -1271,7 +1278,70 @@ _LOCATION_TARGET_DETAILS: dict[Method, frozenset[str | None]] = {
     # different mechanic slug (or none), and joining them across
     # mechanics would attach surf-route locations to walk-grass rows.
     Method.WILD_ENCOUNTER: frozenset({None}),
+    # Fishing scope: every canonical-order rod-set `_normalize_fishing` can
+    # emit (the seven non-empty subsets of {old, good, super}) plus None
+    # for segments without explicit rod text. The consumption loop in
+    # `_scrape_locations` then does rod-set *intersection* matching against
+    # existing rows, so a Bulbapedia segment for `[[Old Rod]]` applies to
+    # any existing row whose `method_details` rod-set contains `old-rod`.
+    Method.FISHING: frozenset(
+        {
+            None,
+            "old-rod",
+            "good-rod",
+            "super-rod",
+            "old-rod, good-rod",
+            "old-rod, super-rod",
+            "good-rod, super-rod",
+            "old-rod, good-rod, super-rod",
+        }
+    ),
 }
+
+
+def _rod_set(details: str | None) -> frozenset[str]:
+    """Parse a fishing `method_details` slug into a rod-set.
+
+    `_normalize_fishing` emits comma-joined canonical-order rod slugs
+    (`"old-rod, good-rod"`); PokéAPI rows follow the same shape.
+    Used by `_scrape_locations` to do rod-set intersection matching for
+    fishing rows. Empty/None input → empty frozenset (semantic: "no rod
+    info"; the consumption loop treats this as "accept any rod").
+    """
+    if not details:
+        return frozenset()
+    return frozenset(p.strip() for p in details.split(","))
+
+
+def _fishing_slugs_for_row(
+    row: dict[str, Any],
+    location_map: dict[tuple[str, str, str, str | None], list[str]],
+) -> list[str]:
+    """Aggregate Bulbapedia location slugs for a fishing row via rod-set match.
+
+    Walks every `(form_id, game_id, fishing, *)` key in `location_map`
+    and yields the slugs whose Bulbapedia rod-set shares at least one
+    rod with the existing row's rod-set. An existing row with empty
+    rod-set (`method_details=None`) accepts any Bulbapedia segment —
+    PokéAPI just didn't classify the rod. First-seen order preserved.
+    """
+    existing_rods = _rod_set(row.get("method_details"))
+    form_id = row["form_id"]
+    game_id = row["game_id"]
+    method_value = Method.FISHING.value
+    slugs: list[str] = []
+    seen: set[str] = set()
+    for (f, g, m, d), candidate_slugs in location_map.items():
+        if (f, g, m) != (form_id, game_id, method_value):
+            continue
+        bulba_rods = _rod_set(d)
+        if existing_rods and bulba_rods and not (existing_rods & bulba_rods):
+            continue
+        for slug in candidate_slugs:
+            if slug not in seen:
+                slugs.append(slug)
+                seen.add(slug)
+    return slugs
 
 
 def _iter_location_candidates_from_wikitext(
@@ -1333,7 +1403,10 @@ def _iter_location_candidates_from_wikitext(
             details = normalize_method_details(inferred, details_text)
             if details not in target_details:
                 continue
-            if inferred is Method.WILD_ENCOUNTER:
+            if inferred in (Method.WILD_ENCOUNTER, Method.FISHING):
+                # Fishing segments enumerate routes the same way wild
+                # ones do (`[[Routes ...]] ([[Old Rod]])`); the rod
+                # link is filtered by `_GENERIC_LOCATION_SLUGS`.
                 locations = extract_area_locations(segment)
             else:
                 single = extract_area_location(
@@ -1362,24 +1435,31 @@ def _scrape_locations(
     min_dex: int,
     max_dex: int,
 ) -> int:
-    """Backfill `location` on existing static / gift / wild-encounter rows.
+    """Backfill `location` on existing static / gift / wild / fishing rows.
 
     Walks species pages like `--mode sources`, parses each targeted
     segment (see `_LOCATION_TARGET_DETAILS`), extracts a location slug
-    via `extract_area_location`, and applies the resulting slug(s) to
-    rows whose `(form_id, game_id, method, method_details)` matches
-    and whose `location` is currently None.
+    via `extract_area_location` / `extract_area_locations`, and applies
+    the resulting slug(s) to rows whose `(form_id, game_id, method,
+    method_details)` matches and whose `location` is currently None.
 
     Static-encounter and gift rows are filled **in place**: each
     matching row receives the first slug Bulbapedia produces. These
     methods are singletons by mechanic (one cave, one NPC).
 
-    Wild-encounter rows are **row-split** when Bulbapedia produces
-    multiple location slugs for the same (form_id, game_id, method,
-    method_details) key. The original null-location row is replaced
-    by N clones, each carrying a distinct `location` slug. `location`
-    participates in `SOURCE_KEY_FIELDS`, so the post-split row set
-    remains uniquely keyed.
+    Wild-encounter and fishing rows are **row-split** when Bulbapedia
+    produces multiple location slugs for the matching key. The original
+    null-location row is replaced by N clones, each carrying a distinct
+    `location` slug. `location` participates in `SOURCE_KEY_FIELDS`, so
+    the post-split row set remains uniquely keyed.
+
+    Fishing uses **rod-set intersection** matching instead of strict
+    `method_details` equality. PokéAPI emits one fishing row per rod
+    tier (`old-rod` / `good-rod` / `super-rod` / comma-joined combos);
+    Bulbapedia segments typically annotate only the rod actually
+    present at that location. A Bulbapedia segment for `[[Old Rod]]`
+    therefore applies to any existing row whose `method_details`
+    contains `old-rod`. See `_fishing_slugs_for_row`.
 
     Rows that already have a location are left untouched (idempotent
     on re-run).
@@ -1424,13 +1504,16 @@ def _scrape_locations(
         if method not in targeted_methods or row.get("location") is not None:
             out.append(row)
             continue
-        key = (row["form_id"], row["game_id"], method, row.get("method_details"))
-        slugs = location_map.get(key)
+        if method == Method.FISHING.value:
+            slugs = _fishing_slugs_for_row(row, location_map)
+        else:
+            key = (row["form_id"], row["game_id"], method, row.get("method_details"))
+            slugs = location_map.get(key) or []
         if not slugs:
             skipped_no_match += 1
             out.append(row)
             continue
-        if method == Method.WILD_ENCOUNTER.value and len(slugs) > 1:
+        if method in (Method.WILD_ENCOUNTER.value, Method.FISHING.value) and len(slugs) > 1:
             for slug in slugs:
                 clone = dict(row)
                 clone["location"] = slug
@@ -1452,7 +1535,7 @@ def _scrape_locations(
     breakdown = ", ".join(f"{n} {m}" for m, n in sorted(filled_by_method.items())) or "none"
     print(
         f"locations: filled {total} row(s) ({breakdown}); "
-        f"{split_count} wild row(s) row-split into multiple locations; "
+        f"{split_count} wild/fishing row(s) row-split into multiple locations; "
         f"{skipped_no_match} row(s) had no matching segment."
     )
     return 0

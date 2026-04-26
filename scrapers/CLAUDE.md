@@ -182,7 +182,7 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   **added** for regional forms. Re-runs are idempotent (annotation
   suffixes are not re-appended if already present).
 - `--mode locations` — backfill the `location` field on existing
-  static-encounter, gift, and wild-encounter rows. Walks species
+  static-encounter, gift, wild-encounter, and fishing rows. Walks species
   pages, extracts a location slug from each targeted segment, then
   applies the resulting slug(s) to matching rows in
   `data/sources.json`. Rows that already have a `location` are left
@@ -210,31 +210,50 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
       filters out common-noun first wikilinks (`[[Route]]`,
       `[[Cave]]`, region names, Pokémon types, mechanic names like
       `[[National Pokédex]]` / `[[SOS Battle]]` /
-      `[[Pokémon Breeding|Breed]]`). Wikilinks with a `(type)` /
-      `(move)` / `(ability)` / `(species)` disambiguator suffix are
-      dropped whole — `[[Fire (type)|Fire]]`-style links describe
-      element coverage, not location.
-  All three paths scrub the "Only one" event-list wikilink,
+      `[[Pokémon Breeding|Breed]]`, fishing-rod links
+      `[[Old Rod]]` / `[[Good Rod]]` / `[[Super Rod]]`). Wikilinks
+      with a `(type)` / `(move)` / `(ability)` / `(species)`
+      disambiguator suffix are dropped whole — `[[Fire
+      (type)|Fire]]`-style links describe element coverage, not
+      location.
+    - **Fishing**: same multi-location extractor as wild — fishing
+      Availability segments enumerate routes the same way
+      (`[[Routes]] {{rtn|12|Kanto}}, {{rtn|13|Kanto}} ([[Old
+      Rod]])`). The rod link is filtered by the generic-skip set
+      above, leaving the routes as the only location slugs.
+  All four paths scrub the "Only one" event-list wikilink,
   `<small>`/`<sup>` footnote metadata, `{{tt|...}}` tooltips, and
   trailing ``after X`` / ``during Y`` condition clauses.
 
   **Update strategy diverges by method.** Static and gift are
   filled **in place** — these mechanics are singletons (one cave,
-  one NPC), so the first slug is the location. Wild-encounter
-  rows are **row-split**: when Bulbapedia produces N distinct
-  location slugs for the same `(form_id, game_id, method,
-  method_details)` key, the original null-location row is replaced
-  by N clones, each carrying a distinct `location` slug. `location`
-  participates in `SOURCE_KEY_FIELDS`, so the post-split row set
-  remains uniquely keyed and `validate.py`'s unique-source-key
-  check still passes. Single-slug wild rows fall through to the
-  in-place path.
+  one NPC), so the first slug is the location. Wild-encounter and
+  fishing rows are **row-split**: when Bulbapedia produces N
+  distinct location slugs for the matching key, the original
+  null-location row is replaced by N clones, each carrying a
+  distinct `location` slug. `location` participates in
+  `SOURCE_KEY_FIELDS`, so the post-split row set remains uniquely
+  keyed and `validate.py`'s unique-source-key check still passes.
+  Single-slug wild/fishing rows fall through to the in-place path.
+
+  **Fishing matching is rod-set intersection, not strict equality.**
+  PokéAPI emits one fishing row per rod tier (`old-rod` / `good-rod`
+  / `super-rod` / comma-joined combos). Bulbapedia segments
+  typically annotate only the rod actually present at the location.
+  A Bulbapedia segment for `[[Old Rod]]` therefore applies to any
+  existing row whose `method_details` rod-set contains `old-rod`.
+  Existing rows with `method_details=None` accept any Bulbapedia
+  segment. See `_fishing_slugs_for_row` in `bulbapedia.py`.
 
   Targeted rows are whitelisted by `_LOCATION_TARGET_DETAILS`:
   static subtypes with a single discrete spot (None / pokeflute /
   squirt-bottle / devon-scope), gift subtypes (None / gift-egg),
-  and wild-encounter rows where `method_details` is None. Wild
-  rows with a non-null `method_details` (PokéAPI-emitted
+  wild-encounter rows where `method_details` is None, and fishing
+  rows with any of the seven non-empty rod-set slugs `_normalize_
+  fishing` can emit (`old-rod`, `good-rod`, `super-rod`,
+  `old-rod, good-rod`, `old-rod, super-rod`,
+  `good-rod, super-rod`, `old-rod, good-rod, super-rod`) plus
+  None. Wild rows with a non-null `method_details` (PokéAPI-emitted
   encounter-mode slugs like `walk` / `surf` / `mass-outbreak` /
   `horde`) are out of scope: Bulbapedia's segment text doesn't
   reliably carry the same encounter-mode signal, so cross-mode
