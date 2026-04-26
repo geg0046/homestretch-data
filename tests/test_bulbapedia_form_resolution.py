@@ -9,6 +9,7 @@ relies on."""
 from __future__ import annotations
 
 from bulbapedia import (
+    _rod_set,
     extract_area_location,
     extract_area_locations,
     resolve_form_ids_from_segment,
@@ -259,3 +260,51 @@ def test_extract_locations_dedupes_repeated_slugs() -> None:
 def test_extract_locations_empty_segment() -> None:
     assert extract_area_locations("") == []
     assert extract_area_locations("just prose, no wikilinks") == []
+
+
+def test_extract_locations_skips_fishing_rod_links() -> None:
+    # Fishing-style segment: `[[Cerulean City]] ([[Old Rod]])`. The rod
+    # link is the *method*, not the location.
+    assert extract_area_locations("[[Cerulean City]] ([[Old Rod]])") == ["cerulean-city"]
+    # Multi-rod parenthetical with the bare `[[fishing]]` generic label.
+    segment = "[[Whirl Islands]] ([[fishing]] with [[Old Rod]] or [[Good Rod]])"
+    assert extract_area_locations(segment) == ["whirl-islands"]
+
+
+def test_extract_locations_walks_routes_with_rod_suffix() -> None:
+    # Mirrors the Bulbapedia fishing shape: routes enumerated, rod
+    # annotated as a parenthesized suffix.
+    segment = "[[Route]]s {{rtn|12|Kanto}}, {{rtn|13|Kanto}} ([[Old Rod]])"
+    assert extract_area_locations(segment) == ["kanto-route-12", "kanto-route-13"]
+
+
+# --- _rod_set ------------------------------------------------------------
+
+
+def test_rod_set_none_and_empty() -> None:
+    # Empty / None means "no rod info"; the consumption loop treats that as
+    # "accept any rod" rather than "matches no rods".
+    assert _rod_set(None) == frozenset()
+    assert _rod_set("") == frozenset()
+
+
+def test_rod_set_single_rod() -> None:
+    assert _rod_set("super-rod") == frozenset({"super-rod"})
+
+
+def test_rod_set_comma_joined_strips_whitespace() -> None:
+    assert _rod_set("old-rod, good-rod, super-rod") == frozenset(
+        {"old-rod", "good-rod", "super-rod"}
+    )
+
+
+def test_rod_set_intersection_is_used_for_match() -> None:
+    # Sanity-check the intersection semantic the consumption loop relies on.
+    existing = _rod_set("old-rod, good-rod, super-rod")
+    bulba = _rod_set("old-rod")
+    assert existing & bulba == frozenset({"old-rod"})  # match
+    bulba_disjoint = _rod_set("super-rod")
+    assert existing & bulba_disjoint == frozenset({"super-rod"})  # also match
+    existing_super_only = _rod_set("super-rod")
+    bulba_old_only = _rod_set("old-rod")
+    assert existing_super_only & bulba_old_only == frozenset()  # no match
