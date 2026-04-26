@@ -20,7 +20,8 @@ data/            authoritative JSON data (games, forms, sources, transfers)
 schemas/         auto-generated JSON Schema files (DO NOT hand-edit)
 src/homestretch_data/
   models/        Pydantic models — the source of truth for the schema
-scripts/         CLI utilities (validate, export_schemas)
+scripts/         CLI utilities (validate, coverage_audit, export_schemas,
+                 seed_manual_sources)
 scrapers/        site-specific scrapers that write into data/
 tests/           pytest suites
 ```
@@ -133,6 +134,13 @@ uv run python scripts/seed_manual_sources.py
 - **Scraper merge is idempotent (`setdefault` by id/key).** After changing
   categorization or skip/event logic, `rm data/forms.json` (or
   `data/sources.json`) before re-running, or stale entries survive.
+- **`scripts/seed_manual_sources.py` is the third data-authoring tool**
+  alongside the PokéAPI and Bulbapedia scrapers. It seeds rows that
+  upstreams don't carry (breeding babies, Game Corner prizes, fossil-
+  revive / gift / static-encounter location dicts, USUM totems, event
+  distributions, gender-difference female mirrors). Re-run it after any
+  fresh scrape — manual rows are rebuilt from authoritative dicts and
+  merged additively into the scraped data.
 
 Scraper-specific conventions live in [`scrapers/CLAUDE.md`](scrapers/CLAUDE.md).
 
