@@ -2,7 +2,22 @@
 name = "homestretch-data"
 version = "0.1.0"
 description = "Data for HomeStretch: a form-aware, Home-transfer-aware Pokémon living dex planner."
+readme = "README.md"
 requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE", "LICENSE-DATA"]
+authors = [
+    { name = "geg0046", email = "homestretchapp@outlook.com" },
+]
+keywords = ["pokemon", "dataset", "living-dex", "pokemon-home"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Games/Entertainment",
+]
 dependencies = [
     "beautifulsoup4==4.14.3",
     "httpx==0.28.1",
@@ -10,6 +25,11 @@ dependencies = [
     "pokebase==1.4.1",
     "pydantic==2.13.2",
 ]
+
+[project.urls]
+Homepage = "https://github.com/geg0046/homestretch-data"
+Repository = "https://github.com/geg0046/homestretch-data"
+Issues = "https://github.com/geg0046/homestretch-data/issues"
 
 [dependency-groups]
 dev = [
