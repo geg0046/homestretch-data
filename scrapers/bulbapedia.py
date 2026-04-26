@@ -22,7 +22,7 @@ from typing import Any
 from urllib.parse import quote
 
 import httpx
-from method_details import normalize_method_details
+from method_details import _normalize_wild_encounter_set, normalize_method_details
 from pydantic import TypeAdapter
 from utils import RateLimitedClient, merge_by_key, source_key, source_sort_key
 
@@ -1362,6 +1362,57 @@ def _fishing_slugs_for_row(
     return slugs
 
 
+def _encounter_mode_set(details: str | None) -> frozenset[str]:
+    """Parse a wild `method_details` slug into an encounter-mode set.
+
+    `_normalize_wild_encounter_set` emits comma-joined canonical-order
+    mode slugs (`"surf, walk"`); PokéAPI rows follow the same shape
+    (`"walk, yellow-flowers"`, `"bubbling-spots, walk"`). Mirrors
+    `_rod_set` but for wild encounters. Empty/None input → empty
+    frozenset; the consumption loop treats this as "accept any mode".
+    """
+    if not details:
+        return frozenset()
+    return frozenset(p.strip() for p in details.split(","))
+
+
+def _wild_slugs_for_row(
+    row: dict[str, Any],
+    location_map: dict[tuple[str, str, str, str | None], list[str]],
+) -> list[str]:
+    """Aggregate Bulbapedia location slugs for a wild row via mode-set match.
+
+    Mirrors `_fishing_slugs_for_row`. Walks every `(form_id, game_id,
+    wild-encounter, *)` key in `location_map` and yields slugs whose
+    Bulbapedia mode-set shares at least one mode with the existing row's
+    mode-set. Existing rows with empty mode-set (`method_details=None`)
+    accept any Bulbapedia segment — tier 17 already handled most of
+    those, but the branch is preserved for completeness.
+
+    PokéAPI emits combos Bulbapedia doesn't always reflect (`walk,
+    yellow-flowers`, `surf, walk`); intersection lets a Bulbapedia
+    `walk` segment apply to the combo row, since `walk` is a real mode
+    of that row.
+    """
+    existing_modes = _encounter_mode_set(row.get("method_details"))
+    form_id = row["form_id"]
+    game_id = row["game_id"]
+    method_value = Method.WILD_ENCOUNTER.value
+    slugs: list[str] = []
+    seen: set[str] = set()
+    for (f, g, m, d), candidate_slugs in location_map.items():
+        if (f, g, m) != (form_id, game_id, method_value):
+            continue
+        bulba_modes = _encounter_mode_set(d)
+        if existing_modes and bulba_modes and not (existing_modes & bulba_modes):
+            continue
+        for slug in candidate_slugs:
+            if slug not in seen:
+                slugs.append(slug)
+                seen.add(slug)
+    return slugs
+
+
 def _iter_location_candidates_from_wikitext(
     wikitext: str,
     species_id: str,
@@ -1418,9 +1469,17 @@ def _iter_location_candidates_from_wikitext(
             target_details = _LOCATION_TARGET_DETAILS.get(inferred)
             if target_details is None:
                 continue
-            details = normalize_method_details(inferred, details_text)
-            if details not in target_details:
-                continue
+            if inferred is Method.WILD_ENCOUNTER:
+                # Wild uses mode-set intersection at consumption time
+                # (`_wild_slugs_for_row`), so the iter-side filter doesn't
+                # apply: emit the canonical-order mode-set string and let
+                # the consumer match it against existing PokéAPI combo
+                # method_details. Bypasses `target_details` strict check.
+                details = _normalize_wild_encounter_set(details_text)
+            else:
+                details = normalize_method_details(inferred, details_text)
+                if details not in target_details:
+                    continue
             if inferred in (Method.WILD_ENCOUNTER, Method.FISHING, Method.RAID):
                 # Fishing and raid segments enumerate places the same
                 # way wild does (`[[Routes ...]] ([[Old Rod]])` /
@@ -1482,6 +1541,17 @@ def _scrape_locations(
     therefore applies to any existing row whose `method_details`
     contains `old-rod`. See `_fishing_slugs_for_row`.
 
+    Wild-encounter uses **mode-set intersection** matching for the
+    same reason. PokéAPI emits combos (`walk, yellow-flowers`,
+    `surf, walk`, `bubbling-spots, walk`) that Bulbapedia segments
+    rarely fully express. `_normalize_wild_encounter_set` walks all
+    `_WILD_ENCOUNTER_PATTERNS` matches and returns a canonical-order
+    comma-joined slug; `_wild_slugs_for_row` matches against existing
+    rows where the mode-sets intersect. Species-name SOS slugs
+    (`swellow` / `venomoth`) and region-name slugs (`kanto` / `hoenn`)
+    don't intersect with any Bulbapedia-emitted mode and stay
+    unfilled — deferred for a future hand-fill tier.
+
     Raid rows use strict `method_details` matching (`max-raid` / `gmax`
     / `dynamax-adventure` are distinct mechanics, not overlapping
     tiers). Tera-raid (`tera-raid`) is intentionally excluded from
@@ -1531,7 +1601,9 @@ def _scrape_locations(
         if method not in targeted_methods or row.get("location") is not None:
             out.append(row)
             continue
-        if method == Method.FISHING.value:
+        if method == Method.WILD_ENCOUNTER.value:
+            slugs = _wild_slugs_for_row(row, location_map)
+        elif method == Method.FISHING.value:
             slugs = _fishing_slugs_for_row(row, location_map)
         else:
             key = (row["form_id"], row["game_id"], method, row.get("method_details"))

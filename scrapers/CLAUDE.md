@@ -247,39 +247,50 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   Single-slug wild/fishing/raid rows fall through to the in-place
   path.
 
-  **Fishing matching is rod-set intersection, not strict equality.**
-  PokéAPI emits one fishing row per rod tier (`old-rod` / `good-rod`
-  / `super-rod` / comma-joined combos). Bulbapedia segments
-  typically annotate only the rod actually present at the location.
-  A Bulbapedia segment for `[[Old Rod]]` therefore applies to any
-  existing row whose `method_details` rod-set contains `old-rod`.
-  Existing rows with `method_details=None` accept any Bulbapedia
-  segment. See `_fishing_slugs_for_row` in `bulbapedia.py`.
+  **Fishing and wild-encounter matching is set intersection, not
+  strict equality.** PokéAPI emits one fishing row per rod tier
+  (`old-rod` / `good-rod` / `super-rod` / comma-joined combos) and
+  multi-mode wild rows (`walk, yellow-flowers`, `surf, walk`,
+  `bubbling-spots, walk`). Bulbapedia segments typically annotate only
+  the rod / encounter-mode actually present at the location. The
+  consumption loop uses set-intersection match: a Bulbapedia segment
+  for `[[Old Rod]]` applies to any existing row whose `method_details`
+  rod-set contains `old-rod`; a Bulbapedia segment normalized to
+  `walk` applies to any existing row whose mode-set contains `walk`
+  (`walk`, `walk, yellow-flowers`, `surf, walk`, etc.). Existing rows
+  with `method_details=None` accept any Bulbapedia segment. See
+  `_fishing_slugs_for_row` and `_wild_slugs_for_row`.
+
+  Wild segments use `_normalize_wild_encounter_set` (locations-mode
+  only) instead of `_normalize_wild_encounter` (sources-mode). The
+  set version walks every `_WILD_ENCOUNTER_PATTERNS` match and
+  returns a canonical-order comma-joined slug; the single version
+  returns the first match. Splitting the two preserves the merge-key
+  shape of `--mode sources`.
 
   Targeted rows are whitelisted by `_LOCATION_TARGET_DETAILS`:
   static subtypes with a single discrete spot (None / pokeflute /
   squirt-bottle / devon-scope), gift subtypes (None / gift-egg),
-  wild-encounter rows where `method_details` is None, fishing rows
-  with any of the seven non-empty rod-set slugs `_normalize_
-  fishing` can emit (`old-rod`, `good-rod`, `super-rod`,
-  `old-rod, good-rod`, `old-rod, super-rod`,
-  `good-rod, super-rod`, `old-rod, good-rod, super-rod`) plus
-  None, and raid rows with one of `max-raid` / `gmax` /
-  `dynamax-adventure` for the SwSh dens that Bulbapedia enumerates
-  by zone. `tera-raid` (SV) is intentionally excluded from raid
-  scope: Bulbapedia annotates SV tera raids only by star tier
-  (`{{DL|List of N★ Tera Raid Battles (Paldea)|...|N★}}`) with no
-  per-zone enumeration, so there's no location slug to extract; a
-  future tier can hand-fill the 1.1k tera-raid rows uniformly with
-  `paldea` or similar if the planner UX wants it. Wild rows with a
-  non-null `method_details` (PokéAPI-emitted encounter-mode slugs
-  like `walk` / `surf` / `mass-outbreak` / `horde`) are out of
-  scope: Bulbapedia's segment text doesn't reliably carry the same
-  encounter-mode signal, so cross-mode joins would attach surf-
-  route slugs to walk-grass rows. A later tier can revisit those by
-  adding mode-aware segment classification. Island-scan (SM/USUM)
-  is excluded because its location is a (species, day, island)
-  triple that doesn't collapse to a slug.
+  fishing rows with any of the seven non-empty rod-set slugs
+  `_normalize_fishing` can emit plus None, and raid rows with one of
+  `max-raid` / `gmax` / `dynamax-adventure` for the SwSh dens that
+  Bulbapedia enumerates by zone. `tera-raid` (SV) is intentionally
+  excluded from raid scope: Bulbapedia annotates SV tera raids only
+  by star tier (`{{DL|List of N★ Tera Raid Battles (Paldea)|...|N★}}`)
+  with no per-zone enumeration, so there's no location slug to
+  extract; a future tier can hand-fill the 1.1k tera-raid rows
+  uniformly with `paldea` or similar if the planner UX wants it.
+  Wild-encounter has its own dispatch in the iter function: it
+  bypasses the `target_details` strict check and emits a mode-set
+  slug for every classified segment, letting the consumption loop's
+  intersection match be the correctness gate. Species-name SOS slugs
+  (`swellow` / `venomoth`), region-name slugs (`kanto` / `hoenn`),
+  and SwSh flower-color habitat names aren't in
+  `_WILD_ENCOUNTER_PATTERNS`, so wild rows tagged solely with those
+  details have no Bulbapedia counterpart and stay null —
+  intentionally deferred. Island-scan (SM/USUM) is excluded because
+  its location is a (species, day, island) triple that doesn't
+  collapse to a slug.
 
 `fetch_wikitext` follows `#redirect` pages once — Bulbapedia canonicalises
 apostrophe variants this way (Sirfetch'd/Sirfetch’d), so the shared cache
