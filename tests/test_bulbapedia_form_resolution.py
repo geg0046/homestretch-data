@@ -308,3 +308,30 @@ def test_rod_set_intersection_is_used_for_match() -> None:
     existing_super_only = _rod_set("super-rod")
     bulba_old_only = _rod_set("old-rod")
     assert existing_super_only & bulba_old_only == frozenset()  # no match
+
+
+# --- raid extraction ----------------------------------------------------
+
+
+def test_extract_locations_skips_raid_mechanic_links() -> None:
+    # Raid mechanic wikilinks describe the raid type, not the location.
+    assert extract_area_locations("[[Max Raid Battle]]") == []
+    assert extract_area_locations("[[Tera Raid Battle]]") == []
+    assert extract_area_locations("[[Pokémon Den]]") == []
+    assert extract_area_locations("[[Dynamax Adventure]]") == []
+
+
+def test_extract_locations_keeps_max_lair_as_real_location() -> None:
+    # `[[Max Lair]]` is the canonical Crown Tundra dynamax-adventure
+    # dungeon — a real location, NOT a generic-skip.
+    assert extract_area_locations("[[Max Lair]]") == ["max-lair"]
+
+
+def test_extract_locations_walks_raid_dens_with_mechanic_suffix() -> None:
+    # Mirrors the Bulbapedia SwSh max-raid shape: dens enumerated with
+    # `Foo/Dens` link target + `Foo` display, raid mechanic as suffix.
+    segment = (
+        "[[Bridge Field/Dens|Bridge Field]], "
+        "[[Lake of Outrage/Dens|Lake of Outrage]] ([[Max Raid Battle]])"
+    )
+    assert extract_area_locations(segment) == ["bridge-field", "lake-of-outrage"]

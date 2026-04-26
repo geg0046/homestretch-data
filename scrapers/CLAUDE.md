@@ -182,7 +182,7 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   **added** for regional forms. Re-runs are idempotent (annotation
   suffixes are not re-appended if already present).
 - `--mode locations` — backfill the `location` field on existing
-  static-encounter, gift, wild-encounter, and fishing rows. Walks species
+  static-encounter, gift, wild-encounter, fishing, and raid rows. Walks species
   pages, extracts a location slug from each targeted segment, then
   applies the resulting slug(s) to matching rows in
   `data/sources.json`. Rows that already have a `location` are left
@@ -221,20 +221,31 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
       (`[[Routes]] {{rtn|12|Kanto}}, {{rtn|13|Kanto}} ([[Old
       Rod]])`). The rod link is filtered by the generic-skip set
       above, leaving the routes as the only location slugs.
-  All four paths scrub the "Only one" event-list wikilink,
+    - **Raid**: same multi-location extractor as wild and fishing.
+      SwSh raid Availability segments enumerate dens/zones
+      (`[[Bridge Field/Dens|Bridge Field]], [[Lake of Outrage/Dens|
+      Lake of Outrage]] ([[Max Raid Battle]])`); raid-mechanic
+      links (`[[Max Raid Battle]]` / `[[Pokémon Den]]` /
+      `[[Dynamax Adventure]]`) are filtered by the generic-skip
+      set, leaving the den/zone slugs. `[[Max Lair]]` is the one
+      raid-mechanic-adjacent wikilink that *is* a real location
+      slug (Crown Tundra dynamax-adventure dungeon) and is left
+      out of the skip set on purpose.
+  All five paths scrub the "Only one" event-list wikilink,
   `<small>`/`<sup>` footnote metadata, `{{tt|...}}` tooltips, and
   trailing ``after X`` / ``during Y`` condition clauses.
 
   **Update strategy diverges by method.** Static and gift are
   filled **in place** — these mechanics are singletons (one cave,
-  one NPC), so the first slug is the location. Wild-encounter and
-  fishing rows are **row-split**: when Bulbapedia produces N
-  distinct location slugs for the matching key, the original
-  null-location row is replaced by N clones, each carrying a
-  distinct `location` slug. `location` participates in
+  one NPC), so the first slug is the location. Wild-encounter,
+  fishing, and raid rows are **row-split**: when Bulbapedia
+  produces N distinct location slugs for the matching key, the
+  original null-location row is replaced by N clones, each carrying
+  a distinct `location` slug. `location` participates in
   `SOURCE_KEY_FIELDS`, so the post-split row set remains uniquely
   keyed and `validate.py`'s unique-source-key check still passes.
-  Single-slug wild/fishing rows fall through to the in-place path.
+  Single-slug wild/fishing/raid rows fall through to the in-place
+  path.
 
   **Fishing matching is rod-set intersection, not strict equality.**
   PokéAPI emits one fishing row per rod tier (`old-rod` / `good-rod`
@@ -248,20 +259,27 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   Targeted rows are whitelisted by `_LOCATION_TARGET_DETAILS`:
   static subtypes with a single discrete spot (None / pokeflute /
   squirt-bottle / devon-scope), gift subtypes (None / gift-egg),
-  wild-encounter rows where `method_details` is None, and fishing
-  rows with any of the seven non-empty rod-set slugs `_normalize_
+  wild-encounter rows where `method_details` is None, fishing rows
+  with any of the seven non-empty rod-set slugs `_normalize_
   fishing` can emit (`old-rod`, `good-rod`, `super-rod`,
   `old-rod, good-rod`, `old-rod, super-rod`,
   `good-rod, super-rod`, `old-rod, good-rod, super-rod`) plus
-  None. Wild rows with a non-null `method_details` (PokéAPI-emitted
-  encounter-mode slugs like `walk` / `surf` / `mass-outbreak` /
-  `horde`) are out of scope: Bulbapedia's segment text doesn't
-  reliably carry the same encounter-mode signal, so cross-mode
-  joins would attach surf-route slugs to walk-grass rows. A
-  later tier can revisit those by adding mode-aware segment
-  classification. Island-scan (SM/USUM) is excluded because its
-  location is a (species, day, island) triple that doesn't
-  collapse to a slug.
+  None, and raid rows with one of `max-raid` / `gmax` /
+  `dynamax-adventure` for the SwSh dens that Bulbapedia enumerates
+  by zone. `tera-raid` (SV) is intentionally excluded from raid
+  scope: Bulbapedia annotates SV tera raids only by star tier
+  (`{{DL|List of N★ Tera Raid Battles (Paldea)|...|N★}}`) with no
+  per-zone enumeration, so there's no location slug to extract; a
+  future tier can hand-fill the 1.1k tera-raid rows uniformly with
+  `paldea` or similar if the planner UX wants it. Wild rows with a
+  non-null `method_details` (PokéAPI-emitted encounter-mode slugs
+  like `walk` / `surf` / `mass-outbreak` / `horde`) are out of
+  scope: Bulbapedia's segment text doesn't reliably carry the same
+  encounter-mode signal, so cross-mode joins would attach surf-
+  route slugs to walk-grass rows. A later tier can revisit those by
+  adding mode-aware segment classification. Island-scan (SM/USUM)
+  is excluded because its location is a (species, day, island)
+  triple that doesn't collapse to a slug.
 
 `fetch_wikitext` follows `#redirect` pages once — Bulbapedia canonicalises
 apostrophe variants this way (Sirfetch'd/Sirfetch’d), so the shared cache
