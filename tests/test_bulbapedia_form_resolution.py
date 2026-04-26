@@ -9,12 +9,14 @@ relies on."""
 from __future__ import annotations
 
 from bulbapedia import (
+    _encounter_mode_set,
     _rod_set,
     extract_area_location,
     extract_area_locations,
     resolve_form_ids_from_segment,
     split_area_segments,
 )
+from method_details import _normalize_wild_encounter_set
 
 
 def test_split_area_segments_handles_br_variants() -> None:
@@ -335,3 +337,54 @@ def test_extract_locations_walks_raid_dens_with_mechanic_suffix() -> None:
         "[[Lake of Outrage/Dens|Lake of Outrage]] ([[Max Raid Battle]])"
     )
     assert extract_area_locations(segment) == ["bridge-field", "lake-of-outrage"]
+
+
+# --- _encounter_mode_set + _normalize_wild_encounter_set -----------------
+
+
+def test_encounter_mode_set_none_and_empty() -> None:
+    assert _encounter_mode_set(None) == frozenset()
+    assert _encounter_mode_set("") == frozenset()
+
+
+def test_encounter_mode_set_single_mode() -> None:
+    assert _encounter_mode_set("walk") == frozenset({"walk"})
+
+
+def test_encounter_mode_set_pokeapi_combo() -> None:
+    # PokéAPI-emitted comma-joined combo with whitespace.
+    assert _encounter_mode_set("walk, yellow-flowers") == frozenset({"walk", "yellow-flowers"})
+    assert _encounter_mode_set("bubbling-spots, walk") == frozenset({"bubbling-spots", "walk"})
+
+
+def test_normalize_wild_encounter_set_single_match() -> None:
+    # Single mode in segment text → single-slug return.
+    assert _normalize_wild_encounter_set("Walking in tall grass") == "walk"
+    assert _normalize_wild_encounter_set("Surfing on the lake") == "surf"
+
+
+def test_normalize_wild_encounter_set_multi_match_canonical_order() -> None:
+    # Multiple matches → canonical-order comma-joined. Pattern order in
+    # `_WILD_ENCOUNTER_PATTERNS`: mass-outbreak, space-time-distortion,
+    # sos-encounter, bubbling-spots, horde, rough-terrain, rock-smash,
+    # surf, overworld, walk.
+    assert _normalize_wild_encounter_set("Surfing on grass-edged water") == "surf, walk"
+    assert _normalize_wild_encounter_set("Bubbling spots and tall grass") == "bubbling-spots, walk"
+
+
+def test_normalize_wild_encounter_set_no_match_returns_none() -> None:
+    assert _normalize_wild_encounter_set("Some unrelated prose") is None
+
+
+def test_mode_set_intersection_handles_pokeapi_combos() -> None:
+    # The consumption loop relies on this: existing PokéAPI row with
+    # combo modes must intersect with Bulbapedia's normalized single
+    # mode for set-intersection match to fire.
+    existing = _encounter_mode_set("walk, yellow-flowers")
+    bulba = _encounter_mode_set("walk")
+    assert existing & bulba == frozenset({"walk"})  # match
+
+    # Non-overlapping mode-sets correctly miss.
+    surf_only = _encounter_mode_set("surf")
+    walk_only = _encounter_mode_set("walk")
+    assert surf_only & walk_only == frozenset()  # no match

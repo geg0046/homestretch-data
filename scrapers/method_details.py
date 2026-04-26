@@ -79,7 +79,10 @@ _WILD_ENCOUNTER_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
     (re.compile(r"\bmass\s+outbreak", re.IGNORECASE), "mass-outbreak"),
     (re.compile(r"\bspace[- ]time\s+distortion", re.IGNORECASE), "space-time-distortion"),
     (re.compile(r"\bsos\s+encounter", re.IGNORECASE), "sos-encounter"),
+    (re.compile(r"\bbubbling\s+spots?\b", re.IGNORECASE), "bubbling-spots"),
     (re.compile(r"\bhorde\s+encounter", re.IGNORECASE), "horde"),
+    (re.compile(r"\brough\s+terrain\b", re.IGNORECASE), "rough-terrain"),
+    (re.compile(r"\brock\s+smash\b", re.IGNORECASE), "rock-smash"),
     (re.compile(r"\bsurf(?:ing)?\b", re.IGNORECASE), "surf"),
     (re.compile(r"\boverworld\b", re.IGNORECASE), "overworld"),
     (re.compile(r"\bgrass\b", re.IGNORECASE), "walk"),
@@ -87,10 +90,45 @@ _WILD_ENCOUNTER_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
 
 
 def _normalize_wild_encounter(cleaned: str) -> str | None:
+    """First-match single-slug emitter — used by `--mode sources` parse path.
+
+    Order in `_WILD_ENCOUNTER_PATTERNS` matters: more specific patterns
+    (mass-outbreak / sos-encounter / horde) come before broader ones
+    (surf / overworld / walk). Used by the main scraper path; changing
+    its return shape would alter `SOURCE_KEY_FIELDS` for newly-emitted
+    rows and produce duplicates under additive merge.
+    """
     for pat, slug in _WILD_ENCOUNTER_PATTERNS:
         if pat.search(cleaned):
             return slug
     return None
+
+
+def _normalize_wild_encounter_set(cleaned: str) -> str | None:
+    """All-matches canonical-order emitter — used only by `--mode locations`.
+
+    Walks every pattern in `_WILD_ENCOUNTER_PATTERNS`, collects the
+    matching slugs, and returns them as a comma-joined slug in the
+    pattern's tuple order (mass-outbreak / space-time-distortion / sos-
+    encounter / bubbling-spots / horde / rough-terrain / rock-smash /
+    surf / overworld / walk). The locations-mode consumption loop uses
+    this with mode-set intersection against PokéAPI-emitted comma-joined
+    rows (`walk, yellow-flowers`, `surf, walk`, `bubbling-spots, walk`),
+    mirroring fishing's rod-set match.
+    """
+    matched_slugs: set[str] = set()
+    for pat, slug in _WILD_ENCOUNTER_PATTERNS:
+        if pat.search(cleaned):
+            matched_slugs.add(slug)
+    if not matched_slugs:
+        return None
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for _, slug in _WILD_ENCOUNTER_PATTERNS:
+        if slug in matched_slugs and slug not in seen:
+            ordered.append(slug)
+            seen.add(slug)
+    return ", ".join(ordered)
 
 
 # Note: `only-one` / `one-time` is intentionally NOT recognized here.
