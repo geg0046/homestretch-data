@@ -177,6 +177,81 @@ GIFT_LOCATION: dict[tuple[str, str], str] = {
     ("deoxys-defense", "alpha-sapphire"): "fallarbor-town",
     ("deoxys-speed", "omega-ruby"): "fallarbor-town",
     ("deoxys-speed", "alpha-sapphire"): "fallarbor-town",
+    # Pikachu (Yellow) — starter from Prof. Oak in Pallet Town.
+    ("pikachu", "yellow"): "pallet-town",
+    # Kanto starters in GSC — Prof. Oak gives one in Pallet Town as a
+    # post-game reward for defeating Red on Mt. Silver.
+    ("bulbasaur", "gold"): "pallet-town",
+    ("bulbasaur", "silver"): "pallet-town",
+    ("bulbasaur", "crystal"): "pallet-town",
+    ("charmander", "gold"): "pallet-town",
+    ("charmander", "silver"): "pallet-town",
+    ("charmander", "crystal"): "pallet-town",
+    ("squirtle", "gold"): "pallet-town",
+    ("squirtle", "silver"): "pallet-town",
+    ("squirtle", "crystal"): "pallet-town",
+    # Togepi Egg — Mr. Pokémon's house at the start of Johto Route 30 in
+    # GSC; Pokémon Day Care on Hoenn Route 117 in ORAS.
+    ("togepi", "gold"): "johto-route-30",
+    ("togepi", "silver"): "johto-route-30",
+    ("togepi", "crystal"): "johto-route-30",
+    ("togepi", "omega-ruby"): "hoenn-route-117",
+    ("togepi", "alpha-sapphire"): "hoenn-route-117",
+    # Wynaut Egg — old man at Lavaridge Town in ORAS.
+    ("wynaut", "omega-ruby"): "lavaridge-town",
+    ("wynaut", "alpha-sapphire"): "lavaridge-town",
+    # Tyrogue Egg — Kiyo at Mt. Mortar (Crystal-only).
+    ("tyrogue", "crystal"): "mt-mortar",
+}
+
+
+# Keyed on `(form_id, game_id, method_details)` for static-encounter rows
+# whose location is fixed per species/game/method-trigger but whose
+# Bulbapedia segment didn't land in `--mode locations` range (notes-only
+# encounters, atypical Availability tables for legacy games, etc.).
+# `method_details` is part of the key because the same form may have
+# different static rows triggered by different mechanics in the same
+# game; for plain singleton statics it's None.
+STATIC_LOCATION: dict[tuple[str, str, str | None], str] = {
+    # Snorlax — Poké Flute wakes the route blocker. Two Snorlax in RBY
+    # (Routes 12 + 16); seeded with the canonical first encounter.
+    ("snorlax", "red", "pokeflute"): "kanto-route-12",
+    ("snorlax", "blue", "pokeflute"): "kanto-route-12",
+    ("snorlax", "yellow", "pokeflute"): "kanto-route-12",
+    # GSC: Snorlax sleeps on Johto Route 11 and is woken with the
+    # Pokégear's "Pokémon March" channel, not the Poké Flute. PokéAPI
+    # tags `method_details=pokeflute` anyway; the location below is
+    # correct for the actual in-game spot.
+    ("snorlax", "gold", "pokeflute"): "johto-route-11",
+    ("snorlax", "silver", "pokeflute"): "johto-route-11",
+    ("snorlax", "crystal", "pokeflute"): "johto-route-11",
+    # LGPE: two Snorlax (Routes 12 + 16); canonical first encounter.
+    ("snorlax", "lets-go-pikachu", "pokeflute"): "kanto-route-12",
+    ("snorlax", "lets-go-eevee", "pokeflute"): "kanto-route-12",
+    # Sudowoodo — Squirt Bottle on Johto Route 36 (GSC).
+    ("sudowoodo", "gold", "squirt-bottle"): "johto-route-36",
+    ("sudowoodo", "silver", "squirt-bottle"): "johto-route-36",
+    ("sudowoodo", "crystal", "squirt-bottle"): "johto-route-36",
+    # Kecleon — Devon Scope reveals the invisible Kecleon on Hoenn
+    # Route 119 (ORAS). Several Kecleon are scattered across Hoenn;
+    # Route 119 is the canonical first encounter.
+    ("kecleon", "omega-ruby", "devon-scope"): "hoenn-route-119",
+    ("kecleon", "alpha-sapphire", "devon-scope"): "hoenn-route-119",
+    # GSC post-game Kanto legendaries — locations are documented in the
+    # rows' `notes` field but tier 16b's location-mode parser doesn't
+    # mine notes. Promote them to structured `location` here.
+    ("articuno", "gold", None): "seafoam-islands",
+    ("articuno", "silver", None): "seafoam-islands",
+    ("articuno", "crystal", None): "seafoam-islands",
+    ("zapdos", "gold", None): "kanto-power-plant",
+    ("zapdos", "silver", None): "kanto-power-plant",
+    ("zapdos", "crystal", None): "kanto-power-plant",
+    ("moltres", "gold", None): "mt-silver",
+    ("moltres", "silver", None): "mt-silver",
+    ("moltres", "crystal", None): "mt-silver",
+    ("mewtwo", "gold", None): "cerulean-cave",
+    ("mewtwo", "silver", None): "cerulean-cave",
+    ("mewtwo", "crystal", None): "cerulean-cave",
 }
 
 
@@ -2338,6 +2413,8 @@ def _apply_deterministic_locations(rows: list[dict]) -> int:
             loc = PURCHASE_LOCATION.get((game, row.get("method_details")))
         elif method == "gift":
             loc = GIFT_LOCATION.get((row.get("form_id"), game))
+        elif method == "static-encounter":
+            loc = STATIC_LOCATION.get((row.get("form_id"), game, row.get("method_details")))
         if loc is not None:
             row["location"] = loc
             updated += 1
