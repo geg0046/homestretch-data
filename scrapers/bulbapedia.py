@@ -440,6 +440,11 @@ _ROUTE_TEMPLATE_RE = re.compile(r"\{\{rtn?\|(\d+)\|([A-Za-z]+)\}\}", re.IGNORECA
 _FB_TEMPLATE_RE = re.compile(r"\{\{FB\|([^|}]+)\|([^|}]+)\}\}", re.IGNORECASE)
 # `{{tt|visible|tooltip}}` footnote template; visible is the display text.
 _TT_TEMPLATE_RE = re.compile(r"\{\{tt\|[^|{}]*\|[^{}]*\}\}", re.IGNORECASE)
+# Catches any remaining `{{...}}` template that survives the more specific
+# strippers above. Used to scrub template syntax embedded in wikilink display
+# text (`[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]`) before slug
+# generation, so the `14px` image-sizing arg doesn't leak into a location slug.
+_TEMPLATE_STRIP_RE = re.compile(r"\{\{[^{}]+\}\}")
 # Preposition-led location phrases in gift prose: "in [[X]]", "at [[Y]]",
 # "on {{rt|N|Region}}". Captures the link or template so the match's last
 # occurrence is almost always the actual place (NPC names come before the
@@ -505,7 +510,12 @@ def extract_area_location(segment: str, *, prefer_preposition: bool) -> str | No
     if display is None:
         m = _WIKILINK_PARTS_RE.search(cleaned)
         if m:
+            target = m.group(1).strip()
             display = (m.group(2) or m.group(1)).strip()
+            if "{{" in display:
+                display = _TEMPLATE_STRIP_RE.sub("", display).strip()
+                if not display:
+                    display = target
         else:
             rt = _ROUTE_TEMPLATE_RE.search(cleaned)
             if rt:
@@ -567,6 +577,16 @@ _GENERIC_LOCATION_SLUGS: frozenset[str] = frozenset(
         "mass-outbreak",
         "national-pokedex",
         "sos-battle",
+        "horde-encounter",
+        "ambush-encounter",
+        "poke-radar",
+        "headbutt-tree",
+        "only-high-encounter-trees",
+        # PLA / LZA "Alpha Pokémon" annotation — a difficulty-tier label,
+        # not a place. Bulbapedia wraps it in `{{Link|Alpha Pokémon|14px}}`
+        # template inside wikilinks; after the template strip the link
+        # target slugs to this.
+        "alpha-pokemon",
         # Cross-game services that are never an in-game location
         "home",
         "pokemon-home",
@@ -679,8 +699,13 @@ def extract_area_locations(segment: str) -> list[str]:
         # `(type)` / `(move)` / `(ability)` disambiguator.
         if target.lower().endswith(("(type)", "(move)", "(ability)", "(species)")):
             continue
-        slug = _slug_from_text(display)
-        if slug in _GENERIC_LOCATION_SLUGS and target != display:
+        # Display can carry an embedded template
+        # (`[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]`); strip it so the
+        # `14px` sizing arg doesn't leak into the slug.
+        if "{{" in display:
+            display = _TEMPLATE_STRIP_RE.sub("", display).strip()
+        slug = _slug_from_text(display) if display else None
+        if (slug is None or slug in _GENERIC_LOCATION_SLUGS) and target != display:
             slug = _slug_from_text(target)
         push(slug)
     for m in _ROUTE_TEMPLATE_RE.finditer(cleaned):

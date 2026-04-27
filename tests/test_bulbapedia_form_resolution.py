@@ -339,6 +339,43 @@ def test_extract_locations_walks_raid_dens_with_mechanic_suffix() -> None:
     assert extract_area_locations(segment) == ["bridge-field", "lake-of-outrage"]
 
 
+def test_extract_locations_skips_mechanic_name_wikilinks() -> None:
+    # Mechanic-name wikilinks describe how the encounter triggers, not where
+    # it happens. Each was a real bad-slug source in earlier tier runs.
+    assert extract_area_locations("[[Horde Encounter]]") == []
+    assert extract_area_locations("[[Ambush Encounter]]") == []
+    assert extract_area_locations("[[Poké Radar]]") == []
+    assert extract_area_locations("[[Headbutt tree]]") == []
+
+
+def test_extract_locations_strips_template_in_wikilink_display() -> None:
+    # Bulbapedia wraps the alpha-Pokémon icon in a template inside the
+    # wikilink display (`[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]`).
+    # The template's `14px` sizing arg used to leak into the slug as
+    # `link-alpha-pokemon-14px`; after the strip it falls back to slugging
+    # the link target, which is itself a generic mechanic name → no slug.
+    segment = "[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]"
+    assert extract_area_locations(segment) == []
+
+
+def test_extract_locations_template_strip_falls_back_to_target_when_real() -> None:
+    # When the wikilink target IS a real place but the display embeds a
+    # template, the target should win.
+    segment = "[[Lake Verity|{{Link|Lake Verity|14px}}]]"
+    assert extract_area_locations(segment) == ["lake-verity"]
+
+
+def test_extract_locations_mixed_bad_link_and_real_route_keeps_route() -> None:
+    # Real-world heracross-on-johto-route shape: mechanic links sit
+    # alongside genuine route templates; the real routes survive the
+    # generic-skip filter.
+    segment = (
+        "{{rtn|43|Johto}}, {{rtn|44|Johto}} ([[Headbutt tree]]s)  "
+        "[[Headbutt_tree|(only high-encounter trees)]]"
+    )
+    assert extract_area_locations(segment) == ["johto-route-43", "johto-route-44"]
+
+
 # --- _encounter_mode_set + _normalize_wild_encounter_set -----------------
 
 
