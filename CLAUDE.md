@@ -105,6 +105,7 @@ uv run python scrapers/pokeapi.py    --mode sources    --max-dex 1025
 uv run python scrapers/pokeapi.py    --mode evolutions --max-dex 1025
 uv run python scrapers/bulbapedia.py --mode sources    --max-dex 1025
 uv run python scrapers/bulbapedia.py --mode evolutions --max-dex 1025
+uv run python scrapers/bulbapedia.py --mode locations  --max-dex 1025
 uv run python scripts/seed_manual_sources.py
 ```
 

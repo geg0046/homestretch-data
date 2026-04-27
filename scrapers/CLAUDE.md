@@ -30,7 +30,7 @@ Inside `scrapers/pokeapi.py` these sets govern what ends up in
     deposit: Arceus plates (17), Silvally memories (17), Ogerpon masks
     (3), Genesect drives (4), Giratina / Dialga / Palkia Origin.
   - **Fused legendaries** explicitly on Serebii's non-depositable list:
-    Kyurem-Black / -White, Calyrex-Ice / -Shadow, Necrozma-Dawn / -Dusk.
+    Kyurem-Black / -White, Calyrex-Ice / -Shadow, Necrozma-Dawn / -Dusk / -Ultra.
   - **Let's Go partner Pokémon**: `pikachu-starter`, `eevee-starter`.
   - **Ash-Greninja** (`greninja-battle-bond`): not acknowledged by the
     HOME Pokémon Guidebook.
