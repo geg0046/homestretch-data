@@ -166,7 +166,7 @@ SKIP_FORM_IDS_INGAME = {
 #   the form): 17 arceus plates, 17 silvally memories, 3 ogerpon masks,
 #   4 genesect drives, giratina-origin. All are on Serebii's list.
 # - Signature fused/alt forms on Serebii's non-depositable list:
-#   dialga-origin, palkia-origin, kyurem-black/white, necrozma-dawn/dusk,
+#   dialga-origin, palkia-origin, kyurem-black/white, necrozma-dawn/dusk/ultra,
 #   calyrex-ice/shadow, greninja-battle-bond (Ash-Greninja).
 SKIP_FORM_IDS_HOME_UNREACHABLE = {
     "pichu-spiky-eared",
@@ -240,6 +240,7 @@ SKIP_FORM_IDS_HOME_UNREACHABLE = {
     "kyurem-white",
     "necrozma-dawn",
     "necrozma-dusk",
+    "necrozma-ultra",
     "calyrex-ice",
     "calyrex-shadow",
     # Ash-Greninja

@@ -52,6 +52,9 @@ jobs:
       - name: Bulbapedia — evolutions
         run: uv run python scrapers/bulbapedia.py --mode evolutions --max-dex 1025
 
+      - name: Bulbapedia — locations
+        run: uv run python scrapers/bulbapedia.py --mode locations --max-dex 1025
+
       - name: Manual seed rows
         run: uv run python scripts/seed_manual_sources.py
 
