@@ -45,6 +45,7 @@ from homestretch_data.models import Source
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCES_PATH = REPO_ROOT / "data" / "sources.json"
+FORMS_PATH = REPO_ROOT / "data" / "forms.json"
 
 
 # Breeding rows: (baby_form, parent_form, [games])
@@ -255,18 +256,27 @@ STATIC_LOCATION: dict[tuple[str, str, str | None], str] = {
 }
 
 
-# Gender-difference pairs: (female_form, default_form). Rows are derived
-# at build time by mirroring every source row for the default with
-# `gender=female` set. Keeps in sync with authoritative scraper output
-# rather than hard-coding per-game encounter lists.
-GENDER_DIFFERENCE_PAIRS: list[tuple[str, str]] = [
-    ("frillish-female", "frillish"),
-    ("jellicent-female", "jellicent"),
-    ("pyroar-female", "pyroar"),
-    ("meowstic-female", "meowstic"),
-    ("indeedee-female", "indeedee"),
-    ("oinkologne-female", "oinkologne"),
-]
+# Gender-difference pairs are derived from `data/forms.json` at build
+# time: every form whose id ends in `-female` is paired with the form
+# whose id is the same string minus the suffix. The PokéAPI scraper
+# synthesises a `<form_id>-female` entry for every form of a species
+# with `has_gender_differences=true`, so this stays in sync without a
+# hand-maintained list. Female sources are then mirrored from the
+# default-form rows with `gender=female` set.
+def _gender_difference_pairs() -> list[tuple[str, str]]:
+    if not FORMS_PATH.exists():
+        return []
+    forms = json.loads(FORMS_PATH.read_text(encoding="utf-8"))
+    by_id = {f["id"] for f in forms}
+    pairs: list[tuple[str, str]] = []
+    for f in forms:
+        if not f["id"].endswith("-female"):
+            continue
+        default_id = f["id"].removesuffix("-female")
+        if default_id in by_id:
+            pairs.append((f["id"], default_id))
+    return pairs
+
 
 # Arceus plate forms, Silvally memory forms, and other held-item-triggered
 # form changes are NOT tracked. Pokémon HOME strips held items on deposit,
@@ -2466,7 +2476,7 @@ def _build_rows(existing: list[dict]) -> list[dict]:
     # species with gender=female set. Only mirrors rows the scraper pass
     # has written, so keeps in sync with upstream and avoids hand-listing
     # per-game encounters.
-    default_to_female = {default: female for female, default in GENDER_DIFFERENCE_PAIRS}
+    default_to_female = {default: female for female, default in _gender_difference_pairs()}
     for row in existing:
         default = row["form_id"]
         if default not in default_to_female:

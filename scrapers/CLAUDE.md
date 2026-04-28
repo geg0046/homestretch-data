@@ -52,12 +52,29 @@ user sign-off.** These exclusions are deliberate.
 
 ## Gender differences
 
-- **One gender-difference entry per species**, not one per colour × gender.
-  The canonical default is the species-default entry; the alternate gender
-  is one explicit entry tagged `gender-difference`.
+- **Every species with `species.has_gender_differences=true` in PokéAPI
+  gets a `<form_id>-female` entry per non-female form**, synthesised at
+  the end of `build_forms_for_species`. PokéAPI exposes 7 species as
+  native form entries (Frillish, Jellicent, Pyroar, Meowstic, Indeedee,
+  Basculegion, Oinkologne — picked up by the existing
+  `form_name in {"female", "male"}` branch in `categorize`); the
+  remaining ~95 species with cosmetic-only dimorphism (Venusaur,
+  Pikachu, Hippowdon, etc.) are synthesised. Regional variants of
+  dimorphic species (e.g. `sneasel-hisui-female`) get their own entry
+  via the same per-form loop.
+- **One gender-difference entry per form**, not one per colour × gender.
+  The default form is implicitly the male sprite; we don't emit a
+  redundant `<id>-male`. Use `SKIP_FORM_IDS_HOME_UNREACHABLE` to suppress
+  any synthesised female that fails the HOME-deposit test.
 - **Tagged ONLY `gender-difference`**, never also `functional`, even when
   the forms have different abilities or stats. The semantic meaning is
   gender; keep category lists short.
+- **Source rows for female forms are mirrored** from the default-form
+  rows by `scripts/seed_manual_sources.py`, with `gender=female` set.
+  The pair list there is derived from `data/forms.json` (every form
+  whose id ends in `-female` paired with its non-suffixed counterpart),
+  so it stays in sync with the scraper's synthesis output without a
+  hand-maintained list.
 
 ## Idempotency
 
