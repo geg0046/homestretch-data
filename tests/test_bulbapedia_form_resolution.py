@@ -353,10 +353,7 @@ def test_extract_locations_drops_file_wikilink_image_embeds() -> None:
     # `[[File:Alpha icon.png|link=Alpha Pokémon|14px]]`. Without a
     # File-skip these slug to `link-alpha-pokemon-14px`. The pre-strip
     # drops them whole so the real location next to them survives.
-    segment = (
-        "[[Bonechill Wastes]] (additional "
-        "[[File:Alpha icon.png|link=Alpha Pokémon|14px]])"
-    )
+    segment = "[[Bonechill Wastes]] (additional [[File:Alpha icon.png|link=Alpha Pokémon|14px]])"
     assert extract_area_locations(segment) == ["bonechill-wastes"]
 
 

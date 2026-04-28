@@ -449,9 +449,7 @@ _TEMPLATE_STRIP_RE = re.compile(r"\{\{[^{}]+\}\}")
 # inline as decoration (alpha-Pokémon icons, type icons). They're not
 # location wikilinks; the display text after the first `|` carries image
 # attributes (`link=X|14px`) that slug to garbage if let through.
-_FILE_WIKILINK_RE = re.compile(
-    r"\[\[\s*(?:File|Image)\s*:[^\]]+\]\]", re.IGNORECASE
-)
+_FILE_WIKILINK_RE = re.compile(r"\[\[\s*(?:File|Image)\s*:[^\]]+\]\]", re.IGNORECASE)
 # Preposition-led location phrases in gift prose: "in [[X]]", "at [[Y]]",
 # "on {{rt|N|Region}}". Captures the link or template so the match's last
 # occurrence is almost always the actual place (NPC names come before the
