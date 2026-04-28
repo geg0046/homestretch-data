@@ -348,12 +348,19 @@ def test_extract_locations_skips_mechanic_name_wikilinks() -> None:
     assert extract_area_locations("[[Headbutt tree]]") == []
 
 
+def test_extract_locations_drops_file_wikilink_image_embeds() -> None:
+    # PLA / LZA Availability segments inline an alpha-Pokémon icon as
+    # `[[File:Alpha icon.png|link=Alpha Pokémon|14px]]`. Without a
+    # File-skip these slug to `link-alpha-pokemon-14px`. The pre-strip
+    # drops them whole so the real location next to them survives.
+    segment = "[[Bonechill Wastes]] (additional [[File:Alpha icon.png|link=Alpha Pokémon|14px]])"
+    assert extract_area_locations(segment) == ["bonechill-wastes"]
+
+
 def test_extract_locations_strips_template_in_wikilink_display() -> None:
-    # Bulbapedia wraps the alpha-Pokémon icon in a template inside the
-    # wikilink display (`[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]`).
-    # The template's `14px` sizing arg used to leak into the slug as
-    # `link-alpha-pokemon-14px`; after the strip it falls back to slugging
-    # the link target, which is itself a generic mechanic name → no slug.
+    # Synthetic safety check: even if Bulbapedia ever wrapped the alpha
+    # icon in a `{{...}}` template instead of a `[[File:...]]` embed, the
+    # template-strip pass would prevent the `14px` arg from leaking.
     segment = "[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]"
     assert extract_area_locations(segment) == []
 
