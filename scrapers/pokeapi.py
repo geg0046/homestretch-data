@@ -437,6 +437,35 @@ def build_forms_for_species(
                     "categories": [c.value for c in categories],
                 }
             )
+
+    if species.get("has_gender_differences"):
+        existing_ids = {r["id"] for r in results}
+        for r in list(results):
+            if r["form_name"] in {"female", "male"}:
+                continue
+            # Totem Pokémon are scripted singleton encounters with a fixed
+            # gender; they don't have a separate female slot. Event-only
+            # forms (Zarude-Dada, Magearna-Original) are similarly scripted
+            # and aren't currently dimorphic, but skip defensively.
+            if FormCategory.TOTEM.value in r["categories"]:
+                continue
+            if FormCategory.EVENT_ONLY.value in r["categories"]:
+                continue
+            female_id = f"{r['id']}-female"
+            if female_id in existing_ids or female_id in SKIP_FORM_IDS:
+                continue
+            results.append(
+                {
+                    "id": female_id,
+                    "species_id": species_id,
+                    "national_dex": national_dex,
+                    "form_name": "female",
+                    "is_default": False,
+                    "generation_introduced": r["generation_introduced"],
+                    "categories": [FormCategory.GENDER_DIFFERENCE.value],
+                }
+            )
+            existing_ids.add(female_id)
     return results
 
 

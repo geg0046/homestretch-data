@@ -27,6 +27,17 @@
     "categories": []
   },
   {
+    "id": "venusaur-female",
+    "species_id": "venusaur",
+    "national_dex": 3,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "charmander",
     "species_id": "charmander",
     "national_dex": 4,
@@ -108,6 +119,17 @@
     "categories": []
   },
   {
+    "id": "butterfree-female",
+    "species_id": "butterfree",
+    "national_dex": 12,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "weedle",
     "species_id": "weedle",
     "national_dex": 13,
@@ -182,6 +204,28 @@
     ]
   },
   {
+    "id": "rattata-alola-female",
+    "species_id": "rattata",
+    "national_dex": 19,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
+    "id": "rattata-female",
+    "species_id": "rattata",
+    "national_dex": 19,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "raticate",
     "species_id": "raticate",
     "national_dex": 20,
@@ -199,6 +243,28 @@
     "generation_introduced": 1,
     "categories": [
       "regional-variant"
+    ]
+  },
+  {
+    "id": "raticate-alola-female",
+    "species_id": "raticate",
+    "national_dex": 20,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
+    "id": "raticate-female",
+    "species_id": "raticate",
+    "national_dex": 20,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
     ]
   },
   {
@@ -258,6 +324,17 @@
     "categories": []
   },
   {
+    "id": "pikachu-female",
+    "species_id": "pikachu",
+    "national_dex": 25,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "raichu",
     "species_id": "raichu",
     "national_dex": 26,
@@ -275,6 +352,28 @@
     "generation_introduced": 1,
     "categories": [
       "regional-variant"
+    ]
+  },
+  {
+    "id": "raichu-alola-female",
+    "species_id": "raichu",
+    "national_dex": 26,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
+    "id": "raichu-female",
+    "species_id": "raichu",
+    "national_dex": 26,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
     ]
   },
   {
@@ -457,6 +556,17 @@
     "categories": []
   },
   {
+    "id": "zubat-female",
+    "species_id": "zubat",
+    "national_dex": 41,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "golbat",
     "species_id": "golbat",
     "national_dex": 42,
@@ -464,6 +574,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "golbat-female",
+    "species_id": "golbat",
+    "national_dex": 42,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "oddish",
@@ -484,6 +605,17 @@
     "categories": []
   },
   {
+    "id": "gloom-female",
+    "species_id": "gloom",
+    "national_dex": 44,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "vileplume",
     "species_id": "vileplume",
     "national_dex": 45,
@@ -491,6 +623,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "vileplume-female",
+    "species_id": "vileplume",
+    "national_dex": 45,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "paras",
@@ -741,6 +884,17 @@
     "categories": []
   },
   {
+    "id": "kadabra-female",
+    "species_id": "kadabra",
+    "national_dex": 64,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "alakazam",
     "species_id": "alakazam",
     "national_dex": 65,
@@ -748,6 +902,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "alakazam-female",
+    "species_id": "alakazam",
+    "national_dex": 65,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "machop",
@@ -1009,6 +1174,17 @@
     "categories": []
   },
   {
+    "id": "doduo-female",
+    "species_id": "doduo",
+    "national_dex": 84,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "dodrio",
     "species_id": "dodrio",
     "national_dex": 85,
@@ -1016,6 +1192,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "dodrio-female",
+    "species_id": "dodrio",
+    "national_dex": 85,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "seel",
@@ -1146,6 +1333,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "hypno-female",
+    "species_id": "hypno",
+    "national_dex": 97,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "krabby",
@@ -1340,6 +1538,17 @@
     "categories": []
   },
   {
+    "id": "rhyhorn-female",
+    "species_id": "rhyhorn",
+    "national_dex": 111,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "rhydon",
     "species_id": "rhydon",
     "national_dex": 112,
@@ -1347,6 +1556,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "rhydon-female",
+    "species_id": "rhydon",
+    "national_dex": 112,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "chansey",
@@ -1403,6 +1623,17 @@
     "categories": []
   },
   {
+    "id": "goldeen-female",
+    "species_id": "goldeen",
+    "national_dex": 118,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "seaking",
     "species_id": "seaking",
     "national_dex": 119,
@@ -1410,6 +1641,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "seaking-female",
+    "species_id": "seaking",
+    "national_dex": 119,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "staryu",
@@ -1457,6 +1699,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "scyther-female",
+    "species_id": "scyther",
+    "national_dex": 123,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "jynx",
@@ -1546,6 +1799,17 @@
     "categories": []
   },
   {
+    "id": "magikarp-female",
+    "species_id": "magikarp",
+    "national_dex": 129,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "gyarados",
     "species_id": "gyarados",
     "national_dex": 130,
@@ -1553,6 +1817,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "gyarados-female",
+    "species_id": "gyarados",
+    "national_dex": 130,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "lapras",
@@ -1580,6 +1855,17 @@
     "is_default": true,
     "generation_introduced": 1,
     "categories": []
+  },
+  {
+    "id": "eevee-female",
+    "species_id": "eevee",
+    "national_dex": 133,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 1,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "vaporeon",
@@ -1804,6 +2090,17 @@
     "categories": []
   },
   {
+    "id": "meganium-female",
+    "species_id": "meganium",
+    "national_dex": 154,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "cyndaquil",
     "species_id": "cyndaquil",
     "national_dex": 155,
@@ -1914,6 +2211,17 @@
     "categories": []
   },
   {
+    "id": "ledyba-female",
+    "species_id": "ledyba",
+    "national_dex": 165,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "ledian",
     "species_id": "ledian",
     "national_dex": 166,
@@ -1921,6 +2229,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "ledian-female",
+    "species_id": "ledian",
+    "national_dex": 166,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "spinarak",
@@ -2031,6 +2350,17 @@
     "categories": []
   },
   {
+    "id": "xatu-female",
+    "species_id": "xatu",
+    "national_dex": 178,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "mareep",
     "species_id": "mareep",
     "national_dex": 179,
@@ -2094,6 +2424,17 @@
     "categories": []
   },
   {
+    "id": "sudowoodo-female",
+    "species_id": "sudowoodo",
+    "national_dex": 185,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "politoed",
     "species_id": "politoed",
     "national_dex": 186,
@@ -2101,6 +2442,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "politoed-female",
+    "species_id": "politoed",
+    "national_dex": 186,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "hoppip",
@@ -2139,6 +2491,17 @@
     "categories": []
   },
   {
+    "id": "aipom-female",
+    "species_id": "aipom",
+    "national_dex": 190,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "sunkern",
     "species_id": "sunkern",
     "national_dex": 191,
@@ -2175,6 +2538,17 @@
     "categories": []
   },
   {
+    "id": "wooper-female",
+    "species_id": "wooper",
+    "national_dex": 194,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "wooper-paldea",
     "species_id": "wooper",
     "national_dex": 194,
@@ -2186,6 +2560,17 @@
     ]
   },
   {
+    "id": "wooper-paldea-female",
+    "species_id": "wooper",
+    "national_dex": 194,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "quagsire",
     "species_id": "quagsire",
     "national_dex": 195,
@@ -2193,6 +2578,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "quagsire-female",
+    "species_id": "quagsire",
+    "national_dex": 195,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "espeon",
@@ -2220,6 +2616,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "murkrow-female",
+    "species_id": "murkrow",
+    "national_dex": 198,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "slowking",
@@ -2566,6 +2973,17 @@
     "categories": []
   },
   {
+    "id": "wobbuffet-female",
+    "species_id": "wobbuffet",
+    "national_dex": 202,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "girafarig",
     "species_id": "girafarig",
     "national_dex": 203,
@@ -2573,6 +2991,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "girafarig-female",
+    "species_id": "girafarig",
+    "national_dex": 203,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "pineco",
@@ -2611,6 +3040,17 @@
     "categories": []
   },
   {
+    "id": "gligar-female",
+    "species_id": "gligar",
+    "national_dex": 207,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "steelix",
     "species_id": "steelix",
     "national_dex": 208,
@@ -2618,6 +3058,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "steelix-female",
+    "species_id": "steelix",
+    "national_dex": 208,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "snubbull",
@@ -2667,6 +3118,17 @@
     "categories": []
   },
   {
+    "id": "scizor-female",
+    "species_id": "scizor",
+    "national_dex": 212,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "shuckle",
     "species_id": "shuckle",
     "national_dex": 213,
@@ -2685,6 +3147,17 @@
     "categories": []
   },
   {
+    "id": "heracross-female",
+    "species_id": "heracross",
+    "national_dex": 214,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "sneasel",
     "species_id": "sneasel",
     "national_dex": 215,
@@ -2692,6 +3165,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "sneasel-female",
+    "species_id": "sneasel",
+    "national_dex": 215,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "sneasel-hisui",
@@ -2702,6 +3186,17 @@
     "generation_introduced": 2,
     "categories": [
       "regional-variant"
+    ]
+  },
+  {
+    "id": "sneasel-hisui-female",
+    "species_id": "sneasel",
+    "national_dex": 215,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
     ]
   },
   {
@@ -2721,6 +3216,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "ursaring-female",
+    "species_id": "ursaring",
+    "national_dex": 217,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "slugma",
@@ -2759,6 +3265,17 @@
     "categories": []
   },
   {
+    "id": "piloswine-female",
+    "species_id": "piloswine",
+    "national_dex": 221,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "corsola",
     "species_id": "corsola",
     "national_dex": 222,
@@ -2795,6 +3312,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "octillery-female",
+    "species_id": "octillery",
+    "national_dex": 224,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "delibird",
@@ -2842,6 +3370,17 @@
     "categories": []
   },
   {
+    "id": "houndoom-female",
+    "species_id": "houndoom",
+    "national_dex": 229,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "kingdra",
     "species_id": "kingdra",
     "national_dex": 230,
@@ -2867,6 +3406,17 @@
     "is_default": true,
     "generation_introduced": 2,
     "categories": []
+  },
+  {
+    "id": "donphan-female",
+    "species_id": "donphan",
+    "national_dex": 232,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 2,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "porygon2",
@@ -3076,6 +3626,17 @@
     "categories": []
   },
   {
+    "id": "torchic-female",
+    "species_id": "torchic",
+    "national_dex": 255,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "combusken",
     "species_id": "combusken",
     "national_dex": 256,
@@ -3085,6 +3646,17 @@
     "categories": []
   },
   {
+    "id": "combusken-female",
+    "species_id": "combusken",
+    "national_dex": 256,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "blaziken",
     "species_id": "blaziken",
     "national_dex": 257,
@@ -3092,6 +3664,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "blaziken-female",
+    "species_id": "blaziken",
+    "national_dex": 257,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "mudkip",
@@ -3206,6 +3789,17 @@
     "categories": []
   },
   {
+    "id": "beautifly-female",
+    "species_id": "beautifly",
+    "national_dex": 267,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "cascoon",
     "species_id": "cascoon",
     "national_dex": 268,
@@ -3222,6 +3816,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "dustox-female",
+    "species_id": "dustox",
+    "national_dex": 269,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "lotad",
@@ -3251,6 +3856,17 @@
     "categories": []
   },
   {
+    "id": "ludicolo-female",
+    "species_id": "ludicolo",
+    "national_dex": 272,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "seedot",
     "species_id": "seedot",
     "national_dex": 273,
@@ -3269,6 +3885,17 @@
     "categories": []
   },
   {
+    "id": "nuzleaf-female",
+    "species_id": "nuzleaf",
+    "national_dex": 274,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "shiftry",
     "species_id": "shiftry",
     "national_dex": 275,
@@ -3276,6 +3903,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "shiftry-female",
+    "species_id": "shiftry",
+    "national_dex": 275,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "taillow",
@@ -3566,6 +4204,17 @@
     "categories": []
   },
   {
+    "id": "meditite-female",
+    "species_id": "meditite",
+    "national_dex": 307,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "medicham",
     "species_id": "medicham",
     "national_dex": 308,
@@ -3573,6 +4222,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "medicham-female",
+    "species_id": "medicham",
+    "national_dex": 308,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "electrike",
@@ -3638,6 +4298,17 @@
     "categories": []
   },
   {
+    "id": "roselia-female",
+    "species_id": "roselia",
+    "national_dex": 315,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "gulpin",
     "species_id": "gulpin",
     "national_dex": 316,
@@ -3647,6 +4318,17 @@
     "categories": []
   },
   {
+    "id": "gulpin-female",
+    "species_id": "gulpin",
+    "national_dex": 316,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "swalot",
     "species_id": "swalot",
     "national_dex": 317,
@@ -3654,6 +4336,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "swalot-female",
+    "species_id": "swalot",
+    "national_dex": 317,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "carvanha",
@@ -3701,6 +4394,17 @@
     "categories": []
   },
   {
+    "id": "numel-female",
+    "species_id": "numel",
+    "national_dex": 322,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "camerupt",
     "species_id": "camerupt",
     "national_dex": 323,
@@ -3708,6 +4412,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "camerupt-female",
+    "species_id": "camerupt",
+    "national_dex": 323,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "torkoal",
@@ -3789,6 +4504,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "cacturne-female",
+    "species_id": "cacturne",
+    "national_dex": 332,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "swablu",
@@ -3951,6 +4677,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "milotic-female",
+    "species_id": "milotic",
+    "national_dex": 350,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "castform",
@@ -4122,6 +4859,17 @@
     "is_default": true,
     "generation_introduced": 3,
     "categories": []
+  },
+  {
+    "id": "relicanth-female",
+    "species_id": "relicanth",
+    "national_dex": 369,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 3,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "luvdisc",
@@ -4400,6 +5148,17 @@
     "categories": []
   },
   {
+    "id": "starly-female",
+    "species_id": "starly",
+    "national_dex": 396,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "staravia",
     "species_id": "staravia",
     "national_dex": 397,
@@ -4407,6 +5166,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "staravia-female",
+    "species_id": "staravia",
+    "national_dex": 397,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "staraptor",
@@ -4418,6 +5188,17 @@
     "categories": []
   },
   {
+    "id": "staraptor-female",
+    "species_id": "staraptor",
+    "national_dex": 398,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "bidoof",
     "species_id": "bidoof",
     "national_dex": 399,
@@ -4425,6 +5206,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "bidoof-female",
+    "species_id": "bidoof",
+    "national_dex": 399,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "bibarel",
@@ -4436,6 +5228,17 @@
     "categories": []
   },
   {
+    "id": "bibarel-female",
+    "species_id": "bibarel",
+    "national_dex": 400,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "kricketot",
     "species_id": "kricketot",
     "national_dex": 401,
@@ -4443,6 +5246,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "kricketot-female",
+    "species_id": "kricketot",
+    "national_dex": 401,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "kricketune",
@@ -4454,6 +5268,17 @@
     "categories": []
   },
   {
+    "id": "kricketune-female",
+    "species_id": "kricketune",
+    "national_dex": 402,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "shinx",
     "species_id": "shinx",
     "national_dex": 403,
@@ -4461,6 +5286,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "shinx-female",
+    "species_id": "shinx",
+    "national_dex": 403,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "luxio",
@@ -4472,6 +5308,17 @@
     "categories": []
   },
   {
+    "id": "luxio-female",
+    "species_id": "luxio",
+    "national_dex": 404,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "luxray",
     "species_id": "luxray",
     "national_dex": 405,
@@ -4479,6 +5326,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "luxray-female",
+    "species_id": "luxray",
+    "national_dex": 405,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "budew",
@@ -4497,6 +5355,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "roserade-female",
+    "species_id": "roserade",
+    "national_dex": 407,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "cranidos",
@@ -4637,6 +5506,17 @@
     "categories": []
   },
   {
+    "id": "combee-female",
+    "species_id": "combee",
+    "national_dex": 415,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "vespiquen",
     "species_id": "vespiquen",
     "national_dex": 416,
@@ -4655,6 +5535,17 @@
     "categories": []
   },
   {
+    "id": "pachirisu-female",
+    "species_id": "pachirisu",
+    "national_dex": 417,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "buizel",
     "species_id": "buizel",
     "national_dex": 418,
@@ -4664,6 +5555,17 @@
     "categories": []
   },
   {
+    "id": "buizel-female",
+    "species_id": "buizel",
+    "national_dex": 418,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "floatzel",
     "species_id": "floatzel",
     "national_dex": 419,
@@ -4671,6 +5573,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "floatzel-female",
+    "species_id": "floatzel",
+    "national_dex": 419,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "cherubi",
@@ -4738,6 +5651,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "ambipom-female",
+    "species_id": "ambipom",
+    "national_dex": 424,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "drifloon",
@@ -4911,6 +5835,17 @@
     "categories": []
   },
   {
+    "id": "gible-female",
+    "species_id": "gible",
+    "national_dex": 443,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "gabite",
     "species_id": "gabite",
     "national_dex": 444,
@@ -4920,6 +5855,17 @@
     "categories": []
   },
   {
+    "id": "gabite-female",
+    "species_id": "gabite",
+    "national_dex": 444,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "garchomp",
     "species_id": "garchomp",
     "national_dex": 445,
@@ -4927,6 +5873,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "garchomp-female",
+    "species_id": "garchomp",
+    "national_dex": 445,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "munchlax",
@@ -4965,6 +5922,17 @@
     "categories": []
   },
   {
+    "id": "hippopotas-female",
+    "species_id": "hippopotas",
+    "national_dex": 449,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "hippowdon",
     "species_id": "hippowdon",
     "national_dex": 450,
@@ -4972,6 +5940,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "hippowdon-female",
+    "species_id": "hippowdon",
+    "national_dex": 450,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "skorupi",
@@ -5001,6 +5980,17 @@
     "categories": []
   },
   {
+    "id": "croagunk-female",
+    "species_id": "croagunk",
+    "national_dex": 453,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "toxicroak",
     "species_id": "toxicroak",
     "national_dex": 454,
@@ -5008,6 +5998,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "toxicroak-female",
+    "species_id": "toxicroak",
+    "national_dex": 454,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "carnivine",
@@ -5028,6 +6029,17 @@
     "categories": []
   },
   {
+    "id": "finneon-female",
+    "species_id": "finneon",
+    "national_dex": 456,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "lumineon",
     "species_id": "lumineon",
     "national_dex": 457,
@@ -5035,6 +6047,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "lumineon-female",
+    "species_id": "lumineon",
+    "national_dex": 457,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "mantyke",
@@ -5055,6 +6078,17 @@
     "categories": []
   },
   {
+    "id": "snover-female",
+    "species_id": "snover",
+    "national_dex": 459,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "abomasnow",
     "species_id": "abomasnow",
     "national_dex": 460,
@@ -5064,6 +6098,17 @@
     "categories": []
   },
   {
+    "id": "abomasnow-female",
+    "species_id": "abomasnow",
+    "national_dex": 460,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "weavile",
     "species_id": "weavile",
     "national_dex": 461,
@@ -5071,6 +6116,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "weavile-female",
+    "species_id": "weavile",
+    "national_dex": 461,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "magnezone",
@@ -5100,6 +6156,17 @@
     "categories": []
   },
   {
+    "id": "rhyperior-female",
+    "species_id": "rhyperior",
+    "national_dex": 464,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
+  },
+  {
     "id": "tangrowth",
     "species_id": "tangrowth",
     "national_dex": 465,
@@ -5107,6 +6174,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "tangrowth-female",
+    "species_id": "tangrowth",
+    "national_dex": 465,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "electivire",
@@ -5179,6 +6257,17 @@
     "is_default": true,
     "generation_introduced": 4,
     "categories": []
+  },
+  {
+    "id": "mamoswine-female",
+    "species_id": "mamoswine",
+    "national_dex": 473,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 4,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "porygon-z",
@@ -5688,6 +6777,17 @@
     "is_default": true,
     "generation_introduced": 5,
     "categories": []
+  },
+  {
+    "id": "unfezant-female",
+    "species_id": "unfezant",
+    "national_dex": 521,
+    "form_name": "female",
+    "is_default": false,
+    "generation_introduced": 5,
+    "categories": [
+      "gender-difference"
+    ]
   },
   {
     "id": "blitzle",
