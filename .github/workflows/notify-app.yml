@@ -1,0 +1,13 @@
+name: Notify homestretch-app of data changes
+on:
+  push:
+    branches: [main]
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.HOMESTRETCH_APP_DISPATCH_TOKEN }}
+          repository: geg0046/homestretch-app
+          event-type: homestretch-data-updated
