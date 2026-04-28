@@ -445,6 +445,13 @@ _TT_TEMPLATE_RE = re.compile(r"\{\{tt\|[^|{}]*\|[^{}]*\}\}", re.IGNORECASE)
 # text (`[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]`) before slug
 # generation, so the `14px` image-sizing arg doesn't leak into a location slug.
 _TEMPLATE_STRIP_RE = re.compile(r"\{\{[^{}]+\}\}")
+# `[[File:...]]` and `[[Image:...]]` image embeds — Bulbapedia uses them
+# inline as decoration (alpha-Pokémon icons, type icons). They're not
+# location wikilinks; the display text after the first `|` carries image
+# attributes (`link=X|14px`) that slug to garbage if let through.
+_FILE_WIKILINK_RE = re.compile(
+    r"\[\[\s*(?:File|Image)\s*:[^\]]+\]\]", re.IGNORECASE
+)
 # Preposition-led location phrases in gift prose: "in [[X]]", "at [[Y]]",
 # "on {{rt|N|Region}}". Captures the link or template so the match's last
 # occurrence is almost always the actual place (NPC names come before the
@@ -498,6 +505,7 @@ def extract_area_location(segment: str, *, prefer_preposition: bool) -> str | No
     receiving a garbage slug.
     """
     cleaned = _EVENT_LIST_WIKILINK_RE.sub("", segment)
+    cleaned = _FILE_WIKILINK_RE.sub("", cleaned)
     cleaned = _INLINE_METADATA_RE.sub("", cleaned)
     cleaned = _TT_TEMPLATE_RE.sub("", cleaned)
     cleaned = _TRAILING_CONDITION_RE.sub("", cleaned)
@@ -587,6 +595,11 @@ _GENERIC_LOCATION_SLUGS: frozenset[str] = frozenset(
         # template inside wikilinks; after the template strip the link
         # target slugs to this.
         "alpha-pokemon",
+        # `[[Coin (Game Corner)|C]]` — Game Corner currency (the item),
+        # not the venue. Display "C" is single-char so falls to target,
+        # which slugs to this. The actual venue link `[[Celadon Game
+        # Corner]]` shows up elsewhere in the same segment.
+        "coin-game-corner",
         # Cross-game services that are never an in-game location
         "home",
         "pokemon-home",
@@ -678,6 +691,7 @@ def extract_area_locations(segment: str) -> list[str]:
     and trailing condition clauses.
     """
     cleaned = _EVENT_LIST_WIKILINK_RE.sub("", segment)
+    cleaned = _FILE_WIKILINK_RE.sub("", cleaned)
     cleaned = _INLINE_METADATA_RE.sub("", cleaned)
     cleaned = _TT_TEMPLATE_RE.sub("", cleaned)
     cleaned = _TRAILING_CONDITION_RE.sub("", cleaned)
@@ -693,6 +707,12 @@ def extract_area_locations(segment: str) -> list[str]:
     for m in _WIKILINK_PARTS_RE.finditer(cleaned):
         target = m.group(1).strip()
         display = (m.group(2) or m.group(1)).strip()
+        # `[[File:...|link=X|14px]]` image embeds — display ends up as
+        # "link=Alpha Pokémon|14px" and slugs to garbage like
+        # `link-alpha-pokemon-14px`. Skip these whole — they're decoration,
+        # not location.
+        if target.lower().startswith(("file:", "image:")):
+            continue
         # `[[Fire (type)|Fire]]`-style links resolve display "Fire" → generic,
         # then fall through to target "Fire (type)" → "fire-type" — still not
         # a location. Drop the whole link when the target carries a
