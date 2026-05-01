@@ -516,7 +516,4 @@ def test_extract_area_location_falls_back_to_ka_template() -> None:
     # Singular extractor: when there's no wikilink and no rt/FB template,
     # fall back to ka before flat-head fallback. Used by static-encounter
     # rows where the segment is just `{{ka|Power Plant}}` (Voltorb LGPE).
-    assert (
-        extract_area_location("{{ka|Power Plant}}", prefer_preposition=False)
-        == "power-plant"
-    )
+    assert extract_area_location("{{ka|Power Plant}}", prefer_preposition=False) == "power-plant"
