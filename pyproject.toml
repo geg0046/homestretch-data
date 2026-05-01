@@ -51,6 +51,7 @@ packages = ["src/homestretch_data"]
 # Revisit periodically; remove stale pins once fresh upstream releases age out.
 constraint-dependencies = [
     "filelock==3.28.0",
+    "pip>=26.1",  # CVE-2026-3219; transitive via pip-api → pip-audit
 ]
 
 [tool.ruff]
