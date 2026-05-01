@@ -259,6 +259,21 @@ def test_extract_locations_dedupes_repeated_slugs() -> None:
     assert extract_area_locations(segment) == ["lake-verity"]
 
 
+def test_extract_locations_drops_parent_when_fragment_anchor_sibling_present() -> None:
+    # X/Y Friend Safari: `[[Friend Safari]] ([[Friend Safari#Grass-type Safari|Grass]])`.
+    # The fragment-anchor sibling is the typed sub-area; the parent link
+    # is redundant and would otherwise produce a duplicate row.
+    segment = "[[Friend Safari]] ([[Friend Safari#Grass-type Safari|Grass]])"
+    assert extract_area_locations(segment) == ["friend-safari-grass-type-safari"]
+
+
+def test_extract_locations_keeps_parent_when_no_fragment_sibling() -> None:
+    # Pancham-style: only the parent `[[Friend Safari]]` link, no typed
+    # sub-area. Parent must survive — the fragment-supersede rule only
+    # fires when a `#`-anchor link is present in the same segment.
+    assert extract_area_locations("[[Friend Safari]]") == ["friend-safari"]
+
+
 def test_extract_locations_empty_segment() -> None:
     assert extract_area_locations("") == []
     assert extract_area_locations("just prose, no wikilinks") == []

@@ -702,6 +702,11 @@ def extract_area_locations(segment: str) -> list[str]:
 
     slugs: list[str] = []
     seen: set[str] = set()
+    # `[[Friend Safari]] ([[Friend Safari#Grass-type Safari|Grass]])` emits
+    # both `friend-safari` (parent) and `friend-safari-grass-type-safari`
+    # (sub-area). The parent is redundant; record the pre-fragment base of
+    # any `#`-anchor wikilink so we can drop sibling parent slugs at the end.
+    superseded: set[str] = set()
 
     def push(slug: str | None) -> None:
         if slug and slug not in _GENERIC_LOCATION_SLUGS and slug not in seen:
@@ -723,6 +728,10 @@ def extract_area_locations(segment: str) -> list[str]:
         # `(type)` / `(move)` / `(ability)` disambiguator.
         if target.lower().endswith(("(type)", "(move)", "(ability)", "(species)")):
             continue
+        if "#" in target:
+            base_slug = _slug_from_text(target.split("#", 1)[0])
+            if base_slug:
+                superseded.add(base_slug)
         # Display can carry an embedded template
         # (`[[Alpha Pokémon|{{Link|Alpha Pokémon|14px}}]]`); strip it so the
         # `14px` sizing arg doesn't leak into the slug.
@@ -737,7 +746,7 @@ def extract_area_locations(segment: str) -> list[str]:
     for m in _FB_TEMPLATE_RE.finditer(cleaned):
         push(_slug_from_text(f"{m.group(1)} {m.group(2)}"))
 
-    return slugs
+    return [s for s in slugs if s not in superseded]
 
 
 def _is_skippable_area(area: str) -> bool:
