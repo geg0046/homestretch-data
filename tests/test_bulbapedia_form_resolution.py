@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from bulbapedia import (
     _encounter_mode_set,
+    _extract_main_games_section,
     _resolve_version,
     _rod_set,
     extract_area_location,
@@ -460,3 +461,59 @@ def test_resolve_version_lets_go_pikachu_eevee() -> None:
     # appears in user-facing prose and is not what the parser sees.
     assert _resolve_version("Let's Go Pikachu") == (("lets-go-pikachu",), None)
     assert _resolve_version("Let's Go Eevee") == (("lets-go-eevee",), None)
+
+
+# --- _extract_main_games_section -----------------------------------------
+
+
+def test_extract_section_handles_templated_heading() -> None:
+    # Rattata / Raticate wrap "Game" in a template — the heading reads
+    # `==={{pkmn|games|Game}} locations===` instead of `===Game locations===`.
+    wikitext = (
+        "==Game data==\n"
+        "==={{pkmn|games|Game}} locations===\n"
+        "{{Availability/Entry2|v=Let's Go Pikachu|v2=Let's Go Eevee|area=foo}}\n"
+        "===Side game data===\n"
+    )
+    section = _extract_main_games_section(wikitext)
+    assert "Availability/Entry2" in section
+
+
+def test_extract_section_handles_plain_heading() -> None:
+    # Standard form on the vast majority of species pages.
+    wikitext = (
+        "==Game data==\n"
+        "===Game locations===\n"
+        "{{Availability/Entry1|v=Sword|area=bar}}\n"
+        "===Side game data===\n"
+    )
+    section = _extract_main_games_section(wikitext)
+    assert "Availability/Entry1" in section
+
+
+# --- ka-template support in extract_area_locations -----------------------
+
+
+def test_extract_locations_walks_ka_template() -> None:
+    # `{{ka|<location>}}` is a Kanto-location template — equivalent to
+    # `[[<location>]]` for slug purposes. Common in LGPE Availability
+    # segments (`{{ka|Pokémon Mansion}}`, `{{ka|Victory Road}}`).
+    assert extract_area_locations("{{ka|Pokémon Mansion}}") == ["pokemon-mansion"]
+    assert extract_area_locations("{{ka|Victory Road}}") == ["victory-road"]
+
+
+def test_extract_locations_mixes_ka_with_routes() -> None:
+    # Rattata-style LGPE area: routes + ka-template named place.
+    segment = "{{rtn|1|Kanto}}, {{rtn|2|Kanto}}, {{ka|Pokémon Mansion}}"
+    assert extract_area_locations(segment) == [
+        "kanto-route-1",
+        "kanto-route-2",
+        "pokemon-mansion",
+    ]
+
+
+def test_extract_area_location_falls_back_to_ka_template() -> None:
+    # Singular extractor: when there's no wikilink and no rt/FB template,
+    # fall back to ka before flat-head fallback. Used by static-encounter
+    # rows where the segment is just `{{ka|Power Plant}}` (Voltorb LGPE).
+    assert extract_area_location("{{ka|Power Plant}}", prefer_preposition=False) == "power-plant"
