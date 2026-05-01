@@ -74,6 +74,7 @@ def test_form_requires_valid_generation() -> None:
             national_dex=37,
             generation_introduced=99,
             categories=[FormCategory.REGIONAL_VARIANT],
+            sprite_url="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10103.png",
         )
 
 

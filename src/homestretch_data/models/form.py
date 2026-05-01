@@ -11,6 +11,10 @@ SpeciesId = Annotated[
     str,
     StringConstraints(pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$", min_length=2, max_length=40),
 ]
+SpriteUrl = Annotated[
+    str,
+    StringConstraints(pattern=r"^https://", max_length=300),
+]
 
 
 class FormCategory(StrEnum):
@@ -40,3 +44,4 @@ class Form(BaseModel):
     generation_introduced: int = Field(ge=1, le=9)
     categories: list[FormCategory] = Field(default_factory=list)
     notes: str | None = None
+    sprite_url: SpriteUrl
