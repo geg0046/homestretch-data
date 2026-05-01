@@ -52,16 +52,21 @@ user sign-off.** These exclusions are deliberate.
 
 ## Gender differences
 
-- **Every species with `species.has_gender_differences=true` in PokéAPI
-  gets a `<form_id>-female` entry per non-female form**, synthesised at
-  the end of `build_forms_for_species`. PokéAPI exposes 7 species as
-  native form entries (Frillish, Jellicent, Pyroar, Meowstic, Indeedee,
-  Basculegion, Oinkologne — picked up by the existing
-  `form_name in {"female", "male"}` branch in `categorize`); the
-  remaining ~95 species with cosmetic-only dimorphism (Venusaur,
-  Pikachu, Hippowdon, etc.) are synthesised. Regional variants of
-  dimorphic species (e.g. `sneasel-hisui-female`) get their own entry
-  via the same per-form loop.
+- **A `<form_id>-female` entry is synthesised per non-female form whose
+  variety has a distinct `pokemon.sprites.front_female`** in PokéAPI,
+  at the end of `build_forms_for_species`. Species-level
+  `has_gender_differences` is the outer guard; the per-variety
+  `front_female` is the authoritative gate, because the species-level
+  flag is true even for varieties without observed dimorphism (Alolan
+  Rattata/Raticate/Raichu, Paldean Wooper) and would otherwise produce
+  female forms PokéAPI has no artwork for. Regional variants with real
+  dimorphism (e.g. `sneasel-hisui-female`) still synthesise via the
+  same path. PokéAPI exposes 7 species as native form entries
+  (Frillish, Jellicent, Pyroar, Meowstic, Indeedee, Basculegion,
+  Oinkologne — picked up by the existing `form_name in {"female",
+  "male"}` branch in `categorize`); the remaining ~95 species with
+  cosmetic-only dimorphism (Venusaur, Pikachu, Hippowdon, etc.) are
+  synthesised.
 - **One gender-difference entry per form**, not one per colour × gender.
   The default form is implicitly the male sprite; we don't emit a
   redundant `<id>-male`. Use `SKIP_FORM_IDS_HOME_UNREACHABLE` to suppress
