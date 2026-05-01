@@ -286,6 +286,47 @@ UNENCODED_BRANCH_FORMS: dict[str, tuple[str, ...]] = {
 }
 
 
+# Regional-variant evolution paths PokéAPI conflates into the default
+# child species's chain. PokéAPI's `evolution_chain` endpoint emits one
+# `evolution_details` list per child species id, even when separate
+# entries describe paths that only apply to a regional variant of that
+# species (e.g. rattata-alola → raticate-alola needs `time_of_day=night`,
+# while rattata → raticate is unconditional level-up). Both details get
+# attributed to the default form unless filtered.
+#
+# Each entry maps default-form id → list of (signature, owner_form_id).
+# When an emitted detail's structured fields match every key/value in
+# `signature`, the detail is dropped from the default form. The owner
+# regional form picks up the path via the Bulbapedia regional-trigger
+# override pass (`_REGIONAL_TRIGGER_OVERRIDES` in bulbapedia.py).
+#
+# Verified against Bulbapedia + Serebii. Add an entry only when a known
+# regional variant has a strictly distinguishing evolution criterion;
+# variants that share the default's path (alolan dugtrio, galarian
+# rapidash, etc.) don't need an entry.
+REGIONAL_VARIANT_DETAILS: dict[str, list[tuple[dict[str, Any], str]]] = {
+    "raticate": [({"time_of_day": "night"}, "raticate-alola")],
+    "marowak": [({"time_of_day": "night"}, "marowak-alola")],
+    "ninetales": [({"item": "ice-stone"}, "ninetales-alola")],
+    "sandslash": [({"item": "ice-stone"}, "sandslash-alola")],
+    "persian": [({"min_happiness": 160}, "persian-alola")],
+}
+
+
+def detail_belongs_to_regional_variant(evolved_species_id: str, fields: dict[str, Any]) -> bool:
+    """True iff `fields` matches a regional-variant signature for this species.
+
+    `fields` is the structured output of `detail_to_source_fields`. A
+    match requires every key in the signature dict to be present and
+    equal in `fields`; extra unrelated keys in `fields` don't disqualify
+    the match.
+    """
+    for cond, _ in REGIONAL_VARIANT_DETAILS.get(evolved_species_id, ()):
+        if all(fields.get(k) == v for k, v in cond.items()):
+            return True
+    return False
+
+
 def resolve_branched_form_ids(
     species_id: str,
     detail: dict[str, Any],

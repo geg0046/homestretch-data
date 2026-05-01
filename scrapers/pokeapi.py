@@ -21,6 +21,7 @@ from typing import Any
 import httpx
 from evolution_details import (
     KNOWN_TRIGGERS,
+    detail_belongs_to_regional_variant,
     detail_to_source_fields,
     gate_games,
     method_for_trigger,
@@ -689,6 +690,8 @@ def build_evolution_sources_for_chain(
                     unknown_triggers.add(trigger)
                 method = method_for_trigger(trigger)
                 fields = detail_to_source_fields(detail)
+                if detail_belongs_to_regional_variant(evolved_species_id, fields):
+                    continue
                 applicable_games = gate_games(fields, scope_games, evolved_species_id)
                 if not applicable_games:
                     continue

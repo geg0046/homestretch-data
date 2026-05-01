@@ -1039,16 +1039,23 @@ _GAME_LINK_TO_GAMES: dict[str, tuple[str, ...]] = {
 # PokéAPI rows. Each entry verified against Bulbapedia + Serebii.
 # Overrides only fill gaps; they never clobber a Bulbapedia-detected
 # value.
-_REGIONAL_TRIGGER_OVERRIDES: dict[str, dict[str, str]] = {
-    # Alolan forms.
-    "raticate-alola": {"method_details": "level-up"},
+# Override values can be either strings (`method_details`, `item`) or
+# any structured-condition value the Source schema accepts on those
+# fields (currently `time_of_day` strings and integer min_* fields).
+_REGIONAL_TRIGGER_OVERRIDES: dict[str, dict[str, Any]] = {
+    # Alolan forms. raticate-alola / marowak-alola need `time_of_day=night`
+    # and persian-alola needs `min_happiness=160`; PokéAPI conflates these
+    # paths into the default chain (filtered by REGIONAL_VARIANT_DETAILS in
+    # evolution_details.py), so the regional row has to fill them in here.
+    "raticate-alola": {"method_details": "level-up", "time_of_day": "night"},
     "dugtrio-alola": {"method_details": "level-up"},
-    "persian-alola": {"method_details": "level-up"},
+    "persian-alola": {"method_details": "level-up", "min_happiness": 160},
     "muk-alola": {"method_details": "level-up"},
     "graveler-alola": {"method_details": "level-up"},
     "golem-alola": {"method_details": "trade"},
     "ninetales-alola": {"method_details": "use-item", "item": "ice-stone"},
     "sandslash-alola": {"method_details": "use-item", "item": "ice-stone"},
+    "marowak-alola": {"method_details": "level-up", "time_of_day": "night"},
     # Galarian forms.
     "rapidash-galar": {"method_details": "level-up"},
     "slowbro-galar": {"method_details": "use-item", "item": "galarica-cuff"},
@@ -1058,6 +1065,28 @@ _REGIONAL_TRIGGER_OVERRIDES: dict[str, dict[str, str]] = {
     "electrode-hisui": {"method_details": "use-item", "item": "leaf-stone"},
     "zoroark-hisui": {"method_details": "level-up"},
 }
+
+
+# Condition fields the override can carry beyond method_details / item /
+# pre_evo. Listed here so the application loop is data-driven and adding
+# a new condition (e.g. `min_affection`) only requires a one-line edit.
+_REFINEMENT_CONDITION_FIELDS: tuple[str, ...] = (
+    "time_of_day",
+    "min_happiness",
+    "min_affection",
+    "min_beauty",
+)
+
+
+def _new_refinement_entry() -> dict[str, Any]:
+    """Default-shaped refinement entry; keeps all call sites in sync."""
+    return {
+        "pre_evo": None,
+        "item": None,
+        "method_details": None,
+        "conditions": {},
+        "excluded": set(),
+    }
 
 
 _ITEM_NAME_TO_SLUG: dict[str, str] = {
@@ -1699,6 +1728,7 @@ def _apply_refinement(
     pre_evo: str | None,
     item_slug: str | None,
     method_details: str | None,
+    conditions: dict[str, Any] | None = None,
 ) -> dict[str, Any] | None:
     """Return a new row with structured fields populated from a refinement.
 
@@ -1708,6 +1738,8 @@ def _apply_refinement(
     - `method_details` fills `method_details` when the row lacks it —
       necessary for regional-variant rows that early scraper revisions
       wrote with no trigger slug.
+    - `conditions` fills any other structured condition field
+      (`time_of_day`, `min_happiness`, …) the override carries.
 
     Returns None if no change — caller keeps the original row. Idempotent:
     existing structured values win over refinements so re-runs don't
@@ -1726,6 +1758,10 @@ def _apply_refinement(
     if method_details and updated.get("method_details") is None:
         updated["method_details"] = method_details
         changed = True
+    for cond_key, cond_val in (conditions or {}).items():
+        if updated.get(cond_key) is None:
+            updated[cond_key] = cond_val
+            changed = True
     return updated if changed else None
 
 
@@ -1776,10 +1812,7 @@ def _scrape_evolutions(
             # Prose exclusions apply to the page's species itself — that's
             # the evolved target the prose describes ("X cannot evolve into
             # <species> in game Y").
-            refinements.setdefault(
-                species_id,
-                {"pre_evo": None, "item": None, "method_details": None, "excluded": set()},
-            )["excluded"] |= excluded
+            refinements.setdefault(species_id, _new_refinement_entry())["excluded"] |= excluded
 
         for tmpl in _iter_evobox_templates(section):
             for prev_fid, next_fid, trigger in _evobox_edges(tmpl, dex_index):
@@ -1794,15 +1827,7 @@ def _scrape_evolutions(
                 # are already correctly attributed by PokéAPI mode.
                 if not (prev_is_regional or next_is_regional or item_slug):
                     continue
-                entry = refinements.setdefault(
-                    next_fid,
-                    {
-                        "pre_evo": None,
-                        "item": None,
-                        "method_details": None,
-                        "excluded": set(),
-                    },
-                )
+                entry = refinements.setdefault(next_fid, _new_refinement_entry())
                 # For regional-target edges we need `from_form` regardless
                 # of whether the pre-evo is regional (raichu-alola from
                 # pikachu-alola) or default (marowak-alola from cubone):
@@ -1821,14 +1846,14 @@ def _scrape_evolutions(
     # wikitext scan didn't already populate, so Bulbapedia-derived values
     # win over the hardcoded list.
     for form_id, override in _REGIONAL_TRIGGER_OVERRIDES.items():
-        entry = refinements.setdefault(
-            form_id,
-            {"pre_evo": None, "item": None, "method_details": None, "excluded": set()},
-        )
+        entry = refinements.setdefault(form_id, _new_refinement_entry())
         if override.get("method_details") and entry["method_details"] is None:
             entry["method_details"] = override["method_details"]
         if override.get("item") and entry["item"] is None:
             entry["item"] = override["item"]
+        for cond_key in _REFINEMENT_CONDITION_FIELDS:
+            if cond_key in override and cond_key not in entry["conditions"]:
+                entry["conditions"][cond_key] = override[cond_key]
 
     if not refinements:
         print("no evolution refinements detected; sources.json unchanged.")
@@ -1856,7 +1881,13 @@ def _scrape_evolutions(
         if row["game_id"] in ref["excluded"]:
             removed += 1
             continue
-        updated = _apply_refinement(row, ref["pre_evo"], ref["item"], ref["method_details"])
+        updated = _apply_refinement(
+            row,
+            ref["pre_evo"],
+            ref["item"],
+            ref["method_details"],
+            ref.get("conditions"),
+        )
         if updated is not None:
             kept.append(updated)
             modified += 1
@@ -1899,6 +1930,8 @@ def _scrape_evolutions(
                 entry["item"] = ref["item"]
             if ref["pre_evo"]:
                 entry["from_form"] = ref["pre_evo"]
+            for cond_key, cond_val in (ref.get("conditions") or {}).items():
+                entry[cond_key] = cond_val
             new_rows.append(entry)
             added += 1
 
