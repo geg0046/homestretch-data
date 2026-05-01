@@ -339,8 +339,15 @@ def _extract_main_games_section(wikitext: str) -> str:
 
     Stops at the first `====` subsection (In side games / In events / etc.)
     so only main-series entries are parsed.
+
+    The "Game" word in the heading is sometimes wrapped in a template —
+    Rattata and Raticate use `==={{pkmn|games|Game}} locations===`. The
+    regex accepts either the bare word or the templated link as the lead-in.
     """
-    m = re.search(r"==\s*Game locations\s*==+", wikitext)
+    m = re.search(
+        r"==\s*(?:\{\{pkmn\|games\|Game\}\}|Game)\s+locations\s*==+",
+        wikitext,
+    )
     if not m:
         return ""
     tail = wikitext[m.end() :]
@@ -444,6 +451,11 @@ _INLINE_METADATA_RE = re.compile(
 #   {{FB|Region|Place}} -> "Region Place"  (flag-button inline link, Gen 1)
 _ROUTE_TEMPLATE_RE = re.compile(r"\{\{rtn?\|(\d+)\|([A-Za-z]+)\}\}", re.IGNORECASE)
 _FB_TEMPLATE_RE = re.compile(r"\{\{FB\|([^|}]+)\|([^|}]+)\}\}", re.IGNORECASE)
+# `{{ka|<location>}}` — Kanto location link template. Equivalent to
+# `[[<location>]]` for slug-extraction purposes; used heavily in LGPE
+# Availability segments (`{{ka|Pokémon Mansion}}`, `{{ka|Victory Road}}`)
+# and on Gen 1/2 species pages.
+_KA_TEMPLATE_RE = re.compile(r"\{\{ka\|([^|}]+)\}\}", re.IGNORECASE)
 # `{{tt|visible|tooltip}}` footnote template; visible is the display text.
 _TT_TEMPLATE_RE = re.compile(r"\{\{tt\|[^|{}]*\|[^{}]*\}\}", re.IGNORECASE)
 # Catches any remaining `{{...}}` template that survives the more specific
@@ -537,9 +549,13 @@ def extract_area_location(segment: str, *, prefer_preposition: bool) -> str | No
                 if fb:
                     display = f"{fb.group(1)} {fb.group(2)}"
                 else:
-                    flat_head = _flatten_wikitext(cleaned).split("(")[0].strip(" ,.:;")
-                    if flat_head:
-                        display = flat_head
+                    ka = _KA_TEMPLATE_RE.search(cleaned)
+                    if ka:
+                        display = ka.group(1)
+                    else:
+                        flat_head = _flatten_wikitext(cleaned).split("(")[0].strip(" ,.:;")
+                        if flat_head:
+                            display = flat_head
     if not display:
         return None
 
@@ -745,6 +761,8 @@ def extract_area_locations(segment: str) -> list[str]:
         push(_slug_from_text(f"{m.group(2)} route {m.group(1)}"))
     for m in _FB_TEMPLATE_RE.finditer(cleaned):
         push(_slug_from_text(f"{m.group(1)} {m.group(2)}"))
+    for m in _KA_TEMPLATE_RE.finditer(cleaned):
+        push(_slug_from_text(m.group(1)))
 
     return [s for s in slugs if s not in superseded]
 
