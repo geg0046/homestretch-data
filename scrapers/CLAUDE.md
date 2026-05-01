@@ -400,6 +400,22 @@ is set. Location/item slugs not listed there fall through unchanged. The
 Bulbapedia `==Evolution==` "cannot evolve in [[X]]" prose filter remains
 the fallback for cases PokéAPI can't express.
 
+**Regional-variant detail filtering.** PokéAPI's `evolution_chain`
+endpoint folds every path into the default child species's
+`evolution_details` list, including paths that actually belong to a
+regional variant of the parent (e.g. rattata-alola → raticate-alola
+needs `time_of_day=night`, but the detail is attributed to `raticate`).
+`REGIONAL_VARIANT_DETAILS` in `scrapers/evolution_details.py` is the
+curated table of `(default_form_id → [(signature, owner_form_id)])`
+mappings that drop these details from the default form's emitted rows;
+`detail_belongs_to_regional_variant` is the predicate the PokéAPI
+scraper calls in `build_evolution_sources_for_chain`. The owner regional
+form picks up the same condition fields via `_REGIONAL_TRIGGER_OVERRIDES`
+in `bulbapedia.py` (which now carries `time_of_day` / `min_happiness` /
+… alongside `method_details` and `item`). When adding a new regional
+variant whose evolution criterion strictly differs from its default
+sibling, edit both tables together.
+
 **Normalization** for Bulbapedia-sourced prose lives in
 `scrapers/method_details.py::normalize_method_details`. It strips wiki
 markup (`{{rt|...}}`, `{{tt|...}}`, `[[...|x]]`, `<br>`, `'''`, `&nbsp;`,
