@@ -401,6 +401,63 @@ def categorize(
     return cats
 
 
+def _pick_sprite_url(
+    form_id: str,
+    species_id: str,
+    pokemon: dict[str, Any],
+    form_data: dict[str, Any],
+    species_default_pokemon: dict[str, Any],
+) -> str:
+    """Pick the front-default sprite URL for a form, with fallback chain.
+
+    For variant forms PokéAPI's `/pokemon-form/{name}` is the most specific
+    source; some forms (notably ones synthesised from a variety with no
+    distinct form artwork) leave it null and the variety-level
+    `/pokemon/{name}` sprite is correct. Final fallback is the species'
+    default-variety sprite, which always exists for in-scope species.
+    """
+    candidates = (
+        form_data.get("sprites", {}).get("front_default"),
+        pokemon.get("sprites", {}).get("front_default"),
+        species_default_pokemon.get("sprites", {}).get("front_default"),
+    )
+    for url in candidates:
+        if url:
+            return url
+    raise RuntimeError(
+        f"no sprite URL for form={form_id!r} species={species_id!r}; "
+        "PokéAPI returned no front_default at form, variety, or species level"
+    )
+
+
+def _female_sprite_url(
+    base_form_id: str,
+    pokemon: dict[str, Any],
+    species_default_pokemon: dict[str, Any],
+) -> str:
+    """Sprite URL for a synthesised `<base>-female` row.
+
+    Prefer the variety's front_female; fall back to the species default's
+    front_female (handles regional females whose variety endpoint is
+    sparse); final fallback is the base form's existing sprite (recorded
+    duplication is the documented behaviour for species whose female
+    sprite is genuinely identical in PokéAPI).
+    """
+    candidates = (
+        pokemon.get("sprites", {}).get("front_female"),
+        species_default_pokemon.get("sprites", {}).get("front_female"),
+        pokemon.get("sprites", {}).get("front_default"),
+        species_default_pokemon.get("sprites", {}).get("front_default"),
+    )
+    for url in candidates:
+        if url:
+            return url
+    raise RuntimeError(
+        f"no sprite URL for synthesised form={base_form_id}-female; "
+        "PokéAPI returned no front_female or front_default"
+    )
+
+
 def build_forms_for_species(
     species: dict[str, Any], client: RateLimitedClient
 ) -> list[dict[str, Any]]:
@@ -408,7 +465,14 @@ def build_forms_for_species(
     national_dex = species["id"]
     generation = GENERATION_MAP[species["generation"]["name"]]
 
+    species_default_pokemon: dict[str, Any] = {}
+    for variety in species["varieties"]:
+        if variety["is_default"]:
+            species_default_pokemon = client.get_json(variety["pokemon"]["url"])
+            break
+
     results: list[dict[str, Any]] = []
+    pokemon_by_form_id: dict[str, dict[str, Any]] = {}
     for variety in species["varieties"]:
         is_default_variety = variety["is_default"]
         variety_name = variety["pokemon"]["name"]
@@ -425,6 +489,9 @@ def build_forms_for_species(
                 continue
             categories = categorize(form_id, species_id, is_default_form, form_data, variety_name)
             raw_form_name = form_data.get("form_name") or None
+            sprite_url = _pick_sprite_url(
+                form_id, species_id, pokemon, form_data, species_default_pokemon
+            )
 
             results.append(
                 {
@@ -435,8 +502,10 @@ def build_forms_for_species(
                     "is_default": is_default_form,
                     "generation_introduced": generation,
                     "categories": [c.value for c in categories],
+                    "sprite_url": sprite_url,
                 }
             )
+            pokemon_by_form_id[form_id] = pokemon
 
     if species.get("has_gender_differences"):
         existing_ids = {r["id"] for r in results}
@@ -454,6 +523,7 @@ def build_forms_for_species(
             female_id = f"{r['id']}-female"
             if female_id in existing_ids or female_id in SKIP_FORM_IDS:
                 continue
+            base_pokemon = pokemon_by_form_id.get(r["id"], species_default_pokemon)
             results.append(
                 {
                     "id": female_id,
@@ -463,6 +533,9 @@ def build_forms_for_species(
                     "is_default": False,
                     "generation_introduced": r["generation_introduced"],
                     "categories": [FormCategory.GENDER_DIFFERENCE.value],
+                    "sprite_url": _female_sprite_url(
+                        r["id"], base_pokemon, species_default_pokemon
+                    ),
                 }
             )
             existing_ids.add(female_id)

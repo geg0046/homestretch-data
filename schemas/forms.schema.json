@@ -64,13 +64,20 @@
           "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
           "title": "Species Id",
           "type": "string"
+        },
+        "sprite_url": {
+          "maxLength": 300,
+          "pattern": "^https://",
+          "title": "Sprite Url",
+          "type": "string"
         }
       },
       "required": [
         "id",
         "species_id",
         "national_dex",
-        "generation_introduced"
+        "generation_introduced",
+        "sprite_url"
       ],
       "title": "Form",
       "type": "object"

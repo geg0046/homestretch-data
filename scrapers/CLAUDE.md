@@ -76,6 +76,24 @@ user sign-off.** These exclusions are deliberate.
   so it stays in sync with the scraper's synthesis output without a
   hand-maintained list.
 
+## Sprite URLs
+
+Every form row carries a required `sprite_url` pointing at PokéAPI's
+GitHub sprite mirror (`raw.githubusercontent.com/PokeAPI/sprites/...`).
+`build_forms_for_species` picks the URL with `_pick_sprite_url` (variant
+forms: `pokemon-form/{name}.sprites.front_default` → variety-level
+fallback → species-default fallback) and `_female_sprite_url`
+(synthesised `-female` rows: `front_female` on the base variety →
+species default's `front_female` → `front_default` fallbacks).
+
+The scraper raises if every fallback in the chain is null — silent
+missing sprites would defeat the consumer-side simplification this field
+exists to enable. Format is enforced in two places: Pydantic
+(`SpriteUrl` annotation, `^https://`) and `scripts/validate.py`
+(prefix/suffix lock to the GitHub mirror). HEAD-reachability is checked
+out-of-band via `scripts/validate_sprite_urls.py`; that's not in
+pre-commit because it's network-bound and slow.
+
 ## Idempotency
 
 Scraper merge uses `setdefault` by id/key. After changing categorization

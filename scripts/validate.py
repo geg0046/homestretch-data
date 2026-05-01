@@ -27,6 +27,12 @@ from utils import SOURCE_KEY_FIELDS  # noqa: E402
 # other method on such a form indicates miscategorisation.
 _EVENT_ONLY_ALLOWED_METHODS: frozenset[str] = frozenset({"event", "gift", "transfer"})
 
+# Sprite URLs must come from PokéAPI's GitHub mirror. Tightens the
+# `^https://` regex on the model to flag scraper bugs that would otherwise
+# point sprite_url somewhere unexpected. Loosen if we ever self-host.
+_SPRITE_URL_PREFIX = "https://raw.githubusercontent.com/PokeAPI/sprites/"
+_SPRITE_URL_SUFFIX = ".png"
+
 # Lowercase hyphen-slug pattern (same shape as FormId / GameId). Applied to
 # Source string fields where Pydantic only knows they're `str | None`:
 # item, held_item, location, known_move, known_move_type, party_type.
@@ -76,6 +82,16 @@ def main() -> int:
 
     _check_unique(games, "id", "games.json", errors)
     _check_unique(forms, "id", "forms.json", errors)
+
+    for f in forms:
+        if not (
+            f.sprite_url.startswith(_SPRITE_URL_PREFIX)
+            and f.sprite_url.endswith(_SPRITE_URL_SUFFIX)
+        ):
+            errors.append(
+                f"forms.json: {f.id!r} sprite_url={f.sprite_url!r} must start with "
+                f"{_SPRITE_URL_PREFIX!r} and end with {_SPRITE_URL_SUFFIX!r}"
+            )
 
     game_ids = {g.id for g in games}
     form_ids = {f.id for f in forms}
