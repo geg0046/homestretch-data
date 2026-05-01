@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from bulbapedia import (
     _encounter_mode_set,
+    _resolve_version,
     _rod_set,
     extract_area_location,
     extract_area_locations,
@@ -447,3 +448,15 @@ def test_mode_set_intersection_handles_pokeapi_combos() -> None:
     surf_only = _encounter_mode_set("surf")
     walk_only = _encounter_mode_set("walk")
     assert surf_only & walk_only == frozenset()  # no match
+
+
+# --- _resolve_version ----------------------------------------------------
+
+
+def test_resolve_version_lets_go_pikachu_eevee() -> None:
+    # Bulbapedia wikitext uses bare titles ("Let's Go Pikachu",
+    # "Let's Go Eevee") in `v=` / `v2=` template params — no comma, no
+    # exclamation. The styled brand spelling ("Let's Go, Pikachu!") only
+    # appears in user-facing prose and is not what the parser sees.
+    assert _resolve_version("Let's Go Pikachu") == (("lets-go-pikachu",), None)
+    assert _resolve_version("Let's Go Eevee") == (("lets-go-eevee",), None)
