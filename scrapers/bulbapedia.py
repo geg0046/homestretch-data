@@ -89,8 +89,8 @@ VERSION_TO_GAME_ID: dict[str, str] = {
     "Moon": "moon",
     "Ultra Sun": "ultra-sun",
     "Ultra Moon": "ultra-moon",
-    "Let's Go, Pikachu!": "lets-go-pikachu",
-    "Let's Go, Eevee!": "lets-go-eevee",
+    "Let's Go Pikachu": "lets-go-pikachu",
+    "Let's Go Eevee": "lets-go-eevee",
 }
 
 # DLC / expansion labels that appear as `v=` values. Each maps to the base
