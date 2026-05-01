@@ -24,7 +24,13 @@ from urllib.parse import quote
 import httpx
 from method_details import _normalize_wild_encounter_set, normalize_method_details
 from pydantic import TypeAdapter
-from utils import RateLimitedClient, merge_by_key, source_key, source_sort_key
+from utils import (
+    SOURCE_KEY_FIELDS,
+    RateLimitedClient,
+    merge_by_key,
+    source_key,
+    source_sort_key,
+)
 
 from homestretch_data.models import Method, Source
 
@@ -1580,6 +1586,57 @@ def _iter_location_candidates_from_wikitext(
     return results
 
 
+# Methods where a `method_details=None` row at a known location is
+# redundant when a sibling row with the same key (excluding
+# method_details) but a non-None method_details exists. The rich row
+# carries strictly more information; the None row is an artefact of
+# Bulbapedia sources mode emitting unclassified wild / fishing / gift /
+# static segments before locations mode backfills the place name.
+_NONE_DETAIL_DEDUP_METHODS: frozenset[str] = frozenset(
+    {"wild-encounter", "fishing", "static-encounter", "gift"}
+)
+
+# All source-key fields except method_details. Used to detect "same
+# encounter, different specificity" pairs.
+_DEDUP_KEY_FIELDS: tuple[str, ...] = tuple(f for f in SOURCE_KEY_FIELDS if f != "method_details")
+
+
+def _drop_redundant_none_detail_rows(
+    rows: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int]:
+    """Drop rows where method_details=None and a richer sibling exists.
+
+    Two rows are siblings when they match on every SOURCE_KEY_FIELDS
+    value except method_details. For dedup-eligible methods (wild,
+    fishing, static, gift), a None-detail row alongside one or more
+    rich-detail siblings is redundant — its semantic content is fully
+    covered by the rich sibling. Rows whose method is outside the
+    dedup-eligible set, or that lack a `location`, are left untouched.
+    """
+    groups: dict[tuple[Any, ...], list[int]] = {}
+    for i, row in enumerate(rows):
+        if row.get("method") not in _NONE_DETAIL_DEDUP_METHODS:
+            continue
+        if row.get("location") is None:
+            continue
+        key = tuple(row.get(f) for f in _DEDUP_KEY_FIELDS)
+        groups.setdefault(key, []).append(i)
+
+    drop_indices: set[int] = set()
+    for indices in groups.values():
+        if len(indices) < 2:
+            continue
+        none_idx = [i for i in indices if rows[i].get("method_details") is None]
+        rich_idx = [i for i in indices if rows[i].get("method_details") is not None]
+        if none_idx and rich_idx:
+            drop_indices.update(none_idx)
+
+    if not drop_indices:
+        return rows, 0
+    kept = [r for i, r in enumerate(rows) if i not in drop_indices]
+    return kept, len(drop_indices)
+
+
 def _scrape_locations(
     bulba: RateLimitedClient,
     pokeapi: RateLimitedClient,
@@ -1699,6 +1756,7 @@ def _scrape_locations(
             out.append(row)
             filled_by_method[method] = filled_by_method.get(method, 0) + 1
 
+    out, dedup_dropped = _drop_redundant_none_detail_rows(out)
     out.sort(key=source_sort_key)
     TypeAdapter(list[Source]).validate_python(out)
     SOURCES_PATH.write_text(
@@ -1710,7 +1768,8 @@ def _scrape_locations(
     print(
         f"locations: filled {total} row(s) ({breakdown}); "
         f"{split_count} wild/fishing/raid row(s) row-split into multiple locations; "
-        f"{skipped_no_match} row(s) had no matching segment."
+        f"{skipped_no_match} row(s) had no matching segment; "
+        f"{dedup_dropped} redundant None-detail row(s) dropped."
     )
     return 0
 

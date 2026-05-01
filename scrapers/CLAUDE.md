@@ -332,6 +332,21 @@ endpoint (no HTML scraping) at 1 req/sec, cached under `.cache/bulbapedia/`:
   its location is a (species, day, island) triple that doesn't
   collapse to a slug.
 
+  **Final dedup pass.** `_drop_redundant_none_detail_rows` runs at the
+  end of `--mode locations`, after row-splitting and location backfill.
+  PokéAPI sources mode emits rich rows like `(kadabra, blue,
+  wild-encounter, walk)` while Bulbapedia sources mode emits a parallel
+  `method_details=None` row whenever the area text classifies as
+  wild / fishing / static / gift but doesn't carry a mode keyword. Both
+  rows survive the source-key merge because `method_details` is part of
+  the key, and the permissive locations-mode matcher fills the same
+  location onto both. The dedup pass groups rows on every
+  `SOURCE_KEY_FIELDS` value except `method_details` and drops the
+  `None`-detail row in any group that also contains a rich-detail
+  sibling — the rich row is strictly more informative. Limited to
+  `wild-encounter` / `fishing` / `static-encounter` / `gift`; evolution
+  / trade / raid / breeding / event / purchase keep all their rows.
+
 `fetch_wikitext` follows `#redirect` pages once — Bulbapedia canonicalises
 apostrophe variants this way (Sirfetch'd/Sirfetch’d), so the shared cache
 stays effective across both spellings.
