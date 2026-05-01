@@ -226,18 +226,6 @@
     "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10091.png"
   },
   {
-    "id": "rattata-alola-female",
-    "species_id": "rattata",
-    "national_dex": 19,
-    "form_name": "female",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "gender-difference"
-    ],
-    "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/19.png"
-  },
-  {
     "id": "rattata-female",
     "species_id": "rattata",
     "national_dex": 19,
@@ -270,18 +258,6 @@
       "regional-variant"
     ],
     "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10092.png"
-  },
-  {
-    "id": "raticate-alola-female",
-    "species_id": "raticate",
-    "national_dex": 20,
-    "form_name": "female",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "gender-difference"
-    ],
-    "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/20.png"
   },
   {
     "id": "raticate-female",
@@ -390,18 +366,6 @@
       "regional-variant"
     ],
     "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10100.png"
-  },
-  {
-    "id": "raichu-alola-female",
-    "species_id": "raichu",
-    "national_dex": 26,
-    "form_name": "female",
-    "is_default": false,
-    "generation_introduced": 1,
-    "categories": [
-      "gender-difference"
-    ],
-    "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/26.png"
   },
   {
     "id": "raichu-female",
@@ -2826,18 +2790,6 @@
       "regional-variant"
     ],
     "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10253.png"
-  },
-  {
-    "id": "wooper-paldea-female",
-    "species_id": "wooper",
-    "national_dex": 194,
-    "form_name": "female",
-    "is_default": false,
-    "generation_introduced": 2,
-    "categories": [
-      "gender-difference"
-    ],
-    "sprite_url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/194.png"
   },
   {
     "id": "quagsire",
