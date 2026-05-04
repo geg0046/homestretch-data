@@ -10,11 +10,13 @@ from __future__ import annotations
 
 from bulbapedia import (
     _encounter_mode_set,
+    _extract_breeding_parent,
     _extract_main_games_section,
     _resolve_version,
     _rod_set,
     extract_area_location,
     extract_area_locations,
+    parse_sources_from_wikitext,
     resolve_form_ids_from_segment,
     split_area_segments,
 )
@@ -534,3 +536,51 @@ def test_extract_area_location_falls_back_to_ka_template() -> None:
     # fall back to ka before flat-head fallback. Used by static-encounter
     # rows where the segment is just `{{ka|Power Plant}}` (Voltorb LGPE).
     assert extract_area_location("{{ka|Power Plant}}", prefer_preposition=False) == "power-plant"
+
+
+# --- Breeding-pattern classification --------------------------------------
+
+
+def test_extract_breeding_parent_resolves_known_form() -> None:
+    # `{{p|Floatzel}}` is the partner-link template Bulbapedia uses on
+    # breeding-only entries (Buizel-X). Resolves to the parent's form_id.
+    assert _extract_breeding_parent("{{p|Floatzel}}", frozenset({"floatzel"})) == "floatzel"
+
+
+def test_extract_breeding_parent_strips_apostrophes() -> None:
+    # Defensive: a parent like Farfetch'd would otherwise round-trip to
+    # `farfetch-d`, missing the canonical `farfetchd` slug.
+    assert _extract_breeding_parent("{{p|Farfetch'd}}", frozenset({"farfetchd"})) == "farfetchd"
+
+
+def test_extract_breeding_parent_returns_none_when_unresolved() -> None:
+    # Unknown slug: don't emit `from_form` — the breeding row still gets
+    # `method=breeding`, just without provenance.
+    assert _extract_breeding_parent("{{p|Floatzel}}", frozenset()) is None
+
+
+def test_extract_breeding_parent_returns_none_when_template_absent() -> None:
+    assert _extract_breeding_parent("Just prose, no template", frozenset({"floatzel"})) is None
+
+
+def test_parse_sources_emits_breeding_row_with_from_form() -> None:
+    # End-to-end: a `{{pkmn|breeding|Breed}} {{p|Floatzel}}` area on the
+    # Buizel page should produce a `method=breeding, from_form=floatzel`
+    # row, not a misclassified wild-encounter row with method_details
+    # set to the parent slug.
+    wikitext = (
+        "==Game data==\n"
+        "===Game locations===\n"
+        "{{Availability/Entry2|v=X|v2=Y|area={{pkmn|breeding|Breed}} {{p|Floatzel}}}}\n"
+        "===Side game data===\n"
+    )
+    rows = parse_sources_from_wikitext(
+        wikitext,
+        species_id="buizel",
+        species_form_ids={"buizel"},
+        all_form_ids=frozenset({"buizel", "floatzel"}),
+    )
+    assert sorted(rows, key=lambda r: r["game_id"]) == [
+        {"form_id": "buizel", "game_id": "x", "method": "breeding", "from_form": "floatzel"},
+        {"form_id": "buizel", "game_id": "y", "method": "breeding", "from_form": "floatzel"},
+    ]

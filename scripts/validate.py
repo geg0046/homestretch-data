@@ -155,6 +155,12 @@ def main() -> int:
                 f"sources.json[{i}]: method_details={s.method_details!r} "
                 "duplicates method; drop the field (rule 7)"
             )
+        if s.method_details is not None and s.method_details in form_ids:
+            errors.append(
+                f"sources.json[{i}]: method_details={s.method_details!r} "
+                "is a form_id; likely a {{p|<species>}} partner leaked "
+                "through as method_details prose"
+            )
 
     # Invariant: every source row must be unique on its identity tuple.
     # Reuses SOURCE_KEY_FIELDS so the invariant tracks whatever the scraper
