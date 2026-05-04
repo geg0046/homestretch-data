@@ -62,6 +62,12 @@ BREEDING_ROWS: list[tuple[str, str, list[str]]] = [
     ("igglybuff", "jigglypuff", ["alpha-sapphire", "gold", "omega-ruby", "silver", "x", "y"]),
     ("magby", "magmar", ["brilliant-diamond", "gold", "silver", "x", "y"]),
     ("munchlax", "snorlax", ["x", "y"]),
+    # Natu and Phanpy in ORAS — Bulbapedia confirms ORAS access is
+    # breeding-only (`Breed Xatu` / `Breed Donphan`); no wild encounter,
+    # safari, or NPC trade. Both unevolved species are non-baby fossils
+    # of the breed-from-evolved pattern.
+    ("natu", "xatu", ["alpha-sapphire", "omega-ruby"]),
+    ("phanpy", "donphan", ["alpha-sapphire", "omega-ruby"]),
     ("pichu", "pikachu", ["alpha-sapphire", "gold", "omega-ruby", "silver", "x", "y"]),
     ("smoochum", "jynx", ["gold", "silver"]),
     ("togepi", "togetic", ["moon", "sun"]),
@@ -141,6 +147,22 @@ PURCHASE_LOCATION: dict[tuple[str, str], str] = {
     ("gold", "game-corner"): "goldenrod-city",
     ("silver", "game-corner"): "goldenrod-city",
     ("crystal", "game-corner"): "goldenrod-city",
+}
+
+# Wild-encounter location backfill keyed on `(form_id, game_id, method_details)`.
+# Bulbapedia parsing for ORAS leaves a handful of species with a
+# locationless wild row (`method_details` set, no `location`) because the
+# `{{safari|Hoenn}}` template wraps the area in a custom macro that
+# `--mode locations` doesn't unwrap. Listed here rather than emitted as
+# fresh rows so the existing row gets backfilled on the next run.
+WILD_ENCOUNTER_LOCATION: dict[tuple[str, str, str | None], str] = {
+    # Hoenn Safari Zone (post-game expansion entries — Bulbapedia confirms
+    # both versions; specific zones differ but we collapse to the area
+    # slug since per-zone slugs aren't elsewhere in the data).
+    ("heracross", "omega-ruby", "walk"): "hoenn-safari-zone",
+    ("heracross", "alpha-sapphire", "walk"): "hoenn-safari-zone",
+    ("pinsir", "omega-ruby", "walk"): "hoenn-safari-zone",
+    ("pinsir", "alpha-sapphire", "walk"): "hoenn-safari-zone",
 }
 
 # Keyed on `(form_id, game_id)` for gift rows whose location is fixed per
@@ -254,6 +276,24 @@ STATIC_LOCATION: dict[tuple[str, str, str | None], str] = {
     ("mewtwo", "silver", None): "cerulean-cave",
     ("mewtwo", "crystal", None): "cerulean-cave",
 }
+
+
+def _version_exclusive_row(form_id: str, game_id: str, from_game: str) -> dict:
+    """Trade row for a species exclusive to the paired cartridge.
+
+    `method_details="version-exclusive"` tags the row for app facets;
+    `from_game` names the paired version. No `notes`: both pieces of info
+    are now structured. Used for unambiguous paired-cartridge cases. For
+    ambiguous "trade from X or Y" cases (Crystal, Yellow), the rows are
+    written inline with `from_game` left unset and a short `notes` value.
+    """
+    return {
+        "form_id": form_id,
+        "game_id": game_id,
+        "method": "trade",
+        "method_details": "version-exclusive",
+        "from_game": from_game,
+    }
 
 
 # Gender-difference pairs are derived from `data/forms.json` at build
@@ -981,17 +1021,15 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     # in-game acquisition in SwSh or SV are handled via a coverage_audit.py
     # exclusion set (HOME-transfer-only dex entries), not fake source rows.
     # -------------------------------------------------------------------------
-    # (F) Version-exclusive trade rows. method=trade with no trade_species,
-    # since the "trade partner" is simply the paired-version player.
+    # (F) Version-exclusive trade rows. method=trade tagged with
+    # method_details="version-exclusive" so the app can facet without
+    # parsing prose; from_game names the paired cartridge the trade
+    # partner holds. No trade_species — that field is for mutual-evolution
+    # trades like Shelmet ↔ Karrablast.
     #
     # Sword ← Shield
     *(
-        {
-            "form_id": sp,
-            "game_id": "sword",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Shield.",
-        }
+        _version_exclusive_row(sp, "sword", "shield")
         for sp in (
             "corsola",
             "croagunk",
@@ -1012,12 +1050,7 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     ),
     # Shield ← Sword
     *(
-        {
-            "form_id": sp,
-            "game_id": "shield",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Sword.",
-        }
+        _version_exclusive_row(sp, "shield", "sword")
         for sp in (
             "darumaka",
             "deino",
@@ -1040,33 +1073,18 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     # SP-exclusive wilds). Palkia and Dialga are handled in bucket H via
     # Ramanas Park, not trade.
     *(
-        {
-            "form_id": sp,
-            "game_id": "brilliant-diamond",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Shining Pearl.",
-        }
+        _version_exclusive_row(sp, "brilliant-diamond", "shining-pearl")
         for sp in ("glameow", "misdreavus", "shieldon")
     ),
     # Shining Pearl ← Brilliant Diamond
     *(
-        {
-            "form_id": sp,
-            "game_id": "shining-pearl",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Brilliant Diamond.",
-        }
+        _version_exclusive_row(sp, "shining-pearl", "brilliant-diamond")
         for sp in ("cranidos", "gligar", "murkrow", "scyther", "stunky")
     ),
     # Scarlet ← Violet (includes box legendary Miraidon and all Violet-native
     # Iron paradoxes from tier 6).
     *(
-        {
-            "form_id": sp,
-            "game_id": "scarlet",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Violet.",
-        }
+        _version_exclusive_row(sp, "scarlet", "violet")
         for sp in (
             "bagon",
             "clauncher",
@@ -1090,12 +1108,7 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     # Violet ← Scarlet (includes Koraidon and all Scarlet-native ancient
     # paradoxes from tier 6).
     *(
-        {
-            "form_id": sp,
-            "game_id": "violet",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Scarlet.",
-        }
+        _version_exclusive_row(sp, "violet", "scarlet")
         for sp in (
             "brute-bonnet",
             "deino",
@@ -1200,134 +1213,62 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
     # gaps (Friend Safari / Bug-Catching Contest / common wilds the
     # scraper omitted in XY/SM/USUM).
     # -------------------------------------------------------------------------
-    # (I) Version-exclusive trade rows.
+    # (I) Version-exclusive trade rows. Same shape as bucket (F):
+    # method=trade, method_details="version-exclusive", from_game set
+    # when the paired cartridge is unambiguous. Yellow and Crystal carry
+    # cases where the species is missing from a single version of a
+    # paired set (Yellow: Pikachu starter swap displaces Red/Blue
+    # exclusives; Crystal: encounter-table changes from Gold/Silver).
+    # Functionally identical to a version-exclusive trade so they share
+    # the tag; from_game is left unset when the player can trade from
+    # either of two paired games.
     #
-    # Red/Blue: trades between the two games; Yellow's reward for choosing
-    # Pikachu replaces several wild encounters, so its exclusions need
-    # trades from whichever of R/B has the species.
+    # Red ↔ Blue
     *(
-        {
-            "form_id": sp,
-            "game_id": "red",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Blue.",
-        }
+        _version_exclusive_row(sp, "red", "blue")
         for sp in ("bellsprout", "meowth", "pinsir", "sandshrew", "vulpix")
     ),
     *(
-        {
-            "form_id": sp,
-            "game_id": "blue",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Red.",
-        }
+        _version_exclusive_row(sp, "blue", "red")
         for sp in ("ekans", "growlithe", "mankey", "oddish", "scyther")
     ),
-    # Yellow: missing Red-exclusives (ekans, weedle) and Blue-exclusives
-    # (koffing, meowth). Trade from whichever version has the species.
-    {
-        "form_id": "ekans",
-        "game_id": "yellow",
-        "method": "trade",
-        "notes": "Not catchable in Yellow; trade from Red.",
-    },
-    {
-        "form_id": "weedle",
-        "game_id": "yellow",
-        "method": "trade",
-        "notes": "Not catchable in Yellow (Pikachu starter swap); trade from Red.",
-    },
-    {
-        "form_id": "koffing",
-        "game_id": "yellow",
-        "method": "trade",
-        "notes": "Not catchable in Yellow; trade from Blue.",
-    },
-    {
-        "form_id": "meowth",
-        "game_id": "yellow",
-        "method": "trade",
-        "notes": "Not catchable in Yellow; trade from Blue.",
-    },
-    # Gold ↔ Silver trades (version-exclusives).
+    # Yellow: Red-exclusives (ekans, weedle) and Blue-exclusives
+    # (koffing, meowth) are unobtainable due to the Pikachu starter swap.
+    *(_version_exclusive_row(sp, "yellow", "red") for sp in ("ekans", "weedle")),
+    *(_version_exclusive_row(sp, "yellow", "blue") for sp in ("koffing", "meowth")),
+    # Gold ↔ Silver
     *(
-        {
-            "form_id": sp,
-            "game_id": "gold",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Silver.",
-        }
+        _version_exclusive_row(sp, "gold", "silver")
         for sp in ("delibird", "ledyba", "meowth", "phanpy", "skarmory", "vulpix", "weedle")
     ),
     *(
-        {
-            "form_id": sp,
-            "game_id": "silver",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Gold.",
-        }
+        _version_exclusive_row(sp, "silver", "gold")
         for sp in ("caterpie", "gligar", "growlithe", "mankey", "spinarak", "teddiursa")
     ),
-    # Crystal version-exclusives (not catchable wild in Crystal due to
-    # encounter-table differences from Gold/Silver). Trade from whichever
-    # of Gold/Silver has the species.
-    {
-        "form_id": "girafarig",
-        "game_id": "crystal",
-        "method": "trade",
-        "notes": "Not catchable in Crystal; trade from Gold or Silver.",
-    },
-    {
-        "form_id": "mankey",
-        "game_id": "crystal",
-        "method": "trade",
-        "notes": "Not catchable in Crystal; trade from Gold.",
-    },
-    {
-        "form_id": "mareep",
-        "game_id": "crystal",
-        "method": "trade",
-        "notes": "Not catchable in Crystal; trade from Gold or Silver.",
-    },
-    {
-        "form_id": "remoraid",
-        "game_id": "crystal",
-        "method": "trade",
-        "notes": "Not catchable in Crystal; trade from Gold or Silver.",
-    },
-    {
-        "form_id": "vulpix",
-        "game_id": "crystal",
-        "method": "trade",
-        "notes": "Not catchable in Crystal; trade from Silver.",
-    },
-    # X ↔ Y trades (version-exclusives where the paired version has a row).
+    # Crystal: missing wilds vs. Gold/Silver. Unambiguous cases use
+    # _version_exclusive_row; "trade from Gold or Silver" cases keep a
+    # short note and leave from_game unset.
+    _version_exclusive_row("mankey", "crystal", "gold"),
+    _version_exclusive_row("vulpix", "crystal", "silver"),
     *(
         {
             "form_id": sp,
-            "game_id": "x",
+            "game_id": "crystal",
             "method": "trade",
-            "notes": "Version-exclusive; trade from Y.",
+            "method_details": "version-exclusive",
+            "notes": "Trade from Gold or Silver.",
         }
+        for sp in ("girafarig", "mareep", "remoraid")
+    ),
+    # X ↔ Y
+    *(
+        _version_exclusive_row(sp, "x", "y")
         for sp in ("electrike", "larvitar", "shellder", "skrelp")
     ),
+    *(_version_exclusive_row(sp, "y", "x") for sp in ("aron", "clauncher", "houndour", "staryu")),
+    # Sun ↔ Moon
     *(
-        {
-            "form_id": sp,
-            "game_id": "y",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from X.",
-        }
-        for sp in ("aron", "clauncher", "houndour", "staryu")
-    ),
-    # Sun ↔ Moon trades.
-    *(
-        {
-            "form_id": sp,
-            "game_id": "sun",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Moon.",
-        }
+        _version_exclusive_row(sp, "sun", "moon")
         for sp in (
             "celesteela",
             "drampa",
@@ -1339,12 +1280,7 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         )
     ),
     *(
-        {
-            "form_id": sp,
-            "game_id": "moon",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Sun.",
-        }
+        _version_exclusive_row(sp, "moon", "sun")
         for sp in (
             "buzzwole",
             "cottonee",
@@ -1355,14 +1291,9 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "vulpix",
         )
     ),
-    # Ultra Sun ↔ Ultra Moon trades.
+    # Ultra Sun ↔ Ultra Moon
     *(
-        {
-            "form_id": sp,
-            "game_id": "ultra-sun",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Ultra Moon.",
-        }
+        _version_exclusive_row(sp, "ultra-sun", "ultra-moon")
         for sp in (
             "baltoy",
             "celesteela",
@@ -1378,12 +1309,7 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         )
     ),
     *(
-        {
-            "form_id": sp,
-            "game_id": "ultra-moon",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Ultra Sun.",
-        }
+        _version_exclusive_row(sp, "ultra-moon", "ultra-sun")
         for sp in (
             "blacephalon",
             "buzzwole",
@@ -1398,23 +1324,13 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "vulpix",
         )
     ),
-    # Let's Go Pikachu ↔ Eevee trades (cross-version exclusives).
+    # Let's Go Pikachu ↔ Eevee
     *(
-        {
-            "form_id": sp,
-            "game_id": "lets-go-pikachu",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Let's Go Eevee.",
-        }
+        _version_exclusive_row(sp, "lets-go-pikachu", "lets-go-eevee")
         for sp in ("bellsprout", "ekans", "koffing", "meowth", "pinsir", "vulpix")
     ),
     *(
-        {
-            "form_id": sp,
-            "game_id": "lets-go-eevee",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Let's Go Pikachu.",
-        }
+        _version_exclusive_row(sp, "lets-go-eevee", "lets-go-pikachu")
         for sp in ("grimer", "growlithe", "mankey", "oddish", "sandshrew", "scyther")
     ),
     # (J) VC Mew + LGPE Mew.
@@ -1602,12 +1518,7 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         "method_details": "sos-encounter",
         "notes": "SOS call from Sharpedo on Melemele Sea (Sun-exclusive).",
     },
-    {
-        "form_id": "carvanha",
-        "game_id": "moon",
-        "method": "trade",
-        "notes": "Version-exclusive; trade from Sun.",
-    },
+    _version_exclusive_row("carvanha", "moon", "sun"),
     # Gible SOS (rare) from Sandile in Haina Desert, all four Alola games.
     *(
         {
@@ -1767,39 +1678,24 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         )
     ),
     *(
-        {
-            "form_id": sp,
-            "game_id": trade_game,
-            "method": "trade",
-            "notes": f"Version-exclusive; trade from {paired_label}.",
-        }
-        for sp, trade_game, paired_label in (
-            ("zangoose", "alpha-sapphire", "Omega Ruby"),
-            ("solrock", "alpha-sapphire", "Omega Ruby"),
-            ("volbeat", "alpha-sapphire", "Omega Ruby"),
-            ("seviper", "omega-ruby", "Alpha Sapphire"),
-            ("lunatone", "omega-ruby", "Alpha Sapphire"),
-            ("illumise", "omega-ruby", "Alpha Sapphire"),
+        _version_exclusive_row(sp, trade_game, paired_game)
+        for sp, trade_game, paired_game in (
+            ("zangoose", "alpha-sapphire", "omega-ruby"),
+            ("solrock", "alpha-sapphire", "omega-ruby"),
+            ("volbeat", "alpha-sapphire", "omega-ruby"),
+            ("seviper", "omega-ruby", "alpha-sapphire"),
+            ("lunatone", "omega-ruby", "alpha-sapphire"),
+            ("illumise", "omega-ruby", "alpha-sapphire"),
         )
     ),
     # (O) One-sided version-exclusives where the paired version already
     # has a source row — seed trade only on the missing side.
     *(
-        {
-            "form_id": sp,
-            "game_id": "omega-ruby",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Alpha Sapphire.",
-        }
+        _version_exclusive_row(sp, "omega-ruby", "alpha-sapphire")
         for sp in ("grimer", "lotad", "sableye")
     ),
     *(
-        {
-            "form_id": sp,
-            "game_id": "alpha-sapphire",
-            "method": "trade",
-            "notes": "Version-exclusive; trade from Omega Ruby.",
-        }
+        _version_exclusive_row(sp, "alpha-sapphire", "omega-ruby")
         for sp in ("koffing", "mawile", "seedot")
     ),
     # Mascot legendaries on the opposite version — catchable post-Delta
@@ -1872,9 +1768,12 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
         }
         for game in ("omega-ruby", "alpha-sapphire")
     ),
-    # (S) Common wild-encounter rows — both OR and AS. 32 species, two
-    # games each. Brief route/location notes per Bulbapedia's Hoenn game
-    # locations.
+    # (S) Common wild-encounter rows — both OR and AS. Species the Bulbapedia
+    # locations pass doesn't fully cover; remaining rows are brief
+    # route/location prose. Species whose Bulbapedia rows now carry a
+    # `method_details` and/or `location` were dropped from this list to
+    # avoid the redundant-summary pattern (a notes-only row sitting next
+    # to a richer peer adds zero information).
     *(
         {
             "form_id": sp,
@@ -1883,38 +1782,15 @@ EXPLICIT_ROWS: list[dict[str, object]] = [
             "notes": notes,
         }
         for sp, notes in (
-            ("abra", "Route 116 and DexNav."),
-            ("absol", "Route 120."),
-            ("baltoy", "Ancient Tomb and Route 111 desert."),
             ("barboach", "Route 111 fishing."),
-            ("cacnea", "Route 111 desert."),
             ("carvanha", "Route 118 fishing."),
-            ("chinchou", "Routes 124 and 126 fishing."),
-            ("clamperl", "Underwater on Routes 124 and 126."),
             ("corphish", "Routes 102 and 117 fishing."),
             ("corsola", "Underwater on Route 128."),
-            ("duskull", "Mt. Pyre."),
             ("feebas", "Route 119 rare fishing spots."),
-            ("goldeen", "Most water routes via Old Rod and Good Rod."),
-            ("gulpin", "Route 110."),
-            ("heracross", "Safari Zone (Hoenn)."),
             ("horsea", "Fishing on coastal routes."),
             ("luvdisc", "Route 128 fishing."),
             ("magikarp", "Every water route via Old Rod."),
-            ("natu", "Safari Zone (Hoenn)."),
-            ("nosepass", "Granite Cave."),
-            ("phanpy", "Safari Zone expansion area (Hoenn)."),
-            ("pinsir", "Safari Zone (Hoenn)."),
-            ("relicanth", "Underwater on Routes 124 and 126."),
-            ("rhyhorn", "Route 111 desert."),
-            ("slakoth", "Petalburg Woods."),
-            ("staryu", "Various water routes via Super Rod at night."),
-            ("surskit", "Route 102."),
             ("tentacool", "Every sea route."),
-            ("torkoal", "Fiery Path."),
-            ("trapinch", "Route 111 desert."),
-            ("tropius", "Route 119."),
-            ("wailmer", "Most sea routes via Good Rod."),
         )
         for game in ("omega-ruby", "alpha-sapphire")
     ),
@@ -2430,6 +2306,8 @@ def _apply_deterministic_locations(rows: list[dict]) -> int:
             # Max Lair. Bulbapedia segments for these legendaries don't
             # always link `[[Max Lair]]` cleanly, so fill deterministically.
             loc = "max-lair"
+        elif method == "wild-encounter":
+            loc = WILD_ENCOUNTER_LOCATION.get((row.get("form_id"), game, row.get("method_details")))
         if loc is not None:
             row["location"] = loc
             updated += 1

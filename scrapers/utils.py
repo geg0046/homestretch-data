@@ -82,6 +82,7 @@ SOURCE_KEY_FIELDS: tuple[str, ...] = (
     "party_species",
     "party_type",
     "from_form",
+    "from_game",
     "time_of_day",
     "gender",
     "relative_physical_stats",

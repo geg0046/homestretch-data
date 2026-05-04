@@ -45,6 +45,21 @@
           "default": null,
           "title": "From Form"
         },
+        "from_game": {
+          "anyOf": [
+            {
+              "maxLength": 40,
+              "minLength": 1,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "From Game"
+        },
         "game_id": {
           "maxLength": 40,
           "minLength": 1,

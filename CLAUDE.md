@@ -79,11 +79,24 @@ All IDs are lowercase, alphanumeric, hyphen-separated: `^[a-z0-9]+(?:-[a-z0-9]+)
 Species catchable only on the paired version (Sword ↔ Shield, BD ↔ SP,
 Scarlet ↔ Violet, RBY pairs, GSC pairs, LGPE pair, XY, SM, USUM, ORAS)
 get a `method=trade` row on the off-version with
-`notes="Version-exclusive; trade from <Paired>."`. No `trade_species` —
-the partner is a human player holding the paired cartridge, not a
-specific Pokémon. This is distinct from the existing
-`method=trade, trade_species=<species>` pattern used for mutual trade
-evolutions like Shelmet ↔ Karrablast.
+`method_details="version-exclusive"` and `from_game=<paired-game-id>`
+naming the cartridge the trade partner is expected to hold. No
+`trade_species` — that field is for mutual trade evolutions like
+Shelmet ↔ Karrablast where the partner brings a specific Pokémon.
+
+Two consumers of this shape:
+- `method_details="version-exclusive"` is the queryable facet — apps
+  filter on it to surface "trade required" rows without parsing prose.
+- `from_game` is the structured paired-cartridge pointer; the consumer
+  app renders "Trade from <Paired Game Name>" by looking up `from_game`
+  in `games.json`.
+
+For ambiguous cases — Yellow / Crystal species missing from a single
+version of a paired set, where the player can trade from either of two
+games (e.g. Crystal Girafarig from Gold or Silver) — keep
+`method_details="version-exclusive"` and leave `from_game` unset,
+recording the alternatives in a short `notes` value (`"Trade from Gold
+or Silver."`).
 
 ## Common commands
 
