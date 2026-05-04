@@ -558,14 +558,7 @@ def extract_area_location(segment: str, *, prefer_preposition: bool) -> str | No
                             display = flat_head
     if not display:
         return None
-
-    import unicodedata
-
-    ascii_form = unicodedata.normalize("NFKD", display).encode("ascii", "ignore").decode("ascii")
-    slug = _SLUG_ALLOWED_RE.sub("-", ascii_form.lower()).strip("-")
-    if not slug or len(slug) < 2 or len(slug) > _SLUG_MAX_LEN:
-        return None
-    return slug
+    return _slug_from_text(display)
 
 
 # Backwards-compat alias for existing callers; static never wants preposition
@@ -677,6 +670,17 @@ _GENERIC_LOCATION_SLUGS: frozenset[str] = frozenset(
 )
 
 
+# Bulbapedia uses interchangeable display text for some places
+# (`[[Mt. Coronet]]` vs `[[Mount Coronet]]`). Keys are the variant slug
+# the slugifier would emit; values are the canonical slug we want in
+# data/sources.json. Add entries narrowly — only when a real
+# (form_id, game_id, method, method_details, location) collision
+# surfaces — to avoid hiding legitimate distinct sub-areas.
+_SLUG_ALIASES: dict[str, str] = {
+    "mount-coronet": "mt-coronet",
+}
+
+
 def _slug_from_text(text: str) -> str | None:
     """Slugify free-form display text to a slug, or None if it'd be junk."""
     import unicodedata
@@ -687,7 +691,7 @@ def _slug_from_text(text: str) -> str | None:
     slug = _SLUG_ALLOWED_RE.sub("-", ascii_form.lower()).strip("-")
     if not slug or len(slug) < 2 or len(slug) > _SLUG_MAX_LEN:
         return None
-    return slug
+    return _SLUG_ALIASES.get(slug, slug)
 
 
 def extract_area_locations(segment: str) -> list[str]:
