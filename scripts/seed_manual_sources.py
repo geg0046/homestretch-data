@@ -127,12 +127,15 @@ FOSSIL_REVIVE_LOCATION: dict[str, str] = {
 BREEDING_LOCATION: dict[str, str] = {
     "gold": "johto-route-34",
     "silver": "johto-route-34",
+    "crystal": "johto-route-34",
     "x": "kalos-route-7",
     "y": "kalos-route-7",
     "omega-ruby": "hoenn-route-117",
     "alpha-sapphire": "hoenn-route-117",
     "sun": "paniola-ranch",
     "moon": "paniola-ranch",
+    "ultra-sun": "paniola-ranch",
+    "ultra-moon": "paniola-ranch",
     "brilliant-diamond": "solaceon-town",
     "shining-pearl": "solaceon-town",
 }

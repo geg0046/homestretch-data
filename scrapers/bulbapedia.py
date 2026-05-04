@@ -392,6 +392,11 @@ def _resolve_version(v: str) -> tuple[tuple[str, ...], str | None]:
 # `_is_skippable_area` guard filters purely-unobtainable entries upstream;
 # patterns here must only fire on actually-obtainable content.
 _METHOD_PATTERNS: tuple[tuple[re.Pattern[str], Method], ...] = (
+    # Breeding-only entries: Bulbapedia uses `{{pkmn|breeding|Breed}} {{p|<Parent>}}`
+    # which flattens to `Breed <Parent>`. Match before any pattern that
+    # could over-fire on an adjacent template; nothing in the existing set
+    # contains the verb `breed`.
+    (re.compile(r"\bbreed\b", re.I), Method.BREEDING),
     (re.compile(r"\bfossil\b", re.I), Method.FOSSIL_REVIVE),
     (re.compile(r"\btera\s+raid\b|\bmax\s+raid\b|\braid\s+battle\b", re.I), Method.RAID),
     (
@@ -694,6 +699,28 @@ def _slug_from_text(text: str) -> str | None:
     return _SLUG_ALIASES.get(slug, slug)
 
 
+# `{{p|<Species>}}` template links the partner species in breeding entries,
+# e.g. `{{pkmn|breeding|Breed}} {{p|Floatzel}}` for Buizel in X.
+_PARENT_TEMPLATE_RE = re.compile(r"\{\{p\|([^|}]+)\}\}", re.I)
+
+
+def _extract_breeding_parent(segment: str, all_form_ids: frozenset[str]) -> str | None:
+    """Resolve the `{{p|<Species>}}` partner in a breeding segment to a form_id.
+
+    Returns the parent's form_id slug when it round-trips against the
+    loaded form catalog, otherwise None. Apostrophe-strip is defensive
+    against `Farfetch'd`-style species names; current Bulbapedia parents
+    are all clean ASCII species names.
+    """
+    m = _PARENT_TEMPLATE_RE.search(segment)
+    if not m:
+        return None
+    # Strip both straight and curly apostrophes (Bulbapedia uses both).
+    name = m.group(1).replace("'", "").replace(chr(0x2019), "")
+    slug = _slug_from_text(name)
+    return slug if slug and slug in all_form_ids else None
+
+
 def extract_area_locations(segment: str) -> list[str]:
     """Extract every non-generic location slug from a wild-encounter segment.
 
@@ -901,6 +928,7 @@ def parse_sources_from_wikitext(
     wikitext: str,
     species_id: str,
     species_form_ids: set[str],
+    all_form_ids: frozenset[str] = frozenset(),
 ) -> list[dict[str, Any]]:
     """Emit Source dicts for each base-game location entry on a species page.
 
@@ -976,9 +1004,19 @@ def parse_sources_from_wikitext(
                             "game_id": gid,
                             "method": method.value,
                         }
-                        normalized = normalize_method_details(method, details_text)
-                        if normalized is not None:
-                            entry["method_details"] = normalized
+                        # Breeding rows carry the partner species in
+                        # `from_form` and have no useful method_details
+                        # subtype — skip normalization (which would
+                        # otherwise pass `Floatzel` through as a slug
+                        # after stripping the breeding template).
+                        if method is Method.BREEDING:
+                            parent_fid = _extract_breeding_parent(segment, all_form_ids)
+                            if parent_fid is not None:
+                                entry["from_form"] = parent_fid
+                        else:
+                            normalized = normalize_method_details(method, details_text)
+                            if normalized is not None:
+                                entry["method_details"] = normalized
                         if dlc:
                             entry["requires_dlc"] = dlc
                         rows.append(entry)
@@ -1342,6 +1380,10 @@ def _scrape_sources(
     max_dex: int,
 ) -> int:
     species_forms = load_species_id_to_forms()
+    # Flat set of every form_id across all species; used by the breeding
+    # parser to validate `{{p|<Parent>}}` partner references against the
+    # loaded form catalog.
+    all_form_ids = frozenset(fid for fids in species_forms.values() for fid in fids)
     all_new: list[dict[str, Any]] = []
 
     for dex in range(min_dex, max_dex + 1):
@@ -1365,7 +1407,7 @@ def _scrape_sources(
             # anchor unannotated segments to. Skip the whole page.
             print(f"  #{dex:04d} {species_id}: no matching form; skipping")
             continue
-        rows = parse_sources_from_wikitext(wikitext, species_id, form_ids)
+        rows = parse_sources_from_wikitext(wikitext, species_id, form_ids, all_form_ids)
         all_new.extend(rows)
         print(f"  #{dex:04d} {species_id}: {len(rows)} scraped source(s)")
 
