@@ -230,6 +230,15 @@ def test_extract_fb_template_two_arg() -> None:
     )
 
 
+def test_extract_slug_alias_mount_coronet_canonicalizes() -> None:
+    # Bulbapedia uses [[Mt. Coronet]] and [[Mount Coronet]] interchangeably.
+    # The alias table folds the variant into the canonical slug at the
+    # single-link extraction site...
+    assert extract_area_location("[[Mount Coronet]]", prefer_preposition=False) == "mt-coronet"
+    # ...and at the multi-link extraction site (wild / fishing / raid).
+    assert extract_area_locations("[[Mount Coronet]]") == ["mt-coronet"]
+
+
 # --- extract_area_locations (multi, wild-encounter) -----------------------
 
 
