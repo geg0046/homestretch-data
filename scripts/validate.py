@@ -131,6 +131,13 @@ def main() -> int:
             ref = getattr(s, ref_field)
             if ref is not None and ref not in form_ids:
                 errors.append(f"sources.json[{i}]: unknown {ref_field}={ref!r}")
+        if s.from_game is not None and s.from_game not in game_ids:
+            errors.append(f"sources.json[{i}]: unknown from_game={s.from_game!r}")
+        if s.from_game is not None and s.from_game == s.game_id:
+            errors.append(
+                f"sources.json[{i}]: from_game={s.from_game!r} equals game_id; "
+                "from_game must reference a different (paired) game"
+            )
         for slug_field in _SLUG_FIELDS:
             val = getattr(s, slug_field)
             if val is not None and not _SLUG_RE.match(val):

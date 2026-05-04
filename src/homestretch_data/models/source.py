@@ -94,6 +94,15 @@ class Source(BaseModel):
     (runerigus from yamask-galar, sirfetch'd from farfetchd-galar) and
     breeding rows (pichu from pikachu)."""
 
+    from_game: GameId | None = None
+    """Paired-cartridge provenance for `method=trade` version-exclusive
+    rows. Identifies which paired-version cartridge the trade partner is
+    expected to hold (e.g. `from_game=lets-go-eevee` on a Vulpix row in
+    `lets-go-pikachu`). Distinct from `trade_species`, which is for
+    mutual-evolution trades like Shelmet ↔ Karrablast. Left unset when
+    the paired version is ambiguous (e.g. Crystal trades from Gold or
+    Silver)."""
+
     time_of_day: TimeOfDay | None = None
     """`day` / `night` / `dusk` requirement."""
 
