@@ -182,6 +182,14 @@ def test_extract_gift_falls_back_to_first_wikilink_without_preposition() -> None
     )
 
 
+def test_extract_npc_trade_prefers_preposition_route_template() -> None:
+    # NPC-trade prose lists the partner species first and the place after a
+    # preposition — same shape as gift, with the location often inside a
+    # `{{rt|N|Region}}` route template.
+    segment = "[[In-game trade#Gold and Silver|Trade]] {{p|Chansey}} on {{rt|14|Kanto}}"
+    assert extract_area_location(segment, prefer_preposition=True) == "kanto-route-14"
+
+
 def test_extract_strips_inline_metadata() -> None:
     # <small>/<sup> footnotes are stripped before location extraction.
     segment = "[[Route 5]]<small>(after E4)</small><sup>[1]</sup>"

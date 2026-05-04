@@ -1419,6 +1419,11 @@ _LOCATION_TARGET_DETAILS: dict[Method, frozenset[str | None]] = {
     # location slug to extract. None is also absent — `_normalize_raid`
     # always emits a slug for raid-classified segments.
     Method.RAID: frozenset({"max-raid", "gmax", "dynamax-adventure"}),
+    # Trade scope: in-game NPC trades only. The `None`-detail trade rows
+    # are version-exclusive cross-cartridge trades (the partner is a human
+    # player holding the paired cartridge, not an NPC at a place), so they
+    # have no location to backfill and are excluded from the whitelist.
+    Method.TRADE: frozenset({"npc-trade"}),
 }
 
 
@@ -1528,10 +1533,10 @@ def _iter_location_candidates_from_wikitext(
     Mirrors `parse_sources_from_wikitext`'s segment walk but keeps only
     rows whose method is in `_LOCATION_TARGET_DETAILS` and that yield a
     parseable location. Static-encounter uses first-wikilink extraction;
-    gift uses preposition-led extraction (location follows ``in`` / ``at``
-    / ``on`` in the usual "Received from X in Y" prose). Used by
-    ``--mode locations`` to build a lookup applied to existing
-    sources.json rows in place.
+    gift and npc-trade use preposition-led extraction (location follows
+    ``in`` / ``at`` / ``on`` in the usual "Received from X in Y" /
+    "Trade Y on Z" prose). Used by ``--mode locations`` to build a
+    lookup applied to existing sources.json rows in place.
     """
     section = _extract_main_games_section(wikitext)
     if not section:
@@ -1545,8 +1550,11 @@ def _iter_location_candidates_from_wikitext(
         if "Entry" not in name:
             continue
         area = tmpl.get("area", "")
-        if _is_skippable_area(area):
-            continue
+        # Skip the area-level `_is_skippable_area` check that --mode sources
+        # uses: locations mode iterates over per-segment splits and an area
+        # whose first segment is "Evolve {{p|X}}" (skippable on its own) may
+        # also contain a non-evolve trailing segment like an NPC trade.
+        # The segment-level check below still drops the evolve segment.
 
         vs: list[str] = []
         if "Entry1" in name:
@@ -1581,6 +1589,15 @@ def _iter_location_candidates_from_wikitext(
                 # the consumer match it against existing PokéAPI combo
                 # method_details. Bypasses `target_details` strict check.
                 details = _normalize_wild_encounter_set(details_text)
+            elif inferred is Method.TRADE:
+                # Bulbapedia trade prose ("Trade {{p|Chansey}} on
+                # {{rt|14|Kanto}}", "[[Trade]]<sup>Version 2.0.1+</sup>")
+                # never normalizes to a slug, so we hard-pin the details to
+                # `npc-trade` and let the no-location gate below drop the
+                # bare-`[[Trade]]` version-exclusive segments — those have
+                # no preposition-led location and the `[[Trade]]` wikilink
+                # itself is filtered by `_GENERIC_LOCATION_SLUGS`.
+                details = "npc-trade"
             else:
                 details = normalize_method_details(inferred, details_text)
                 if details not in target_details:
@@ -1594,7 +1611,8 @@ def _iter_location_candidates_from_wikitext(
                 locations = extract_area_locations(segment)
             else:
                 single = extract_area_location(
-                    segment, prefer_preposition=(inferred is Method.GIFT)
+                    segment,
+                    prefer_preposition=inferred in (Method.GIFT, Method.TRADE),
                 )
                 locations = [single] if single is not None else []
             if not locations:
@@ -1670,7 +1688,7 @@ def _scrape_locations(
     min_dex: int,
     max_dex: int,
 ) -> int:
-    """Backfill `location` on existing static / gift / wild / fishing / raid rows.
+    """Backfill `location` on existing static / gift / wild / fishing / raid / npc-trade rows.
 
     Walks species pages like `--mode sources`, parses each targeted
     segment (see `_LOCATION_TARGET_DETAILS`), extracts a location slug
@@ -1678,9 +1696,12 @@ def _scrape_locations(
     the resulting slug(s) to rows whose `(form_id, game_id, method,
     method_details)` matches and whose `location` is currently None.
 
-    Static-encounter and gift rows are filled **in place**: each
-    matching row receives the first slug Bulbapedia produces. These
-    methods are singletons by mechanic (one cave, one NPC).
+    Static-encounter, gift, and npc-trade rows are filled **in place**:
+    each matching row receives the first slug Bulbapedia produces.
+    These methods are singletons by mechanic (one cave, one NPC).
+    Trade scope is restricted to `method_details=npc-trade` —
+    version-exclusive cross-cartridge trades (`method_details=None`)
+    have no fixed location and are skipped.
 
     Wild-encounter, fishing, and raid rows are **row-split** when
     Bulbapedia produces multiple location slugs for the matching key.
